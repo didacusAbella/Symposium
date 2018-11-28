@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource
+    name="jdbc/SymposiumDB"
+    auth="Application"
+    type="javax.sql.DataSource"
+    maxTotal="18"
+    maxIdle="9"
+    maxWaitMillis="10000"
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/SymposiumDB"
+    username="blackhat"
+    password="blackhat"
+  />
+</Context>
