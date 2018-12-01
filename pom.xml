@@ -113,6 +113,12 @@
       <artifactId>commons-codec</artifactId>
       <version>1.11</version>
     </dependency>
+    <!-- Apache commons email for handle emails -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-email</artifactId>
+      <version>1.5</version>
+    </dependency>
 
   </dependencies>
 
@@ -167,6 +173,30 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>validate</phase>
+            <configuration>
+              <encoding>UTF-8</encoding>
+              <consoleOutput>true</consoleOutput>
+              <failsOnError>true</failsOnError>
+              <logViolationsToConsole>true</logViolationsToConsole>
+            </configuration>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <configuration>
+          <parallel>classes</parallel>
+          <threadCount>4</threadCount>
+        </configuration>
       </plugin>
     </plugins>
   </build>
