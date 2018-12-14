@@ -16,27 +16,27 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "AdminController", urlPatterns = {"/admin/AdminController"})
 public class AdminController extends DispatcherController {
-  
-  private ActionFactory adminFactory;
 
-  @Override
-  public void init(ServletConfig config) throws ServletException {
-    super.init(config);
-    this.adminFactory =  new AdminActionFactory();
-  }
+    private ActionFactory adminFactory;
 
- 
-  @Override
-  public String getServletInfo() {
-    return "AdminController";
-  }
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        this.adminFactory = new AdminActionFactory();
+    }
 
-  @Override
-  protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String action = request.getParameter("action");
-    Action adminAction = this.adminFactory.createAction(action);
-    String page = adminAction.execute(request, response);
-    this.dispatch(request, response, page);
-  }
+    @Override
+    public String getServletInfo() {
+        return "AdminController";
+    }
+
+    @Override
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
+        Action adminAction = this.adminFactory.createAction(action);
+        String page = adminAction.execute(request, response);
+        this.dispatch(request, response, page);
+    }
 
 }

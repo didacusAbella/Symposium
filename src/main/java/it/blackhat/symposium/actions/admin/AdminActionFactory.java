@@ -9,14 +9,14 @@ import it.blackhat.symposium.actions.ActionFactory;
  */
 public class AdminActionFactory implements ActionFactory {
 
-  @Override
-  public Action createAction(String actionType) {
-    switch(actionType){
-      case "signin":
-        return new SigninAdminAction();
-      default:
-        throw new UnsupportedOperationException("Azione non supportata");
+    @Override
+    public Action createAction(String actionType) {
+        switch (actionType) {
+            case "signin":
+                return new SigninAdminAction();
+            default:
+                throw new UnsupportedOperationException("Azione non supportata");
+        }
     }
-  }
-  
+
 }

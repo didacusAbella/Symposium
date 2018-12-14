@@ -6,50 +6,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public abstract class DispatcherController extends HttpServlet {
+    
+    /**
+     * Dispatch the request to specific page
+     * @param request the request
+     * @param response the response
+     * @param page the page to dispatch
+     * @throws IOException for io exception
+     * @throws ServletException for servlet exception
+     */
+    protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page) 
+            throws IOException, ServletException {
+        this.getServletContext().getRequestDispatcher(page).forward(request, response);
+    }
 
-  protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page) throws IOException, ServletException{
-    this.getServletContext().getRequestDispatcher(page).forward(request, response);
-  }
-  
-  protected abstract void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    /**
+     * Process the specific request
+     * @param request the request
+     * @param response the response
+     * @throws ServletException for servlet handling
+     * @throws IOException for io exception
+     */
+    protected abstract void processRequest(HttpServletRequest request, 
+                HttpServletResponse response) 
+            throws ServletException, IOException;
 
-  @Override
-  protected void doTrace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+            throws ServletException, IOException {
+        this.processRequest(req, resp);
+    }
 
-  @Override
-  protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
-
-  @Override
-  protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
-
-  @Override
-  protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
-
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
-
-  @Override
-  protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
-
-  @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    this.processRequest(req, resp);
-  }
-  
-  
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+            throws ServletException, IOException {
+        this.processRequest(req, resp);
+    }
 
 }
