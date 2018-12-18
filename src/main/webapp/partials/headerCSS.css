@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+#HomeShortHeader
+{
+	width: 100px;
+	height: 100px;
+	float:left;
+	
+}
+#ricEfavHeader
+{
+}
+#bottoniHeader
+{
+	float:right;
+}
+#loginHeader
+{
+	float:right;
+}
+#hrHeader
+{
+	width:100%;
+}
