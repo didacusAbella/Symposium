@@ -4,6 +4,15 @@
 
 <sy:layout title="Symposium-Benvenuto">
   <jsp:body>
-    <h1>Funziona tutto...speriamo</h1>
+    <jsp:include page="sinistra.jsp"></jsp:include>
+
+    <div class="columns small-4 large-3 callout"><!-- ... --></div>
+    <div class="columns small-6 large-7 callout"><!-- ... --></div>
+
+    <div class="columns small-4 large-3 callout"><!-- ... --></div>
+    <div class="columns small-6 large-7 callout"><!-- ... --></div>
+
+    <div class="columns small-4 large-3 callout"><!-- ... --></div>
+    <div class="columns small-6 large-7 callout"><!-- ... --></div>
   </jsp:body>
 </sy:layout>
