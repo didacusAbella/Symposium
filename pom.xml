@@ -189,7 +189,7 @@
                             <consoleOutput>true</consoleOutput>
                             <failsOnError>true</failsOnError>
                             <logViolationsToConsole>true</logViolationsToConsole>
-                            <configLocation>${project.basedir}/src/main/resources/develop/SymposiumCodeStyle.xml</configLocation>
+                            <configLocation>SymposiumCodeStyle.xml</configLocation>
                         </configuration>
                         <goals>
                             <goal>check</goal>
