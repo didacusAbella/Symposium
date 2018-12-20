@@ -204,6 +204,7 @@
                 <configuration>
                     <failIfNoTests>false</failIfNoTests>
                     <printSummary>true</printSummary>
+                    <forkCount>0</forkCount>
                 </configuration>
             </plugin>
         </plugins>
