@@ -19,13 +19,6 @@ public class SigninAdminAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            req.setAttribute("admins", adminManager.findAllAdmins());
-            return "/prova.jsp";
-        } catch (SQLException ex) {
-            Logger.getLogger(SigninAdminAction.class.getName()).log(Level.SEVERE, null, ex);
-            return "/errore.jsp";
-        }
+    	return "";
     }
-
 }
