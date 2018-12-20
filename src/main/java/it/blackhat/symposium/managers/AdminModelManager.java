@@ -1,19 +1,10 @@
 package it.blackhat.symposium.managers;
 
 import it.blackhat.symposium.models.Admin;
-import it.blackhat.symposium.models.AdminModel;
-import static it.blackhat.symposium.queries.AdminQuery.*;
-
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
-
-import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 /**
  *
