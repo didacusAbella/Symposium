@@ -1,10 +1,9 @@
 package it.blackhat.symposium.managers;
 
-import java.sql.SQLException;
-import java.util.Optional;
-
 import it.blackhat.symposium.models.Admin;
-
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -12,28 +11,59 @@ import it.blackhat.symposium.models.Admin;
  */
 public interface AdminManager {
 
-	/**
-	 * 
-	 * @param username of the admin
-	 * @param password of the admin
-	 * @return Admin Object
-	 * @throws SQLException in case of error
-	 */
-    Optional<Admin> findAdminBy(String username, String password) throws SQLException;
-	
     /**
-     * 
-     * @param email user identificator
-     * @return boolean true/false  
-     * @throws SQLException in case of error
+     * Find an admin given username and password
+     * @param username the admin's username
+     * @param password tha admin's password
+     * @return an instance of admin 
+     * @throws SQLException if db errors occurred
+     */
+    Optional<Admin> findAdmin(String username, String password) throws SQLException;
+
+    /**
+     * Create a new admin
+     * @param admin the requested admin
+     * @return the new created admin
+     * @throws SQLException if db errors occurred
+     */
+    Optional<Admin> createAdmin(Admin admin) throws SQLException;
+
+    /**
+     * Update an admin
+     * @param admin the updated admin
+     * @return the number of updated rows
+     * @throws SQLException if db error occurred
+     */
+    int updateAdmin(Admin admin) throws SQLException;
+
+    /**
+     * Delete an admin 
+     * @param admin the adin to delete
+     * @return the number of deleted rows
+     * @throws SQLException if db error occurred
+     */
+    int deleteAdmin(Admin admin) throws SQLException;
+
+    /**
+     * List all admins
+     * @return the list of the admins
+     * @throws SQLException if db errors occurred
+     */
+    List<Admin> findAllAdmins() throws SQLException;
+
+    /**
+     * Ban an user from the platform
+     * @param email the e-mail of the user 
+     * @return true if the operation go well, false otherwise
+     * @throws SQLException if db error occured
      */
     boolean banUser(String email) throws SQLException;
-   
+    
     /**
-     * 
-     * @param adminUsername username of the admin
-     * @return a String containing the report
-     * @throws SQLException in case of error
+     * Return a report of from the db
+     * @param adminUsername the admin requesting the report
+     * @return true if the operartion go well, false otherwise
+     * @throws SQLException if db errors occured
      */
     Optional<String> genReport(String adminUsername) throws SQLException;
 }
