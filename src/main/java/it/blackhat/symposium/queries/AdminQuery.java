@@ -7,8 +7,8 @@ package it.blackhat.symposium.queries;
 public final class AdminQuery {
 
     /**
-     * Crea un oggetto admin query. Il costruttore è privato per non permettere
-     * di instanziare l'oggetto
+     * Create an admin query object. The constructor is private 
+	 * to not allow the object to be instantiated.
      */
     private AdminQuery() {
     }
@@ -18,5 +18,9 @@ public final class AdminQuery {
     public static final String UPDATE_ADMIN = "UPDATE Admin SET password=? WHERE username=?";
     public static final String DELETE_ADMIN = "DELETE FROM Admin WHERE username=?";
     public static final String ALL_ADMINS = "SELECT * FROM admin";
-
+    public static final String SIGN_IN = "SELECT * FROM user WHERE email= ? AND passoword= ?";
+    public static final String REPORT = "INSERT INTO report(year) VALUE(?)";
+    public static final String BAN = "UPDATE user SET banlastdate= ?";
+    
+    
 }
