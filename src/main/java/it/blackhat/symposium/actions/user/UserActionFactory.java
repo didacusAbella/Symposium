@@ -1,19 +1,19 @@
-package it.blackhat.symposium.actions.admin;
+package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 
 /**
  *
- * @author didacus
+ * @author 2Deimos
  */
-public class AdminActionFactory implements ActionFactory {
+public class UserActionFactory implements ActionFactory {
 
     @Override
     public Action createAction(String actionType) {
         switch (actionType) {
-            case "signin":
-                return new SigninAdminAction();
+            case "signout":
+                return new SignoutAction();
             default:
                 throw new UnsupportedOperationException("Azione non supportata");
         }

@@ -1,4 +1,5 @@
-package it.blackhat.symposium.actions.admin;
+package it.blackhat.symposium.actions.user;
+
 
 import it.blackhat.symposium.actions.Action;
 import javax.servlet.http.HttpServletRequest;
@@ -6,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author didacus
+ * @author 2Deimos
  */
-public class SigninAdminAction implements Action {
+public class SigninAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
