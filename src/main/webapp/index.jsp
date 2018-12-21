@@ -8,16 +8,18 @@
         <div class="grid-x padding-3">
 
            <%-- <c:forEach var="question" items="questions">
-           <sy:question question="${question}"/>
+           <sy:question question="${question}"/>                    //DA ERRORE!!!!
            </c:forEach >
            Primo Div
            --%>
+           
             <div class="columns small-4 large-3 callout">
 
             </div>
-               <&--<c:forEach var="tag" items"tags">
-        <sy:question question="&{" tags=""
-    </c:forEach>
+               <%--<c:forEach var="tag" items"tags">
+        <sy:question question="&{" tags=""      //DA ERRORE!!!!
+    </c:forEach>--%>
+               
             <div class="columns small-6 large-7 callout">
                 <div class="columns small-6 large-7 callout">
 
