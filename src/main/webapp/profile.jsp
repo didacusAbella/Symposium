@@ -9,7 +9,7 @@
     
     <%--ifUserLogged(Session){ --%>
     
-    <a href="modifyAccount.jsp" class="button">Modifica L'account</a>
+    <a href="editProfile.jsp" class="button">Modifica L'account</a>
     <a href="favorites.jsp" class="button">I tuoi preferiti salvati</a>
     <button class="button" onclick="alert('Sei Sicuro?');">Elimina L'account</button>
     

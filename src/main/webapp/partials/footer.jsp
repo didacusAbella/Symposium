@@ -6,7 +6,6 @@
  -->
 <div class="top-bar">
 	<div class="top-bar-left">
-		<a href="support.jsp" class="button">Supporto</a>
 		<a href="faq.jsp" class="button">FAQ</a>
 
 	</div>
