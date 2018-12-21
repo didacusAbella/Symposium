@@ -30,11 +30,12 @@ public interface UserManager {
     
     /**
      * Find out if the user is registered in the database
-     * @param user user data
+     * @param username username of the user
+     * @param pass passoword of the user
      * @return a User object that contain the find user data 
      * @throws SQLException if it encounter an error
      */
-    Optional<User> findUser(User user) throws SQLException;
+    Optional<User> findUser(String username, String pass) throws SQLException;
     
     /**
      * Register the user data in the database
