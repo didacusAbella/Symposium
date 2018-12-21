@@ -1,7 +1,7 @@
 package it.blackhat.symposium.queries;
 
 public final class AnswerQuery {
-	/*vvv*/
+	/**vvv**/
 	
     private AnswerQuery() {
 		
