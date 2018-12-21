@@ -2,6 +2,7 @@ package it.blackhat.symposium.actions.question;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
+import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  * This class is used to create question related action objects
@@ -10,7 +11,7 @@ import it.blackhat.symposium.actions.ActionFactory;
 public class QuestionActionFactory implements ActionFactory {
 
     @Override
-    public Action createAction(String actionType) {
+    public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
             case "insertQuestion":
                 return new InsertQuestionAction();
@@ -23,7 +24,7 @@ public class QuestionActionFactory implements ActionFactory {
             case "modifyTagQuestionAdmin":
                     return new ModifyTagQuestionAdminAction();
             default:
-                throw new UnsupportedOperationException("Azione non supportata");
+                throw new InvalidActionException("Azione non supportata");
         }
     }
 

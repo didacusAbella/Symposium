@@ -1,5 +1,7 @@
 package it.blackhat.symposium.actions;
 
+import it.blackhat.symposium.helpers.InvalidActionException;
+
 /**
  *
  * @author didacus
@@ -11,7 +13,8 @@ public interface ActionFactory {
      * action.
      * @param actionType the action typr
      * @return a new Action
+     * @throws it.blackhat.symposium.helpers.InvalidActionException the invalid action exception
      */
-    Action createAction(String actionType);
+    Action createAction(String actionType) throws InvalidActionException;
 
 }
