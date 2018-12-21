@@ -2,7 +2,7 @@ package it.blackhat.symposium.controllers;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
-import it.blackhat.symposium.actions.user.UserActionFactory;
+import it.blackhat.symposium.actions.question.*;
 import java.io.IOException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,28 +14,28 @@ import javax.servlet.http.HttpServletResponse;
  * The class handles requests for actions concerning the user
  * @author 2Deimos
  */
-@WebServlet(name = "UserController", urlPatterns = {"/user/UserController", "/admin/UserController"})
-public class UserController extends DispatcherController {
+@WebServlet(name = "QuestionController", urlPatterns = {"/user/QuestionController", "/admin/QuestionController"})
+public class QuestionController extends DispatcherController {
 
-    private ActionFactory userFactory;
+    private ActionFactory questionFactory;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        this.userFactory = new UserActionFactory();
+        this.questionFactory = new QuestionActionFactory();
     }
 
     @Override
     public String getServletInfo() {
-        return "UserController";
+        return "QuestionController";
     }
 
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        Action userAction = this.userFactory.createAction(action);
-        String page = userAction.execute(request, response);
+        Action questionAction = this.questionFactory.createAction(action);
+        String page = questionAction.execute(request, response);
         this.dispatch(request, response, page);
     }
 
