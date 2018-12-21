@@ -2,12 +2,13 @@ package it.blackhat.symposium.queries;
 
 public final class UserQuery {
 	 /**
-     * Crea un oggetto user query. Il costruttore è privato per non permettere
-     * di instanziare l'oggetto
-     */
+	  * Create an user query object. The constructor is private 
+	  * to not allow the object to be instantiated.
+      * @author: SDelPiano
+
+      */
 
     private UserQuery() {
-    	/* hey*/
     	
     }
     	

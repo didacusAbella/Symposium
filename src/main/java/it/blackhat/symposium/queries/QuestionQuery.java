@@ -1,11 +1,13 @@
 package it.blackhat.symposium.queries;
 
-public final class QuestionQuery {
 
+public final class QuestionQuery {
 	/**
-	 * 
-	 */
+	 * This class specifies queries about questions for the system.
+	 * @author: SDelPiano
+	 **/
     private QuestionQuery() { 
+    
     	
     }
 

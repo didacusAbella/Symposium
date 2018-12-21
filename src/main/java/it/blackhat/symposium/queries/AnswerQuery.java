@@ -1,7 +1,9 @@
 package it.blackhat.symposium.queries;
 
 public final class AnswerQuery {
-	/**vvv**/
+	/**This class specifies queries about answers for the system.
+	 * @author: SDelPiano
+	 */
 	
     private AnswerQuery() {
 		

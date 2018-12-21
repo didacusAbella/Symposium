@@ -7,8 +7,8 @@ package it.blackhat.symposium.queries;
 public final class AdminQuery {
 
     /**
-     * Crea un oggetto admin query. Il costruttore è privato per non permettere
-     * di instanziare l'oggetto
+     * Create an admin query object. The constructor is private 
+	 * to not allow the object to be instantiated.
      */
     private AdminQuery() {
     }
