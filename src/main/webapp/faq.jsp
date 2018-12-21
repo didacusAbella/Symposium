@@ -1,10 +1,10 @@
-
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <sy:layout title="Symposium-Frequently Asked Questions">
   <jsp:body>
+  
     <h2 class="text-center">Cos'è questo sito?</h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Cras auctor, velit in cursus facilisis, felis sapien pharetra enim, 
@@ -39,5 +39,6 @@ Cras laoreet tempor eros, id vestibulum leo rutrum nec.
     <br/>
     <br/>
     Per maggiori informazioni puoi mandarci una mail cliccando <a href="Supporto.jsp">qui</a>.
+  
   </jsp:body>
 </sy:layout>

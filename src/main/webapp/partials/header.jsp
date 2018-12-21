@@ -29,14 +29,18 @@
 			</li>
 			<li>
 				<div class="button-group">
-					<a href="MieDomande.jsp" class="button">Le mie domande</a> <a
-						href="MieRisposte.jsp" class="button">Le mie Risposte</a> <a
+					<a href="myQuestions.jsp" class="button">Le mie domande</a> <a
+						href="myResponses.jsp" class="button">Le mie Risposte</a> <a
 						href="" class="button">I mieiTags</a>
 				</div>
 			</li>
+			<%-- if(userIsLogged){ --%>
+			<li><a href="profile.jsp"><%-- =getUserName(Session) --%>ilNomeUtenteDalProfilo</a></li>
+			<%--}else{ --%>
 			<li><a href="SignIn.jsp">Sign In</a></li>
 			<li>|</li>
 			<li><a href="SignUp.jsp">Sign Up</a></li>
+			<%-- --%>
 		</ul>
 
 	</div>
