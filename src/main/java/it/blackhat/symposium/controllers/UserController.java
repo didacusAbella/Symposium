@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * The class handles requests for actions concerning the user
  * @author 2Deimos
  */
-@WebServlet(name = "AdminController", urlPatterns = {"/admin/AdminController"})
+@WebServlet(name = "UserController", urlPatterns = {"/user/UserController"})
 public class UserController extends DispatcherController {
 
     private ActionFactory userFactory;
