@@ -6,6 +6,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  * This class is used to create question related action objects
+ *
  * @author 2Deimos
  */
 public class QuestionActionFactory implements ActionFactory {
@@ -20,9 +21,9 @@ public class QuestionActionFactory implements ActionFactory {
             case "reportQuestion":
                 return new ReportQuestionAction();
             case "deleteQuestionAdmin":
-                    return new DeleteQuestionAdminAction();
+                return new DeleteQuestionAdminAction();
             case "modifyTagQuestionAdmin":
-                    return new ModifyTagQuestionAdminAction();
+                return new ModifyTagQuestionAdminAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
