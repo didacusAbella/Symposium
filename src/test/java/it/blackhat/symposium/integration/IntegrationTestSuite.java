@@ -8,7 +8,9 @@ import org.junit.runners.Suite;
  * @author didacus
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({})
+@Suite.SuiteClasses({
+    AdminModelManagerTest.class
+})
 public class IntegrationTestSuite {
   
 }

@@ -55,5 +55,21 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
         List<Admin> admins = adminsQuery.query(ALL_ADMINS, new BeanListHandler<>(AdminModel.class));
         return admins;
     }
+    
+    @Override
+    public int banUser(String email) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int rowMod = run.update("");
+        return rowMod;
+    }
+
+    @Override
+    public Optional<String> genReport(String adminUsername) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        BeanHandler<String> h = new BeanHandler<>(String.class);
+        String result = run.query("", h);
+        return Optional.ofNullable(result);
+    }
+    
 
 }

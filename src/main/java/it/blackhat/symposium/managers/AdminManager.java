@@ -51,4 +51,19 @@ public interface AdminManager {
      */
     List<Admin> findAllAdmins() throws SQLException;
 
+    /**
+     * Ban an user from the platform
+     * @param email the e-mail of the user 
+     * @return true if the operation go well, false otherwise
+     * @throws SQLException if db error occured
+     */
+    int banUser(String email) throws SQLException;
+    
+    /**
+     * Return a report of from the db
+     * @param adminUsername the admin requesting the report
+     * @return true if the operartion go well, false otherwise
+     * @throws SQLException if db errors occured
+     */
+    Optional<String> genReport(String adminUsername) throws SQLException;
 }
