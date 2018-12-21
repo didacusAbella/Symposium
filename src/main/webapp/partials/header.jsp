@@ -37,9 +37,9 @@
 			<%-- if(userIsLogged){ --%>
 			<li><a href="profile.jsp"><%-- =getUserName(Session) --%>ilNomeUtenteDalProfilo</a></li>
 			<%--}else{ --%>
-			<li><a href="SignIn.jsp">Sign In</a></li>
+			<li><a href="signIn.jsp">Sign In</a></li>
 			<li>|</li>
-			<li><a href="SignUp.jsp">Sign Up</a></li>
+			<li><a href="signUp.jsp">Sign Up</a></li>
 			<%-- --%>
 		</ul>
 

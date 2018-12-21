@@ -14,14 +14,15 @@
     <button class="button" onclick="alert('Sei Sicuro?');">Elimina L'account</button>
     
     <%--} --%>
-    
-    <p>Nome:<%--getName(Session)--%> Test</p> 
-    <p>Cognome:<%--getSurname(Session)--%>McTesty</p> 
-    <p>Corso di laurea:<%--getCollegeCourse(Session)--%></p>
+    <dl>
+    <dt>Nome:</dt><dd><%--getName(Session)--%> Test</dd>
+    <dt>Cognome:</dt><dd><%--getSurname(Session)--%>McTesty</dd>
+    <dt>Corso di laurea:</dt>
+    <dd><%--getCollegeCourse(Session)--%>
     <input type="radio" name="collegeCourse" value="Triennale" disabled checked> Triennale<br>
 	<input type="radio" name="collegeCourse" value="Magistrale" disabled> Magistrale<br>
-	
-    
+	</dd>
+    </dl>
     
     </jsp:body>
 </sy:layout>
