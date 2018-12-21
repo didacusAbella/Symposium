@@ -11,11 +11,13 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 /**
  * 
  * @author 2Deimos
- *
+ * 
  */
+
 @WebFilter("/admin/*")
 public class AdminLogInFilter implements Filter {
     
