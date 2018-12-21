@@ -57,7 +57,7 @@ public interface AdminManager {
      * @return true if the operation go well, false otherwise
      * @throws SQLException if db error occured
      */
-    boolean banUser(String email) throws SQLException;
+    int banUser(String email) throws SQLException;
     
     /**
      * Return a report of from the db

@@ -25,7 +25,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     }
 
     @Override
-    public Optional<User> findUser(User user) throws SQLException {
+    public Optional<User> findUser(String username, String pass) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         User found = run.query("", new BeanHandler<>(User.class), "");
         return Optional.ofNullable(found);

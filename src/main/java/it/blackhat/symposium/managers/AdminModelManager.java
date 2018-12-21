@@ -57,13 +57,10 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     }
     
     @Override
-    public boolean banUser(String email) throws SQLException {
+    public int banUser(String email) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int rowMod = run.update("");
-        if (rowMod == 1) {
-            return true;
-        }
-        return false;
+        return rowMod;
     }
 
     @Override
