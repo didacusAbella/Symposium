@@ -6,9 +6,8 @@
  -->
 <div class="top-bar">
 	<div class="top-bar-left">
-		<!--Non ancora esistono  -->
-		<button onclick="location.href = 'Supporto.jsp';" class="button">Supporto</button>
-		<button onclick="location.href = 'Faq.jsp';" class="button">FAQ</button>
+		<a href="support.jsp" class="button">Supporto</a>
+		<a href="faq.jsp" class="button">FAQ</a>
 
 	</div>
 	<div class="top-bar-right">

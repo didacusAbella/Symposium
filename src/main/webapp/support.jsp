@@ -3,8 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+
 <sy:layout title="Symposium-Supporto">
-  <jsp:body>
+    <jsp:body>
+
    <p>Se hai riscontrato problemi, non ti è chiaro qualcosa o vuoi semplicemente 
    chiaccherare mandaci una mail:
    </p>
@@ -13,7 +15,7 @@
    <input type="email" required placeholder="Email Ateneo" id="email" >
    Messaggio*:
    <textarea rows="5" cols="10" required id="messaggio" maxlength="65535"></textarea>
-   <input class="button" type="submit">
+   <input class="button" type="submit" value="Scrivici!">
    </form>
    <br/>
    <br/>
