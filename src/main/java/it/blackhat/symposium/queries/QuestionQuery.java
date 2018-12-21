@@ -16,5 +16,14 @@ public final class QuestionQuery {
     public static final String DELETE_QUESTION = "DELETE FROM question WHERE email = ?";
     public static final String CHANGE_TAG = "UPDATE tag SET name= ? WHERE question.id= ?";
     public static final String QUESTION_REPORT = "UPDATE question SET numreports = numreports+1";
-
+    public static final String RESEARCH_BY_WORDS = "SELECT content FROM question"
+    		+ " WHERE content LIKE '%?%'";
+    public static final String RESEARCH_BY_TAG = "SELECT content\r\n"  
+    		+ "FROM question,tag, contains" 
+    		+ "WHERE question.id=contains.questionid && tag.id=contains.tagid && ?= tag.nome";
+    public static final String FAVORITES = "INSERT INTO favorites VALUES ( ?, ?)";
+    public static final String LASTEDIT = "SELECT content FROM question\r\n" 
+    		+ "ORDER BY lastmod DESC";
+    public static final String MODIFY_TAG = "UPDATE tag SET name=?";
+    
 }
