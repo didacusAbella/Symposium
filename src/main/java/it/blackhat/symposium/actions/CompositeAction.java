@@ -1,6 +1,7 @@
 package it.blackhat.symposium.actions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,8 +20,9 @@ public class CompositeAction implements Action {
      *
      * @param actions the array of actions
      */
-    public CompositeAction(ArrayList<Action> actions) {
-        this.actions = actions;
+    public CompositeAction(Action... actions) {
+        this.actions = new ArrayList<>();
+        this.actions.addAll(Arrays.asList(actions));
     }
 
     @Override
