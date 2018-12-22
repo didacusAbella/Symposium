@@ -5,7 +5,7 @@ import java.sql.Date;
 /**
  * Concrete Implementation of User Interface
  *
- * @author 2Deimos
+ * @author Giuseppe Madonna
  */
 public class UserModel implements User {
 

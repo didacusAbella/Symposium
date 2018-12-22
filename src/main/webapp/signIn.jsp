@@ -4,7 +4,6 @@
 
 <sy:layout title="Symposium-Login">
     <jsp:body>
-
     <div class="grid-y" style="height: 50px;"></div>
     <div class="grid-x margin-x align-center">
       <div class="grid small-12 medium-6 large-6 callout primary">

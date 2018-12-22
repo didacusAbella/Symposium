@@ -5,9 +5,7 @@ import java.sql.Date;
 /**
  * Interface for represent User resource
  *
- * @author 2Deimos
- * @since 1.0
- * @version 1.0
+ * @author Giuseppe Madonna
  */
 public interface User {
 
