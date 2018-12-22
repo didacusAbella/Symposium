@@ -29,9 +29,11 @@
 			</li>
 			<li>
 				<div class="button-group">
-					<a href="myQuestions.jsp" class="button">Le mie domande</a> <a
-						href="myResponses.jsp" class="button">Le mie Risposte</a> <a
-						href="" class="button">I mieiTags</a>
+					<a href="myQuestions.jsp" class="button">Le mie domande</a>
+					<a	href="myResponses.jsp" class="button">Le mie Risposte</a> 
+					<a	href="myTags.jsp" class="button">I mieiTags</a>
+					<a href="newQuestion.jsp" class="success button">Poni una domanda!</a>
+						
 				</div>
 			</li>
 			<%-- if(userIsLogged){ --%>
