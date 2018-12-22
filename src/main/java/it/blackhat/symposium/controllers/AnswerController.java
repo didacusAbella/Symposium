@@ -29,7 +29,7 @@ public class AnswerController extends DispatcherController {
 
     @Override
     public String getServletInfo() {
-        return "QuestionController";
+        return "AnswerController";
     }
 
     @Override

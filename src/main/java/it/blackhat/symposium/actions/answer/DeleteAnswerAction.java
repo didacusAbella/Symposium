@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Describes the delete question action by the user
+ * Describes the delete answer action by the user
  * 
  * @author 2Deimos
  */
