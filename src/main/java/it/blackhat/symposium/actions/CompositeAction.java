@@ -11,16 +11,18 @@ import javax.servlet.http.HttpServletResponse;
  * @author 2Deimos
  */
 public class CompositeAction implements Action {
-    
+
     private final ArrayList<Action> actions;
-/**
- * Initialize CompositeAction with an array of actions
- * @param actions the array of actions
- */
+
+    /**
+     * Initialize CompositeAction with an array of actions
+     *
+     * @param actions the array of actions
+     */
     public CompositeAction(ArrayList<Action> actions) {
         this.actions = actions;
     }
-    
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         for (Action action : actions) {
