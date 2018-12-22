@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Describes the user's signup action
+ * Describes the guest's signup action
  * 
  * @author 2Deimos
  */

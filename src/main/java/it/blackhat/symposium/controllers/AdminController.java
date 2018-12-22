@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * The class handles requests for actions concerning the admin
  * @author didacus
  */
 @WebServlet(name = "AdminController", urlPatterns = {"/admin/AdminController"})
