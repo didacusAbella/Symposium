@@ -19,8 +19,8 @@ public final class AdminQuery {
     public static final String DELETE_ADMIN = "DELETE FROM Admin WHERE username=?";
     public static final String ALL_ADMINS = "SELECT * FROM admin";
     public static final String SIGN_IN = "SELECT * FROM user WHERE email= ? AND passoword= ?";
-    public static final String REPORT = "INSERT INTO report(year) VALUE(?)";
-    public static final String BAN = "UPDATE user SET banlastdate= ?";
+    public static final String REPORT = "SELECCT * FROM report WHERE report.year= ?";
+    public static final String BAN = "UPDATE user SET banlastdate= ? WHERE user.id= ?";
     
     
 }

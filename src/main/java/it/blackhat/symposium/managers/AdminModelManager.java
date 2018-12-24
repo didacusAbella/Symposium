@@ -5,6 +5,7 @@ import it.blackhat.symposium.models.AdminModel;
 import static it.blackhat.symposium.queries.AdminQuery.*;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.dbutils.QueryRunner;
@@ -57,17 +58,17 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     }
     
     @Override
-    public int banUser(String email) throws SQLException {
+    public int banUser(Date time, String email) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int rowMod = run.update("");
+        int rowMod = run.update(BAN, time, email);
         return rowMod;
     }
 
     @Override
-    public Optional<String> genReport(String adminUsername) throws SQLException {
+    public Optional<String> genReport(String year) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         BeanHandler<String> h = new BeanHandler<>(String.class);
-        String result = run.query("", h);
+        String result = run.query(REPORT, h, year);
         return Optional.ofNullable(result);
     }
     
