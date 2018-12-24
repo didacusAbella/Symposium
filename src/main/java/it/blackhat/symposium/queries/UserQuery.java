@@ -12,7 +12,7 @@ public final class UserQuery {
     	
     }
     	
-    public static final String SIGN_UP = "INSERT INTO user VALUES( ? , ? , ? , ? , ? ,'', ?)";
+    public static final String SIGN_UP = "INSERT INTO user VALUES( ? , ? , ? , ? , ? ,NULL, ?)";
     public static final String SIGN_IN = "SELECT * FROM user WHERE email= ? AND passoword= ?";
     public static final String EDIT_PROFILE = "UPDATE user SET username= ?, firstname= ?,"
     		+ " lastname= ?, password= ?, typegrad= ? WHERE email= ?";
