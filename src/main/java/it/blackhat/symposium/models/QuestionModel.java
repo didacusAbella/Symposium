@@ -8,8 +8,9 @@ package it.blackhat.symposium.models;
 import java.sql.Date;
 
 /**
- *
- * @author Rodzinka
+ * Concrete implementation of Question Interface
+ * 
+ * @author Przemyslaw Szopian
  */
 public class QuestionModel implements Question{
     
@@ -21,9 +22,21 @@ public class QuestionModel implements Question{
         super();
     }
     
-    public QuestionModel(String id, String content, String title, String author, String tag){
+    /**
+     * Create a new Question with id, content, numSegn, title, author and
+     * tag.
+     *
+     * @param id id of the question
+     * @param content content of the question
+     * @param numSegn numSegn of the question
+     * @param title title of the question
+     * @param author author of the question
+     * @param tag tag of the question
+     */
+    public QuestionModel(String id, String content, int numSegn, String title, String author, String tag){
         this.id = id;
         this.content = content;
+        this.numSegn = numSegn;
         this.title = title;
         this.author = author;
         this.tag = tag;
@@ -35,6 +48,7 @@ public class QuestionModel implements Question{
     }
     
     
+    @Override
     public String getContent(){
         return content;
     }
@@ -44,7 +58,15 @@ public class QuestionModel implements Question{
         return title;
     }
     
-    
+    @Override
+    public int getNumSegn(){
+        return numSegn;
+    }
+    /**
+     *
+     * @return
+     */
+    @Override
     public String getAuthor(){
         return author;
     }
