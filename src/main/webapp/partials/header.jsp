@@ -11,7 +11,7 @@
   <div class="title-bar-title">Symposium</div>
 </div>
 
-<div class="top-bar" id="example-menu">
+<nav class="top-bar" id="example-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
         <li>  
