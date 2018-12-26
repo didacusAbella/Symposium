@@ -1,19 +1,21 @@
 package it.blackhat.symposium.managers;
 
-import it.blackhat.symposium.models.User;
-import static it.blackhat.symposium.queries.UserQuery.*;
 import java.sql.SQLException;
 import java.util.Optional;
+
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+
+import it.blackhat.symposium.models.User;
+import static it.blackhat.symposium.queries.UserQuery.*;
 
 public class UserModelManager extends ConnectionManager implements UserManager {
 
     @Override
     public int editProfile(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(EDIT_PROFILE, user.getUsername(), user.getFirstName(),
-                 user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
+        int update =  run.update(EDIT_PROFILE, user.getUsername(), user.getFirstName()
+        , user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
         return update;
     }
 
@@ -34,8 +36,8 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     @Override
     public int createUser(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int create = run.update(SIGN_UP, user.getEmail(), user.getFirstName(), user.getLastName(),
-                user.getUsername(), user.getPassword(), user.getTypeGrad());
+        int create = run.update(SIGN_UP, user.getEmail(), user.getFirstName(), user.getLastName(), 
+                user.getUsername(), user.getPassword(), user.getTypeGrad() );
         return create;
     }
 
