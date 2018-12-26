@@ -43,5 +43,5 @@ public interface UserManager {
      * @return the created User
      * @throws SQLException if it encounter an error
      */
-    Optional<User> createUser(User user) throws SQLException;
+    int createUser(User user) throws SQLException;
 }
