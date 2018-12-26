@@ -95,6 +95,12 @@
             <artifactId>what-input</artifactId>
             <version>5.1.1</version>
         </dependency>
+        <!-- Tag Input -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-tagsinput</artifactId>
+            <version>1.3.2</version>
+        </dependency>
         <!-- JDBC Connector -->
         <dependency>
             <groupId>mysql</groupId>
