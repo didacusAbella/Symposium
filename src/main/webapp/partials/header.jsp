@@ -22,7 +22,7 @@
 					<div class="input-group">
 						<input class="input-group-field" type="text">
 						<div class="input-group-button">
-							<input type="submit" class="button" value="Submit">
+							<input type="submit" class="button" value="Cerca">
 						</div>
 					</div>
 				</form>
