@@ -26,8 +26,8 @@ public abstract class ConnectionManager {
     }
 
     /**
-     * Create a new Connection Manager with specified DaraSource. Use it in testing environment for
-     * configure a mock DB.
+     * Create a new Connection Manager with specified DaraSource. Use it in
+     * testing environment for configure a mock DB.
      *
      * @param ds datasource to pass
      */
@@ -41,7 +41,7 @@ public abstract class ConnectionManager {
     public ConnectionManager() {
         createDefaultDataSource();
     }
-    
+
     /**
      * Create a default connection for develop
      */
