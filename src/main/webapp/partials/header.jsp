@@ -41,8 +41,7 @@
 			<li>|</li>
 			<li><a href="signUp.jsp">Sign Up</a></li>
 			<%-- --%>
+		</ul>
 
-    </ul>
-  </div>
-</div>
-
+	</div>
+</nav>
