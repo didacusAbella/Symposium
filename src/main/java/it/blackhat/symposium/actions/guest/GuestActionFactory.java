@@ -5,7 +5,7 @@ import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
- * This class is used to create user action objects
+ * This class is used to create guest action objects
  *
  * @author 2Deimos
  */
