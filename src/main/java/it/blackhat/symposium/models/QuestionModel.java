@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package it.blackhat.symposium.models;
 
 import java.sql.Date;
@@ -18,6 +19,11 @@ public class QuestionModel implements Question{
     Date creationDate, lastModDate;
     private int numSegn;
     
+    /**
+     * Concrete Implementation of Question Interface
+     *
+     * @author Diego Avella
+     */
     public QuestionModel(){
         super();
     }
@@ -33,7 +39,8 @@ public class QuestionModel implements Question{
      * @param author author of the question
      * @param tag tag of the question
      */
-    public QuestionModel(String id, String content, int numSegn, String title, String author, String tag){
+    public QuestionModel(String id, String content, int numSegn, String title, String author, 
+            String tag){
         this.id = id;
         this.content = content;
         this.numSegn = numSegn;
