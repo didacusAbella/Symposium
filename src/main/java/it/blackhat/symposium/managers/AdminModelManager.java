@@ -3,8 +3,8 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.Admin;
 import it.blackhat.symposium.models.AdminModel;
 import static it.blackhat.symposium.queries.AdminQuery.*;
-
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.dbutils.QueryRunner;
@@ -29,7 +29,7 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     @Override
     public Optional<Admin> createAdmin(Admin admin) throws SQLException {
         QueryRunner insertQuery = new QueryRunner(this.dataSource);
-        Admin createdAdmin = insertQuery.insert(ADD_ADMIN, new BeanHandler<>(AdminModel.class), 
+        Admin createdAdmin = insertQuery.insert(ADD_ADMIN, new BeanHandler<>(AdminModel.class),
                 admin.getUsername(), admin.getPassword());
         return Optional.ofNullable(createdAdmin);
     }
@@ -37,7 +37,7 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     @Override
     public int updateAdmin(Admin admin) throws SQLException {
         QueryRunner updateQuery = new QueryRunner(this.dataSource);
-        int updatedAdmins = updateQuery.update(UPDATE_ADMIN, admin.getPassword(), 
+        int updatedAdmins = updateQuery.update(UPDATE_ADMIN, admin.getPassword(),
                 admin.getUsername());
         return updatedAdmins;
     }
@@ -54,6 +54,21 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
         QueryRunner adminsQuery = new QueryRunner(this.dataSource);
         List<Admin> admins = adminsQuery.query(ALL_ADMINS, new BeanListHandler<>(AdminModel.class));
         return admins;
+    }
+
+    @Override
+    public int banUser(Date time, String email) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int rowMod = run.update(BAN, time, email);
+        return rowMod;
+    }
+
+    @Override
+    public Optional<String> genReport(String year) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        BeanHandler<String> h = new BeanHandler<>(String.class);
+        String result = run.query(REPORT, h, year);
+        return Optional.ofNullable(result);
     }
 
 }

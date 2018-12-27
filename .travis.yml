@@ -3,13 +3,12 @@ sudo: false
 jdk: openjdk8
 cache:
   directories:
-    $HOME/.m2
+    - $HOME/.m2
 dist: xenial
-before_script:
-  - mvn checkstyle:check
-script: > mvn -Dtest=it.blackhat.symposium.unit.UnitTestSuite test && 
-          mvn -Dtest=it.blackhat.symposium.integration.IntegrationTestSuite && 
-          mvn -Dtest=it.blackhat.symposium.system.SystemTestSuite
+script: | 
+    mvn test -Dtest=it.blackhat.symposium.unit.UnitTestSuite && 
+    mvn test -Dtest=it.blackhat.symposium.integration.IntegrationTestSuite && 
+    mvn test -Dtest=it.blackhat.symposium.system.SystemTestSuite
 after_success:
   - mvn cobertura:cobertura
   - bash <(curl -s https://codecov.io/bash)

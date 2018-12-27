@@ -103,3 +103,4 @@ derby.log
 ######################
 
 .factorypath
+.checkstyle
