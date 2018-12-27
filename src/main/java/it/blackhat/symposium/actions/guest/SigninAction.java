@@ -14,6 +14,20 @@ public class SigninAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
+    	/*
+    	 * 
+    	 * 
+    	 * method private boolean checkLogin()
+    	 * {
+    	 * 		String email=req.getElementById("email");
+    	 * 		String password=req.getElementById("password");
+    	 * 		Boolean check=checkIfNotAlreadtPresent(userName, password)
+    	 * 		if(findUser(email,password)){return true;}	
+    	 * 		else(return false;)
+    	 * 		return false;
+    	 * }
+    	 * 
+    	 * */
     	return "";
     }
 }
