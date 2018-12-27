@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.blackhat.symposium.models;
 
 import java.sql.Date;
 
 /**
  * Concrete implementation of Answer Interface
- * 
+ *
  * @author Przemyslaw Szopian
  */
 public class AnswerModel implements Answer {
-    
+
     private String id, content, title, author;
     Date creationDate;
+
     /**
      *
-     *Creates an empty Answer
+     * Creates an empty Answer
      */
-    public AnswerModel(){
+    public AnswerModel() {
         super();
     }
+
     /**
      * Create a new Answer with id, content, title and author.
      *
@@ -32,36 +33,35 @@ public class AnswerModel implements Answer {
      * @param title title of the answer
      * @param author author of the answer
      */
-    public AnswerModel(String id, String content, String title, String author){
+    public AnswerModel(String id, String content, String title, String author) {
         this.id = id;
         this.content = content;
         this.title = title;
         this.author = author;
     }
-    
-    
+
     @Override
-    public String getId(){
+    public String getId() {
         return id;
     }
-    
+
     @Override
-    public String getContent(){
+    public String getContent() {
         return content;
     }
-    
+
     @Override
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
-    
+
     @Override
-    public String getAuthor(){
+    public String getAuthor() {
         return author;
     }
-    
+
     @Override
-    public Date getCreationDate(){
+    public Date getCreationDate() {
         return creationDate;
     }
 }

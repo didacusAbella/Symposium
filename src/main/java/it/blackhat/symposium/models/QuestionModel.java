@@ -3,34 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.blackhat.symposium.models;
 
 import java.sql.Date;
 
 /**
  * Concrete implementation of Question Interface
- * 
+ *
  * @author Przemyslaw Szopian
  */
-public class QuestionModel implements Question{
-    
+public class QuestionModel implements Question {
+
     private String id, content, title, author, tag;
     Date creationDate, lastModDate;
     private int numSegn;
-    
+
     /**
      * Concrete Implementation of Question Interface
      *
      * @author Diego Avella
      */
-    public QuestionModel(){
+    public QuestionModel() {
         super();
     }
-    
+
     /**
-     * Create a new Question with id, content, numSegn, title, author and
-     * tag.
+     * Create a new Question with id, content, numSegn, title, author and tag.
      *
      * @param id id of the question
      * @param content content of the question
@@ -39,8 +37,8 @@ public class QuestionModel implements Question{
      * @param author author of the question
      * @param tag tag of the question
      */
-    public QuestionModel(String id, String content, int numSegn, String title, String author, 
-            String tag){
+    public QuestionModel(String id, String content, int numSegn, String title, String author,
+            String tag) {
         this.id = id;
         this.content = content;
         this.numSegn = numSegn;
@@ -48,56 +46,56 @@ public class QuestionModel implements Question{
         this.author = author;
         this.tag = tag;
     }
-    
+
     @Override
-    public String getId(){
+    public String getId() {
         return id;
     }
-    
-    
+
     @Override
-    public String getContent(){
+    public String getContent() {
         return content;
     }
-    
+
     @Override
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
-    
+
     @Override
-    public int getNumSegn(){
+    public int getNumSegn() {
         return numSegn;
     }
+
     /**
      *
      * @return
      */
     @Override
-    public String getAuthor(){
+    public String getAuthor() {
         return author;
     }
-    
+
     @Override
-    public String getTag(){
+    public String getTag() {
         return tag;
     }
-    
+
     @Override
-    public Date getCreationDate(){
+    public Date getCreationDate() {
         return creationDate;
     }
-    
+
     @Override
-    public Date getLastModDate(){
+    public Date getLastModDate() {
         return lastModDate;
     }
-    
+
     @Override
     public void setLastModDate(Date lastModDate) {
         this.lastModDate = lastModDate;
     }
-    
+
     @Override
     public void setTag(String tag) {
         this.tag = tag;
