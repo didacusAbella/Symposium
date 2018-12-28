@@ -26,8 +26,8 @@
         <span class="form-error"> Inserisci una mail valida</span>
         <input type="email" placeholder="Conferma Email Ateneo" required/>
          <span class="form-error"> Inserisci una mail valida</span>
-        <input type="radio" name="typeGrad" value="triennale" checked>Triennale<br/>
-		<input type="radio" name="typeGrad" value="magistrale">Magistrale<br/>
+        <input type="radio" name="typeGrad" value="triennale" checked required>Triennale<br/>
+		<input type="radio" name="typeGrad" value="magistrale" required>Magistrale<br/>
 		
         <input type="submit" class="button large" value="Iscrivimi!" />
       
