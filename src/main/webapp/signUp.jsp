@@ -11,13 +11,13 @@
     <div class="grid-x margin-x align-center">
       <div class="grid small-12 medium-6 large-6 callout primary">
         <h4>Iscriviti</h4>
-        <input type="text" placeholder="Nome Utente" id="userName" required/>
+        <input type="text" placeholder="Nome Utente" required/>
          <span class="form-error"> Inserisci un nome utente valido</span>
-        <input type="email" placeholder="Email Ateneo" id="emailUser"  required/>
+        <input type="email" placeholder="Email Ateneo"  required/>
          <span class="form-error"> Inserisci una mail valida</span>
         <input type="email" placeholder="Conferma Email Ateneo"  required/>
          <span class="form-error"> Inserisci una mail valida</span>
-        <input type="password" placeholder="Password" id="passwordUser"  required/>
+        <input type="password" placeholder="Password"  required/>
          <span class="form-error"> Inserisci una password valida</span>
         <input type="password" placeholder="Conferma Password" required/>
          <span class="form-error"> Inserisci una password valida</span>
