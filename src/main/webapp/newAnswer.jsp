@@ -34,7 +34,7 @@
   <div>
   <form action="postResponse()" method="post" data-abide novalidate>
   <label>
-  <textarea rows="10" required maxlength="65535" id="response"></textarea>
+  <textarea rows="10" required maxlength="65535" id="answet" name="answer"></textarea>
   <span class="form-error"> Devi scrivere qualcosa</span>
  </label>
   <input type="submit" value="Rispondi" class="button"  >

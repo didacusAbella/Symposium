@@ -14,19 +14,19 @@
       <div class="grid small-12 medium-6 large-6 callout primary">
  		<label>
  		Titolo:
- <input type="text" required maxlength="20" id="title">
+ <input type="text" required maxlength="20" id="title" name="title">
  <span class="form-error"> Inserisci un titolo per la domanda</span>
  </label>
   <label>
   Contenuto:
-  <textarea required maxlength="65535" id="contenent" rows="5"></textarea>
+  <textarea required maxlength="65535" id="question" name="question" rows="5"></textarea>
   <span class="form-error"> Scrivi qualcosa nel box </span>
   </label>
   <label>
   Tags:
   <!-- Aggiungere l'input -->
   <%--Aggiungere plugin Jquery per i tags --%>
-  <span class="form-error"> Inserisci un campo e-mail valido</span>
+  <span class="form-error"> Inserisci almeno un tag</span>
   </label>
   <input type="submit" class="button" value="Posta!">
 	</div>
