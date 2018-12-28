@@ -42,4 +42,16 @@ public class TagModel implements Tag {
     public String getTagName() {
         return tagName;
     }
+    
+    
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
+    @Override
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
+    }
 }
