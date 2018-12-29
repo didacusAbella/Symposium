@@ -17,7 +17,7 @@
 
             </div>
                <%--<c:forEach var="tag" items"tags">
-        <sy:question question="&{" tags=""      //DA ERRORE!!!!
+        <sy:question question="&{" tags=""                  //DA ERRORE!!!!
     </c:forEach>--%>
                
             <div class="columns small-6 large-7 callout">
