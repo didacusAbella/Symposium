@@ -3,7 +3,6 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.Admin;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 /**
