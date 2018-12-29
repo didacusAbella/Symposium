@@ -13,7 +13,8 @@ package it.blackhat.symposium.models;
  */
 public class TagModel implements Tag {
 
-    private String id, tagName;
+    private String tagName;
+    private int id;
 
     /**
      * create an empty TagModel
@@ -28,13 +29,13 @@ public class TagModel implements Tag {
      * @param id id of the tag
      * @param tagName tag name of the tag
      */
-    public TagModel(String id, String tagName) {
+    public TagModel(int id, String tagName) {
         this.id = id;
         this.tagName = tagName;
     }
 
     @Override
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -45,7 +46,7 @@ public class TagModel implements Tag {
     
     
     @Override
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     

@@ -18,7 +18,7 @@ public interface Tag {
      *
      * @return the id
      */
-    String getId();
+    int getId();
 
     /**
      * Retrieve the name of the tag
@@ -33,7 +33,7 @@ public interface Tag {
      *
      * @param id new id of the tag
      */
-    void setId(String id);
+    void setId(int id);
     
     /**
      * Change the name of the tag
