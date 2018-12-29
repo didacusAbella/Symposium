@@ -12,7 +12,7 @@ public class ModifyTagQuestionAdminAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        return "";
+        return "test";
     }
     
 }
