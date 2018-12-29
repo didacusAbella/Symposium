@@ -7,7 +7,7 @@
     <jsp:body>
         <div class="grid-x padding-3">
             <c:forEach var="question1" items="questions">
-                <sy:question question="${question}" tagss="${tagss}"/>                      
+                <sy:question question="${question}" tag="${tagss}"/>                      
             </c:forEach >
         </div>
     </jsp:body>

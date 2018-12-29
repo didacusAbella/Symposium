@@ -15,7 +15,7 @@
         <h4>Accedi</h4>
         <input type="email" placeholder="Email Ateneo" id="email" name="email" required />
         <span class="form-error"> Inserisci una mail valida</span>
-        <input type="text" placeholder="Password" id="password" name="password" required />
+        <input type="password" placeholder="Password" id="password" name="password" required />
         <span class="form-error"> Inserisci una password valida</span>
         <input type="submit" class="button large" value="Accedi" />
       
