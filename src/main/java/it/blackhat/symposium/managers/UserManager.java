@@ -17,7 +17,7 @@ public interface UserManager {
      * @return a boolean valor, true if the email exists, otherwhise false
      * @throws SQLException if it encounter an error
      */
-    boolean findEmail(String email) throws SQLException;
+    Optional<User> findEmail(String email) throws SQLException;
 
     /**
      * Update the user information
