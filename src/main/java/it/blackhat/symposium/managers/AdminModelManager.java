@@ -21,39 +21,9 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     public Optional<Admin> findAdmin(String username, String password)
             throws SQLException {
         QueryRunner findQuery = new QueryRunner(this.dataSource);
-        Admin foundAdmin = findQuery.query(FIND_ADMIN,
+        Admin foundAdmin = findQuery.query(SIGN_IN,
                 new BeanHandler<>(AdminModel.class), username, password);
         return Optional.ofNullable(foundAdmin);
-    }
-
-    @Override
-    public Optional<Admin> createAdmin(Admin admin) throws SQLException {
-        QueryRunner insertQuery = new QueryRunner(this.dataSource);
-        Admin createdAdmin = insertQuery.insert(ADD_ADMIN, new BeanHandler<>(AdminModel.class),
-                admin.getUsername(), admin.getPassword());
-        return Optional.ofNullable(createdAdmin);
-    }
-
-    @Override
-    public int updateAdmin(Admin admin) throws SQLException {
-        QueryRunner updateQuery = new QueryRunner(this.dataSource);
-        int updatedAdmins = updateQuery.update(UPDATE_ADMIN, admin.getPassword(),
-                admin.getUsername());
-        return updatedAdmins;
-    }
-
-    @Override
-    public int deleteAdmin(Admin admin) throws SQLException {
-        QueryRunner deleteQuery = new QueryRunner(this.dataSource);
-        int deletedAdmins = deleteQuery.update(DELETE_ADMIN, admin.getUsername());
-        return deletedAdmins;
-    }
-
-    @Override
-    public List<Admin> findAllAdmins() throws SQLException {
-        QueryRunner adminsQuery = new QueryRunner(this.dataSource);
-        List<Admin> admins = adminsQuery.query(ALL_ADMINS, new BeanListHandler<>(AdminModel.class));
-        return admins;
     }
 
     @Override
