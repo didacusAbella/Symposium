@@ -32,7 +32,7 @@
  		
  </label>
   <div>
-  <form action="postResponse()" method="post" data-abide novalidate>
+  <form action="InsertAnswerAction.java" method="post" data-abide novalidate>
   <label>
   <textarea rows="10" required maxlength="65535" id="answet" name="answer"></textarea>
   <span class="form-error"> Devi scrivere qualcosa</span>

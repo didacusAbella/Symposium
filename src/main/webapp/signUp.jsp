@@ -5,7 +5,7 @@
 
 <sy:layout title="Symposium-Iscrizione">
 	<jsp:body>
-    <form action="checkSignIn.jsp" method="post" data-abide novalidate>
+    <form action="SignUp" method="post" data-abide novalidate>
       <div data-abide-error class="alert callout" style="display: none;">
     <p>
 					<i class="fi-alert"></i> Ricontrolla la form</p>
