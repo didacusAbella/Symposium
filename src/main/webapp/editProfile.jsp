@@ -14,24 +14,24 @@
   
   
    <label>Nome:<%--getName(Session)--%>
-   <input type="text" required pattern="\w+{4,20}" id="firstname" name="firstname">
+   <input type="text" required pattern="\w+{4,20}" id="nome">
     <span class="form-error"> Inserisci un nome valido</span> <%--value=getNomeFromDatabase()--%>
    </label>
    
    <label>
    Cognome:<%--getSurname(Session)--%>
-   <input type="text" required pattern="\w+{4,20}" id="lastname" name="lastname" ><%--value=getCognomeFromDatabase()--%>
+   <input type="text" required pattern="\w+{4,20}" id="nome" ><%--value=getCognomeFromDatabase()--%>
    <span class="form-error">Inserisci un cognome valido</span>
    </label>
    
    <label>
    Password:<%--getPassword(Session)--%>
-   <input type="password" pattern="{6,20}" required id="password" name="password"><%--value=getPasswordFromDatabase()--%>
+   <input type="password" pattern="{6,20}" required id="password"><%--value=getPasswordFromDatabase()--%>
    <span class="form-error"> Inserisci una password valida</span>
    </label>
    <label>
    Username:<%--getUsername(Session)--%>
-   <input type="text"  required id="username" name="username" pattern="{4,20}"><%--value=getUsernameFromDatabase()--%>
+   <input type="text"  required id="messaggio" pattern="{4,20}"><%--value=getUsernameFromDatabase()--%>
    <span class="form-error">Inserisci un username valido </span>
     </label>
    Corso di laurea:

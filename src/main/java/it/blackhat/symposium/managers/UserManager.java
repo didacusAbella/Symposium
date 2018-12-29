@@ -10,6 +10,14 @@ import java.util.Optional;
  *
  */
 public interface UserManager {
+    /**
+     * Find accounts by email
+     *
+     * @param email email of the user
+     * @return a boolean valor, true if the email exists, otherwhise false
+     * @throws SQLException if it encounter an error
+     */
+    Optional<User> findEmail(String email) throws SQLException;
 
     /**
      * Update the user information
@@ -33,7 +41,7 @@ public interface UserManager {
      * Find out if the user is registered in the database
      *
      * @param username username of the user
-     * @param pass passoword of the user
+     * @param pass password of the user
      * @return a User object that contain the find user data
      * @throws SQLException if it encounter an error
      */
