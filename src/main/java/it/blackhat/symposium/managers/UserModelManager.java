@@ -30,7 +30,16 @@ public class UserModelManager extends ConnectionManager implements UserManager {
         User found = run.query(SIGN_IN, new BeanHandler<>(User.class), username, pass);
         return Optional.ofNullable(found);
     }
-
+    
+    @Override
+    public Optional<User> findEmail(String email) throws SQLException {
+      
+        QueryRunner run = new QueryRunner(this.dataSource);
+        User resp = run.query(FIND_EMAIL, new BeanHandler<>(User.class), email);
+        return Optional.ofNullable(resp);
+       
+        
+    }
     @Override
     public int createUser(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
