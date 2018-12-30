@@ -14,15 +14,15 @@
     <div class="grid-x margin-x align-center">
       <div class="grid small-12 medium-6 large-6 callout primary">
         <h4>Iscriviti</h4>
-        <input type="text" placeholder="Nome Utente" name="username" required/>
+        <input type="text" placeholder="Nome Utente" name="username" pattern="\w+{4,20}" required/>
          <span class="form-error"> Inserisci un nome utente valido</span>
-         <input type="text" placeholder="Nome" name="firstname" required/>
-         <span class="form-error"> Inserisci un nome utente valido</span>
-         <input type="text" placeholder="Cognome" name="lastname" required/>
-         <span class="form-error"> Inserisci un nome utente valido</span>
-         <input type="password" placeholder="Password" name="password" required/>
+         <input type="text" placeholder="Nome" name="firstName" pattern="\w+{4,20}" required/>
+         <span class="form-error"> Inserisci un nome  valido</span>
+         <input type="text" placeholder="Cognome" name="lastName" pattern="\w+{4,20}" required/>
+         <span class="form-error"> Inserisci un cognome  valido</span>
+         <input type="password" placeholder="Password" name="password" pattern="{6,20}" required/>
          <span class="form-error"> Inserisci una password valida</span>
-        <input type="email" placeholder="Email Ateneo" name="email" required />
+        <input type="email" placeholder="Email Ateneo" name="email" pattern="[a-z0-9._%+-]+@studenti.unisa.it" required />
         <span class="form-error"> Inserisci una mail valida</span>
         <input type="email" placeholder="Conferma Email Ateneo" required/>
          <span class="form-error"> Inserisci una mail valida</span>

@@ -14,13 +14,13 @@
   
   
    <label>Nome:<%--getName(Session)--%>
-   <input type="text" required pattern="\w+{4,20}" id="name" name="name">
+   <input type="text" required pattern="\w+{4,20}" id="name" name="firstName">
     <span class="form-error"> Inserisci un nome valido</span> <%--value=getNomeFromDatabase()--%>
    </label>
    
    <label>
    Cognome:<%--getSurname(Session)--%>
-   <input type="text" required pattern="\w+{4,20}" id="surname" name="surname" ><%--value=getCognomeFromDatabase()--%>
+   <input type="text" required pattern="\w+{4,20}" id="surname" name="lastName" ><%--value=getCognomeFromDatabase()--%>
    <span class="form-error">Inserisci un cognome valido</span>
    </label>
    
