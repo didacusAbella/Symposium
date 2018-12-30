@@ -38,12 +38,12 @@ import java.sql.SQLException;
 
         answerManager.deleteAnswer(idAnswerInt);
 
-        return "index.jsp";
+        return "/index.jsp";
 
     } catch (
     SQLException e) {
         deleteAnswerLog.error("Errore interno", e);
-        return "error500.jsp";
+        return "/error500.jsp";
     }
 
 }*/
