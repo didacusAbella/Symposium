@@ -8,7 +8,12 @@ package it.blackhat.symposium.models;
  * @version 1.0
  */
 public interface Admin {
-
+	/**
+     * Retrieve the id of the admin
+     *
+     * @return the id
+     */
+    String getId();
     /**
      * Retrieve the username of the admin
      *
@@ -22,6 +27,12 @@ public interface Admin {
      * @return the password
      */
     String getPassword();
+    /**
+     * Change the id of the admin
+     *
+     * @param id the new id
+     */
+    void setId(String id);
 
     /**
      * Change the username of the admin

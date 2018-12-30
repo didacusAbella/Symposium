@@ -30,17 +30,7 @@ public interface Answer {
      */
     Date getCreationDate();
     
-    /**
-     * Retrieve the title of the answer
-     *
-     * @return the title
-     */
-    String getTitle();
     
-    /**
-     * Retrieve the author of the answer
-     *
-     * @return the author
-     */
-    String getAuthor();
+    
+    
 }

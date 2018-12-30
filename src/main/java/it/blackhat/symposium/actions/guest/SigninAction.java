@@ -10,19 +10,26 @@ import java.util.Optional;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.mysql.cj.Session;
 
 /**
  * Describes the guest's signin action
  * 
- * @author 2Deimos, Parrilli Carminantonio
+ * @author 2Deimos, Parrilli Carminantonio, SDelPiano
  * 
  * 
  */
 
-@WebServlet("/SignIn")
+
 public class SigninAction implements Action {
     private UserManager user;
+    private Log signinLog = LogFactory.getLog(SigninAction.class);
 
     /**
      * Find a user in the database and if it can't be found return with null
@@ -33,20 +40,22 @@ public class SigninAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
+    	
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         try {
-            Optional<User> found = user.findUser(email, DigestUtils.sha256Hex(password));
+            Optional<User> found = user.findUser(email, password);
             if (found.isPresent()) {
-                req.getSession(true);
-                req.setAttribute("user", found);
-                return "index.jsp";
+            	HttpSession session = req.getSession();
+                
+                session.setAttribute("user", found);
+                return "/index.jsp";
             } else {
-                return "error400.jsp";
+                return "/error400.jsp";
             }
         } catch (SQLException e) {
-
-            return "error500.jsp";
+        	signinLog.error("problemi interni", e);
+            return "/error500.jsp";
         }
     }
 }

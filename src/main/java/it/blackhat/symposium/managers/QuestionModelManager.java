@@ -51,10 +51,10 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
-    public int questionReport(Question question) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(QUESTION_REPORT, question.getNumSegn());
-        return upd;
+	public int questionReport(Question question) throws SQLException {
+    	QueryRunner run = new QueryRunner(this.dataSource);
+    	int upd = run.update(QUESTION_REPORT , question.getNumReports());
+    	return upd;
     }
 
 
