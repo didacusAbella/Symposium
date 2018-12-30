@@ -22,7 +22,7 @@ public class BeanValidator {
      * @param bean the bean to validate
      * @return true if the validations goes ok
      */
-    public static <T> boolean validateBean(T bean){
+    public static <T> boolean validateBean(T bean) {
         validator = factory.getValidator();
         Set<ConstraintViolation<T>> violations = validator.validate(bean);
         return violations.isEmpty();
