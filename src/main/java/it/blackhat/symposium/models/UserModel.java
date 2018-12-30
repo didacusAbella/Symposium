@@ -94,7 +94,10 @@ public class UserModel implements User {
     public Date getBanLastDate() {
         return banLastDate;
     }
-
+    @Override
+    public void setUsername(String userName) {
+        this.username=userName;
+    }
     @Override
     public void setFirstName(String firstName) {
         this.firstName = firstName;

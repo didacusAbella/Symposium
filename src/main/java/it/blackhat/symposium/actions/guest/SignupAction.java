@@ -6,11 +6,13 @@ import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import it.blackhat.symposium.models.UserModel;
 
-
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -41,7 +43,11 @@ public class SignupAction implements Action {
             } else {
                 flag = true;
             }
-            // Riceve dalla form
+           
+            UserModel newUser = new UserModel();
+            /*
+             * 
+             
             UserModel newUser = new UserModel(req.getParameter("username"), req.getParameter("firstName"),
                     req.getParameter("lastName"), req.getParameter("password")// Password too long for encription???
                     // java.sql.SQLException: Data truncation: Data too long for column 'password'
@@ -50,9 +56,10 @@ public class SignupAction implements Action {
                     // dsa, dsa@gmail.com,
                     // de04d58dc5ccc4b9671c3627fb8d626fe4a15810bc1fe3e724feea761965fb71, false]
                     , req.getParameter("email"), flag, null);
-            // BeanUtils.populate(newUser, req.getParameterMap());
+            
             System.out.print(newUser.getUsername());
-
+            */
+            BeanUtils.populate(newUser, req.getParameterMap());
             Optional<User> found = user.findUser(newUser.getEmail(), DigestUtils.sha256Hex(newUser.getPassword()));
 
             if (found.isPresent()) {
@@ -74,6 +81,12 @@ public class SignupAction implements Action {
              * signinLog.error("problemi interni Target", e); return "/error500.jsp";
              */
 
+        } catch (IllegalAccessException e) {
+            signinLog.error("problemi interni Accesso", e);
+            return "/error500.jsp";
+        } catch (InvocationTargetException e) {
+            signinLog.error("problemi interni Invocazione", e);
+            return "/error500.jsp";
         }
     }
 }
