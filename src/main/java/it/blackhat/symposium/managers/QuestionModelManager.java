@@ -14,6 +14,10 @@ import static it.blackhat.symposium.queries.TagQuery.INSERT_TAG;
 import static it.blackhat.symposium.queries.QuestionQuery.DELETE_QUESTION;
 import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
 import static it.blackhat.symposium.queries.QuestionQuery.QUESTION_REPORT;
+import static it.blackhat.symposium.queries.QuestionQuery.RESEARCH_BY_TAG;
+import java.util.List;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 
 /**
@@ -21,6 +25,22 @@ import static it.blackhat.symposium.queries.QuestionQuery.QUESTION_REPORT;
  */
 
 public class QuestionModelManager extends ConnectionManager implements QuestionManager {
+
+    @Override
+    public List<Question> seachQuestionsByTag(String tag) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        ResultSetHandler<List<Question>> h = new BeanListHandler<>(Question.class);
+        List<Question> questions= run.query(RESEARCH_BY_TAG, h, tag);
+        return questions;
+    }
+
+    @Override
+    public List<Question> seachQuestionByWords(String words) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        ResultSetHandler<List<Question>> h = new BeanListHandler<>(Question.class);
+        List<Question> questions= run.query(RESEARCH_BY_TAG, h, words);
+        return questions;
+    }
 
     @Override
     public int insertQuestion(Question question) throws SQLException {
