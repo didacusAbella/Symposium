@@ -32,7 +32,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int insertTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(INSERT_TAG, tag.getTagName());
+        int upd = run.update(INSERT_TAG, tag.getName());
         return upd;
     }
 
@@ -46,7 +46,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int changeTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(CHANGE_TAG, tag.getTagName());
+        int upd = run.update(CHANGE_TAG, tag.getName());
         return upd;
     }
 
