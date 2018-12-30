@@ -63,7 +63,7 @@ public interface QuestionManager {
     /**
      * Shows a list of question sorted by last edit
      * @return List<Question> A list of questions
-     * @throws SQLException if db encounter an errore
+     * @throws SQLException if db encounter an error
      */
     List<Question> showLastEdit() throws SQLException;
 
