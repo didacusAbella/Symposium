@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 
 
 
@@ -46,11 +48,11 @@ public class SignupAction implements Action {
             typegrad = true;
         }
         try {
-            Optional<User> found = user.findUser(email, password);
+            Optional<User> found = user.findUser(email, DigestUtils.sha256Hex(password));
             if (found.isPresent()) {
                 return "error400.jsp";
             } else {
-                UserModel newUser = new UserModel(username, firstname, lastname, password, email);
+                UserModel newUser = new UserModel(username, firstname, lastname, DigestUtils.sha256Hex(password), email);
                 newUser.setTypeGrad(typegrad);
                 user.createUser(newUser);
                 req.getSession(true);
