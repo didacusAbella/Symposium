@@ -1,9 +1,12 @@
 package it.blackhat.symposium.managers;
 
 import it.blackhat.symposium.models.User;
+
 import static it.blackhat.symposium.queries.UserQuery.*;
+
 import java.sql.SQLException;
 import java.util.Optional;
+
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import it.blackhat.symposium.models.UserModel;
@@ -14,7 +17,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     public int editProfile(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int update = run.update(EDIT_PROFILE, user.getUsername(), user.getFirstName(),
-                 user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
+                user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
         return update;
     }
 
@@ -31,16 +34,17 @@ public class UserModelManager extends ConnectionManager implements UserManager {
         User found = run.query(SIGN_IN, new BeanHandler<>(UserModel.class), username, pass);
         return Optional.ofNullable(found);
     }
-    
+
     @Override
     public Optional<User> findEmail(String email) throws SQLException {
-      
+
         QueryRunner run = new QueryRunner(this.dataSource);
         User resp = run.query(FIND_EMAIL, new BeanHandler<>(UserModel.class), email);
         return Optional.ofNullable(resp);
-       
-        
+
+
     }
+
     @Override
     public int createUser(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);

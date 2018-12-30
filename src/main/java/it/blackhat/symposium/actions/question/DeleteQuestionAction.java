@@ -36,11 +36,11 @@ public class DeleteQuestionAction implements Action {
 
             questionManager.deleteQuestion(idQuestionInt);
 
-            return "index.jsp";
+            return "/index.jsp";
 
         } catch (SQLException e) {
             deleteQuestionLog.error("Errore interno", e);
-            return "error500.jsp";
+            return "/error500.jsp";
         }
 
     }

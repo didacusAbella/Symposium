@@ -15,6 +15,7 @@ public class InsertQuestionAction extends CompositeAction {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
+
     	return "";
     }
 }
