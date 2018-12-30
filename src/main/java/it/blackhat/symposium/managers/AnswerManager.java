@@ -4,6 +4,12 @@ import it.blackhat.symposium.models.Answer;
 
 import java.sql.SQLException;
 
+
+/**
+ *  This class describes the method signatures of Answer Manager
+ * @author Angelo Maffettone
+ *
+ */
 public interface AnswerManager {
 
     /**

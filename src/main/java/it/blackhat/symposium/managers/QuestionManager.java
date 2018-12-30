@@ -1,8 +1,7 @@
 package it.blackhat.symposium.managers;
 
 import java.sql.SQLException;
-
-
+import java.util.List;
 
 
 import it.blackhat.symposium.models.Question;
@@ -60,6 +59,13 @@ public interface QuestionManager {
      * @throws SQLException if it encounter an error
      **/
     int questionReport(Question question) throws SQLException;
+
+    /**
+     * Shows a list of question sorted by last edit
+     * @return List<Question> A list of questions
+     * @throws SQLException if db encounter an error
+     */
+    List<Question> showLastEdit() throws SQLException;
 
 
 }
