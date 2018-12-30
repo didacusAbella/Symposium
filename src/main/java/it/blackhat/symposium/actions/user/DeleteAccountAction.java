@@ -1,7 +1,6 @@
-package it.blackhat.symposium.actions.guest;
+package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
-
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
@@ -13,33 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * Describes the guest's signin action
+ * Deletes the account of the user
  * 
- * @author 2Deimos, Parrilli Carminantonio
- * 
- * 
+ * @author Parrilli Carminantonio
+ *
  */
-
-@WebServlet("/SignIn")
-public class SigninAction implements Action {
+@WebServlet("/DeleteAccount")
+public class DeleteAccountAction implements Action {
     private UserManager user;
 
-    /**
-     * Find a user in the database and if it can't be found return with null
-     */
-    public SigninAction() {
+    public DeleteAccountAction() {
         user = new UserModelManager();
     }
 
-    @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+
         try {
             Optional<User> found = user.findUser(email, DigestUtils.sha256Hex(password));
             if (found.isPresent()) {
-                req.getSession(true);
-                req.setAttribute("user", found);
+                req.getSession(false);
+                user.deleteAccount((User) user);
                 return "index.jsp";
             } else {
                 return "error400.jsp";
@@ -48,5 +42,6 @@ public class SigninAction implements Action {
 
             return "error500.jsp";
         }
+
     }
 }
