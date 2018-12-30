@@ -1,6 +1,7 @@
 package it.blackhat.symposium.actions.guest;
 
 import it.blackhat.symposium.actions.Action;
+
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
