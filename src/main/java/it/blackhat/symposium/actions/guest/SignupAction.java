@@ -13,15 +13,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
+
 /**
- * Describes the guest's signup action
- * 
- * @author 2Deimos,Parrilli Carminantonio
+ * @author killer, 2Deimos
+ *  Describes the guest's signup action
+ *
  */
 @WebServlet("/SignUp")
 public class SignupAction implements Action {
     private UserManager user;
-
+    /**
+     * Add another user in the database if not present
+     */
     public SignupAction() {
         user = new UserModelManager();
     }
@@ -33,9 +38,9 @@ public class SignupAction implements Action {
         String lastname = req.getParameter("lastname");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        String Typegrad = req.getParameter("typeGrad");
+        String typeGrad = req.getParameter("typeGrad");
         Boolean typegrad;
-        if (Typegrad.equals("triennale")) {
+        if (typeGrad.equals("triennale")) {
             typegrad = false;
         } else {
             typegrad = true;

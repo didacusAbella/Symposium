@@ -15,7 +15,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 /**
  * Describes the guest's signin action
  * 
- * @author 2Deimos, Parrilli Carminantonio
+ * @author 2Deimos, killer
  * 
  * 
  */

@@ -12,14 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * Deletes the account of the user
+ * Deletes the account of the user if manages to find it
  * 
- * @author Parrilli Carminantonio
+ * @author killer
  *
  */
 @WebServlet("/DeleteAccount")
 public class DeleteAccountAction implements Action {
     private UserManager user;
+
+    /**
+     * Find a user in the database and deletes it and if can't be found throws an
+     * error
+     */
 
     public DeleteAccountAction() {
         user = new UserModelManager();
