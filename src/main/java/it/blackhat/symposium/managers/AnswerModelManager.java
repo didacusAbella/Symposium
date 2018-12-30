@@ -7,7 +7,9 @@ import java.sql.SQLException;
 
 import static it.blackhat.symposium.queries.AnswerQuery.*;
 
-
+/**
+ * @author Angelo Maffettone
+ */
 public class AnswerModelManager extends ConnectionManager implements AnswerManager  {
 
 
