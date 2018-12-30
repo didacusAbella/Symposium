@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Describes the report question action feature
+ * Describes the report question action
  * @author Andrea
  */
 public class ReportQuestionAction implements Action {
