@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import it.blackhat.symposium.models.UserModel;
 
 public class UserModelManager extends ConnectionManager implements UserManager {
 
@@ -27,7 +28,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     @Override
     public Optional<User> findUser(String username, String pass) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        User found = run.query(SIGN_IN, new BeanHandler<>(User.class), username, pass);
+        User found = run.query(SIGN_IN, new BeanHandler<>(UserModel.class), username, pass);
         return Optional.ofNullable(found);
     }
     
@@ -35,7 +36,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     public Optional<User> findEmail(String email) throws SQLException {
       
         QueryRunner run = new QueryRunner(this.dataSource);
-        User resp = run.query(FIND_EMAIL, new BeanHandler<>(User.class), email);
+        User resp = run.query(FIND_EMAIL, new BeanHandler<>(UserModel.class), email);
         return Optional.ofNullable(resp);
        
         
