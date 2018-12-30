@@ -1,7 +1,6 @@
 package it.blackhat.symposium.actions.question;
 
 
-import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.CompositeAction;
 
 import javax.servlet.http.HttpServletRequest;
