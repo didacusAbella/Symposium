@@ -1,18 +1,12 @@
 package it.blackhat.symposium.managers;
 
 
-
-
-
-
-
-
-
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.Tag;
-import java.sql.SQLException;
-import org.apache.commons.dbutils.QueryRunner;
 
+import java.sql.SQLException;
+
+import org.apache.commons.dbutils.QueryRunner;
 
 
 import static it.blackhat.symposium.queries.QuestionQuery.INSERT_QUESTION;
@@ -22,42 +16,38 @@ import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
 import static it.blackhat.symposium.queries.QuestionQuery.QUESTION_REPORT;
 
 
-
-
 /**
-*
-* @author Del Piano Salvatore
-*
-*/
+ * @author SDelPiano
+ */
 
 public class QuestionModelManager extends ConnectionManager implements QuestionManager {
-	
+
     @Override
-    public int insertQuestion(Question question)throws SQLException {
-    	QueryRunner run = new QueryRunner(this.dataSource);
-    	int update = run.update(INSERT_QUESTION, question.getContent()) ;
+    public int insertQuestion(Question question) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(INSERT_QUESTION, question.getContent());
         return update;
     }
 
     @Override
-	public int insertTag(Question question, Tag tag) throws SQLException {
-    	QueryRunner run = new QueryRunner(this.dataSource);
-    	int upd = run.update(INSERT_TAG, tag.getTagName());
-    	return upd;
+    public int insertTag(Question question, Tag tag) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int upd = run.update(INSERT_TAG, tag.getTagName());
+        return upd;
     }
 
     @Override
-	 public int deleteQuestion (Question question) throws SQLException {
-    	QueryRunner run = new QueryRunner(this.dataSource);
-    	int update = run.update(DELETE_QUESTION, question.getId());
-    	return update;
+    public int deleteQuestion(int questionId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(DELETE_QUESTION, questionId);
+        return update;
     }
 
     @Override
-	public int changeTag(Question question, Tag tag) throws SQLException {
-    	QueryRunner run = new QueryRunner(this.dataSource);
-    	int upd = run.update(CHANGE_TAG , tag.getTagName()) ;
-    	return upd;
+    public int changeTag(Question question, Tag tag) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int upd = run.update(CHANGE_TAG, tag.getTagName());
+        return upd;
     }
 
     @Override
@@ -67,9 +57,6 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     	return upd;
     }
 
-
-	
-	
 
 }
 

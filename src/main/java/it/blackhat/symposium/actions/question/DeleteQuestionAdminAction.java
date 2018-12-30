@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
 /**
- * Describes the delete question action by user
+ * Describes the delete question action by admin
  *
  * @author 2Deimos
  */
-public class DeleteQuestionAction implements Action {
+public class DeleteQuestionAdminAction implements Action {
 
     private final QuestionManager questionManager;
-    private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
+    private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAdminAction.class);
 
     /**
      * Initializes a Question Manager
      */
-    public DeleteQuestionAction() {
+    public DeleteQuestionAdminAction() {
         questionManager = new QuestionModelManager();
     }
 
@@ -36,7 +36,7 @@ public class DeleteQuestionAction implements Action {
 
             questionManager.deleteQuestion(idQuestionInt);
 
-            return "index.jsp";
+            return "dashboard.jsp";
 
         } catch (SQLException e) {
             deleteQuestionLog.error("Errore interno", e);
