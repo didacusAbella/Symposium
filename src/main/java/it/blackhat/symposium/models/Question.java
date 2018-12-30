@@ -42,7 +42,7 @@ public interface Question {
      *
      * @return the numSegn
      */
-    int getNumSegn();
+    int getNumReports();
 
     /**
      * Retrieve the title of the question
@@ -58,12 +58,7 @@ public interface Question {
      */
     String getAuthor();
 
-    /**
-     * Retrieve the tag of the question
-     *
-     * @return the tag
-     */
-    String getTag();
+   
 
     /**
      * Change the last modify date of the question
@@ -73,11 +68,5 @@ public interface Question {
      */
     void setLastModDate(Date lastDate);
 
-    /**
-     * Change the tag of the question
-     *
-     *
-     * @param tag new tag
-     */
-    void setTag(String tag);
+   
 }
