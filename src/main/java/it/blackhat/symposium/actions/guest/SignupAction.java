@@ -6,26 +6,25 @@ import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import it.blackhat.symposium.models.UserModel;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
-
-
-
 /**
- * @author killer, 2Deimos
- *  Describes the guest's signup action
+ * @author killer, 2Deimos Describes the guest's signup action
  *
  */
-@WebServlet("/SignUp")
+
 public class SignupAction implements Action {
     private UserManager user;
+
     /**
      * Add another user in the database if not present
      */
@@ -35,33 +34,30 @@ public class SignupAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        String email = req.getParameter("email");
-        String firstname = req.getParameter("firstname");
-        String lastname = req.getParameter("lastname");
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String typeGrad = req.getParameter("typeGrad");
-        Boolean typegrad;
-        if (typeGrad.equals("triennale")) {
-            typegrad = false;
-        } else {
-            typegrad = true;
-        }
+
         try {
-            Optional<User> found = user.findUser(email, DigestUtils.sha256Hex(password));
+
+            UserModel newUser = new UserModel();
+            BeanUtils.populate(newUser, req.getParameterMap());
+
+            Optional<User> found = user.findUser(newUser.getEmail(), DigestUtils.sha256Hex(newUser.getPassword()));
+            
             if (found.isPresent()) {
-                return "error400.jsp";
+                req.setAttribute("email", "Already Exist");
+                return "/signUp.jsp";
             } else {
-                UserModel newUser = new UserModel(username, firstname, lastname, DigestUtils.sha256Hex(password), email);
-                newUser.setTypeGrad(typegrad);
                 user.createUser(newUser);
                 req.getSession(true);
                 req.setAttribute("user", found);
-                return "index.jsp";
-
+                return "/index.jsp";
             }
         } catch (SQLException e) {
-            return "error500.jsp";
+            return "/error500.jsp";
+        } catch (IllegalAccessException e) {
+            return "/error500.jsp";
+        } catch (InvocationTargetException e) {
+            return "/error500.jsp";
+
         }
     }
 }

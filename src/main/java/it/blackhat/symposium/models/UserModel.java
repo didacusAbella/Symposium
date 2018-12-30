@@ -21,22 +21,43 @@ public class UserModel implements User {
     }
 
     /**
-     * Create a new User with username, first name, last name, password and
-     * e-mail.
+     * Create a new User with username, first name, last name, password and e-mail.
      *
-     * @param username username of the user
+     * @param username  username of the user
      * @param firstName first name of the user
-     * @param lastName last name of the user
-     * @param password password of the user
-     * @param email e-mail of the user
+     * @param lastName  last name of the user
+     * @param password  password of the user
+     * @param email     e-mail of the user
      */
-    public UserModel(String username, String firstName, String lastName,
-            String password, String email) {
+    public UserModel(String username, String firstName, String lastName, String password, String email) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
+    }
+
+    /**
+     * 
+     * @param username
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param email
+     * @param typeGrad
+     * @param banLastDate
+     */
+    public UserModel(String username, String firstName, String lastName, String password, String email,
+            boolean typeGrad, Date banLastDate) {
+
+        super();
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.typeGrad = typeGrad;
+        this.banLastDate = banLastDate;
     }
 
     @Override
