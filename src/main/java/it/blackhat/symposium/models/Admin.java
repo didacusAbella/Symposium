@@ -4,16 +4,17 @@ package it.blackhat.symposium.models;
  * Interface for represent Admin resource
  *
  * @author Diego Avella
- * @since 1.0
  * @version 1.0
+ * @since 1.0
  */
 public interface Admin {
-	/**
+    /**
      * Retrieve the id of the admin
      *
      * @return the id
      */
-    String getId();
+    int getId();
+
     /**
      * Retrieve the username of the admin
      *
@@ -27,12 +28,13 @@ public interface Admin {
      * @return the password
      */
     String getPassword();
+
     /**
      * Change the id of the admin
      *
      * @param id the new id
      */
-    void setId(String id);
+    void setId(int id);
 
     /**
      * Change the username of the admin

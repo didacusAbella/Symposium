@@ -6,38 +6,70 @@ import java.sql.Date;
  * Concrete implementation of Answer Interface
  *
  * @author Przemyslaw Szopian
+ * @author 2Deimos
  */
 public class AnswerModel implements Answer {
 
-    private String id, content, title, author;
-    Date creationDate;
+    private int id, questionFk;
+    private String userFk, content;
+    private Date creationDate;
+    private boolean correct;
 
     /**
-     *
-     * Creates an empty Answer
+     * Initialize a void AnswerModel
      */
     public AnswerModel() {
         super();
     }
 
     /**
-     * Create a new Answer with id, content, title and author.
+     * Initialize a new Answer
      *
-     * @param id id of the answer
-     * @param content content of the answer
-     * @param title title of the answer
-     * @param author author of the answer
+     * @param id           the answer's id
+     * @param questionFk   the answer's related question
+     * @param userFk       the answer's related author
+     * @param content      the answer's content
+     * @param creationDate the answer's creation date
+     * @param correct      the answer state (chosen as the best one or not)
      */
-    public AnswerModel(String id, String content, String title, String author) {
+    public AnswerModel(int id, int questionFk, String userFk,
+                       String content, Date creationDate, boolean correct) {
         this.id = id;
+        this.questionFk = questionFk;
+        this.userFk = userFk;
         this.content = content;
-        this.title = title;
-        this.author = author;
+        this.creationDate = creationDate;
+        this.correct = correct;
     }
 
     @Override
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public int getQuestionFk() {
+        return questionFk;
+    }
+
+    @Override
+    public void setQuestionFk(int questionFk) {
+        this.questionFk = questionFk;
+    }
+
+    @Override
+    public String getUserFk() {
+        return userFk;
+    }
+
+    @Override
+    public void setUserFk(String userFk) {
+        this.userFk = userFk;
     }
 
     @Override
@@ -46,17 +78,27 @@ public class AnswerModel implements Answer {
     }
 
     @Override
-    public String getTitle() {
-        return title;
-    }
-
-    @Override
-    public String getAuthor() {
-        return author;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
     public Date getCreationDate() {
         return creationDate;
+    }
+
+    @Override
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    @Override
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    @Override
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 }

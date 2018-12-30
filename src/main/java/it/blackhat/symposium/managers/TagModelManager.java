@@ -1,35 +1,45 @@
 package it.blackhat.symposium.managers;
 
-import it.blackhat.symposium.models.Admin;
-import it.blackhat.symposium.models.AdminModel;
 import it.blackhat.symposium.models.Tag;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.Optional;
 
-import static it.blackhat.symposium.queries.AdminQuery.*;
-import static it.blackhat.symposium.queries.TagQuery.INSERT_TAG;
+import static it.blackhat.symposium.queries.TagQuery.*;
 
 
 /**
- *
- * @author Diego Avella
+ * Describes the Tag Manager implementation
+ * @author 2Deimos
  */
 public class TagModelManager extends ConnectionManager implements TagManager {
 
 
     @Override
-    public Optional<Tag> insertTag(Tag tag) throws SQLException {
+    public int insertTag(Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        run.update(INSERT_TAG, tag.getId(), tag.getTagName());
-        return Optional.empty();
+        int update = run.update(INSERT_TAG, tag.getId(), tag.getName());
+        return update;
+    }
+
+    @Override
+    public int updateTag(Tag tag) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(CHANGE_TAG, tag.getName(), tag.getId());
+        return update;
+    }
+
+    @Override
+    public int changeQuestionTag(int tagId, int questionId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(CHANGE_QUESTION_TAG, tagId, questionId);
+        return update;
     }
 
     @Override
     public int deleteTag(int tagId) throws SQLException {
-        return 0;
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(DELETE_TAG, tagId);
+        return update;
     }
 }
