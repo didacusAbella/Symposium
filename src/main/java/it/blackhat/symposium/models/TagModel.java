@@ -9,7 +9,7 @@ package it.blackhat.symposium.models;
 /**
  * Concrete implementation of Tag Interface
  *
- * @author Rodzinka
+ * @author Przemyslaw Szopian
  * @author 2Deimos
  */
 public class TagModel implements Tag {
@@ -27,7 +27,7 @@ public class TagModel implements Tag {
     /**
      * Create a new Tag with id and name.
      *
-     * @param id   id of the tag
+     * @param id id of the tag
      * @param name tag name of the tag
      */
     public TagModel(int id, String name) {
@@ -45,12 +45,10 @@ public class TagModel implements Tag {
         return name;
     }
 
-
     @Override
     public void setId(int id) {
         this.id = id;
     }
-
 
     @Override
     public void setName(String name) {
