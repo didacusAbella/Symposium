@@ -25,7 +25,7 @@ public interface Tag {
      *
      * @return the name of the tag
      */
-    String getTagName();
+    String getName();
     
     /**
      * Change the id of the question
@@ -40,7 +40,7 @@ public interface Tag {
      *
      *
      *
-     * @param tagName
+     * @param name name of the tag
      */
-    void setTagName(String tagName);
+    void setName(String name);
 }

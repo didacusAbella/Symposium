@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class AdminModel implements Admin {
 
-    private String username, password;
+    private String username, password, id;
 
     /**
      * Create an empty Admin
@@ -74,5 +74,17 @@ public class AdminModel implements Admin {
     @Override
     public String toString() {
         return "AdminModel{" + "username=" + username + ", password=" + password + '}';
+    }
+
+    @Override
+	public String getId() {
+    	return this.id;
+		
+    }
+
+    @Override
+	public void setId(String id) {
+    	this.id = id;
+		
     }
 }

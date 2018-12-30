@@ -7,16 +7,16 @@ import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import java.sql.SQLException;
 import java.util.Optional;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.digest.DigestUtils;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.mysql.cj.Session;
+
 
 /**
  * Describes the guest's signin action
@@ -54,7 +54,7 @@ public class SigninAction implements Action {
                 return "/error400.jsp";
             }
         } catch (SQLException e) {
-        	signinLog.error("problemi interni", e);
+            signinLog.error("problemi interni", e);
             return "/error500.jsp";
         }
     }

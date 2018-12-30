@@ -13,7 +13,7 @@ package it.blackhat.symposium.models;
  */
 public class TagModel implements Tag {
 
-    private String tagName;
+    private String name;
     private int id;
 
     /**
@@ -27,11 +27,11 @@ public class TagModel implements Tag {
      * Create a new Tag with id and name.
      *
      * @param id id of the tag
-     * @param tagName tag name of the tag
+     * @param name tag name of the tag
      */
-    public TagModel(int id, String tagName) {
+    public TagModel(int id, String name) {
         this.id = id;
-        this.tagName = tagName;
+        this.name = name;
     }
 
     @Override
@@ -40,8 +40,8 @@ public class TagModel implements Tag {
     }
 
     @Override
-    public String getTagName() {
-        return tagName;
+    public String getName() {
+        return name;
     }
     
     
@@ -52,7 +52,7 @@ public class TagModel implements Tag {
     
     
     @Override
-    public void setTagName(String tagName) {
-        this.tagName = tagName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

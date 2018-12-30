@@ -35,7 +35,7 @@ public interface Question {
      *
      * @return the last modify date
      */
-    Date getLastModDate();
+    Date getLastUpdate();
 
     /**
      * Retrieve the numSegn of the question
@@ -63,10 +63,10 @@ public interface Question {
     /**
      * Change the last modify date of the question
      *
-     * @param lastDate new last modify date
+     * @param lastUpdate new last modify date
      *
      */
-    void setLastModDate(Date lastDate);
+    void setLastUpdate(Date lastUpdate);
 
    
 }

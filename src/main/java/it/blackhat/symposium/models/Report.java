@@ -2,9 +2,9 @@ package it.blackhat.symposium.models;
 
 
 /**
- * Interface for represent Question resource
+ * Interface for represent Report resource
  *
- * @author Salvatore DelPiano
+ * @author SDelPiano
  */
 public interface Report {
 
@@ -31,7 +31,7 @@ public interface Report {
     String getReason();
 
     /**
-     * Retrieve the user author of the report
+     * Retrieve the user's email author of the report
      *
      * @return user
      */

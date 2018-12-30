@@ -9,8 +9,8 @@ import java.sql.Date;
  */
 public class QuestionModel implements Question {
 
-    private String id, content, title, author, tag;
-    Date creationDate, lastModDate;
+    private String id, content, title, author;
+    Date creationDate, lastUpdate;
     private int numSegn;
 
     /**
@@ -39,7 +39,6 @@ public class QuestionModel implements Question {
         this.numSegn = numSegn;
         this.title = title;
         this.author = author;
-        this.tag = tag;
     }
 
     @Override
@@ -58,7 +57,7 @@ public class QuestionModel implements Question {
     }
 
     @Override
-    public int getNumSegn() {
+    public int getNumReports() {
         return numSegn;
     }
 
@@ -71,10 +70,7 @@ public class QuestionModel implements Question {
         return author;
     }
 
-    @Override
-    public String getTag() {
-        return tag;
-    }
+  
 
     @Override
     public Date getCreationDate() {
@@ -82,17 +78,18 @@ public class QuestionModel implements Question {
     }
 
     @Override
-    public Date getLastModDate() {
-        return lastModDate;
+    public Date getLastUpdate() {
+        return lastUpdate;
     }
 
     @Override
-    public void setLastModDate(Date lastModDate) {
-        this.lastModDate = lastModDate;
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
-    @Override
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
+
+
+
+
+	
 }
