@@ -24,6 +24,12 @@ public interface Answer {
     String getContent();
     
     /**
+     * Retrive the author of the answer
+     * 
+     * @return the author
+     */
+    String getAuthor();
+    /**
      * Retrieve the creation date of the answer
      *
      * @return the creation date

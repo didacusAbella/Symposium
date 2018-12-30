@@ -30,16 +30,13 @@ public class QuestionModel implements Question {
      * @param numSegn numSegn of the question
      * @param title title of the question
      * @param author author of the question
-     * @param tag tag of the question
      */
-    public QuestionModel(String id, String content, int numSegn, String title, String author,
-            String tag) {
+    public QuestionModel(String id, String content, int numSegn, String title, String author) {
         this.id = id;
         this.content = content;
         this.numSegn = numSegn;
         this.title = title;
         this.author = author;
-        this.tag = tag;
     }
 
     @Override
@@ -58,7 +55,7 @@ public class QuestionModel implements Question {
     }
 
     @Override
-    public int getNumSegn() {
+    public int getNumReports() {
         return numSegn;
     }
 
@@ -69,11 +66,6 @@ public class QuestionModel implements Question {
     @Override
     public String getAuthor() {
         return author;
-    }
-
-    @Override
-    public String getTag() {
-        return tag;
     }
 
     @Override
@@ -89,10 +81,5 @@ public class QuestionModel implements Question {
     @Override
     public void setLastModDate(Date lastModDate) {
         this.lastModDate = lastModDate;
-    }
-
-    @Override
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 }

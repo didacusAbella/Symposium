@@ -25,13 +25,11 @@ public class AnswerModel implements Answer {
      *
      * @param id id of the answer
      * @param content content of the answer
-     * @param title title of the answer
      * @param author author of the answer
      */
     public AnswerModel(String id, String content, String title, String author) {
         this.id = id;
         this.content = content;
-        this.title = title;
         this.author = author;
     }
 
@@ -43,11 +41,6 @@ public class AnswerModel implements Answer {
     @Override
     public String getContent() {
         return content;
-    }
-
-    @Override
-    public String getTitle() {
-        return title;
     }
 
     @Override
