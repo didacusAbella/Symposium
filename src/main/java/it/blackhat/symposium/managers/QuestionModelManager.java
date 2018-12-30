@@ -1,3 +1,4 @@
+
 package it.blackhat.symposium.managers;
 
 import it.blackhat.symposium.models.Question;
@@ -8,9 +9,9 @@ import org.apache.commons.dbutils.QueryRunner;
 
 
 import static it.blackhat.symposium.queries.QuestionQuery.INSERT_QUESTION;
-import static it.blackhat.symposium.queries.QuestionQuery.INSERT_TAG;
+import static it.blackhat.symposium.queries.TagQuery.INSERT_TAG;
 import static it.blackhat.symposium.queries.QuestionQuery.DELETE_QUESTION;
-import static it.blackhat.symposium.queries.QuestionQuery.CHANGE_TAG;
+import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
 import static it.blackhat.symposium.queries.QuestionQuery.QUESTION_REPORT;
 
 
