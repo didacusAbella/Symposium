@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Describes the delete question action by user
+ * Describes the delete question action by user and admin
  * @author 2Deimos
  */
 public class DeleteQuestionAction extends CompositeAction {
