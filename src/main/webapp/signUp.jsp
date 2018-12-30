@@ -20,9 +20,9 @@
          <span class="form-error"> Inserisci un nome utente valido</span>
          <input type="text" placeholder="Cognome" name="lastname" required/>
          <span class="form-error"> Inserisci un nome utente valido</span>
-         <input type="password" placeholder="Password" required/>
+         <input type="password" placeholder="Password" name="password" required/>
          <span class="form-error"> Inserisci una password valida</span>
-        <input type="email" placeholder="Email Ateneo" required />
+        <input type="email" placeholder="Email Ateneo" name="email" required />
         <span class="form-error"> Inserisci una mail valida</span>
         <input type="email" placeholder="Conferma Email Ateneo" required/>
          <span class="form-error"> Inserisci una mail valida</span>
