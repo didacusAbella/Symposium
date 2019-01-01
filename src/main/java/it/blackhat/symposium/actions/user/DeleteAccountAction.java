@@ -5,8 +5,6 @@ import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import org.apache.commons.codec.digest.DigestUtils;
-
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
@@ -15,7 +13,7 @@ import java.util.Optional;
 /**
  * Deletes the account of the user
  *
- * @author Parrilli Carminantonio
+ * @author killer
  */
 public class DeleteAccountAction implements Action {
     private UserManager user;
