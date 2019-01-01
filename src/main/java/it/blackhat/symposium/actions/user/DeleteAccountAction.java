@@ -6,7 +6,6 @@ import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import java.sql.SQLException;
 import java.util.Optional;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -17,7 +16,6 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author killer
  *
  */
-@WebServlet("/DeleteAccount")
 public class DeleteAccountAction implements Action {
     private UserManager user;
 

@@ -4,22 +4,18 @@ import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
-import it.blackhat.symposium.models.UserModel;
 
 import java.sql.SQLException;
 import java.util.Optional;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * 
- * @author Parrilli Carminantonio 
+ * @author killer
  * Find a user and edits it's database values
- *
+ * 
  */
-@WebServlet("/EditAccount")
 public class EditAccountAction implements Action {
     private UserManager user;
 
