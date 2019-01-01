@@ -37,28 +37,8 @@ public class SignupAction implements Action {
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
         try {
-            boolean flag;
-            if (req.getParameter("typeGrad").equals("triennale")) {
-                flag = false;
-            } else {
-                flag = true;
-            }
-           
+
             UserModel newUser = new UserModel();
-            /*
-             * 
-             
-            UserModel newUser = new UserModel(req.getParameter("username"), req.getParameter("firstName"),
-                    req.getParameter("lastName"), req.getParameter("password")// Password too long for encription???
-                    // java.sql.SQLException: Data truncation: Data too long for column 'password'
-                    // at row 1 Query: INSERT INTO user (username, firstname, lastname, email,
-                    // password, typegrad) VALUES( ? , ? , ? , ? , ? , ?) Parameters: [dsa, dsa,
-                    // dsa, dsa@gmail.com,
-                    // de04d58dc5ccc4b9671c3627fb8d626fe4a15810bc1fe3e724feea761965fb71, false]
-                    , req.getParameter("email"), flag, null);
-            
-            System.out.print(newUser.getUsername());
-            */
             BeanUtils.populate(newUser, req.getParameterMap());
             Optional<User> found = user.findUser(newUser.getEmail(), DigestUtils.sha256Hex(newUser.getPassword()));
 
@@ -74,13 +54,6 @@ public class SignupAction implements Action {
         } catch (SQLException e) {
             signinLog.error("problemi interni SQL", e);
             return "/error500.jsp";
-            /*
-             * } catch (IllegalAccessException e) {
-             * signinLog.error("problemi interni IllegalAcces", e); return "/error500.jsp";
-             * } catch (InvocationTargetException e) {
-             * signinLog.error("problemi interni Target", e); return "/error500.jsp";
-             */
-
         } catch (IllegalAccessException e) {
             signinLog.error("problemi interni Accesso", e);
             return "/error500.jsp";
