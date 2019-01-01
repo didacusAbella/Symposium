@@ -4,30 +4,30 @@ import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
-import java.sql.SQLException;
-import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.Optional;
+
 /**
- * Deletes the account of the user if manages to find it
- * 
- * @author killer
+ * Deletes the account of the user
  *
+ * @author Parrilli Carminantonio
  */
 public class DeleteAccountAction implements Action {
     private UserManager user;
 
     /**
-     * Find a user in the database and deletes it and if can't be found throws an
-     * error
+     * Initialize an UserModelManager
      */
-
     public DeleteAccountAction() {
         user = new UserModelManager();
     }
 
+    @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
