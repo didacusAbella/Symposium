@@ -57,7 +57,14 @@ public interface User {
      * @return the date of user's ban ending
      */
     Date getBanLastDate();
-
+    
+    /**
+     * Change the  username of the user
+     * 
+     * @param userName the new username
+     */
+    void setUsername(String userName); 
+    
     /**
      * Change the first name of the user
      *
