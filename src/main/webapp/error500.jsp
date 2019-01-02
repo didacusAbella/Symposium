@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<sy:layout title="Symposium-Error404">
+<sy:layout title="Symposium-Error500">
     <jsp:body>
         <div class="grid-x align-center callout">
         <div class="grid small-12 medium-8 large-8 callout alert">
