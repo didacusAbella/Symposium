@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -22,14 +23,14 @@ import it.blackhat.symposium.models.UserModel;
  *
  */
 
-public class SignupAction implements Action {
+public class SignUpAction implements Action {
     private UserManager user;
-    private Log signupLog = LogFactory.getLog(SigninAction.class);
+    private Log signupLog = LogFactory.getLog(SignInAction.class);
 
     /**
      * Add another user in the database if not present
      */
-    public SignupAction() {
+    public SignUpAction() {
         user = new UserModelManager();
     }
 
@@ -46,6 +47,7 @@ public class SignupAction implements Action {
                 req.setAttribute("emailAlreadyExists", "L'email è gia in uso");
                 return "/signUp.jsp";
             } else {
+                newUser.setPassword(DigestUtils.sha256Hex(req.getParameter("password")));
                 user.createUser(newUser);
                 req.getSession(true);
                 req.setAttribute("user", found);

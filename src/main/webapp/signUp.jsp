@@ -5,7 +5,7 @@
 
 <sy:layout title="Symposium-Iscrizione">
 	<jsp:body>
-    <form action="GuestController?action=signup" method="post"
+    <form action="GuestController?action=signUp" method="post"
 			data-abide novalidate>
       <div data-abide-error class="alert callout" style="display: none;">
     <p>
