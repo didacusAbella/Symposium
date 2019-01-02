@@ -23,8 +23,10 @@
                         Utenti Iscritti:
                     </dt>
                     <dd>un numero</dd>
-                    <dt><i class="fi-prohibited"></i>
-                        Utenti Bannati</dt>
+                    <dt>
+                        <i class="fi-prohibited"></i>
+                        Utenti Bannati
+                    </dt>
                     <dd>un numero</dd>
                     <dt>
                         <i class="fi-pricetag-multiple"></i>
@@ -33,7 +35,8 @@
                     <dd>Lista Tag</dd>
                     <dt>
                         <i class="fi-alert"></i>
-                        Numero Segnalazioni</dt>
+                        Numero Segnalazioni
+                    </dt>
                     <dd>Un numero</dd>
                 </dl>
             </div>

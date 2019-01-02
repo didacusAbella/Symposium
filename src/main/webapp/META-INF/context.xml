@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/Symposium">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxIdle="9" maxTotal="18" maxWaitMillis="10000" name="jdbc/SymposiumDB" password="P@ssw0rd" type="javax.sql.DataSource" url="jdbc:mysql://den1.mysql1.gear.host:3306/symposiumdb1" username="symposiumdb1"/>
+  <Resource auth="Container" 
+            driverClassName="com.mysql.cj.jdbc.Driver" 
+            maxIdle="9" 
+            maxTotal="18" maxWaitMillis="10000" name="jdbc/SymposiumDB" 
+            password="P@ssw0rd" type="javax.sql.DataSource" 
+            url="jdbc:mysql://den1.mysql1.gear.host:3306/symposiumdb1" 
+            username="symposiumdb1"/>
 </Context>
