@@ -23,10 +23,10 @@ public class StatsModel implements Stats {
     /**
      * Create a new Stats with id, numSigned, totalReports and year
      *
-     * @param id
-     * @param numSigned
-     * @param totalReports
-     * @param year
+     * @param id            the stat's id
+     * @param numSigned     the stat's numSigned
+     * @param totalReports  the stat's total reports
+     * @param year          the stat's year
      */
     public StatsModel(int id, int numSigned, int totalReports, int year) {
         this.id = id;

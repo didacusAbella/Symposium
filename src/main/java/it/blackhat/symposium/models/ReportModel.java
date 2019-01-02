@@ -26,10 +26,10 @@ public class ReportModel implements Report {
     /**
      * Create a new Report with id, category, reason and user
      *
-     * @param id
-     * @param category
-     * @param reason
-     * @param user
+     * @param id        the report's id
+     * @param category  the report's category
+     * @param reason    the report's reason
+     * @param user      the report's user
      */
     public ReportModel(int id, String category, String reason, String user) {
         this.id = id;

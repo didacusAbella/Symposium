@@ -6,32 +6,32 @@
 <sy:layout title="Symposium-Modifica Profilo">
     <jsp:body>
     
-    <form action="EditAccount" method="post"data-abide novalidate>
+    <form action="GuestController?action=editprofile" method="post"data-abide novalidate>
     
     <div data-abide-error class="alert callout" style="display: none;">
     <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
    
   
   
-   <label>Nome:<%--getName(Session)--%>
-   <input type="text" required pattern="\w+{4,20}" id="name" name="firstName">
-    <span class="form-error"> Inserisci un nome valido</span> <%--value=getNomeFromDatabase()--%>
+   <label>Nome:
+   <input type="firstname" placeholder="Name" id="name" name="name" value="${found.firstName}"required>
+    <span class="form-error"> Inserisci un nome valido</span>
    </label>
    
    <label>
    Cognome:<%--getSurname(Session)--%>
-   <input type="text" required pattern="\w+{4,20}" id="surname" name="lastName" ><%--value=getCognomeFromDatabase()--%>
+   <input type="lastname" placeholder="LastName" id="lastname" name="lastname" value="${found.lastName}" required>
    <span class="form-error">Inserisci un cognome valido</span>
    </label>
    
    <label>
    Password:<%--getPassword(Session)--%>
-   <input type="password" pattern="{6,20}" required id="password" name="password"><%--value=getPasswordFromDatabase()--%>
+   <input type="password" placeholder="Password" id="password" name="password" value="${found.password}" required>
    <span class="form-error"> Inserisci una password valida</span>
    </label>
    <label>
-   Username:<%--getUsername(Session)--%>
-   <input type="text"  required id="username" name="username" pattern="{4,20}"><%--value=getUsernameFromDatabase()--%>
+   Username:
+   <input type="username" placeholder="Username" id="username" name="username" value="${found.username}"  required><
    <span class="form-error">Inserisci un username valido </span>
     </label>
    Corso di laurea:
