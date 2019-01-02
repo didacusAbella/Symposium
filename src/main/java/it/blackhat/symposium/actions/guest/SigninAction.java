@@ -41,7 +41,7 @@ public class SigninAction implements Action {
             if (found.isPresent()) {
                 HttpSession session = req.getSession();
 
-                session.setAttribute("user", found);
+                session.setAttribute("user", found.get());
                 return "/index.jsp";
             } else {
                 return "/error400.jsp";
