@@ -5,7 +5,8 @@ import java.sql.Date;
 /**
  * Concrete Implementation of User Interface
  *
- * @author Giuseppe Madonna
+ * @author GMadness97
+ * @author 2Deimos
  */
 public class UserModel implements User {
 
@@ -29,34 +30,13 @@ public class UserModel implements User {
      * @param password  password of the user
      * @param email     e-mail of the user
      */
-    public UserModel(String username, String firstName, String lastName, String password, String email) {
+    public UserModel(String username, String firstName, String lastName,
+                     String password, String email) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-    }
-
-    /**
-     * @param username
-     * @param firstName
-     * @param lastName
-     * @param password
-     * @param email
-     * @param typeGrad
-     * @param banLastDate
-     */
-    public UserModel(String username, String firstName, String lastName, String password, String email,
-                     boolean typeGrad, Date banLastDate) {
-
-        super();
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.email = email;
-        this.typeGrad = typeGrad;
-        this.banLastDate = banLastDate;
     }
 
     @Override

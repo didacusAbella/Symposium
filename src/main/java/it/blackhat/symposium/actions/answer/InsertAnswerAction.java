@@ -18,8 +18,9 @@ import java.sql.SQLException;
 
 /**
  * Describes the insert answer action by the user
- * 
+ *
  * @author 2Deimos
+ * @author Gozzetto
  */
 public class InsertAnswerAction implements Action {
     private final AnswerManager answerManager;
@@ -41,13 +42,13 @@ public class InsertAnswerAction implements Action {
 
             return "/index.jsp";
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            addAnswerLog.error("Accesso illegale", e);
             return "/error500.jsp";
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            addAnswerLog.error("Errore di invocazione metodo", e);
             return "/error500.jsp";
         } catch (SQLException e) {
-            e.printStackTrace();
+            addAnswerLog.error("Errore interno", e);
         }
         return "/error500.jsp";
     }
