@@ -14,9 +14,9 @@ public class GuestActionFactory implements ActionFactory {
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
-            case "signin":
+            case "signIn":
                 return new SigninAction();
-            case "signup":
+            case "signUp":
                 return new SignupAction();
             default:
                 throw new InvalidActionException("Azione non supportata");

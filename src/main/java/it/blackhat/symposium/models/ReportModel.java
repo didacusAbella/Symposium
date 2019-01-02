@@ -6,6 +6,9 @@
 
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Concrete implementation of Reason interface
  *
@@ -13,8 +16,18 @@ package it.blackhat.symposium.models;
  */
 public class ReportModel implements Report {
 
+    @NotNull
     private int id;
-    private String category, reason, user;
+
+    @NotNull
+    private String category;
+
+    @NotNull
+    @Size(max = 250)
+    private String reason;
+
+    @NotNull
+    private String userFk;
 
     /**
      * Create an empty ReportModel
@@ -26,16 +39,16 @@ public class ReportModel implements Report {
     /**
      * Create a new Report with id, category, reason and user
      *
-     * @param id        the report's id
-     * @param category  the report's category
-     * @param reason    the report's reason
-     * @param user      the report's user
+     * @param id       the report's id
+     * @param category the report's category
+     * @param reason   the report's reason
+     * @param userFk     the user foreign key
      */
-    public ReportModel(int id, String category, String reason, String user) {
+    public ReportModel(int id, String category, String reason, String userFk) {
         this.id = id;
         this.category = category;
         this.reason = reason;
-        this.user = user;
+        this.userFk = userFk;
     }
 
     @Override
@@ -69,12 +82,12 @@ public class ReportModel implements Report {
     }
 
     @Override
-    public String getUser() {
-        return user;
+    public String getUserFk() {
+        return userFk;
     }
 
     @Override
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserFk(String userFk) {
+        this.userFk = userFk;
     }
 }

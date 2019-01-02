@@ -1,5 +1,7 @@
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 /**
@@ -10,8 +12,15 @@ import java.util.Objects;
  */
 public class AdminModel implements Admin {
 
+    @NotNull
     private int id;
-    private String username, password;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String username;
+
+    @NotNull
+    private String password;
 
     /**
      * Create an empty Admin

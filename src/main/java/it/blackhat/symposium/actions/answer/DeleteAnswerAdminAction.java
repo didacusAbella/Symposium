@@ -1,8 +1,7 @@
-/*package it.blackhat.symposium.actions.answer;
+package it.blackhat.symposium.actions.answer;
 
-/*
+
 import it.blackhat.symposium.actions.Action;
-import it.blackhat.symposium.actions.question.DeleteAnswerAction;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
 import org.apache.commons.logging.Log;
@@ -17,33 +16,34 @@ import java.sql.SQLException;
  *
  * @author Angelo Maffettone
  */
-/*public class DeleteAnswerAction implements Action {
+public class DeleteAnswerAdminAction implements Action {
     private final AnswerManager answerManager;
-    private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAction.class);
+    private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAdminAction.class);
 
 
     /**
      * Initializes a Answer Manager
      */
-    /*public DeleteAnswerActionAction() {
+    public DeleteAnswerAdminAction() {
         answerManager = new AnswerModelManager();
     }
 
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        String idAnswer = req.getParameter("id");
-        int idAnswerInt = Integer.parseInt(idAnswer);
+        try {
+            String idAnswer = req.getParameter("id");
+            int idAnswerInt = Integer.parseInt(idAnswer);
 
 
-        answerManager.deleteAnswer(idAnswerInt);
+            answerManager.removeAnswer(idAnswerInt);
 
-        return "/dashboard.jsp";
+            return "/dashboard.jsp";
 
-    } catch (
-    SQLException e) {
-        deleteAnswerLog.error("Errore interno", e);
-        return "/error500.jsp";
+        } catch (SQLException e) {
+            deleteAnswerLog.error("Errore interno", e);
+            return "/error500.jsp";
+        }
+
     }
-
-}*/
+}
