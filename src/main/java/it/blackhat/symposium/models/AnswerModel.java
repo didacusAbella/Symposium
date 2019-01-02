@@ -72,6 +72,7 @@ public class AnswerModel implements Answer {
         this.userFk = userFk;
     }
 
+    @Override
     public String getContent() {
         return content;
     }

@@ -21,32 +21,18 @@ public interface Stats {
     int getId();
 
     /**
-     * Retrieve the signed number of the stats
-     *
-     * @return signed number
-     */
-    int getNumSigned();
-
-    /**
-     * Retrieve the total reports of the stats
-     *
-     * @return total reports
-     */
-    int getTotalReports();
-
-    /**
-     * Retrieve the year of the stats
-     *
-     * @return year
-     */
-    int getYear();
-
-    /**
      * Change the id of the stats
      *
      * @param id new id of the stats
      */
     void setId(int id);
+
+    /**
+     * Retrieve the signed number of the stats
+     *
+     * @return signed number
+     */
+    int getNumSigned();
 
     /**
      * Change the signed number of the stats
@@ -56,11 +42,25 @@ public interface Stats {
     void setNumSigned(int numSigned);
 
     /**
+     * Retrieve the total reports of the stats
+     *
+     * @return total reports
+     */
+    int getTotalReports();
+
+    /**
      * Change the total reports of the stats
      *
      * @param totalReports new total reports of the stats
      */
     void setTotalReports(int totalReports);
+
+    /**
+     * Retrieve the year of the stats
+     *
+     * @return year
+     */
+    int getYear();
 
     /**
      * Change the year of the stats

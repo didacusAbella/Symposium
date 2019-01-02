@@ -25,7 +25,7 @@ public class ReportModel implements Report {
 
     /**
      * Create a new Report with id, category, reason and user
-     * 
+     *
      * @param id
      * @param category
      * @param reason
@@ -44,23 +44,13 @@ public class ReportModel implements Report {
     }
 
     @Override
-    public String getCategory() {
-        return category;
-    }
-
-    @Override
-    public String getReason() {
-        return reason;
-    }
-
-    @Override
-    public String getUser() {
-        return user;
-    }
-
-    @Override
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String getCategory() {
+        return category;
     }
 
     @Override
@@ -69,8 +59,18 @@ public class ReportModel implements Report {
     }
 
     @Override
+    public String getReason() {
+        return reason;
+    }
+
+    @Override
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    @Override
+    public String getUser() {
+        return user;
     }
 
     @Override

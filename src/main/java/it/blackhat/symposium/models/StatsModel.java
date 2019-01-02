@@ -7,7 +7,6 @@
 package it.blackhat.symposium.models;
 
 /**
- *
  * @author Przemyslaw Szopian
  */
 public class StatsModel implements Stats {
@@ -42,23 +41,13 @@ public class StatsModel implements Stats {
     }
 
     @Override
-    public int getNumSigned() {
-        return numSigned;
-    }
-
-    @Override
-    public int getTotalReports() {
-        return totalReports;
-    }
-
-    @Override
-    public int getYear() {
-        return year;
-    }
-
-    @Override
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public int getNumSigned() {
+        return numSigned;
     }
 
     @Override
@@ -67,8 +56,18 @@ public class StatsModel implements Stats {
     }
 
     @Override
+    public int getTotalReports() {
+        return totalReports;
+    }
+
+    @Override
     public void setTotalReports(int totalReports) {
         this.totalReports = totalReports;
+    }
+
+    @Override
+    public int getYear() {
+        return year;
     }
 
     @Override

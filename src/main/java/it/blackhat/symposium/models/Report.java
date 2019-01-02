@@ -14,28 +14,6 @@ public interface Report {
      * @return the id
      */
     int getId();
-    
-
-    /**
-     * Retrieve the category of the report
-     *
-     * @return the category
-     */
-    String getCategory();
-
-    /**
-     * Retrieve the reason of the report
-     *
-     * @return the reason
-     */
-    String getReason();
-
-    /**
-     * Retrieve the user author of the report
-     *
-     * @return user
-     */
-    String getUser();
 
     /**
      * Change the id of the report
@@ -45,6 +23,13 @@ public interface Report {
     void setId(int id);
 
     /**
+     * Retrieve the category of the report
+     *
+     * @return the category
+     */
+    String getCategory();
+
+    /**
      * Change the category of the report
      *
      * @param category new category of the report
@@ -52,11 +37,25 @@ public interface Report {
     void setCategory(String category);
 
     /**
+     * Retrieve the reason of the report
+     *
+     * @return the reason
+     */
+    String getReason();
+
+    /**
      * Change the reason of the report
      *
      * @param reason new reason of the report
      */
     void setReason(String reason);
+
+    /**
+     * Retrieve the user author of the report
+     *
+     * @return user
+     */
+    String getUser();
 
     /**
      * Change the user of the report
