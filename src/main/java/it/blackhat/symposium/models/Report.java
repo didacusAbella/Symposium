@@ -2,7 +2,7 @@ package it.blackhat.symposium.models;
 
 
 /**
- * Interface for represent Question resource
+ * Interface for represent Report resource
  *
  * @author Salvatore DelPiano
  */
@@ -13,8 +13,14 @@ public interface Report {
      *
      * @return the id
      */
-    String getId();
+    int getId();
 
+    /**
+     * Change the id of the report
+     *
+     * @param id new id of the reason
+     */
+    void setId(int id);
 
     /**
      * Retrieve the category of the report
@@ -24,11 +30,25 @@ public interface Report {
     String getCategory();
 
     /**
+     * Change the category of the report
+     *
+     * @param category new category of the report
+     */
+    void setCategory(String category);
+
+    /**
      * Retrieve the reason of the report
      *
      * @return the reason
      */
     String getReason();
+
+    /**
+     * Change the reason of the report
+     *
+     * @param reason new reason of the report
+     */
+    void setReason(String reason);
 
     /**
      * Retrieve the user author of the report
@@ -37,5 +57,10 @@ public interface Report {
      */
     String getUser();
 
-
+    /**
+     * Change the user of the report
+     *
+     * @param user new user of the report
+     */
+    void setUser(String user);
 }

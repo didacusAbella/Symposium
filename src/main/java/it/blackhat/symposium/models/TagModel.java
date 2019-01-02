@@ -9,7 +9,7 @@ package it.blackhat.symposium.models;
 /**
  * Concrete implementation of Tag Interface
  *
- * @author Rodzinka
+ * @author Przemyslaw Szopian
  * @author 2Deimos
  */
 public class TagModel implements Tag {
