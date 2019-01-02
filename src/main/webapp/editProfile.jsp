@@ -6,7 +6,7 @@
 <sy:layout title="Symposium-Modifica Profilo">
     <jsp:body>
     
-    <form action="EditAccount" method="post"data-abide novalidate>
+    <form action="EditAccountAction" method="post"data-abide novalidate>
     
     <div data-abide-error class="alert callout" style="display: none;">
     <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
