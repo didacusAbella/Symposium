@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class GuestController
  */
-@WebServlet("/GuestController")
+@WebServlet(name = "GuestController", urlPatterns = {"/GuestController"})
 public class GuestController extends DispatcherController {
     private static final long serialVersionUID = 1L;
     private GuestActionFactory gaf;

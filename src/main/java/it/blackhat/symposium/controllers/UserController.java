@@ -4,18 +4,19 @@ import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.user.UserActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
-import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * The class handles requests for actions concerning the user
  * @author 2Deimos
  */
 
-@WebServlet(name = "/UserController", 
+@WebServlet(name = "UserController",
        urlPatterns = {"/user/UserController", "/admin/UserController"})
 public class UserController extends DispatcherController {
 
