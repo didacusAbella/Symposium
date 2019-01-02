@@ -5,21 +5,19 @@ import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import it.blackhat.symposium.models.UserModel;
-
-import java.lang.reflect.InvocationTargetException;
-import java.sql.SQLException;
-import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+import java.util.Optional;
+
 /**
  * @author killer, 2Deimos Describes the guest's signup action
- *
  */
 
 public class SignupAction implements Action {
@@ -40,9 +38,9 @@ public class SignupAction implements Action {
 
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
-            Optional<User> found = user.findUser(newUser.getEmail(), 
+            Optional<User> found = user.findUser(newUser.getEmail(),
                     DigestUtils.sha256Hex(newUser.getPassword()));
-          
+
             if (found.isPresent()) {
                 req.setAttribute("email", "Already Exist");
                 return "/signUp.jsp";

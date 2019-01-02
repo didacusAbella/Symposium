@@ -20,6 +20,9 @@ public class ChooseBestAnswerAction implements Action {
     private final AnswerManager answerManager;
     private final Log chooseBestAnswerLog = LogFactory.getLog(ChooseBestAnswerAction.class);
 
+    /**
+     * Initialize a new Answer Manager
+     */
     public ChooseBestAnswerAction() {
         answerManager = new AnswerModelManager();
     }
