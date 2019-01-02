@@ -6,12 +6,23 @@
 
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Przemyslaw Szopian
  */
 public class StatsModel implements Stats {
 
-    private int id, numSigned, totalReports, year;
+    @NotNull
+    private int id;
+
+    private int numSigned;
+
+    private int totalReports;
+
+    private int year;
+
+
 
     /**
      * Create an empty StatsModel

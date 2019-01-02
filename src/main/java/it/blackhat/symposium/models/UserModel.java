@@ -1,5 +1,8 @@
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
 /**
@@ -10,8 +13,28 @@ import java.sql.Date;
  */
 public class UserModel implements User {
 
-    Date banLastDate;
-    private String username, firstName, lastName, password, email;
+
+    private Date banLastDate;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String username;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String firstName;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String lastName;
+
+    @NotNull
+    private String password;
+
+    @NotNull
+    @Pattern(regexp = "[a-z]{1}\\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it")
+    private String email;
+
     private boolean typeGrad;
 
     /**

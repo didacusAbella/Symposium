@@ -55,12 +55,12 @@ public interface Report {
      *
      * @return user
      */
-    String getUser();
+    String getUserFk();
 
     /**
      * Change the user of the report
      *
-     * @param user new user of the report
+     * @param userFk new user of the report
      */
-    void setUser(String user);
+    void setUserFk(String userFk);
 }
