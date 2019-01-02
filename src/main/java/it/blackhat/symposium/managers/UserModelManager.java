@@ -16,7 +16,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     public int editProfile(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int update = run.update(EDIT_PROFILE, user.getUsername(), user.getFirstName(),
-                user.getLastName(), user.getPassword(), user.getTypeGrad());
+                user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
         return update;
     }
 

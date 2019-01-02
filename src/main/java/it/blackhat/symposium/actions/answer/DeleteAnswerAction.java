@@ -1,8 +1,7 @@
-/*package it.blackhat.symposium.actions.answer;
+package it.blackhat.symposium.actions.answer;
 
-/*
+
 import it.blackhat.symposium.actions.Action;
-import it.blackhat.symposium.actions.question.DeleteAnswerAction;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
 import org.apache.commons.logging.Log;
@@ -15,35 +14,36 @@ import java.sql.SQLException;
 /**
  * Describes the delete answer action by the user
  *
- * @author Angelo Maffettone
+ * @author Gozzetto
+ * @author 2Deimos
  */
-/*public class DeleteAnswerAction implements Action {
+public class DeleteAnswerAction implements Action {
     private final AnswerManager answerManager;
     private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAction.class);
 
 
     /**
-     * Initializes a Answer Manager
+     * Initializes an Answer Manager
      */
-   /* public DeleteAnswerActionAction() {
+    public DeleteAnswerAction() {
         answerManager = new AnswerModelManager();
     }
 
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        String idAnswer = req.getParameter("id");
-        int idAnswerInt = Integer.parseInt(idAnswer);
+        try {
+            String idAnswer = req.getParameter("id");
+            int idAnswerInt = Integer.parseInt(idAnswer);
 
 
-        answerManager.deleteAnswer(idAnswerInt);
+            answerManager.removeAnswer(idAnswerInt);
 
-        return "/index.jsp";
+            return "/index.jsp";
 
-    } catch (
-    SQLException e) {
-        deleteAnswerLog.error("Errore interno", e);
-        return "/error500.jsp";
+        } catch (SQLException e) {
+            deleteAnswerLog.error("Errore interno", e);
+            return "/error500.jsp";
+        }
     }
-
-}*/
+}

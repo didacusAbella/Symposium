@@ -1,5 +1,7 @@
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
 /**
@@ -10,9 +12,22 @@ import java.sql.Date;
  */
 public class AnswerModel implements Answer {
 
-    private int id, questionFk;
-    private String userFk, content;
+    @NotNull
+    private int id;
+
+    @NotNull
+    private int questionFk;
+
+    @NotNull
+    private String userFk;
+
+    @NotNull
+    @Size(min = 1, max = 4096)
+    private String content;
+
+    @NotNull
     private Date creationDate;
+
     private boolean correct;
 
     /**

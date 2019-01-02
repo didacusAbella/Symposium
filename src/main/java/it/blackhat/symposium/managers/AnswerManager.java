@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * This class describes the method signatures of Answer Manager
  *
- * @author Angelo Maffettone
+ * @author Gozzetto
  */
 public interface AnswerManager {
 

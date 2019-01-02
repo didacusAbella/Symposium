@@ -1,16 +1,40 @@
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
 /**
  * Concrete Implementation of User Interface
  *
- * @author Giuseppe Madonna
+ * @author GMadness97
+ * @author 2Deimos
  */
 public class UserModel implements User {
 
-    Date banLastDate;
-    private String username, firstName, lastName, password, email;
+
+    private Date banLastDate;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String username;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String firstName;
+
+    @NotNull
+    @Size(min = 4, max = 20)
+    private String lastName;
+
+    @NotNull
+    private String password;
+
+    @NotNull
+    @Pattern(regexp = "[a-z]{1}\\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it")
+    private String email;
+
     private boolean typeGrad;
 
     /**
@@ -29,34 +53,13 @@ public class UserModel implements User {
      * @param password  password of the user
      * @param email     e-mail of the user
      */
-    public UserModel(String username, String firstName, String lastName, String password, String email) {
+    public UserModel(String username, String firstName, String lastName,
+                     String password, String email) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-    }
-
-    /**
-     * @param username
-     * @param firstName
-     * @param lastName
-     * @param password
-     * @param email
-     * @param typeGrad
-     * @param banLastDate
-     */
-    public UserModel(String username, String firstName, String lastName, String password, String email,
-                     boolean typeGrad, Date banLastDate) {
-
-        super();
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.email = email;
-        this.typeGrad = typeGrad;
-        this.banLastDate = banLastDate;
     }
 
     @Override
