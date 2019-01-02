@@ -5,8 +5,6 @@ import it.blackhat.symposium.managers.AdminManager;
 import it.blackhat.symposium.managers.AdminModelManager;
 import it.blackhat.symposium.models.Admin;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -15,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Describes the admin sign in action
- * 
+ *
  * @author didacus,Parrilli Carminantonio
  */
 public class SigninAdminAction implements Action {

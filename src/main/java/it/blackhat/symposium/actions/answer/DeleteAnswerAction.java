@@ -23,7 +23,7 @@ public class DeleteAnswerAction implements Action {
 
 
     /**
-     * Initializes a Answer Manager
+     * Initializes an Answer Manager
      */
     public DeleteAnswerAction() {
         answerManager = new AnswerModelManager();
