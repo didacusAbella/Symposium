@@ -27,7 +27,7 @@ public class TagModel implements Tag {
     /**
      * Create a new Tag with id and name.
      *
-     * @param id id of the tag
+     * @param id   id of the tag
      * @param name tag name of the tag
      */
     public TagModel(int id, String name) {
@@ -41,13 +41,13 @@ public class TagModel implements Tag {
     }
 
     @Override
-    public String getName() {
-        return name;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
-    public void setId(int id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
     @Override

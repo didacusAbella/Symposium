@@ -16,20 +16,6 @@ public interface Admin {
     int getId();
 
     /**
-     * Retrieve the username of the admin
-     *
-     * @return the username
-     */
-    String getUsername();
-
-    /**
-     * Retrieve the password of the admin
-     *
-     * @return the password
-     */
-    String getPassword();
-
-    /**
      * Change the id of the admin
      *
      * @param id the new id
@@ -37,11 +23,25 @@ public interface Admin {
     void setId(int id);
 
     /**
+     * Retrieve the username of the admin
+     *
+     * @return the username
+     */
+    String getUsername();
+
+    /**
      * Change the username of the admin
      *
      * @param username the new username
      */
     void setUsername(String username);
+
+    /**
+     * Retrieve the password of the admin
+     *
+     * @return the password
+     */
+    String getPassword();
 
     /**
      * Change the password of the admin

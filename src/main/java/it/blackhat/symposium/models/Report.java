@@ -39,29 +39,29 @@ public interface Report {
 
     /**
      * Change the id of the report
-     * 
+     *
      * @param id new id of the reason
      */
     void setId(int id);
-    
+
     /**
      * Change the category of the report
-     * 
+     *
      * @param category new category of the report
      */
     void setCategory(String category);
-    
+
     /**
      * Change the reason of the report
-     * 
+     *
      * @param reason new reason of the report
      */
     void setReason(String reason);
-    
+
     /**
      * Change the user of the report
-     * 
+     *
      * @param user new user of the report
      */
-    void setUser(String user);  
+    void setUser(String user);
 }
