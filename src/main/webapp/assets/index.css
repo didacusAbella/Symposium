@@ -3,4 +3,18 @@
     Author     : didacus
     Inserite Qui tutte le regole di sovrascrittura delle regole CSS di Foundation se Necessarie
 */
+footer {
+	width:100%;
+	position: fixed;
+	height: 60px;
+	bottom: 0;
+}
 
+footer i {
+	font-size: 32px;
+	
+}
+
+main {
+	margin-bottom: 60px;
+}
