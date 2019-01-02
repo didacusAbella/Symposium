@@ -7,6 +7,7 @@ import java.util.Calendar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.AdminModelManager;
 
 /**
@@ -15,7 +16,7 @@ import it.blackhat.symposium.managers.AdminModelManager;
  * @author Parrilli Carminantonio
  *
  */
-public class BanAction {
+public class BanAction implements Action {
     private Date banForever;
     private Date endBanDate;
     private AdminModelManager adminModel;
