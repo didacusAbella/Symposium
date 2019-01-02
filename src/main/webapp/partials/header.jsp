@@ -27,11 +27,11 @@
             <li><button type="button" class="button">Cerca</button></li>
 
             <c:choose>
-                <c:when test="${user!=null}">
+                <c:when test="${not empty user}">
                     <li>
                         <a href="#">${user.username}</a>
                         <ul class="menu vertical">
-                            <li><a href="profile.jsp" class="primary button">Profilo</li>
+                            <li><a href="profile.jsp" class="primary button">Profilo</a></li>
                             <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
                             <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
                             <li><a href="newQuestion.jsp" class="success button">Poni una domanda!</a></li>
