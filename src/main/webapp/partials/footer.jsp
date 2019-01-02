@@ -3,7 +3,7 @@
 @version 1.0
 @date 18/12/2018
  -->
-<div class="top-bar">
+<footer class="top-bar">
 	<div class="top-bar-left">
 		<a href="faq.jsp" class="button">FAQ</a>
 
@@ -14,4 +14,4 @@
 		<a href="Tags.jsp"><i class="fi-pricetag-multiple"></i></a>
 	</div>
 
-</div>
+</footer>

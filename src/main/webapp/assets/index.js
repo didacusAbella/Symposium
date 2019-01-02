@@ -2,5 +2,7 @@
 $(document).ready(function(){
   /* Setup Foundation */
   $(document).foundation();
-  console.log("Funziona! Possiamo lavorare al Progetto!");
+  $('input[type="checkbox"]').change(function () {
+		$(this).val(this.checked ? 'true': 'false');
+  });
 });
