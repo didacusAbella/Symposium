@@ -5,28 +5,12 @@
 
 <sy:layout title="Symposium-Benvenuto">
     <jsp:body>
-        <div class="grid-x padding-3">
+        <div class="grid-x padding-3 align-center">
 
-           <%-- <c:forEach var="question" items="questions">
-           <sy:question question="${question}"/>                    //DA ERRORE!!!!
-           </c:forEach >
-           Primo Div
-           --%>
-           
-            <div class="columns small-4 large-3 callout">
-
-            </div>
-               <%--<c:forEach var="tag" items"tags">
-        <sy:question question="&{" tags=""                  //DA ERRORE!!!!
-    </c:forEach>--%>
-               
-            <div class="columns small-6 large-7 callout">
-                <div class="columns small-6 large-7 callout">
-
-                </div>
-                <span class="label">Default Label</span>
-                <span class="label">Default Label</span>
-            </div>
+           <c:forEach var="question1" items="questions">
+           <sy:question question="${question}" tags="${tags}"/>                    
+           </c:forEach >           
+     
         </div>
     </jsp:body>
 </sy:layout>

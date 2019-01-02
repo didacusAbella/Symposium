@@ -5,7 +5,6 @@ import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.user.UserActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
 import java.io.IOException;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,15 +15,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author 2Deimos
  */
 
-@WebServlet(name = "UserController", 
+@WebServlet(name = "/UserController", 
        urlPatterns = {"/user/UserController", "/admin/UserController"})
 public class UserController extends DispatcherController {
 
     private ActionFactory userFactory;
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
+    public void init() throws ServletException {
+        super.init();
         this.userFactory = new UserActionFactory();
     }
 

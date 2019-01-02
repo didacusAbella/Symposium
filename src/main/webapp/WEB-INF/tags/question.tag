@@ -18,14 +18,13 @@
     </c:when>
     <c:otherwise>
         <div class="columns small-4 large-3 callout"><p>Ficusecc</p></div>
-
     </c:otherwise>
 </c:choose>
 <div class="columns small-6 large-7 callout">
     <div class="columns small-6 large-7 callout">
         <a href="">${question.title}</a>
     </div>
-    <c:forEach var="tag" items="tags">
+    <c:forEach var="tag1" items="tags">
         <span class="label">${tag.name}</span>
     </c:forEach>
     <span class="label">Risposte</span>

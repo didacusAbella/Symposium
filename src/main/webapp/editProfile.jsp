@@ -5,45 +5,44 @@
 
 <sy:layout title="Symposium-Modifica Profilo">
     <jsp:body>
-    
-    <form action="GuestController?action=editprofile" method="post"data-abide novalidate>
-    
-    <div data-abide-error class="alert callout" style="display: none;">
-    <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
-   
-  
-  
-   <label>Nome:
-   <input type="firstname" placeholder="Name" id="name" name="name" value="${found.firstName}"required>
-    <span class="form-error"> Inserisci un nome valido</span>
-   </label>
-   
-   <label>
-   Cognome:<%--getSurname(Session)--%>
-   <input type="lastname" placeholder="LastName" id="lastname" name="lastname" value="${found.lastName}" required>
-   <span class="form-error">Inserisci un cognome valido</span>
-   </label>
-   
-   <label>
-   Password:<%--getPassword(Session)--%>
-   <input type="password" placeholder="Password" id="password" name="password" value="${found.password}" required>
-   <span class="form-error"> Inserisci una password valida</span>
-   </label>
-   <label>
-   Username:
-   <input type="username" placeholder="Username" id="username" name="username" value="${found.username}"  required><
-   <span class="form-error">Inserisci un username valido </span>
-    </label>
-   Corso di laurea:
-     <%--getCollegeCourse(Session)--%>
-     <label>
-    <input type="radio" name="collegeCourse" value="Triennale" id="triennale" checked> Triennale<br>
-	<input type="radio" name="collegeCourse" value="Magistrale" id="magistrale"> Magistrale<br>
-	</label>
-   
-    <input class="button" type="submit" value="Salva le modifiche">
-   </form>
-  
-    
-	</jsp:body>
-</sy:layout>
+        <div class="grid-x margin-x align-center">
+            <div class="columns small-12 medium-6 large-6 callout">
+                <form action="user/UserController?action=editprofile" method="post"data-abide novalidate>
+
+                    <div data-abide-error class="alert callout" style="display: none;">
+                        <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
+
+
+                    <label>Nome:
+                        <input type="text" placeholder="Name" id="name" name="Nome" value="${found.firstName}"required>
+                        <span class="form-error"> Inserisci un nome valido</span>
+                    </label>
+
+                    <label>
+                        Cognome:
+                        <input type="text" placeholder="LastName" id="lastname" name="Cognome" value="${found.lastName}" required>
+                        <span class="form-error">Inserisci un cognome valido</span>
+                    </label>
+
+                    <label>
+                        Password:
+                        <input type="text" placeholder="Password" id="password" name="Password" value="${found.password}" required>
+                        <span class="form-error"> Inserisci una password valida</span>
+                    </label>
+                    <label>
+                        Username:
+                        <input type="text" placeholder="Username" id="username" name="Nome Utente" value="${found.username}"  required>
+                        <span class="form-error">Inserisci un username valido </span>
+                    </label>
+                    
+                        Corso di laurea triennale?
+                    <label>
+                        <input id="checkbox1" type="checkbox" value="Triennale" id="triennale" checked><label for="checkbox1">Si</label>
+                        <input id="checkbox2" type="checkbox" value="Magistrale" id="magistrale"><label for="checkbox2">No</label>
+                    </label>
+
+                    <input class="button" type="submit" value="submit">
+                </form>
+            </div>
+        </jsp:body>
+    </sy:layout>
