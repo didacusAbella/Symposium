@@ -7,6 +7,17 @@
     <form action="GuestController?action=signin" method="post" data-abide novalidate>
       <div data-abide-error class="alert callout" style="display: none;">
     <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
+    <c:if test="${wrongCredentials!=null}">	
+			 <div class="alert callout" data-closable>
+			 <i class="fa fa-warning" aria-hidden="true"></i>
+			 <button class="close-button" aria-label="Close alert" type="button" data-close>
+   <span aria-hidden="true">&times;</span>
+ </button>
+    <p>
+					<i class="fi-alert"></i><strong>  ${wrongCredentials}</strong> </p>
+					
+			</div>
+			</c:if>
     <div class="grid-y" style="height: 50px;"></div>
     
     <div class="grid-x margin-x align-center">

@@ -19,7 +19,6 @@ import java.util.Optional;
  * @author 2Deimos, Parrilli Carminantonio, SDelPiano
  */
 
-
 public class SigninAction implements Action {
     private UserManager user;
     private Log signinLog = LogFactory.getLog(SigninAction.class);
@@ -34,17 +33,17 @@ public class SigninAction implements Action {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
+        HttpSession session = req.getSession();
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         try {
             Optional<User> found = user.findUser(email, password);
             if (found.isPresent()) {
-                HttpSession session = req.getSession();
-
                 session.setAttribute("user", found);
                 return "/index.jsp";
             } else {
-                return "/error400.jsp";
+                session.setAttribute("wrongCredentials", "Username o password sbagliati");
+                return "/signIn.jsp";
             }
         } catch (SQLException e) {
             signinLog.error("problemi interni", e);
