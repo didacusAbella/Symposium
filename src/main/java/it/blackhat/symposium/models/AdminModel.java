@@ -6,9 +6,11 @@ import java.util.Objects;
  * Concrete Implementation of Admin Interface
  *
  * @author Diego Avella
+ * @author 2Deimos
  */
 public class AdminModel implements Admin {
 
+    private int id;
     private String username, password;
 
     /**
@@ -17,15 +19,23 @@ public class AdminModel implements Admin {
     public AdminModel() {
         super();
     }
-    
+
     /**
      * Create a new Admin with username and password
+     *
+     * @param id the id of the admin
      * @param username the username of the admin
      * @param password the password of the admin
      */
-    public AdminModel(String username, String password) {
+    public AdminModel(int id, String username, String password) {
+        this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
     }
 
     @Override
@@ -39,6 +49,11 @@ public class AdminModel implements Admin {
     }
 
     @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
     public void setUsername(String username) {
         this.username = username;
     }
@@ -46,14 +61,6 @@ public class AdminModel implements Admin {
     @Override
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.username);
-        hash = 37 * hash + Objects.hashCode(this.password);
-        return hash;
     }
 
     @Override
