@@ -1,21 +1,20 @@
 package it.blackhat.symposium.managers;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
- *
  * @author didacus
  */
 public abstract class ConnectionManager {
 
-    protected DataSource dataSource;
-    private static Context ctx;
     private static final Log CONNECTION_LOG = LogFactory.getLog(ConnectionManager.class);
+    private static Context ctx;
 
     static {
         try {
@@ -24,6 +23,8 @@ public abstract class ConnectionManager {
             CONNECTION_LOG.fatal("Could not create connection", ex);
         }
     }
+
+    protected DataSource dataSource;
 
     /**
      * Create a new Connection Manager with specified DaraSource. Use it in

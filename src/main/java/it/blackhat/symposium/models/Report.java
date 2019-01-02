@@ -14,7 +14,7 @@ public interface Report {
      * @return the id
      */
     String getId();
-    
+
 
     /**
      * Retrieve the category of the report
@@ -37,11 +37,5 @@ public interface Report {
      */
     String getUser();
 
-  
 
-   
-
-
-
-   
 }

@@ -23,7 +23,7 @@ public class AdminModel implements Admin {
     /**
      * Create a new Admin with username and password
      *
-     * @param id the id of the admin
+     * @param id       the id of the admin
      * @param username the username of the admin
      * @param password the password of the admin
      */
@@ -39,23 +39,23 @@ public class AdminModel implements Admin {
     }
 
     @Override
-    public String getUsername() {
-        return this.username;
-    }
-
-    @Override
-    public String getPassword() {
-        return this.password;
-    }
-
-    @Override
     public void setId(int id) {
         this.id = id;
     }
 
     @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    @Override
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
     @Override
