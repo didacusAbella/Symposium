@@ -6,6 +6,9 @@
 
 package it.blackhat.symposium.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Concrete implementation of Tag Interface
  *
@@ -14,8 +17,12 @@ package it.blackhat.symposium.models;
  */
 public class TagModel implements Tag {
 
-    private String name;
+    @NotNull
     private int id;
+
+    @NotNull
+    @Size(min = 1, max = 40)
+    private String name;
 
     /**
      * create an empty TagModel
