@@ -25,12 +25,12 @@
         <input type="email" placeholder="Email Ateneo" name="email" pattern="[a-z0-9._%+-]+@studenti.unisa.it" required />
         <span class="form-error"> Inserisci una mail valida</span>
         <input type="email" placeholder="Conferma Email Ateneo" required/>
-         <span class="form-error"> Inserisci una mail valida</span>
-        <input type="radio" name="typeGrad" value="triennale" checked required>Triennale<br/>
-		<input type="radio" name="typeGrad" value="magistrale" required>Magistrale<br/>
-		
+        <span class="form-error"> Inserisci una mail valida</span>
+        <fieldset>
+        <legend>Corso di Laurea</legend>
+        <input type="checkbox" name="typeGrad" value="false"/><label for="typeGrad">Magistrale</label>
+        </fieldset>
         <input type="submit" class="button large" value="Iscrivimi!" />
-      
       </div>
     </div>
     </form>

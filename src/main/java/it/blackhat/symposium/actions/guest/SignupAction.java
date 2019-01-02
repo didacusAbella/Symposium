@@ -40,15 +40,15 @@ public class SignupAction implements Action {
 
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
-            Optional<User> found = user.findUser(newUser.getEmail(), DigestUtils.sha256Hex(newUser.getPassword()));
-
+            Optional<User> found = user.findUser(newUser.getEmail(), 
+                    DigestUtils.sha256Hex(newUser.getPassword()));
             if (found.isPresent()) {
                 req.setAttribute("email", "Already Exist");
                 return "/signUp.jsp";
             } else {
                 user.createUser(newUser);
                 req.getSession(true);
-                req.setAttribute("user", found);
+                req.setAttribute("user", found.get());
                 return "/index.jsp";
             }
         } catch (SQLException e) {
