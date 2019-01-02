@@ -23,13 +23,14 @@ public class QuestionModel implements Question {
 
     /**
      * Initialize a new Question
-     * @param title title of the question
-     * @param content content of the question
-     * @param userFk author of the question
+     *
+     * @param title        title of the question
+     * @param content      content of the question
+     * @param userFk       author of the question
      * @param creationDate creation date of the question
-     * @param lastUpdate last update date of the question
-     * @param id id of the question
-     * @param numReports numer of reports of the question
+     * @param lastUpdate   last update date of the question
+     * @param id           id of the question
+     * @param numReports   numer of reports of the question
      */
     public QuestionModel(String title, String content, String userFk,
                          Date creationDate, Date lastUpdate, int id, int numReports) {

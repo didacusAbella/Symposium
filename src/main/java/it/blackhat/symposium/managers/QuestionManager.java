@@ -1,16 +1,17 @@
 package it.blackhat.symposium.managers;
 
-import java.sql.SQLException;
-import java.util.List;
-
-
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.Tag;
 
+import java.sql.SQLException;
+import java.util.List;
+
 /**
- *  This class describes the method signatures of Question Manager
- * @author SDelPiano
+ * This class describes the method signatures of Question Manager
  *
+ * @author SDelPiano
+ * @author Gozzetto
+ * @author GMadness97
  */
 public interface QuestionManager {
     /**
@@ -62,11 +63,29 @@ public interface QuestionManager {
 
     /**
      * Shows a list of question sorted by last edit
+     *
      * @return List<Question> A list of questions
      * @throws SQLException if db encounter an error
      */
     List<Question> showLastEdit() throws SQLException;
 
+    /**
+     * Return the questions founded by the query
+     *
+     * @param tag tag used in the reseach
+     * @return a List of all the questions founded
+     * @throws SQLException if it encounter an error
+     */
+    List<Question> seachQuestionsByTag(String tag) throws SQLException;
+
+    /**
+     * Return the questions founded by the query
+     *
+     * @param words words used in the reseach
+     * @return a List of all the questions founded
+     * @throws SQLException it it encounter an error
+     */
+    List<Question> seachQuestionByWords(String words) throws SQLException;
 
 }
 

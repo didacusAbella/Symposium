@@ -22,18 +22,18 @@ public interface Tag {
     int getId();
 
     /**
-     * Retrieve the name of the tag
-     *
-     * @return the name of the tag
-     */
-    String getName();
-
-    /**
      * Change the id of the question
      *
      * @param id new id of the tag
      */
     void setId(int id);
+
+    /**
+     * Retrieve the name of the tag
+     *
+     * @return the name of the tag
+     */
+    String getName();
 
     /**
      * Change the name of the tag
