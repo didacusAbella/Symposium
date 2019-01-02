@@ -44,10 +44,10 @@ public class InsertAnswerAction implements Action {
             addAnswerLog.error("Accesso Illegale");
             return "/error500.jsp";
         } catch (InvocationTargetException e) {
-            addAnswerLog.error("Obbiettivo di Invocazione");
+            addAnswerLog.error("Obiettivo di Invocazione");
             return "/error500.jsp";
         } catch (SQLException e) {
-            addAnswerLog.error("Eccezzione di database");
+            addAnswerLog.error("Eccezione di database");
             e.printStackTrace();
         }
         return "/error500.jsp";
