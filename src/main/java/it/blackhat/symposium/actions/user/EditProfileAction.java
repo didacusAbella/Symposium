@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
