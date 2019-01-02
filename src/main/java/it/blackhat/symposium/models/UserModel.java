@@ -9,9 +9,9 @@ import java.sql.Date;
  */
 public class UserModel implements User {
 
+    Date banLastDate;
     private String username, firstName, lastName, password, email;
     private boolean typeGrad;
-    Date banLastDate;
 
     /**
      * Creates an empty User
@@ -38,7 +38,6 @@ public class UserModel implements User {
     }
 
     /**
-     * 
      * @param username
      * @param firstName
      * @param lastName
@@ -48,7 +47,7 @@ public class UserModel implements User {
      * @param banLastDate
      */
     public UserModel(String username, String firstName, String lastName, String password, String email,
-            boolean typeGrad, Date banLastDate) {
+                     boolean typeGrad, Date banLastDate) {
 
         super();
         this.username = username;
@@ -66,8 +65,18 @@ public class UserModel implements User {
     }
 
     @Override
+    public void setUsername(String userName) {
+        this.username = userName;
+    }
+
+    @Override
     public String getFirstName() {
         return firstName;
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     @Override
@@ -76,36 +85,13 @@ public class UserModel implements User {
     }
 
     @Override
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public Boolean getTypeGrad() {
-        return typeGrad;
-    }
-
-    @Override
-    public Date getBanLastDate() {
-        return banLastDate;
-    }
-    @Override
-    public void setUsername(String userName) {
-        this.username=userName;
-    }
-    @Override
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Override
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
     }
 
     @Override
@@ -114,13 +100,28 @@ public class UserModel implements User {
     }
 
     @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public void setPassword(String password) {
         this.password = password;
     }
 
     @Override
+    public Boolean getTypeGrad() {
+        return typeGrad;
+    }
+
+    @Override
     public void setTypeGrad(boolean typeGrad) {
         this.typeGrad = typeGrad;
+    }
+
+    @Override
+    public Date getBanLastDate() {
+        return banLastDate;
     }
 
     @Override

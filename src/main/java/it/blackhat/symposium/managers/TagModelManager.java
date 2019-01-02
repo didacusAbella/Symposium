@@ -10,6 +10,7 @@ import static it.blackhat.symposium.queries.TagQuery.*;
 
 /**
  * Describes the Tag Manager implementation
+ *
  * @author 2Deimos
  */
 public class TagModelManager extends ConnectionManager implements TagManager {
