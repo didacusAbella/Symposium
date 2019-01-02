@@ -1,17 +1,16 @@
 package it.blackhat.symposium.actions.admin;
 
-import it.blackhat.symposium.actions.Action;
-import it.blackhat.symposium.managers.AdminManager;
-import it.blackhat.symposium.managers.AdminModelManager;
-import it.blackhat.symposium.models.Admin;
+import java.sql.SQLException;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.managers.AdminManager;
+import it.blackhat.symposium.managers.AdminModelManager;
+import it.blackhat.symposium.models.Admin;
 
 /**
  * Describes the admin sign in action

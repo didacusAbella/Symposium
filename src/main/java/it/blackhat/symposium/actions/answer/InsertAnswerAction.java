@@ -41,12 +41,13 @@ public class InsertAnswerAction implements Action {
 
             return "/index.jsp";
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            addAnswerLog.error("Accesso Illegale");
             return "/error500.jsp";
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            addAnswerLog.error("Obbiettivo di Invocazione");
             return "/error500.jsp";
         } catch (SQLException e) {
+            addAnswerLog.error("Eccezzione di database");
             e.printStackTrace();
         }
         return "/error500.jsp";
