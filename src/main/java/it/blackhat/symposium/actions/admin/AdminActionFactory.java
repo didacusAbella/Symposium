@@ -14,7 +14,7 @@ public class AdminActionFactory implements ActionFactory {
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
             case "signin":
-                return new SigninAdminAction();
+                return new SignInAdminAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
