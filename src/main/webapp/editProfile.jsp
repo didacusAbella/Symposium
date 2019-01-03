@@ -5,49 +5,31 @@
 
 <sy:layout title="Symposium-Modifica Profilo">
     <jsp:body>
-    <h1 class="text-center">Modifica Profilo di ${user.username}</h1>
+        <h1 class="text-center">Modifica Profilo di ${user.username}</h1>
+
         <div class="grid-x margin-x align-center">
-            <div class="columns small-12 medium-6 large-6 callout">
+            <div class="grid small-12 medium-6 large-6 callout primary">
                 <form action="user/UserController?action=editProfile" method="post"data-abide novalidate>
-
-                    <div data-abide-error class="alert callout" style="display: none;">
-                        <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
-                        
-                        
-                    <label>E-mail:
-                        <input disabled type="email" placeholder="E-mail" id="email" name="Email" value="${user.email}"required>
-                        <span class="form-error"> Inserisci un nome valido</span>
-                    </label>
-                    <label>Nome:
-                        <input type="text" placeholder="Name" id="name" name="Nome" value="${user.firstName}"required>
-                        <span class="form-error"> Inserisci un nome valido</span>
-                    </label>
-
-                    <label>
-                        Cognome:
-                        <input type="text" placeholder="LastName" id="lastname" name="Cognome" value="${user.lastName}" required>
-                        <span class="form-error">Inserisci un cognome valido</span>
-                    </label>
-
-                    <label>
-                        Password:
-                        <input type="text" placeholder="Password" id="password" name="Password" value="${user.password}" required>
-                        <span class="form-error"> Inserisci una password valida</span>
-                    </label>
-                    <label>
-                        Username:
-                        <input type="text" placeholder="Username" id="username" name="Nome Utente" value="${user.username}"  required>
-                        <span class="form-error">Inserisci un username valido </span>
-                    </label>
-                    
-                        Corso di laurea triennale?
-                    <label>
-                        <input id="checkbox1" type="checkbox" value="Triennale" id="triennale" checked><label for="checkbox1">Si</label>
-                    </label>
-
-                    <input class="button" type="submit" value="Modifica">
+                    <dl>
+                        <dt>Email:</dt><dd><input disabled type="email" placeholder="E-mail" id="email" name="email" value="${user.email}"required>
+                        <dt>Nome:</dt><dd><input type="text" placeholder="Name" id="name" name="firstName" value="${user.firstName}"required>
+                            <span class="form-error"> Inserisci un nome valido</span></dd>
+                        <dt>Cognome:</dt><dd><input type="text" placeholder="LastName" id="lastname" name="lastName" value="${user.lastName}" required>
+                            <span class="form-error">Inserisci un cognome valido</span></dd>
+                        <dt>Password:</dt><dd><input type="text" placeholder="Password" id="password" name="password" value="${user.password}" required>
+                            <span class="form-error"> Inserisci una password valida</span></dd>
+                        <dt>Username:</dt><dd><input type="text" placeholder="Username" id="username" name="username" value="${user.username}"  required>
+                            <span class="form-error">Inserisci un username valido </span></dd>
+                        <dt>Corso di laurea:</dt>
+                        <dd>
+                            <input type="checkbox" name="typeGrad" value="false"/><label for="typeGrad">Magistrale</label>
+                        </dd>
+                        <dd>
+                            <input class="button" type="submit" value="Modifica">
+                        </dd>
+                    </dl>
                 </form>
-            </div>
-            </div>
-        </jsp:body>
-    </sy:layout>
+            </div>    
+        </div>
+    </jsp:body>
+</sy:layout>

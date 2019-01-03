@@ -43,8 +43,7 @@ public class EditProfileAction implements Action {
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
             int upDate = user.editProfile(newUser);
-            if (upDate == 1) {
-
+            if (upDate==1) {
                 req.setAttribute("user", newUser);
                 return "/profile.jsp";
             } else {
