@@ -53,6 +53,7 @@
                                 <li> Angelo Maffettone </li>
                                 <li> Przemyslaw Szopian </li>
                                 <li> Giovanni De Maio </li>
+                                <li> Parrilli Carminantonio </li>
                             </ul>
                             </p>
                         </div>
