@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.blackhat.symposium.actions.Action;
-import it.blackhat.symposium.managers.AdminModelManager;
+import it.blackhat.symposium.managers.UserManager;
+import it.blackhat.symposium.managers.UserModelManager;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -19,35 +22,36 @@ import it.blackhat.symposium.managers.AdminModelManager;
  */
 public class BanAction implements Action {
     
-    private Date banForever;
+    private final Date banForever;
     private Date endBanDate;
-    private AdminModelManager adminModel;
+    private final UserManager userManager;
+    private final Log banActionLogger = LogFactory.getLog(BanAction.class);
     
     /**
      * The costructor of the class
      */
     public BanAction() {
-        adminModel = new AdminModelManager();
-
+        this.userManager = new UserModelManager();
+        this.banForever = new Date(Long.MAX_VALUE);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        Calendar todayDate = Calendar.getInstance();
-        todayDate.add(Calendar.MONTH, 1);
-        endBanDate = new Date(todayDate.getTimeInMillis());
-        banForever = new Date(Long.MAX_VALUE);
-        String emailUser = req.getParameter("emailChoosed");
-        String typeBan = req.getParameter("typeBan");
         try {
-            if (typeBan.equals("permanent")) {
-                adminModel.banUser(banForever, emailUser);
+           Calendar todayDate = Calendar.getInstance();
+            todayDate.add(Calendar.MONTH, 1);
+            this.endBanDate = new Date(todayDate.getTimeInMillis());
+            String emailUser = req.getParameter("emailChoosed");
+            boolean typeBan = Boolean.parseBoolean(req.getParameter("typeBan"));  
+            if(typeBan){
+                this.userManager.banUser(banForever, emailUser);
             } else {
-                adminModel.banUser(endBanDate, emailUser);
+                this.userManager.banUser(endBanDate, emailUser);
             }
-        } catch (SQLException e) {
+           return "/admin/UserController?action=showUsers"; 
+        }catch (SQLException e){
+            this.banActionLogger.error("Errore Interno", e);
             return "/error500.jsp";
         }
-        return "/adminPage.jsp";
     }
 }

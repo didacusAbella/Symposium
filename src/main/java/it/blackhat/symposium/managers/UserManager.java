@@ -1,6 +1,7 @@
 package it.blackhat.symposium.managers;
 
 import it.blackhat.symposium.models.User;
+import java.sql.Date;
 
 import java.sql.SQLException;
 import java.util.Optional;
@@ -54,4 +55,14 @@ public interface UserManager {
      * @throws SQLException if it encounter an error
      */
     int createUser(User user) throws SQLException;
+    
+    /**
+     * Ban an user from the platform
+     *
+     * @param time  the duration of the ban
+     * @param email the e-mail of the user
+     * @return true if the operation go well, false otherwise
+     * @throws SQLException if db error occured
+     */
+    int banUser(Date time, String email) throws SQLException;
 }
