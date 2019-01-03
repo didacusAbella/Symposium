@@ -7,7 +7,7 @@
     <jsp:body>
         <div class="grid-x margin-x align-center">
             <div class="columns small-12 medium-6 large-6 callout">
-                <form action="user/UserController?action=editprofile" method="post"data-abide novalidate>
+                <form action="user/UserController?action=editProfile" method="post"data-abide novalidate>
 
                     <div data-abide-error class="alert callout" style="display: none;">
                         <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
