@@ -6,14 +6,15 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Signout Admin
+ *
  * @author didacus
  */
 public class SignoutAdmin implements Action {
-    
+
     /**
      * Create a new Signout admin Action
      */
-    public SignoutAdmin(){
+    public SignoutAdmin() {
         super();
     }
 
@@ -22,5 +23,5 @@ public class SignoutAdmin implements Action {
         req.getSession().removeAttribute("admin");
         return "/index.jsp";
     }
-    
+
 }

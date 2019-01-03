@@ -6,10 +6,9 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.Optional;
 
-import static it.blackhat.symposium.queries.AdminQuery.*;
+import static it.blackhat.symposium.queries.AdminQuery.SIGN_IN;
 
 
 /**

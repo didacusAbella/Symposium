@@ -1,26 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.UserModel;
-import java.lang.reflect.InvocationTargetException;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
 
 /**
- *
+ * Describes edit profile action!
  * @author Przemyslaw Szopian
  */
 public class EditProfileAction implements Action {
@@ -44,7 +38,6 @@ public class EditProfileAction implements Action {
             BeanUtils.populate(newUser, req.getParameterMap());
             int upDate = user.editProfile(newUser);
             if (upDate == 1) {
-
                 req.setAttribute("user", newUser);
                 return "/profile.jsp";
             } else {
