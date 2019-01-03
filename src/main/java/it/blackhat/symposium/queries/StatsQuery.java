@@ -2,8 +2,7 @@ package it.blackhat.symposium.queries;
 
 /**
  * List of queries for Stats table
- * 
- * @author killer
+ * @author Carminantonio Parrilli
  *
  */
 public final class StatsQuery {

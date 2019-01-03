@@ -1,31 +1,50 @@
 package it.blackhat.symposium.managers;
 
 import java.sql.SQLException;
-import java.util.Date;
-//import java.util.Optional;
+import java.util.Optional;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import it.blackhat.symposium.models.Stats;
+import it.blackhat.symposium.models.StatsModel;
 import static it.blackhat.symposium.queries.StatsQuery.*;
 
 //import it.blackhat.symposium.models.Stats;
 
 /**
+ * The model manager for interacting with the database
  * @author Parrilli Carminantonio
  *
  */
 public class StatsModelManager extends ConnectionManager implements StatsManager {
-
     @Override
-    public int incrementSignedUpUsers(Date year) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        return run.update(INCREASE_COUNT, year);
-    }
-    @Override
-    public int getNumberUsers() throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int usersTotal = run.execute(GET_NUM_USERS);
+    public int getNumberUsers(int interestedYear) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource); //TODO News scalar handler
+        int usersTotal = run.query(GET_NUM_USERS, new ScalarHandler<Integer>(), interestedYear);
         return usersTotal;
     }
-
+    @Override
+    public int getNumberReports(int interestedYear) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        return run.query(GET_NUM_REPORTS, new ScalarHandler<Integer>(), interestedYear);
+    }
+    @Override
+    public int createStats(int interestedYear) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        return run.execute(CREATE_STATS, interestedYear);
+    }
+    @Override
+    public Optional<Stats> getStats(int interestedYear) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        Stats temp = run.query(GET_STATS, new BeanHandler<>(StatsModel.class), interestedYear);
+        return Optional.ofNullable(temp);
+    }
+    @Override
+    public int getBannedUsers(int interestedYear) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int temp = run.query(GET_BANNED_USERS, new ScalarHandler<Integer>(), interestedYear);
+        return temp;
+    }
 }

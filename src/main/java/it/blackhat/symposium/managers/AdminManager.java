@@ -32,12 +32,4 @@ public interface AdminManager {
      */
     int banUser(Date time, String email) throws SQLException;
 
-    /**
-     * Return a report of from the db
-     *
-     * @param year the year of the report
-     * @return true if the operartion go well, false otherwise
-     * @throws SQLException if db errors occured
-     */
-    Optional<String> genReport(String year) throws SQLException;
 }
