@@ -13,17 +13,22 @@
 <article class="grid-x">
     <div class="grid-container">
         <div class="cell">
-            <h2>${question.title}</h2>
-            <a href="user/AnswerController?action=insertAnswer&id=${question.id}" class="button">Rispondi</a>
+            <section class="media-object-section">
+                <div class="thumbnail">
+                    <i class="fi-torso"></i>
+                </div>
+                <div class="media-object-section">
+                    <h4>${question.title}</h4>
+                    <p>${question.content}</p>
+                    <c:forEach items="${tags}" var="tag">
+                        <sy:tagDetails tag="${tag}"></sy:tagDetails>
+                    </c:forEach>
+                </div>
+                    <c:forEach items="answers" var="answer">
+                        <sy:answer answer="${answer}"></sy:answer>
+                    </c:forEach>
+            </section>
         </div>
-        <section id="tags" class="cell">
-             <c:forEach items="tags" var="tag">
-                <sy:tagDetails tag="${tag}"/>
-            </c:forEach>
-        </section>
-        <section id="answers" class="cell" >
-            
-        </section>
     </div>
 </article>
 
