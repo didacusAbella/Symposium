@@ -46,9 +46,7 @@ public class SignupAction implements Action {
                 return "/signUp.jsp";
             } else {
                 user.createUser(newUser);
-                req.getSession(true);
-                req.setAttribute("user", found.get());
-                return "/index.jsp";
+                return "sigIN.jsp";
             }
         } catch (SQLException e) {
             signinLog.error("problemi interni SQL", e);

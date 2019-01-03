@@ -17,28 +17,7 @@
                         <input type="submit" class="button" value=Genera>
                     </label>
                 </form>
-                <dl>
-                    <dt>
-                        <i class="fi-torsos"></i>
-                        Utenti Iscritti:
-                    </dt>
-                    <dd>un numero</dd>
-                    <dt>
-                        <i class="fi-prohibited"></i>
-                        Utenti Bannati
-                    </dt>
-                    <dd>un numero</dd>
-                    <dt>
-                        <i class="fi-pricetag-multiple"></i>
-                        Tag più usati:
-                    </dt>
-                    <dd>Lista Tag</dd>
-                    <dt>
-                        <i class="fi-alert"></i>
-                        Numero Segnalazioni
-                    </dt>
-                    <dd>Un numero</dd>
-                </dl>
+                <sy:stats stats="${stats}" bannedUsers="${bannedUsers}"></sy:stats>
             </div>
         </div>
     </jsp:body>
