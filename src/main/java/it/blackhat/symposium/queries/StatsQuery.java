@@ -2,7 +2,7 @@ package it.blackhat.symposium.queries;
 
 /**
  * List of queries for Stats table
- * @author killer
+ * @author Carminantonio Parrilli
  *
  */
 public final class StatsQuery {
@@ -17,6 +17,7 @@ public final class StatsQuery {
 
     public static final String INCREASE_COUNT = "UPDATE stats SET numsigned = " 
          + "numsigned + 1 WHERE year= ?";
+    
     public static final String GET_NUM_USERS = "SELECT COUNT(*) FROM user";
 
 }

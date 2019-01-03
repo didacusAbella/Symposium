@@ -16,7 +16,7 @@
         <ul class="dropdown menu" data-dropdown-menu>
             <li>  
                 <a href="index.jsp"> 
-                    <img src="./assets/images/LogoSymposium.png"style="width: 100px; height: 100px;" />
+                    <img src="/Symposium/assets/images/LogoSymposium.png"style="width: 100px; height: 100px;" />
                 </a>
             </li>
         </ul>
