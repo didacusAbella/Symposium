@@ -20,7 +20,9 @@ public class GuestActionFactory implements ActionFactory {
             case "signUp":
                 return new SignupAction();
             case "seachQuestionsBy":
-                return new SeachQuestionsBy();                
+                return new SeachQuestionsBy();      
+            case "signinAdmin":
+                return new SigninAdminAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
