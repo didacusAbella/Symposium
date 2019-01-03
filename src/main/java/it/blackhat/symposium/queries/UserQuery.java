@@ -19,7 +19,7 @@ public final class UserQuery {
     		+ " lastName= ?, password= ?, typeGrad= ? WHERE email= ?";
     public static final String DELETE_ACCOUNT = "DELETE * FROM user WHERE email = ?";
     public static final String FIND_EMAIL = "SELECT * FROM user WHERE email=?";
-   
+    public static final String TAKE_ALL_USERS = "SELECT * FROM user";
     
     	
     	

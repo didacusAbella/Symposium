@@ -24,7 +24,6 @@ public final class TagQuery {
     public static final String FIND_TAG = "SELECT id, name  WHERE name = ? ";
 
 
-
 }
 
 
