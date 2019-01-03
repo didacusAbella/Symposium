@@ -2,6 +2,8 @@ package it.blackhat.symposium.actions.question;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
+import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
+import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
@@ -26,6 +28,9 @@ public class QuestionActionFactory implements ActionFactory {
                 return new ModifyTagQuestionAdminAction();
             case "seachQuestionsBy":
                 return new SeachQuestionsBy();
+            case "showQuestion":
+                return new ShowQuestionAction(new RetrieveQuestionAnswersAction(),
+                        new RetrieveQuestionTagsAction());
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

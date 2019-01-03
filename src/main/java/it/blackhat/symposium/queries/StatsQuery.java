@@ -17,5 +17,6 @@ public final class StatsQuery {
 
     public static final String INCREASE_COUNT = "UPDATE stats SET numsigned = " 
          + "numsigned + 1 WHERE year= ?";
+    public static final String GET_NUM_USERS = "SELECT COUNT(*) FROM user";
 
 }
