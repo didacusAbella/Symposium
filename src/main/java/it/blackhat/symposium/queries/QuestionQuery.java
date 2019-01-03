@@ -19,15 +19,15 @@ public final class QuestionQuery {
     public static final String QUESTION_REPORT = "UPDATE question SET numReports = numReports+1";
     public static final String RESEARCH_BY_WORDS = "SELECT content FROM question"
     		+ " WHERE content LIKE '%?%'";
-    public static final String RESEARCH_BY_TAG = "SELECT content\r\n"  
+    public static final String RESEARCH_BY_TAG = "SELECT content\r\n"
     		+ "FROM question,tag, contains" 
     		+ "WHERE question.id=contains.questionId && tag.id=contains.tagId && ?= tag.nome";
     public static final String FAVORITES = "INSERT INTO favorites VALUES ( ?, ?)";
     public static final String LASTEDIT = "SELECT content FROM question\r\n" 
     		+ "ORDER BY lastmod DESC";
     public static final String TAKE_QUESTION = "SELECT * FROM question WHERE id=?";
-  
-    
+
+
 }
 
 
