@@ -25,6 +25,7 @@ public final class QuestionQuery {
     public static final String FAVORITES = "INSERT INTO favorites VALUES ( ?, ?)";
     public static final String LASTEDIT = "SELECT content FROM question\r\n" 
     		+ "ORDER BY lastmod DESC";
+    public static final String TAKE_QUESTION = "SELECT * FROM question WHERE id=?";
   
     
 }

@@ -5,6 +5,7 @@ import it.blackhat.symposium.models.Tag;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * This class describes the method signatures of Question Manager
@@ -87,6 +88,14 @@ public interface QuestionManager {
      */
     List<Question> seachQuestionByWords(String words) throws SQLException;
 
+    /**
+     * Finds a Question object
+     *
+     * @param questionId the question id to find
+     * @return an Optional<Question> object
+     * @throws SQLException if it encounter an error
+     */
+    Optional<Question> findQuestion(int questionId) throws SQLException;
 }
 
 
