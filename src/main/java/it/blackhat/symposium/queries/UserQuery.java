@@ -31,6 +31,8 @@ public final class UserQuery {
     
     public static final String FIND_EMAIL = "SELECT * FROM user "
             + "WHERE user.email=?";
+    
+    public static final String BAN = "UPDATE user SET banLastDate=?";
 }
 
 
