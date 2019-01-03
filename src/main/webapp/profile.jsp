@@ -7,7 +7,7 @@
     <jsp:body>
         <div class="grid-x margin-x align-center">
             <div class="grid small-12 medium-6 large-6 callout primary">
-                <form action="user/UserController?action=showprofile" method="post"data-abide novalidate>
+                <form action="user/UserController?action=showProfile" method="post"data-abide novalidate>
                     <img alt="profilePage" src="https://image.flaticon.com/icons/png/128/118/118781.png<%--getProfileImage(Session)--%>"><br/><br/>
                     <a href="editProfile.jsp" class="button">Modifica L'account</a>
                     <a href="favorites.jsp" class="button">I tuoi preferiti salvati</a>

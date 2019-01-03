@@ -14,11 +14,11 @@ public class UserActionFactory implements ActionFactory {
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
-            case "signout":
+            case "signOut":
                 return new SignoutAction();
-            case "editprofile":
+            case "editProfile":
                 return new EditProfileAction();
-            case "showprofile":
+            case "showProfile":
                 return new ShowProfileAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
