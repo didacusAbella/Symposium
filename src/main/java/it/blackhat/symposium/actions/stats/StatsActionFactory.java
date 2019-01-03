@@ -6,18 +6,19 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  * Factory for create StatsAction
+ *
  * @author didacus
  */
-public class StatsActionFactory implements ActionFactory  {
+public class StatsActionFactory implements ActionFactory {
 
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
-        switch (actionType){
+        switch (actionType) {
             case "generateStats":
                 return new GenerateStatsAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
     }
-    
+
 }
