@@ -13,8 +13,8 @@ public class AdminActionFactory implements ActionFactory {
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
-            case "signin":
-                return new SigninAdminAction();
+            case "adminSignout":
+                return new SignoutAdmin();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

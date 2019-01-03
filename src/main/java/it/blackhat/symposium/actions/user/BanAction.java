@@ -1,4 +1,4 @@
-package it.blackhat.symposium.actions.admin;
+package it.blackhat.symposium.actions.user;
 
 import java.sql.Date;
 import java.sql.SQLException;
