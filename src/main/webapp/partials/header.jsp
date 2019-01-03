@@ -22,29 +22,32 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <form action="GuestController?action=seachQuestionsBy" method="post" data-abide novalidate>
-                <li><input type="search" placeholder="Search" name="searchBy" required=""></li>
+        <form action="GuestController?action=seachQuestionsBy" method="post" data-abide novalidate>
+            <ul class="dropdown menu" data-dropdown-menu>
+
+                <li><input type="search" placeholder="Cerca" name="searchBy" required=""></li>
                 <li><button type="submit" class="button">Cerca</button></li>
-            </form>
-            <c:choose>
-                <c:when test="${not empty user}">
-                    <li>
-                        <a href="#">${user.username}</a>
-                        <ul class="menu vertical">
-                            <li><a href="profile.jsp" class="primary button">Profilo</a></li>
-                            <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
-                            <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
-                            <li><a href="newQuestion.jsp" class="success button">Poni una domanda!</a></li>
-                            <li><a href="editProfile.jsp" class="alert button">Edit Profile</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="">Log Out</a></li>
+        </form>
+        <c:choose>
+            <c:when test="${not empty user}">
+                <li>
+                    <a href="#">${user.username}</a>
+                    <ul class="menu vertical">
+                        <li><a href="profile.jsp" class="primary button">Profilo</a></li>
+                        <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
+                        <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
+                        <li><a href="newQuestion.jsp" class="success button">Poni una domanda!</a></li>
+                        <li><a href="editProfile.jsp" class="alert button">Edit Profile</a></li>
+                    </ul>
+                </li>
+                <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
+                    <input class="hollow button" type="submit" value="Log Out">
+                </form>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="signIn.jsp">Sign In</a></li>
-                    <li>|</li>
-                    <li><a href="signUp.jsp">Sign Up</a></li>
+                <li><a href="signIn.jsp">Sign In</a></li>
+                <li>|</li>
+                <li><a href="signUp.jsp">Sign Up</a></li>
                 </c:otherwise>
             </c:choose>                     
         </ul>
