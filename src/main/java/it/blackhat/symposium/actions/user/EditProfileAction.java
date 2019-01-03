@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
 /**
- * Describes edit profile action
+ * Describes edit profile action!
  * @author Przemyslaw Szopian
  */
 public class EditProfileAction implements Action {
