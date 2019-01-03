@@ -24,6 +24,8 @@ public class QuestionActionFactory implements ActionFactory {
                 return new DeleteQuestionAdminAction();
             case "modifyTagQuestionAdmin":
                 return new ModifyTagQuestionAdminAction();
+            case "seachQuestionsBy":
+                return new SeachQuestionsBy();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

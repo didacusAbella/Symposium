@@ -25,7 +25,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public List<Question> seachQuestionsByTag(String tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        ResultSetHandler<List<Question>> h = new BeanListHandler<>(Question.class);
+        ResultSetHandler<List<Question>> h = new BeanListHandler<>(QuestionModel.class);
         List<Question> questions = run.query(RESEARCH_BY_TAG, h, tag);
         return questions;
     }
@@ -34,7 +34,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public List<Question> seachQuestionByWords(String words) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        ResultSetHandler<List<Question>> h = new BeanListHandler<>(Question.class);
+        ResultSetHandler<List<Question>> h = new BeanListHandler<>(QuestionModel.class);
         List<Question> questions = run.query(RESEARCH_BY_TAG, h, words);
         return questions;
     }
