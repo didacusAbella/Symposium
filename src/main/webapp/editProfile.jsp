@@ -5,6 +5,7 @@
 
 <sy:layout title="Symposium-Modifica Profilo">
     <jsp:body>
+    <h1 class="text-center">Modifica Profilo di ${user.username}</h1>
         <div class="grid-x margin-x align-center">
             <div class="columns small-12 medium-6 large-6 callout">
                 <form action="user/UserController?action=editprofile" method="post"data-abide novalidate>
