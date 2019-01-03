@@ -13,8 +13,8 @@ public final class AdminQuery {
     private AdminQuery() {
     }
 
-    
-    public static final String SIGN_IN = "SELECT * FROM user WHERE email= ? AND password= ?";
+
+    public static final String SIGN_IN = "SELECT * FROM user WHERE username= ? AND password= ?";
     public static final String REPORT = "INSERT INTO report(year) VALUE(?)";
     public static final String BAN = "UPDATE user SET banLastDate= ?";
     
