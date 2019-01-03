@@ -2,6 +2,7 @@ package it.blackhat.symposium.actions.guest;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
+import it.blackhat.symposium.actions.question.SeachQuestionsBy;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
@@ -18,6 +19,8 @@ public class GuestActionFactory implements ActionFactory {
                 return new SigninAction();
             case "signUp":
                 return new SignupAction();
+            case "seachQuestionsBy":
+                return new SeachQuestionsBy();                
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

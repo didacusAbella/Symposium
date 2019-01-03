@@ -23,9 +23,10 @@
     </div>
     <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Cerca</button></li>
-
+            <form action="GuestController?action=seachQuestionsBy" method="post" data-abide novalidate>
+                <li><input type="search" placeholder="Search" name="searchBy" required=""></li>
+                <li><button type="submit" class="button">Cerca</button></li>
+            </form>
             <c:choose>
                 <c:when test="${not empty user}">
                     <li>
