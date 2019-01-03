@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
@@ -43,7 +42,7 @@ public class EditProfileAction implements Action {
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
             int upDate = user.editProfile(newUser);
-            if (upDate==1) {
+            if (upDate == 1) {
                 req.setAttribute("user", newUser);
                 return "/profile.jsp";
             } else {
