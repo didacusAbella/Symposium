@@ -6,6 +6,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  * This class is used to create user action objects
+ *
  * @author 2Deimos
  * @author Przemyslaw Szopian
  */
@@ -16,10 +17,10 @@ public class UserActionFactory implements ActionFactory {
         switch (actionType) {
             case "signOut":
                 return new SignoutAction();
-            case "editProfile":
-                return new EditProfileAction();
             case "showProfile":
                 return new ShowProfileAction();
+            case "editProfile":
+                return new EditProfileAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

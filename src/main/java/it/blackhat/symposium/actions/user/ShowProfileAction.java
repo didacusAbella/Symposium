@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
@@ -22,18 +22,20 @@ import org.apache.commons.logging.Log;
  * @author Przemyslaw Szopian
  */
 public class ShowProfileAction implements Action {
-    
+
     private UserManager user;
     private Log showProfileLog = LogFactory.getLog(ShowProfileAction.class);
-    
-    public ShowProfileAction(){
+
+    /**
+     * Initialize a new User Manager
+     */
+    public ShowProfileAction() {
         user = new UserModelManager();
     }
-    
-    
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        
+
         String email = req.getParameter("email");
         try {
             Optional<User> found = user.findEmail(email);
