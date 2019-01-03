@@ -32,13 +32,4 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
         int rowMod = run.update(BAN, time, email);
         return rowMod;
     }
-
-    @Override
-    public Optional<String> genReport(String year) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        BeanHandler<String> h = new BeanHandler<>(String.class);
-        String result = run.query(REPORT, h, year);
-        return Optional.ofNullable(result);
-    }
-
 }
