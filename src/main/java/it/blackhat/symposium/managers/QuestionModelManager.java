@@ -86,7 +86,8 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public Optional<Question> findQuestion(int questionId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        Question question = run.query(TAKE_QUESTION, new BeanHandler<>(QuestionModel.class), questionId);
+        Question question = run.query(TAKE_QUESTION,
+                new BeanHandler<>(QuestionModel.class), questionId);
         return Optional.ofNullable(question);
     }
 
