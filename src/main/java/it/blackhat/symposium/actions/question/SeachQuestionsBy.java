@@ -63,7 +63,13 @@ public class SeachQuestionsBy implements Action {
         try {
             support.addAll(seachByWords(word));
             if (support.size() > 0) {
-                CollectionUtils.intersection(questions, support);
+                if (flag != 0) {
+                    CollectionUtils.intersection(questions, support);
+                }
+                else {
+                    questions.addAll(support);
+                    flag = 1;
+                }
             }
         } catch (SQLException e) {
             searchQuestionByLog.error("Errore Interno", e);
