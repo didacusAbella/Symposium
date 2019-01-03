@@ -1,4 +1,4 @@
-package it.blackhat.symposium.actions.admin;
+package it.blackhat.symposium.actions.stats;
 
 import java.sql.SQLException;
 
@@ -10,6 +10,7 @@ import org.apache.commons.logging.LogFactory;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.guest.SigninAction;
+import it.blackhat.symposium.managers.StatsManager;
 import it.blackhat.symposium.managers.StatsModelManager;
 import it.blackhat.symposium.models.StatsModel;
 
@@ -20,16 +21,17 @@ import it.blackhat.symposium.models.StatsModel;
  *
  */
 public class GenerateStatsAction implements Action {
-    private StatsModelManager statsModelManager;
-    private Log signinLog = LogFactory.getLog(SigninAction.class);
+    private final StatsManager statsModelManager;
+    private final Log signinLog = LogFactory.getLog(SigninAction.class);
     private StatsModel statitics;
+    
     /**
      * The constructor of the class
      */
-    GenerateStatsAction() {
+    public GenerateStatsAction() {
         statsModelManager = new StatsModelManager();
-        statitics = new StatsModel();
     }
+    
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
@@ -37,6 +39,7 @@ public class GenerateStatsAction implements Action {
             int users = statsModelManager.getNumberUsers(Integer.parseInt(desideredDate));
             int reports = statsModelManager.getNumberReports(Integer.parseInt(desideredDate));
             int bannedUsers = statsModelManager.getBannedUsers(Integer.parseInt(desideredDate));
+            statitics = new StatsModel();
             statitics.setNumSigned(users);
             statitics.setTotalReports(reports);
             statitics.setYear(Integer.parseInt(desideredDate));

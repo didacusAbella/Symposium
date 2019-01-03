@@ -13,20 +13,19 @@ import it.blackhat.symposium.managers.UserModelManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * The class describes the ban of a user from an admin
- * 
+ *
  * @author Parrilli Carminantonio
  *
  */
 public class BanAction implements Action {
-    
+
     private final Date banForever;
     private Date endBanDate;
     private final UserManager userManager;
     private final Log banActionLogger = LogFactory.getLog(BanAction.class);
-    
+
     /**
      * The costructor of the class
      */
@@ -38,18 +37,18 @@ public class BanAction implements Action {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-           Calendar todayDate = Calendar.getInstance();
+            Calendar todayDate = Calendar.getInstance();
             todayDate.add(Calendar.MONTH, 1);
             this.endBanDate = new Date(todayDate.getTimeInMillis());
             String emailUser = req.getParameter("emailChoosed");
-            boolean typeBan = Boolean.parseBoolean(req.getParameter("typeBan"));  
-            if(typeBan){
+            boolean typeBan = Boolean.parseBoolean(req.getParameter("typeBan"));
+            if (typeBan) {
                 this.userManager.banUser(banForever, emailUser);
             } else {
                 this.userManager.banUser(endBanDate, emailUser);
             }
-           return "/admin/UserController?action=showUsers"; 
-        }catch (SQLException e){
+            return "/admin/UserController?action=showUsers";
+        } catch (SQLException e) {
             this.banActionLogger.error("Errore Interno", e);
             return "/error500.jsp";
         }
