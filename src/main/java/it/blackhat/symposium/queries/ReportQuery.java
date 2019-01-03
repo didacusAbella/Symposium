@@ -1,0 +1,24 @@
+package it.blackhat.symposium.queries;
+
+/**
+ * This class contains all queries for the report
+ *
+ * @author didacus
+ */
+public final class ReportQuery {
+
+    public static final String TAKE_REPORT = "select id,category,reason,year,userFk FROM report " +
+            "where questionFk=?";
+    public static final String INSERT_REPORT = "insert into report(category,reason,year,questionFk,userFk) " +
+            "values(?,?,?,?,?);update question set numReports=numReports+1 where id=?";
+
+    /**
+     * Create an report query object. The constructor is private
+     * to not allow the object to be instantiated.
+     *
+     * @author: SDelPiano
+     */
+    private ReportQuery() {
+        super();
+    }
+}

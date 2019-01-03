@@ -40,5 +40,7 @@ public final class QuestionQuery {
     
     public static final String TAKE_QUESTION = "SELECT * FROM question "
             + "WHERE id=?";
+    public static final String TAKE_ALL_QUESTIONS = "SELECT * FROM question ";
+
     
 }

@@ -30,9 +30,11 @@ public final class UserQuery {
             + "WHERE email=?";
     
     public static final String FIND_EMAIL = "SELECT * FROM user "
-            + "WHERE user.email=?";
+            + "WHERE email=?";
     
     public static final String BAN = "UPDATE user SET banLastDate=?";
+
+    public static final String TAKE_ALL_USERS = "SELECT * FROM user";
 }
 
 

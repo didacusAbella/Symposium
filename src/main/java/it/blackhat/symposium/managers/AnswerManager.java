@@ -3,6 +3,7 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.Answer;
 
 import java.sql.SQLException;
+import java.util.List;
 
 
 /**
@@ -39,4 +40,12 @@ public interface AnswerManager {
      */
     int bestAnswer(int id) throws SQLException;
 
+    /**
+     * Retrieves all answers related to a question
+     *
+     * @param questionId the questionId for retrieve the answers
+     * @return a List of tags related to the question
+     * @throws SQLException if db error occurred
+     */
+    List<Answer> retrieveQuestionAnswers(int questionId) throws SQLException;
 }

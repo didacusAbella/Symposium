@@ -2,8 +2,8 @@ package it.blackhat.symposium.queries;
 
 /**
  *
- * @author Diego Avella & Del Piano Salvatore
- */
+ * @author Diego Avella & SDelPiano
+ * */
 public final class AdminQuery {
 
     /**

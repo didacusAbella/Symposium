@@ -18,11 +18,12 @@ public final class AnswerQuery {
             + "(content, userFk, questionFk) VALUES (?, ?, ?)";
     
     public static final String DELETE_ANSWER = "DELETE FROM answer "
-            + "WHERE email = ?";
+            + "WHERE id = ?";
     
     public static final String BEST_ANSWER = "UPDATE answer SET correct=1 "
             + "WHERE id=?";
     
     public static final String TAKE_ANSWERS = "SELECT * FROM answer "
             + "WHERE questionFk = ?";
+    public static final String TAKE_ALL_ANSWERS = "SELECT * FROM answer";
 }

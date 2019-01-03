@@ -4,7 +4,7 @@ package it.blackhat.symposium.models;
 /**
  * Interface for represent Report resource
  *
- * @author Salvatore DelPiano
+ * @author SDelPiano
  */
 public interface Report {
 
@@ -63,4 +63,18 @@ public interface Report {
      * @param userFk new user of the report
      */
     void setUserFk(String userFk);
+
+    /**
+     * Retrieve the year of the report
+     *
+     * @return year
+     */
+    int getYear();
+
+    /**
+     * Change the year of the report
+     *
+     * @param year new year of the report
+     */
+    void setYear(int year);
 }
