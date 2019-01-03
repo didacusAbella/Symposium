@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 import static it.blackhat.symposium.queries.UserQuery.*;
+import java.sql.Date;
 
 public class UserModelManager extends ConnectionManager implements UserManager {
 
@@ -36,12 +37,9 @@ public class UserModelManager extends ConnectionManager implements UserManager {
 
     @Override
     public Optional<User> findEmail(String email) throws SQLException {
-
         QueryRunner run = new QueryRunner(this.dataSource);
         User resp = run.query(FIND_EMAIL, new BeanHandler<>(UserModel.class), email);
         return Optional.ofNullable(resp);
-
-
     }
 
     @Override
@@ -51,5 +49,11 @@ public class UserModelManager extends ConnectionManager implements UserManager {
                 user.getLastName(), user.getEmail(), user.getPassword(), user.getTypeGrad());
         return create;
     }
-
+    
+    @Override
+    public int banUser(Date time, String email) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int rowMod = run.update(BAN, time, email);
+        return rowMod;
+    }
 }

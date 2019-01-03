@@ -14,15 +14,20 @@ public final class TagQuery {
     private TagQuery() {
         super();
     }
-
-    public static final String INSERT_TAG = "INSERT INTO questiontag() VALUE (?,?) ";
-    public static final String CHANGE_TAG = "UPDATE tag SET name = ? where id=?";
-    public static final String CHANGE_QUESTION_TAG = "UPDATE questiontag SET tagId = ? where tagid= ? AND questionid=?";
-    public static final String DELETE_TAG = "DELETE FROM tag WHERE id = ? ";
-    public static final String TAKE_TAGS = "select id, name from tag join questiontag on questiontag.tagId = tag.id" +
-            " where  questiontag.questionId = ?; ";
-    public static final String FIND_TAG = "SELECT id, name  WHERE name = ? ";
-
+    
+    public static final String INSERT_TAG = "INSERT INTO contain(tagId) "
+            + "VALUE = ? WHERE questionId = ? ";
+    
+    public static final String CHANGE_TAG = "UPDATE Tag SET tagId = ?";
+    
+    public static final String CHANGE_QUESTION_TAG = "UPDATE questionTag SET "
+            + "tagId = ? WHERE questionId= ?";
+    
+    public static final String DELETE_TAG = "DELETE FROM tag WHERE tagId = ? ";
+    
+    public static final String TAKE_TAGS = "SELECT id, name FROM tag "
+            + "JOIN questiontag ON questiontag.tagId = tag.id "
+            + "WHERE questiontag.questionId = ?; ";
 
 }
 

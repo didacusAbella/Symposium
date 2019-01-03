@@ -25,20 +25,4 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
                 new BeanHandler<>(AdminModel.class), username, password);
         return Optional.ofNullable(foundAdmin);
     }
-
-    @Override
-    public int banUser(Date time, String email) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int rowMod = run.update(BAN, time, email);
-        return rowMod;
-    }
-
-    @Override
-    public Optional<String> genReport(String year) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        BeanHandler<String> h = new BeanHandler<>(String.class);
-        String result = run.query(REPORT, h, year);
-        return Optional.ofNullable(result);
-    }
-
 }

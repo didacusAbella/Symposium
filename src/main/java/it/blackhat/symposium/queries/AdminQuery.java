@@ -7,16 +7,13 @@ package it.blackhat.symposium.queries;
 public final class AdminQuery {
 
     /**
-     * Create an admin query object. The constructor is private
+     * Create an admin query object. The constructor is private 
 	 * to not allow the object to be instantiated.
      */
     private AdminQuery() {
+        super();
     }
-
-
-    public static final String SIGN_IN = "SELECT * FROM user WHERE username= ? AND password= ?";
-    public static final String REPORT = "INSERT INTO report(year) VALUE(?)";
-    public static final String BAN = "UPDATE user SET banLastDate= ?";
-
-
+    
+    public static final String SIGN_IN = "SELECT * FROM admin "
+            + "WHERE email=? AND password=?";
 }
