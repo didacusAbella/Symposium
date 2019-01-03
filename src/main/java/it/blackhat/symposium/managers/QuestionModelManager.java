@@ -6,10 +6,12 @@ import it.blackhat.symposium.models.QuestionModel;
 import it.blackhat.symposium.models.Tag;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import static it.blackhat.symposium.queries.QuestionQuery.*;
 import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
@@ -25,7 +27,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public List<Question> seachQuestionsByTag(String tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        ResultSetHandler<List<Question>> h = new BeanListHandler<>(Question.class);
+        ResultSetHandler<List<Question>> h = new BeanListHandler<>(QuestionModel.class);
         List<Question> questions = run.query(RESEARCH_BY_TAG, h, tag);
         return questions;
     }
@@ -34,7 +36,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public List<Question> seachQuestionByWords(String words) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        ResultSetHandler<List<Question>> h = new BeanListHandler<>(Question.class);
+        ResultSetHandler<List<Question>> h = new BeanListHandler<>(QuestionModel.class);
         List<Question> questions = run.query(RESEARCH_BY_TAG, h, words);
         return questions;
     }
@@ -81,6 +83,12 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         return questions;
     }
 
+    @Override
+    public Optional<Question> findQuestion(int questionId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        Question question = run.query(TAKE_QUESTION, new BeanHandler<>(QuestionModel.class), questionId);
+        return Optional.ofNullable(question);
+    }
 
 }
 
