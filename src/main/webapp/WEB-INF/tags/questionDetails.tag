@@ -13,7 +13,7 @@
 <article class="grid-x">
     <div class="grid-container">
         <div class="cell">
-            <section class="media-object-section">
+            <section class="media-object">
                 <div class="thumbnail">
                     <i class="fi-torso"></i>
                 </div>
@@ -23,10 +23,10 @@
                     <c:forEach items="${tags}" var="tag">
                         <sy:tagDetails tag="${tag}"></sy:tagDetails>
                     </c:forEach>
-                </div>
-                    <c:forEach items="answers" var="answer">
+                    <c:forEach items="${answers}" var="answer">
                         <sy:answer answer="${answer}"></sy:answer>
                     </c:forEach>
+                </div>
             </section>
         </div>
     </div>
