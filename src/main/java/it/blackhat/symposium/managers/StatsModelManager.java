@@ -21,5 +21,11 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
         QueryRunner run = new QueryRunner(this.dataSource);
         return run.update(INCREASE_COUNT, year);
     }
+    @Override
+    public int getNumberUsers() throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int usersTotal = run.execute(GET_NUM_USERS);
+        return usersTotal;
+    }
 
 }
