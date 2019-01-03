@@ -18,6 +18,8 @@ public class UserActionFactory implements ActionFactory {
                 return new SignoutAction();
             case "editprofile":
                 return new EditProfileAction();
+            case "showprofile":
+                return new ShowProfileAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
