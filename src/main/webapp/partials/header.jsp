@@ -36,7 +36,7 @@
                         <li><a href="admin/AdminController?action=showUsersAction" class="primary button">Lista Utenti</a></li>
                         <li><a href="admin/AdminController?action=showQuestionsAction" class="button">Lista Domande</a></li>
                         <li><a href="admin/AdminController?action=retrieveQuestionAnswersAction" class="button">Lista Risposte</a></li>
-                        <li><a href="admin/AdminController?action=reportList.jsp" class="success button">Segnalazioni</a></li>
+                        <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a></li>
                         <li><a href="#" class="alert button">Genera Report</a></li>
                     </ul>
                 </li>
