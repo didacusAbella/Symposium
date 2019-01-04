@@ -3,20 +3,23 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.User;
 import it.blackhat.symposium.models.UserModel;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 import static it.blackhat.symposium.queries.UserQuery.*;
-import java.sql.Date;
+
 
 public class UserModelManager extends ConnectionManager implements UserManager {
 
     @Override
     public int editProfile(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        System.out.println(user);
         int update = run.update(EDIT_PROFILE, user.getUsername(), user.getFirstName(),
                 user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
         return update;
@@ -50,11 +53,20 @@ public class UserModelManager extends ConnectionManager implements UserManager {
                 user.getLastName(), user.getEmail(), user.getPassword(), user.getTypeGrad());
         return create;
     }
-    
+
     @Override
     public int banUser(Date time, String email) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int rowMod = run.update(BAN, time, email);
         return rowMod;
+
+    }
+
+    @Override
+    public List<User> retrieveUsers() throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        ResultSetHandler<List<User>> j = new BeanListHandler<>(UserModel.class);
+        List<User> users = run.query(TAKE_ALL_USERS, j);
+        return users;
     }
 }

@@ -15,7 +15,6 @@ import java.util.Optional;
 
 import static it.blackhat.symposium.queries.QuestionQuery.*;
 import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
-import static it.blackhat.symposium.queries.TagQuery.INSERT_TAG;
 
 /**
  * @author SDelPiano
@@ -44,14 +43,14 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int insertQuestion(Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(INSERT_QUESTION, question.getContent());
+        int update = run.update(INSERT_QUESTION, question.getContent(), question.getLastUpdate(), question.getCreationDate(),
+                question.getNumReports(), question.getUserFk(), question.getTitle());
         return update;
     }
 
-    @Override
-    public int insertTag(Question question, Tag tag) throws SQLException {
+    public int insertQuestionTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(INSERT_TAG, tag.getName());
+        int upd = run.update(INSERT_QUESTION_TAG, tag.getId(), question.getId());
         return upd;
     }
 
@@ -63,9 +62,9 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
-    public int changeTag(Question question, Tag tag) throws SQLException {
+    public int changeQuestionTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(CHANGE_TAG, tag.getName());
+        int upd = run.update(CHANGE_TAG, tag.getId(), question.getId());
         return upd;
     }
 
@@ -73,13 +72,6 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     public int addFavourite(int questionId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int upd = run.update(FAVORITES, questionId);
-        return upd;
-    }
-
-    @Override
-    public int questionReport(Question question) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(QUESTION_REPORT, question.getNumReports());
         return upd;
     }
 
