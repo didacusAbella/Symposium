@@ -3,11 +3,20 @@
     Created on : 3 gen 2019, 15:37:29
     Author     : didacus
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/" %>
 
-<sy:layout title="Symposium-Admin Signup">
+<sy:layout title="Symposium-Admin SignIn">
     <jsp:body>
+        <c:if test="${not empty errLogAdmin}">
+            <div class="callout alert" data-closable>
+                <h5>Credenziali Errate</h5>
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </c:if>
         <div class="grid-x">
             <div class="grid-container align-center">
                 <div class="cell large-6 medium-6 small-12">
