@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 /**
- * @author didacus
+ * @author Gozzetto
  */
 public class ShowQuestionAction extends CompositeAction {
 
