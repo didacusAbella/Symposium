@@ -116,4 +116,16 @@ public class AnswerModel implements Answer {
     public void setCorrect(boolean correct) {
         this.correct = correct;
     }
+
+    @Override
+    public String toString() {
+        return "AnswerModel{"
+                + "id=" + id
+                + ", questionFk=" + questionFk
+                + ", userFk='" + userFk + '\''
+                + ", content='" + content + '\''
+                + ", creationDate=" + creationDate
+                + ", correct=" + correct
+                + '}';
+    }
 }

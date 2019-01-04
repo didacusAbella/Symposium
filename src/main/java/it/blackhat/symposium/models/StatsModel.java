@@ -85,4 +85,14 @@ public class StatsModel implements Stats {
     public void setYear(int year) {
         this.year = year;
     }
+
+    @Override
+    public String toString() {
+        return "StatsModel{"
+                + "id=" + id
+                + ", numSigned=" + numSigned
+                + ", totalReports=" + totalReports
+                + ", year=" + year
+                + '}';
+    }
 }

@@ -35,6 +35,7 @@ public class EditProfileAction implements Action {
 
         try {
             UserModel newUser = new UserModel();
+            System.out.println(req.getParameterMap().get("email"));
             BeanUtils.populate(newUser, req.getParameterMap());
             int upDate = user.editProfile(newUser);
             if (upDate == 1) {

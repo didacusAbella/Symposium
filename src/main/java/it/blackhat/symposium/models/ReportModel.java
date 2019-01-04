@@ -90,4 +90,14 @@ public class ReportModel implements Report {
     public void setUserFk(String userFk) {
         this.userFk = userFk;
     }
+
+    @Override
+    public String toString() {
+        return "ReportModel{"
+                + "id=" + id
+                + ", category='" + category + '\''
+                + ", reason='" + reason + '\''
+                + ", userFk='" + userFk + '\''
+                + '}';
+    }
 }
