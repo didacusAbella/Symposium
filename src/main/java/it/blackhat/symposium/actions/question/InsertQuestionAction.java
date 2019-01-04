@@ -7,6 +7,7 @@ import it.blackhat.symposium.managers.QuestionManager;
 import it.blackhat.symposium.managers.QuestionModelManager;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
+import it.blackhat.symposium.models.UserModel;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,8 +15,8 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Date;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 /**
  * Describes the insert question action by the user
@@ -37,6 +38,10 @@ public class InsertQuestionAction extends CompositeAction {
         try {
             Question newQuestion = new QuestionModel();
             BeanUtils.populate(newQuestion, req.getParameterMap());
+            newQuestion.setCreationDate(new Date(System.currentTimeMillis()));
+            newQuestion.setLastUpdate(new Date(System.currentTimeMillis()));
+            UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
+            newQuestion.setUserFk(currentUser.getEmail());
             questionManager.insertQuestion(newQuestion);
             super.execute(req,res);
             return "/index.jsp";
