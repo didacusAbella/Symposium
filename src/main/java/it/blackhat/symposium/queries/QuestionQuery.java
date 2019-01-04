@@ -42,5 +42,5 @@ public final class QuestionQuery {
     public static final String CHANGE_QUESTION_TAG = "UPDATE questiontag SET tagId = ? " +
             "where tagid= ? AND questionid=?";
 
-
+    public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag() VALUE (?,?)";
 }

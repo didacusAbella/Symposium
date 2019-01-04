@@ -47,6 +47,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
                 question.getNumReports(), question.getUserFk(), question.getTitle());
         return update;
     }
+
+    public int insertQuestionTag(Question question, Tag tag) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int upd = run.update(INSERT_QUESTION_TAG, tag.getId(), question.getId());
+        return upd;
+    }
+
     @Override
     public int deleteQuestion(int questionId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);

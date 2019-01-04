@@ -1,6 +1,5 @@
 package it.blackhat.symposium.managers;
 
-import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.Tag;
 import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
@@ -20,12 +19,6 @@ import static it.blackhat.symposium.queries.TagQuery.*;
  */
 public class TagModelManager extends ConnectionManager implements TagManager {
 
-    @Override
-    public int insertQuestionTag(Question question, Tag tag) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(INSERT_QUESTION_TAG, tag.getId(), question.getId());
-        return upd;
-    }
 
     @Override
     public int insertTag(Tag tag) throws SQLException {

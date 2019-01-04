@@ -7,6 +7,7 @@ import it.blackhat.symposium.models.Tag;
 import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;

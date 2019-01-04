@@ -15,7 +15,6 @@ public final class TagQuery {
         super();
     }
 
-    public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag() VALUE (?,?)";
 
     public static final String INSERT_TAG = "INSERT INTO tag() VALUES(?;?)";
 
