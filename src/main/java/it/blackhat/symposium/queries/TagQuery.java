@@ -16,7 +16,9 @@ public final class TagQuery {
     }
 
 
-    public static final String INSERT_TAG = "INSERT INTO tag() VALUES(?;?)";
+    public static final String INSERT_TAG1 = "INSERT INTO tag() VALUES(?,?)";
+    public static final String INSERT_TAG = "INSERT INTO tag (name) SELECT * FROM (SELECT ?) AS tmp WHERE NOT EXISTS " +
+            "(SELECT name FROM tag WHERE name = ? limit 1)";
 
     public static final String CHANGE_TAG = "UPDATE tag SET name = ? where id=?";
 
