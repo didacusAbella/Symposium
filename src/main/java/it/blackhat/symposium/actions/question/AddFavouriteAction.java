@@ -28,11 +28,13 @@ public class AddFavouriteAction implements Action {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            String idQuestion = req.getParameter("id");
+            String idQuestion = req.getParameter("questionId");
+            
             int idQuestionInt = Integer.parseInt(idQuestion);
+            
+            String emailUser = req.getParameter("userEmail");
 
-
-            questionManager.addFavourite(idQuestionInt);
+            questionManager.addFavourite(emailUser, idQuestionInt);
 
             return "/index.jsp";
 
