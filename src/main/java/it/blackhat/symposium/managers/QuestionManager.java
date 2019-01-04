@@ -59,10 +59,11 @@ public interface QuestionManager {
      * Change Tag in a question
      *
      * @param questionId question
+     * @param userEmail email of the user
      * @return the number of row updated
      * @throws SQLException if db encounter an error
      **/
-    int addFavourite(int questionId) throws SQLException;
+    int addFavourite(String userEmail, int questionId) throws SQLException;
 
 
     /**
