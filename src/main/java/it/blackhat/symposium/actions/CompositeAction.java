@@ -27,9 +27,7 @@ public class CompositeAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        for (Action action : actions) {
-            action.execute(req, res);
-        }
+        actions.forEach(action -> action.execute(req, res));
         return "";
     }
 

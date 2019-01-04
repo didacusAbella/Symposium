@@ -22,12 +22,30 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <form action="GuestController?action=seachQuestionsBy" method="post" data-abide novalidate>
-                <li><input type="search" placeholder="Search" name="searchBy" required=""></li>
+        <form action="GuestController?action=seachQuestionsBy" method="post" data-abide novalidate>
+            <ul class="dropdown menu" data-dropdown-menu>
+
+                <li><input type="search" placeholder="Cerca" name="searchBy" required=""></li>
                 <li><button type="submit" class="button">Cerca</button></li>
-            </form>
-            <c:choose>
+        </form>
+        <c:choose>
+            <c:when test="${not empty admin}">
+                <li>
+                    <a href="#">Sezione Amministratore</a>
+                    <ul class="menu vertical">
+                        <li><a href="userList.jsp" class="primary button">Lista Utenti</a></li>
+                        <li><a href="questionList.jsp" class="button">Lista Domande</a></li>
+                        <li><a href="answerList.jsp" class="button">Lista Risposte</a></li>
+                        <li><a href="reportList.jsp" class="success button">Segnalazioni</a></li>
+                        <li><a href="#" class="alert button">Genera Report</a></li>
+                    </ul>
+                </li>
+                <form action="admin/AdminController?action=adminSignout" method="post" data-abide novalidate>
+                    <input class="hollow button" type="submit" value="Log Out">
+                </form>
+
+            </c:when>
+            
                 <c:when test="${not empty user}">
                     <li>
                         <a href="#">${user.username}</a>
@@ -39,15 +57,20 @@
                             <li><a href="editProfile.jsp" class="alert button">Edit Profile</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Log Out</a></li>
+                    <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
+                        <input class="hollow button" type="submit" value="Log Out">
+                    </form>
                 </c:when>
                 <c:otherwise>
                     <li><a href="signIn.jsp">Sign In</a></li>
                     <li>|</li>
                     <li><a href="signUp.jsp">Sign Up</a></li>
                 </c:otherwise>
-            </c:choose>                     
-        </ul>
+        
+    </c:choose>
 
-    </div>
+
+</ul>
+
+</div>
 </nav>

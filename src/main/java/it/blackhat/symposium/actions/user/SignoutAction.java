@@ -15,6 +15,6 @@ public class SignoutAction implements Action {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         req.getSession().removeAttribute("user");
-    	return "index.jsp";
+    	return "/index.jsp";
     }
 }

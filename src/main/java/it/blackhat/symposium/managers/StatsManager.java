@@ -1,10 +1,9 @@
 package it.blackhat.symposium.managers;
 
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.Optional;
 
-//import java.util.Optional;
-//import it.blackhat.symposium.models.Stats;
+import it.blackhat.symposium.models.Stats;
 
 /**
  * An interface for the manager of the Stats
@@ -13,16 +12,37 @@ import java.util.Date;
  */
 public interface StatsManager {
     /**
-     * Find the stats of the site given a year
-     * @param year the year we want the stats to come from
-     * @return the numer of rows updated
-     * @throws SQLException if db errors occurred
+     * 
+     * @param interestedYear  the year we're interest  from getting the stats
+     * @return the stats from the database
+     * @throws SQLException if db errors occured
      */
-    int incrementSignedUpUsers(Date year) throws SQLException;
+    Optional<Stats> getStats(int interestedYear)throws SQLException;
     /**
      * Return the number of users in the database
+     * @param interestedYear the year we want the number of subscribed users to come from
      * @return the number of users in the database
      * @throws SQLException if db errors occurred
      */
-    int getNumberUsers() throws SQLException;
+    int getNumberUsers(int interestedYear) throws SQLException;
+    /**
+     * The method returns the number of reports in the database
+     * @param interestedYear the year we want the number of report generated to come from
+     * @return the number of reports in a particular year
+     * @throws SQLException if db errors occurred
+     */
+    int getNumberReports(int interestedYear) throws SQLException;
+    /**
+     * The method returns how many banned users are on the site
+     * @param interestedYear the year we want to know how many banned users are still there
+     * @return the number of banned users
+     * @throws SQLException if db errors occurred
+     */
+    int getBannedUsers(int interestedYear) throws SQLException;
+    /**
+     * @param interestedYear the date to insert the stats
+     * @return the number of rows updated
+     * @throws SQLException if db errors occurred
+     */
+    int createStats(int interestedYear) throws SQLException;
 }

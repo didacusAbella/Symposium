@@ -12,7 +12,7 @@
     <jsp:body> 
         <h1>Gestione Utente</h1>
         <div class="grid-x">
-            <c:forEach items="users" var="user">
+            <c:forEach items="${users}" var="user">
                 <sy:userOverview user="${user}"/>
             </c:forEach>
         </div>  

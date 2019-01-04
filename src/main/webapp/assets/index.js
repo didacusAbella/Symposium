@@ -5,4 +5,6 @@ $(document).ready(function(){
   $('input[type="checkbox"]').change(function () {
 		$(this).val(this.checked ? 'true': 'false');
   });
+  $('#tags_1').tagsInput();
+
 });

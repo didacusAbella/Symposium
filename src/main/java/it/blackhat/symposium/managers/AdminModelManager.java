@@ -6,14 +6,13 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.Optional;
 
-import static it.blackhat.symposium.queries.AdminQuery.*;
+import static it.blackhat.symposium.queries.AdminQuery.SIGN_IN;
 
 
 /**
- * @author Diego Avella
+ * @author SDelPiano
  */
 public class AdminModelManager extends ConnectionManager implements AdminManager {
 
@@ -21,15 +20,9 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     public Optional<Admin> findAdmin(String username, String password)
             throws SQLException {
         QueryRunner findQuery = new QueryRunner(this.dataSource);
+        System.out.println("Username "+username+" Password "+password);
         Admin foundAdmin = findQuery.query(SIGN_IN,
                 new BeanHandler<>(AdminModel.class), username, password);
         return Optional.ofNullable(foundAdmin);
-    }
-
-    @Override
-    public int banUser(Date time, String email) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int rowMod = run.update(BAN, time, email);
-        return rowMod;
     }
 }

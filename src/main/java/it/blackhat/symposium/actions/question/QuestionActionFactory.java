@@ -3,6 +3,7 @@ package it.blackhat.symposium.actions.question;
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
+import it.blackhat.symposium.actions.tag.InsertTagAction;
 import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
@@ -10,6 +11,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
  * This class is used to create question related action objects
  *
  * @author 2Deimos
+ * @author Gozzetto
  */
 public class QuestionActionFactory implements ActionFactory {
 
@@ -17,7 +19,7 @@ public class QuestionActionFactory implements ActionFactory {
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
             case "insertQuestion":
-                return new InsertQuestionAction();
+                return new InsertQuestionAction(new InsertTagAction());
             case "deleteQuestion":
                 return new DeleteQuestionAction();
             case "reportQuestion":
@@ -31,6 +33,8 @@ public class QuestionActionFactory implements ActionFactory {
             case "showQuestion":
                 return new ShowQuestionAction(new RetrieveQuestionAnswersAction(),
                         new RetrieveQuestionTagsAction());
+            case "addFavourite":
+                return new AddFavouriteAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

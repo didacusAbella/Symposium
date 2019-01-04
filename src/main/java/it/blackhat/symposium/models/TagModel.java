@@ -61,4 +61,12 @@ public class TagModel implements Tag {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "TagModel{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + '}';
+    }
 }

@@ -2,7 +2,7 @@ package it.blackhat.symposium.queries;
 
 /**
  *
- * @author Diego Avella & Del Piano Salvatore
+ * @author SDelPiano
  */
 public final class AdminQuery {
 
@@ -13,10 +13,7 @@ public final class AdminQuery {
     private AdminQuery() {
         super();
     }
-
     
     public static final String SIGN_IN = "SELECT * FROM admin "
-            + "WHERE email=? AND password=?";
-    
-    public static final String BAN = "UPDATE user SET banLastDate=?";
+            + "WHERE username=? AND password=?";
 }

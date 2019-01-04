@@ -3,11 +3,10 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.Admin;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.Optional;
 
 /**
- * @author Diego Avella
+ * @author SDelPiano
  */
 public interface AdminManager {
 
@@ -21,15 +20,5 @@ public interface AdminManager {
      */
     Optional<Admin> findAdmin(String username, String password) throws SQLException;
 
-
-    /**
-     * Ban an user from the platform
-     *
-     * @param time  the duration of the ban
-     * @param email the e-mail of the user
-     * @return true if the operation go well, false otherwise
-     * @throws SQLException if db error occured
-     */
-    int banUser(Date time, String email) throws SQLException;
 
 }

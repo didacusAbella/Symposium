@@ -4,6 +4,6 @@
 
 <sy:layout title="Sympsosium - Domanda">
     <jsp:body>
-        <sy:questionDetails answers="${answers}" question="${question}" tags="${tags}"/>
+        <sy:questionDetails answers="${answers}" question="${question}" tags="${tags}" user="${user}"/>
     </jsp:body>
 </sy:layout>

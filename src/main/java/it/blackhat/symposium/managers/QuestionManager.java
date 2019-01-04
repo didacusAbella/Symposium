@@ -32,7 +32,7 @@ public interface QuestionManager {
      * @return the number of row updated
      * @throws SQLException if it encounter an error
      **/
-    int insertTag(Question question, Tag tag) throws SQLException;
+    int insertQuestionTag(Question question, Tag tag) throws SQLException;
 
     /**
      * Delete a question
@@ -41,6 +41,8 @@ public interface QuestionManager {
      * @return the number of row updated
      * @throws SQLException if it encounter an error
      **/
+
+
     int deleteQuestion(int questionId) throws SQLException;
 
     /**
@@ -51,16 +53,18 @@ public interface QuestionManager {
      * @return the number of row updated
      * @throws SQLException if it encounter an error
      **/
-    int changeTag(Question question, Tag tag) throws SQLException;
+    int changeQuestionTag(Question question, Tag tag) throws SQLException;
 
     /**
-     * Add a report to a question
+     * Change Tag in a question
      *
-     * @param question question data
+     * @param questionId question
+     * @param userEmail email of the user
      * @return the number of row updated
-     * @throws SQLException if it encounter an error
+     * @throws SQLException if db encounter an error
      **/
-    int questionReport(Question question) throws SQLException;
+    int addFavourite(String userEmail, int questionId) throws SQLException;
+
 
     /**
      * Shows a list of question sorted by last edit

@@ -8,17 +8,17 @@ import java.util.List;
 /**
  * This interface describe the methods of Tag Manager
  *
- * @author 2Deimos
+ * @author 2Deimos, SDelPiano
  */
 public interface TagManager {
 
     /**
-     * Insert a new tag
+     * Insert a tag in a question
      *
-     * @param tag tag to insert
-     * @return an instance of tag
-     * @throws SQLException if db errors occurred
-     */
+     * @param tag tag data
+     * @return the number of row updated
+     * @throws SQLException if it encounter an error
+     **/
     int insertTag(Tag tag) throws SQLException;
 
 
@@ -33,16 +33,6 @@ public interface TagManager {
 
 
     /**
-     * Changes an older tag, in a question, with a newer one
-     *
-     * @param tagId      the newer tag's id
-     * @param questionId the question's id
-     * @return the numbers of row updated
-     * @throws SQLException if the operation fails
-     */
-    int changeQuestionTag(int tagId, int questionId) throws SQLException;
-
-    /**
      * Delete a tag
      *
      * @param tagId the tag's id
@@ -50,6 +40,15 @@ public interface TagManager {
      * @throws SQLException if db error occured
      */
     int deleteTag(int tagId) throws SQLException;
+
+    /**
+     * Find a tag
+     *
+     * @param tagId the tag's id
+     * @return the number of deleted rows
+     * @throws SQLException if db error occured
+     */
+    int findTag(int tagId) throws SQLException;
 
     /**
      * Retrieves all tags related to a question

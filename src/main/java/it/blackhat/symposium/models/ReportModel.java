@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package it.blackhat.symposium.models;
 
 import javax.validation.constraints.NotNull;
@@ -29,6 +23,10 @@ public class ReportModel implements Report {
     @NotNull
     private String userFk;
 
+    @NotNull
+    private int year;
+
+
     /**
      * Create an empty ReportModel
      */
@@ -42,42 +40,50 @@ public class ReportModel implements Report {
      * @param id       the report's id
      * @param category the report's category
      * @param reason   the report's reason
-     * @param userFk     the user foreign key
+     * @param userFk   the user foreign key
+     * @param year     the report's year
      */
-    public ReportModel(int id, String category, String reason, String userFk) {
+    public ReportModel(int id, String category, String reason, int year, String userFk) {
         this.id = id;
         this.category = category;
         this.reason = reason;
         this.userFk = userFk;
+        this.year = year;
     }
 
     @Override
     public int getId() {
+
         return id;
     }
 
     @Override
     public void setId(int id) {
+
         this.id = id;
     }
 
     @Override
     public String getCategory() {
+
         return category;
     }
 
     @Override
     public void setCategory(String category) {
+
         this.category = category;
     }
 
     @Override
     public String getReason() {
+
         return reason;
     }
 
     @Override
     public void setReason(String reason) {
+
         this.reason = reason;
     }
 
@@ -89,5 +95,15 @@ public class ReportModel implements Report {
     @Override
     public void setUserFk(String userFk) {
         this.userFk = userFk;
+    }
+
+    @Override
+    public int getYear() {
+        return year;
+    }
+
+    @Override
+    public void setYear(int year) {
+        this.year = year;
     }
 }
