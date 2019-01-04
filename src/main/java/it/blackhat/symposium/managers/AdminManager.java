@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 /**
- * @author Diego Avella
+ * @author SDelPiano
  */
 public interface AdminManager {
 

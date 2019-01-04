@@ -12,7 +12,7 @@ import java.util.List;
 import static it.blackhat.symposium.queries.AnswerQuery.*;
 
 /**
- * @author Angelo Maffettone
+ * @author Gozzetto, SDelPiano
  */
 public class AnswerModelManager extends ConnectionManager implements AnswerManager {
 
@@ -20,7 +20,8 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
     @Override
     public int insertAnswer(Answer answer) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(INSERT_ANSWER, answer.getContent());
+        int update = run.update(INSERT_ANSWER, answer.getContent(), answer.getUserFk(), answer.getQuestionFk(),
+                answer.getCreationDate());
         return update;
     }
 
@@ -43,6 +44,13 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
         QueryRunner run = new QueryRunner(this.dataSource);
         ResultSetHandler<List<Answer>> h = new BeanListHandler<>(AnswerModel.class);
         List<Answer> answers = run.query(TAKE_ANSWERS, h, questionId);
+        return answers;
+    }
+
+    public List<Answer> retrieveAllQuestionAnswers() throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        ResultSetHandler<List<Answer>> j = new BeanListHandler<>(AnswerModel.class);
+        List<Answer> answers = run.query(TAKE_ALL_ANSWERS, j);
         return answers;
     }
 }

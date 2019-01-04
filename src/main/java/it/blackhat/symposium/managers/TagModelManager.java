@@ -1,5 +1,6 @@
 package it.blackhat.symposium.managers;
 
+import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.Tag;
 import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
@@ -19,27 +20,29 @@ import static it.blackhat.symposium.queries.TagQuery.*;
  */
 public class TagModelManager extends ConnectionManager implements TagManager {
 
+    @Override
+    public int insertQuestionTag(Question question, Tag tag) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int upd = run.update(INSERT_QUESTION_TAG, tag.getId(), question.getId());
+        return upd;
+    }
 
     @Override
     public int insertTag(Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(INSERT_TAG, tag.getId(), tag.getName());
+        int upd = run.update(INSERT_TAG, tag.getId());
+        return upd;
+    }
+
+
+
+    @Override
+    public int updateTag(Tag tagId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(CHANGE_TAG, tagId);
         return update;
     }
 
-    @Override
-    public int updateTag(Tag tag) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(CHANGE_TAG, tag.getName(), tag.getId());
-        return update;
-    }
-
-    @Override
-    public int changeQuestionTag(int tagId, int questionId) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(CHANGE_QUESTION_TAG, tagId, questionId);
-        return update;
-    }
 
     @Override
     public int deleteTag(int tagId) throws SQLException {
@@ -55,4 +58,5 @@ public class TagModelManager extends ConnectionManager implements TagManager {
         List<Tag> tags = run.query(TAKE_TAGS, h, questionId);
         return tags;
     }
+
 }

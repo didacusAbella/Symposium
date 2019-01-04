@@ -48,4 +48,12 @@ public interface AnswerManager {
      * @throws SQLException if db error occurred
      */
     List<Answer> retrieveQuestionAnswers(int questionId) throws SQLException;
+
+    /**
+     * Retrieves all answers
+     *
+     * @return a List of tags related to the answers
+     * @throws SQLException if db error occurred
+     */
+    List<Answer> retrieveAllQuestionAnswers() throws SQLException;
 }

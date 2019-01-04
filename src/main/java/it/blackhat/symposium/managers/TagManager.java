@@ -1,5 +1,6 @@
 package it.blackhat.symposium.managers;
 
+import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.Tag;
 
 import java.sql.SQLException;
@@ -8,19 +9,28 @@ import java.util.List;
 /**
  * This interface describe the methods of Tag Manager
  *
- * @author 2Deimos
+ * @author 2Deimos, SDelPiano
  */
 public interface TagManager {
 
     /**
-     * Insert a new tag
+     * Insert a tag in a question
      *
-     * @param tag tag to insert
-     * @return an instance of tag
-     * @throws SQLException if db errors occurred
-     */
+     * @param tag tag data
+     * @return the number of row updated
+     * @throws SQLException if it encounter an error
+     **/
     int insertTag(Tag tag) throws SQLException;
 
+    /**
+     * Insert a tag in a question
+     *
+     * @param question question data
+     * @param tag      tag data
+     * @return the number of row updated
+     * @throws SQLException if it encounter an error
+     **/
+    int insertQuestionTag(Question question, Tag tag) throws SQLException;
 
     /**
      * Updates an older tag with a newer one in the tag's table
@@ -31,16 +41,6 @@ public interface TagManager {
      */
     int updateTag(Tag tag) throws SQLException;
 
-
-    /**
-     * Changes an older tag, in a question, with a newer one
-     *
-     * @param tagId      the newer tag's id
-     * @param questionId the question's id
-     * @return the numbers of row updated
-     * @throws SQLException if the operation fails
-     */
-    int changeQuestionTag(int tagId, int questionId) throws SQLException;
 
     /**
      * Delete a tag

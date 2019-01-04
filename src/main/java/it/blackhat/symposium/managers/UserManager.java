@@ -1,13 +1,14 @@
 package it.blackhat.symposium.managers;
 
 import it.blackhat.symposium.models.User;
-import java.sql.Date;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 /**
- * @author Giuseppe Madonna
+ * @author Giuseppe Madonna, SDelPiano
  */
 public interface UserManager {
     /**
@@ -55,7 +56,7 @@ public interface UserManager {
      * @throws SQLException if it encounter an error
      */
     int createUser(User user) throws SQLException;
-    
+
     /**
      * Ban an user from the platform
      *
@@ -65,4 +66,12 @@ public interface UserManager {
      * @throws SQLException if db error occured
      */
     int banUser(Date time, String email) throws SQLException;
+
+    /**
+     * Retrieves all users
+     *
+     * @return a List of tags related to the users
+     * @throws SQLException if db error occurred
+     */
+    List<User> retrieveUsers() throws SQLException;
 }
