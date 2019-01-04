@@ -5,6 +5,7 @@ import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -39,16 +40,17 @@ public class SigninAction implements Action {
         try {
             String email = req.getParameter("email");
             String password = req.getParameter("password");
+            password = DigestUtils.sha256Hex(password);
             Optional<User> found = user.findUser(email, password);
             if (found.isPresent()) {
-                Date today = new Date(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH);
-                today.setHours(0);
-                if (today.after(found.get().getBanLastDate())) {
+                Date today = new Date(Calendar.getInstance().getTime().getTime());
+                if (found.get().getBanLastDate()!=null && today.after(found.get().getBanLastDate())) {
                     HttpSession session = req.getSession();
                     session.setAttribute("user", found.get());
                     return "/index.jsp";
+                } else {
+                    return "/error401.jsp";
                 }
-                else { return "/error401.jsp"; }
             } else {
                 return "/error400.jsp";
             }
