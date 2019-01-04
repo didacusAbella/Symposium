@@ -70,9 +70,9 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
-    public int addFavourite(int questionid) throws SQLException {
+    public int addFavourite(int questionId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(FAVORITES, questionid);
+        int upd = run.update(FAVORITES, questionId);
         return upd;
     }
 
