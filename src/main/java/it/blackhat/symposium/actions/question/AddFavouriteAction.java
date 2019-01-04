@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
-
+/**
+ * Add one question to favourites
+ * @author Gozzetto
+ */
 public class AddFavouriteAction implements Action {
     private QuestionManager questionManager;
     private Log addFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
