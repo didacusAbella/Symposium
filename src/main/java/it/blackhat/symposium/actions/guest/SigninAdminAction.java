@@ -29,13 +29,13 @@ public class SigninAdminAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        String email = req.getParameter("email");
+        String username = req.getParameter("username");
         String password = req.getParameter("password");
         try {
-            Optional<Admin> found = admin.findAdmin(email, password);
+            Optional<Admin> found = admin.findAdmin(username, password);
             if (found.isPresent()) {
                 HttpSession session = req.getSession(true);
-                session.setAttribute("admin", found);
+                session.setAttribute("admin", found.get());
                 return "/index.jsp";
             } else {
                 return "/error400.jsp";
