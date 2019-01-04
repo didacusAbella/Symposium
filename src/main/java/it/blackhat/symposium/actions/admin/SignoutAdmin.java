@@ -11,13 +11,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SignoutAdmin implements Action {
 
-    /**
-     * Create a new Signout admin Action
-     */
-    public SignoutAdmin() {
-        super();
-    }
-
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         req.getSession().removeAttribute("admin");
