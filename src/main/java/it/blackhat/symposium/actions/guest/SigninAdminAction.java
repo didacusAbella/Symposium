@@ -38,7 +38,8 @@ public class SigninAdminAction implements Action {
                 session.setAttribute("admin", found.get());
                 return "/index.jsp";
             } else {
-                return "/error400.jsp";
+                req.setAttribute("errLogAdmin", "Credenziali Errate");
+                return "/adminSignIn.jsp";
             }
         } catch (SQLException e) {
             return "/error500.jsp";
