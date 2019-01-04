@@ -15,5 +15,5 @@ public final class AdminQuery {
     }
     
     public static final String SIGN_IN = "SELECT * FROM admin "
-            + "WHERE email=? AND password=?";
+            + "WHERE username=? AND password=?";
 }
