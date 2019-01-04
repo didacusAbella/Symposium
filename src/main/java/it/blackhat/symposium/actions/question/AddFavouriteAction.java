@@ -5,29 +5,23 @@ import it.blackhat.symposium.managers.QuestionManager;
 import it.blackhat.symposium.managers.QuestionModelManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
-/**
- * Describes the delete question action by user
- *
- * @author 2Deimos
- * @author Gozzetto
- */
-public class DeleteQuestionAction implements Action {
 
-    private final QuestionManager questionManager;
-    private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
+public class AddFavouriteAction implements Action {
+    private QuestionManager questionManager;
+    private Log addFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
     /**
-     * Initializes a Question Manager
+     * Inizialize a Question Manager
+     *
+     *
      */
-    public DeleteQuestionAction() {
+    public AddFavouriteAction() {
         questionManager = new QuestionModelManager();
     }
-
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
@@ -35,12 +29,12 @@ public class DeleteQuestionAction implements Action {
             int idQuestionInt = Integer.parseInt(idQuestion);
 
 
-            questionManager.deleteQuestion(idQuestionInt);
+            questionManager.addFavourite(idQuestionInt);
 
             return "/index.jsp";
 
         } catch (SQLException e) {
-            deleteQuestionLog.error("Errore interno", e);
+            addFavouriteActionLog.error("Errore interno", e);
             return "/error500.jsp";
         }
 
