@@ -50,10 +50,12 @@ public class SigninAction implements Action {
                     session.setAttribute("user", found.get());
                     return "/index.jsp";
                 } else {
+                    req.setAttribute("email", "Email o password errata ");
                     return "/error401.jsp";
                 }
             } else {
-                return "/error400.jsp";
+                
+                return "/signIn.jsp";
             }
         } catch (SQLException e) {
             signinLog.error("problemi interni", e);
