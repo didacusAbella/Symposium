@@ -54,6 +54,15 @@ public interface QuestionManager {
     int changeTag(Question question, Tag tag) throws SQLException;
 
     /**
+     * Change Tag in a question
+     *
+     * @param questionId question
+     * @return the number of row updated
+     * @throws SQLException if db encounter an error
+     **/
+    int addFavourite(int questionId) throws SQLException;
+
+    /**
      * Add a report to a question
      *
      * @param question question data

@@ -70,6 +70,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
+    public int addFavourite(int questionid) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int upd = run.update(FAVORITES, questionid);
+        return upd;
+    }
+
+    @Override
     public int questionReport(Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int upd = run.update(QUESTION_REPORT, question.getNumReports());

@@ -132,4 +132,16 @@ public class UserModel implements User {
         this.banLastDate = banLastDate;
     }
 
+    @Override
+    public String toString() {
+        return "UserModel{"
+                + "banLastDate=" + banLastDate
+                + ", username='" + username + '\''
+                + ", firstName='" + firstName + '\''
+                + ", lastName='" + lastName + '\''
+                + ", password='" + password + '\''
+                + ", email='" + email + '\''
+                + ", typeGrad=" + typeGrad
+                + '}';
+    }
 }
