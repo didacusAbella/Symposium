@@ -9,7 +9,6 @@ import java.util.List;
  * This interface describe the methods of Tag Manager
  *
  * @author 2Deimos
- * @author Gozzetto
  */
 public interface TagManager {
 
