@@ -14,14 +14,11 @@ public final class QuestionQuery {
         super();
     }
 
-    public static final String INSERT_QUESTION = "INSERT INTO "
-            + "question(content, title) VALUES(? , ?)";
+    public static final String INSERT_QUESTION = "insert into question(content,lastUpdate,creationDate,numReports," +
+            "userFk,title) values(?,?,?,?,?,?)";
    
     public static final String DELETE_QUESTION = "DELETE FROM question "
             + "WHERE id = ?";
-    
-    public static final String QUESTION_REPORT = "UPDATE question "
-            + "SET numReports = numReports+1 WHERE id=?";
     
     public static final String RESEARCH_BY_WORDS = "SELECT * FROM question"
     		+ " WHERE content LIKE '%?%'";
@@ -40,5 +37,10 @@ public final class QuestionQuery {
     
     public static final String TAKE_QUESTION = "SELECT * FROM question "
             + "WHERE id=?";
-    
+    public static final String TAKE_ALL_QUESTIONS = "SELECT * FROM question ";
+
+    public static final String CHANGE_QUESTION_TAG = "UPDATE questiontag SET tagId = ? " +
+            "where tagid= ? AND questionid=?";
+
+    public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag() VALUE (?,?)";
 }

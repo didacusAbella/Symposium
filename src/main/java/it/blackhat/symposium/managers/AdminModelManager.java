@@ -12,7 +12,7 @@ import static it.blackhat.symposium.queries.AdminQuery.SIGN_IN;
 
 
 /**
- * @author Diego Avella
+ * @author SDelPiano
  */
 public class AdminModelManager extends ConnectionManager implements AdminManager {
 
