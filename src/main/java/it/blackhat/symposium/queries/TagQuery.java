@@ -26,6 +26,7 @@ public final class TagQuery {
             + "JOIN questiontag ON questiontag.tagId = tag.id "
             + "WHERE questiontag.questionId = ?; ";
 
+    public static final String FIND_TAG = "SELECT id,name FROM tag WHERE nome = ?";
 }
 
 

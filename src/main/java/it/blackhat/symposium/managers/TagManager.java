@@ -42,6 +42,15 @@ public interface TagManager {
     int deleteTag(int tagId) throws SQLException;
 
     /**
+     * Find a tag
+     *
+     * @param tagId the tag's id
+     * @return the number of deleted rows
+     * @throws SQLException if db error occured
+     */
+    int findTag(int tagId) throws SQLException;
+
+    /**
      * Retrieves all tags related to a question
      *
      * @param questionId the questionId for retrieve the answers
