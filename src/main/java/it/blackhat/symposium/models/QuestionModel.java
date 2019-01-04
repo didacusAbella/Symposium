@@ -133,4 +133,17 @@ public class QuestionModel implements Question {
     public void setNumReports(int numReports) {
         this.numReports = numReports;
     }
+
+    @Override
+    public String toString() {
+        return "QuestionModel{"
+                + "title='" + title + '\''
+                + ", content='" + content + '\''
+                + ", userFk='" + userFk + '\''
+                + ", creationDate=" + creationDate
+                + ", lastUpdate=" + lastUpdate
+                + ", id=" + id
+                + ", numReports=" + numReports
+                + '}';
+    }
 }
