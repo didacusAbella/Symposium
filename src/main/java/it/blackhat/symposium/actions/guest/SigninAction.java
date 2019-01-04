@@ -44,16 +44,19 @@ public class SigninAction implements Action {
             Optional<User> found = user.findUser(email, password);
             if (found.isPresent()) {
                 Date today = new Date(Calendar.getInstance().getTime().getTime());
-                if (found.get().getBanLastDate() == null
-                        || today.after(found.get().getBanLastDate())) {
+                if (found.get().getBanLastDate() != null 
+                        || today.after(found.get().getBanLastDate()))
+                {
                     HttpSession session = req.getSession();
                     session.setAttribute("user", found.get());
                     return "/index.jsp";
                 } else {
+                    
                     return "/error401.jsp";
                 }
             } else {
-                return "/error400.jsp";
+                req.setAttribute("emailErr", "Email o password errata ");
+                return "/signIn.jsp";
             }
         } catch (SQLException e) {
             signinLog.error("problemi interni", e);

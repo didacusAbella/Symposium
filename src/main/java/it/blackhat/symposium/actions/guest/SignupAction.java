@@ -41,7 +41,7 @@ public class SignupAction implements Action {
             Optional<User> found = user.findEmail(newUser.getEmail());
 
             if (found.isPresent()) {
-                req.setAttribute("email", "Already Exist");
+                req.setAttribute("emailErr", "Already Exist");
                 return "/signUp.jsp";
             } else {
                 newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
