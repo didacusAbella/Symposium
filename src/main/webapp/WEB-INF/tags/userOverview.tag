@@ -8,6 +8,7 @@
 
 <%-- The list of normal or fragment attributes can be specified here: --%>
 <%@attribute name="user" type="it.blackhat.symposium.models.UserModel" required="true" rtexprvalue="true" %>
+<div class="callout secondary"> </div>
 <tr> 
     <td> ${user.email} </td>
     <td> 
