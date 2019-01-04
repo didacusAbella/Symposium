@@ -38,6 +38,13 @@ public class TagModelManager extends ConnectionManager implements TagManager {
 
 
     @Override
+    public int findTag(int tagId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(FIND_TAG, tagId);
+        return update;
+    }
+
+    @Override
     public int deleteTag(int tagId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int update = run.update(DELETE_TAG, tagId);
