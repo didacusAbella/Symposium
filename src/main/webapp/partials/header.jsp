@@ -33,10 +33,10 @@
                 <li>
                     <a href="#">Sezione Amministratore</a>
                     <ul class="menu vertical">
-                        <li><a href="userList.jsp" class="primary button">Lista Utenti</a></li>
-                        <li><a href="questionList.jsp" class="button">Lista Domande</a></li>
-                        <li><a href="answerList.jsp" class="button">Lista Risposte</a></li>
-                        <li><a href="reportList.jsp" class="success button">Segnalazioni</a></li>
+                        <li><a href="admin/AdminController?action=showUsersAction" class="primary button">Lista Utenti</a></li>
+                        <li><a href="admin/AdminController?action=showQuestionsAction" class="button">Lista Domande</a></li>
+                        <li><a href="admin/AdminController?action=retrieveQuestionAnswersAction" class="button">Lista Risposte</a></li>
+                        <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a></li>
                         <li><a href="#" class="alert button">Genera Report</a></li>
                     </ul>
                 </li>
