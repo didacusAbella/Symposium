@@ -11,8 +11,8 @@
 <sy:layout title="lista utenti"> 
     <jsp:body> 
         <h1>Gestione Utente</h1>
-        <div class="grid-x">
-            <c:forEach items="${users}" var="user">
+        <div class="callout grid-x">
+            <c:forEach var="user" items="${listUsers}" >
                 <sy:userOverview user="${user}"/>
             </c:forEach>
         </div>  
