@@ -44,7 +44,8 @@ public class SigninAction implements Action {
             Optional<User> found = user.findUser(email, password);
             if (found.isPresent()) {
                 Date today = new Date(Calendar.getInstance().getTime().getTime());
-                if (found.get().getBanLastDate()!=null && today.after(found.get().getBanLastDate())) {
+                if (found.get().getBanLastDate()!= null && today.after(found.get().getBanLastDate()))
+                {
                     HttpSession session = req.getSession();
                     session.setAttribute("user", found.get());
                     return "/index.jsp";
