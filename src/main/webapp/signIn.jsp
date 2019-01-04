@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <sy:layout title="Symposium-Login">
     <jsp:body>
+    
+    <c:if test="${not empty emailErr}">
+    <div class="callout alert" data-closable>
+  <h5>Email o password errata</h5>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+    </c:if>
         <form action="GuestController?action=signIn" method="post" data-abide novalidate>
       <div data-abide-error class="alert callout" style="display: none;">
     <p><i class="fi-alert"></i> Ricontrolla la form</p></div>

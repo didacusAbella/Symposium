@@ -5,6 +5,14 @@
 
 <sy:layout title="Symposium-Iscrizione">
     <jsp:body>
+    <c:if test="${not empty emailErr}">
+    <div class="callout alert" data-closable>
+  <h5>L'email immessa è già in uso</h5>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+    </c:if>
         <form action="GuestController?action=signUp" method="post" data-abide novalidate>
             <div data-abide-error class="alert callout" style="display: none;">
                 <p>
