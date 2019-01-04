@@ -81,7 +81,8 @@ public class SeachQuestionsBy implements Action {
             System.out.println("Id : " + questions.get(i).getId());
         }
 
-        return "/index.jsp";
+        req.setAttribute("questions", questions);
+        return "/searchResult.jsp";
     }
 
     /**
