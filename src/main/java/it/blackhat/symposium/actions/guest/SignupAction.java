@@ -38,15 +38,16 @@ public class SignupAction implements Action {
 
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
-            Optional<User> found = user.findUser(newUser.getEmail(),
-                    DigestUtils.sha256Hex(newUser.getPassword()));
+            Optional<User> found = user.findEmail(newUser.getEmail());
 
             if (found.isPresent()) {
                 req.setAttribute("email", "Already Exist");
                 return "/signUp.jsp";
             } else {
+                newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
+
                 user.createUser(newUser);
-                return "sigIN.jsp";
+                return "/signIn.jsp";
             }
         } catch (SQLException e) {
             signinLog.error("problemi interni SQL", e);
