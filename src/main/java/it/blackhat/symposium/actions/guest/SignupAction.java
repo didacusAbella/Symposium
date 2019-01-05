@@ -17,12 +17,14 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 /**
- * @author killer, 2Deimos Describes the guest's signup action
+ * Describes the guest's signup action
+ * @author Parrilli Carminantonio
+ * @author 2Deimos
  */
 
 public class SignupAction implements Action {
     private UserManager user;
-    private Log signinLog = LogFactory.getLog(SigninAction.class);
+    private Log signUpLog = LogFactory.getLog(SigninAction.class);
 
     /**
      * Add another user in the database if not present
@@ -49,13 +51,13 @@ public class SignupAction implements Action {
                 return "/signIn.jsp";
             }
         } catch (SQLException e) {
-            signinLog.error("problemi interni SQL", e);
+            signUpLog.error("problemi interni SQL", e);
             return "/error500.jsp";
         } catch (IllegalAccessException e) {
-            signinLog.error("problemi interni Accesso", e);
+            signUpLog.error("problemi interni Accesso", e);
             return "/error500.jsp";
         } catch (InvocationTargetException e) {
-            signinLog.error("problemi interni Invocazione", e);
+            signUpLog.error("problemi interni Invocazione", e);
             return "/error500.jsp";
         }
     }
