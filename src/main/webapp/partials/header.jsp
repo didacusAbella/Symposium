@@ -54,7 +54,7 @@
                         <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
                         <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una
                                 domanda!</a></li>
-                        <li><a href="editProfile.jsp" class="alert button">Modifica Profilo</a></li>
+                        <li><a href="user/UserController?action=showEditProfile" class="alert button">Modifica Profilo</a></li>
                     </ul>
                 </li>
                 <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
