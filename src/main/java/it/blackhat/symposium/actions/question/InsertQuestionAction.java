@@ -31,9 +31,8 @@ public class InsertQuestionAction extends CompositeAction {
 
 
     /**
-     * Insert an action that insert a new question
-     *
-     * @param actions
+     * Create a new insert action
+     * @param actions 
      */
     public InsertQuestionAction(Action... actions) {
         super(actions);
@@ -49,22 +48,21 @@ public class InsertQuestionAction extends CompositeAction {
             newQuestion.setLastUpdate(new Date(Calendar.getInstance().getTime().getTime()));
             UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
             newQuestion.setUserFk(currentUser.getEmail());
-            int idquestion = questionManager.insertQuestion(newQuestion);
+            int idquestion = this.questionManager.insertQuestion(newQuestion);
             super.execute(req, res);
-
             String[] tagList = TagExtractor.extractTag(req);
             for (String tag : tagList) {
-                questionManager.insertQuestionTag(idquestion, tag);
+                this.questionManager.insertQuestionTag(idquestion, tag);
             }
             return "/index.jsp";
         } catch (IllegalAccessException e) {
-            insertQustionLog.error("Accesso Illegale", e);
+            this.insertQustionLog.error("Accesso Illegale", e);
             return "/error500.jsp";
         } catch (InvocationTargetException e) {
-            insertQustionLog.error("Invocazione metodo sbagliata", e);
+            this.insertQustionLog.error("Invocazione metodo sbagliata", e);
             return "/error500.jsp";
         } catch (SQLException e) {
-            insertQustionLog.error("Errore interno", e);
+            this.insertQustionLog.error("Errore interno", e);
             return "/error500.jsp";
         }
     }

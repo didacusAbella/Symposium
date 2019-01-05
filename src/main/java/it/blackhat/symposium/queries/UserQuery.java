@@ -7,6 +7,16 @@ package it.blackhat.symposium.queries;
  */
 public final class UserQuery {
 
+    /**
+     * Create an user query object. The constructor is private
+     * to not allow the object to be instantiated.
+     *
+     * @author: SDelPiano
+     */
+    private UserQuery() {
+        super();
+    }
+
     public static final String FIND_EMAIL = "SELECT * FROM user "
             + "WHERE email=?";
 
@@ -22,18 +32,10 @@ public final class UserQuery {
 
     public static final String DELETE_ACCOUNT = "DELETE * FROM user "
             + "WHERE email=?";
+
     public static final String TAKE_ALL_USERS = "SELECT * FROM user";
 
     public static final String BAN = "UPDATE user SET banLastDate=? where email=?";
 
-    /**
-     * Create an user query object. The constructor is private
-     * to not allow the object to be instantiated.
-     *
-     * @author: SDelPiano
-     */
-    private UserQuery() {
-        super();
-    }
 }
 

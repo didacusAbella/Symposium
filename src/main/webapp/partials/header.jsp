@@ -16,7 +16,7 @@
         <ul class="dropdown menu" data-dropdown-menu>
             <li>  
                 <a href="index.jsp"> 
-                    <img src="/Symposium/assets/images/LogoSymposium.png"style="width: 100px; height: 100px;" />
+                    <img src="./assets/images/LogoSymposium.png"style="width: 100px; height: 100px;" />
                 </a>
             </li>
         </ul>
@@ -50,12 +50,12 @@
                     <li>
                         <a href="#">${user.username}</a>
                         <ul class="menu vertical">
-                            <li><a href="profile.jsp" class="primary button">Profilo</a></li>
+                            <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
                             <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
                             <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
                             <li><a href="user/QuestionController?action=showFavorite" class="button">Domande Preferite</a></li>                            
-                            <li><a href="newQuestion.jsp" class="success button">Poni una domanda!</a></li>
-                            <li><a href="editProfile.jsp" class="alert button">Edit Profile</a></li>
+                            <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una domanda!</a></li>
+                            <li><a href="editProfile.jsp" class="alert button">Modifica Profilo</a></li>
                         </ul>
                     </li>
                     <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
