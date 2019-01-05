@@ -14,13 +14,12 @@ import java.sql.SQLException;
  * @author Gozzetto
  */
 public class AddFavouriteAction implements Action {
-    private QuestionManager questionManager;
-    private Log addFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
+    
+    private final QuestionManager questionManager;
+    private final Log addFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
     /**
-     * Inizialize a Question Manager
-     *
-     *
+     * Create a new Action for add a question to favourites
      */
     public AddFavouriteAction() {
         questionManager = new QuestionModelManager();
@@ -29,19 +28,13 @@ public class AddFavouriteAction implements Action {
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
             String idQuestion = req.getParameter("questionId");
-            
             int idQuestionInt = Integer.parseInt(idQuestion);
-            
             String emailUser = req.getParameter("userEmail");
-
             questionManager.addFavourite(emailUser, idQuestionInt);
-
             return "/index.jsp";
-
         } catch (SQLException e) {
             addFavouriteActionLog.error("Errore interno", e);
             return "/error500.jsp";
         }
-
     }
 }

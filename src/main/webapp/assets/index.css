@@ -18,3 +18,13 @@ footer i {
 main {
 	margin-bottom: 60px;
 }
+
+div.tagsinput span.tag {
+    background-color: #1779ba;
+    border-color: #1779ba;
+    color: #ffffff;
+}
+
+div.tagsinput span.tag a {
+   color: #ffffff; 
+}
