@@ -32,6 +32,15 @@ public interface AnswerManager {
     int removeAnswer(int id) throws SQLException;
 
     /**
+     * Remove an Answer given the  id's question
+     *
+     * @param id questionId of the questions's answers to remove
+     * @return true if the operation go well, false otherwise
+     * @throws SQLException if db errors occurred
+     */
+    int removeAnswerByQuestion(int id) throws SQLException;
+
+    /**
      * Insert an Answer given a id
      *
      * @param id Answer id to remove

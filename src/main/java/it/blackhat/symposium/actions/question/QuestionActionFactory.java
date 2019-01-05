@@ -2,6 +2,7 @@ package it.blackhat.symposium.actions.question;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
+import it.blackhat.symposium.actions.answer.DeleteAnswerByQuestionAction;
 import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
 import it.blackhat.symposium.actions.stats.UpdateStatsAction;
 import it.blackhat.symposium.actions.tag.InsertTagAction;
@@ -22,7 +23,7 @@ public class QuestionActionFactory implements ActionFactory {
             case "insertQuestion":
                 return new InsertQuestionAction(new InsertTagAction(), new UpdateStatsAction());
             case "deleteQuestion":
-                return new DeleteQuestionAction();
+                return new DeleteQuestionAction(new DeleteAnswerByQuestionAction());
             case "reportQuestion":
                 return new ReportQuestionAction();
             case "deleteQuestionAdmin":
