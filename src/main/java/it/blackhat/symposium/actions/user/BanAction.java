@@ -1,15 +1,13 @@
 package it.blackhat.symposium.actions.user;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.util.Calendar;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.Calendar;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -40,7 +38,7 @@ public class BanAction implements Action {
             Calendar todayDate = Calendar.getInstance();
             todayDate.add(Calendar.MONTH, 1);
             this.endBanDate = new Date(todayDate.getTimeInMillis());
-            String emailUser = req.getParameter("emailChoosed");
+            String emailUser = req.getParameter("email");
             boolean typeBan = Boolean.parseBoolean(req.getParameter("typeBan"));
             if (typeBan) {
                 this.userManager.banUser(banForever, emailUser);
