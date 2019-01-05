@@ -36,6 +36,8 @@ public class QuestionActionFactory implements ActionFactory {
                         new RetrieveQuestionTagsAction());
             case "addFavourite":
                 return new AddFavouriteAction();
+            case "showFavorite":
+                return new ShowFavoriteAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

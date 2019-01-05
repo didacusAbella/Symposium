@@ -89,6 +89,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         int upd = run.update(FAVORITES, userEmail, questionId);
         return upd;
     }
+    
+    @Override
+    public List<Question> findFavorite(String userEmail) throws SQLException{
+        QueryRunner run = new QueryRunner(this.dataSource);
+        List<Question> questions = run.query(SELECT_FAVORITE, new BeanListHandler<>(QuestionModel.class), userEmail);
+        return questions;
+    }
 
     @Override
     public List<Question> showLastEdit() throws SQLException {
