@@ -1,34 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Da continuare -->
 <sy:layout title="Symposium-Nuova Domanda">
-	<jsp:body>
-        <div class="grid-x">
-            <div class="cell">
+    <jsp:body>
+        <div class="grid-x align-center">
+            <div class="cell large-6 medium-6 small-12">
                 <form action="user/QuestionController?action=insertQuestion" method="post">
-                    <label>
-                        Titolo:
-                        <input type="text" placeholder="inserisci titolo" name="title">
-                    </label>
-                    <label>
-                        Contenuto:
-
-                        <textarea rows="10" cols="10" name="content">
-
-                        </textarea>
-                    </label>
-                    <label>
-                        Tags:
-                        <input name="tags" class="tags" value="ESAME,2019,TSW"  id="tags_1">
-                    </label>
-                    <input type="submit" class="button" value="Inserisci domanda">
+                    <fieldset class="fieldset">
+                        <legend>Inserisci una nuova Domanda</legend>
+                        <label>
+                            Titolo:
+                            <input type="text" placeholder="inserisci titolo" name="title">
+                        </label>
+                        <label>
+                            Contenuto:
+                            <textarea name="content" rows="10"></textarea>
+                        </label>
+                        <div class="cell">
+                            <label>
+                                Tags:
+                                <input name="tags" class="tags" value=""  id="tags_1">
+                            </label>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <input type="submit" class="button" value="Inserisci domanda">
+                        </div> 
+                    </fieldset>
                 </form>
-
             </div>
-
         </div>
-	</jsp:body>
+    </jsp:body>
 </sy:layout>
