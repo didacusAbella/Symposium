@@ -23,7 +23,7 @@
             src="/Symposium/webjars/what-input/5.1.1/dist/what-input.min.js"></script>
     <script type="text/javascript" defer="true"
             src="/Symposium/webjars/foundation-sites/6.5.1/dist/js/foundation.min.js"></script>
-    <script type="text/javascript" async="true"
+    <script type="text/javascript" defer="true"
             src="/Symposium/webjars/jquery-tagsinput/1.3.2/jquery.tagsinput.min.js"></script>
     <script type="text/javascript" defer="true" src="/Symposium/assets/index.js"></script>
     <noscript>
