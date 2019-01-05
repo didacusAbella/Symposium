@@ -34,6 +34,13 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
     }
 
     @Override
+    public int removeAnswerByQuestion(int questionId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(DELETE_ANSWER_BY_QUESTION, questionId);
+        return update;
+    }
+
+    @Override
     public int bestAnswer(int id) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int update = run.update(BEST_ANSWER, id);
