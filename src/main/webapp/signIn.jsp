@@ -21,11 +21,15 @@
       <div class="grid small-12 medium-6 large-6 callout primary">
       
         <h4>Accedi</h4>
-        <input type="email" placeholder="Email Ateneo" id="email" name="email" pattern="[a-z0-9._%+-]+@studenti.unisa.it" required />
+        <div>
+        <input type="email" placeholder="Email Ateneo" id="email" name="email" pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it" required />
         <span class="form-error"> Inserisci una mail valida</span>
-        <input type="password" placeholder="Password" id="password" name="password" pattern="{6,20}" required />
+        </div>
+        <div>
+        <input type="password" placeholder="Password" id="password" name="password" pattern="\w{6,20}" required />
         <span class="form-error"> Inserisci una password valida</span>
         <input type="submit" class="button large" value="Accedi" />
+        </div>
       
       </div>
     </div>
