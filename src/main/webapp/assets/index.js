@@ -5,6 +5,9 @@ $(document).ready(function(){
   $('input[type="checkbox"]').change(function () {
 		$(this).val(this.checked ? 'true': 'false');
   });
-  $('#tags_1').tagsInput();
+  $('#tags_1').tagsInput({
+      width: $("#tags_1").parent().parent().width(),
+      defaultText: 'Aggiungi Tag'
+  });
 
 });
