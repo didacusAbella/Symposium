@@ -1,14 +1,14 @@
 package it.blackhat.symposium.managers;
 
-import java.sql.SQLException;
-import java.util.Optional;
-
+import it.blackhat.symposium.models.Stats;
+import it.blackhat.symposium.models.StatsModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import it.blackhat.symposium.models.Stats;
-import it.blackhat.symposium.models.StatsModel;
+import java.sql.SQLException;
+import java.util.Optional;
+
 import static it.blackhat.symposium.queries.StatsQuery.*;
 
 //import it.blackhat.symposium.models.Stats;
@@ -24,6 +24,13 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
         QueryRunner run = new QueryRunner(this.dataSource); //TODO News scalar handler
         int usersTotal = run.query(GET_NUM_USERS, new ScalarHandler<Integer>(), interestedYear);
         return usersTotal;
+    }
+
+    @Override
+    public int updateStatsTag(int year, String tagName) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int statstag = run.update(UPDATE_STATSTAG, year, tagName);
+        return statstag;
     }
     @Override
     public int getNumberReports(int interestedYear) throws SQLException {

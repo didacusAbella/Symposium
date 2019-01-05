@@ -25,6 +25,16 @@ public interface QuestionManager {
     int insertQuestion(Question question) throws SQLException;
 
     /**
+     * Insert a question
+     *
+     * @param questionId id of the question
+     * @param tagName    id of the tag
+     * @return the number of row updated
+     * @throws SQLException if it encounter an error
+     **/
+    int insertQuestionTag(int questionId, String tagName) throws SQLException;
+
+    /**
      * Insert a tag in a question
      *
      * @param question question data
@@ -59,7 +69,7 @@ public interface QuestionManager {
      * Change Tag in a question
      *
      * @param questionId question
-     * @param userEmail email of the user
+     * @param userEmail  email of the user
      * @return the number of row updated
      * @throws SQLException if db encounter an error
      **/

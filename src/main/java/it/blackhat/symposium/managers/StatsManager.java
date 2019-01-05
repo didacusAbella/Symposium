@@ -1,9 +1,9 @@
 package it.blackhat.symposium.managers;
 
+import it.blackhat.symposium.models.Stats;
+
 import java.sql.SQLException;
 import java.util.Optional;
-
-import it.blackhat.symposium.models.Stats;
 
 /**
  * An interface for the manager of the Stats
@@ -18,6 +18,14 @@ public interface StatsManager {
      * @throws SQLException if db errors occured
      */
     Optional<Stats> getStats(int interestedYear)throws SQLException;
+
+    /**
+     * @param year    the year we're interest  from getting the stats
+     * @param tagName the name of the tag
+     * @return the stats from the database
+     * @throws SQLException if db errors occured
+     */
+    int updateStatsTag(int year, String tagName) throws SQLException;
     /**
      * Return the number of users in the database
      * @param interestedYear the year we want the number of subscribed users to come from
