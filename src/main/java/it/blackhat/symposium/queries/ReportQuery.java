@@ -20,6 +20,11 @@ public final class ReportQuery {
     public static final String INSERT_REPORT = "INSERT INTO"
             + " report(category,reason,year,questionFk,userFk)"
             + "VALUES(?,?,?,?,?); UPDATE question SET numReports=numReports+1 WHERE id=?";
+    
+    public static final String GET_ALL_REPORTS = "SELECT DISTINCT"
+            + " q.id, content, lastUpdate, creationDate, numReports, "
+            + "q.userFk, title FROM question AS q, "
+            + "report AS r WHERE q.id=r.questionFk";
 
 
 

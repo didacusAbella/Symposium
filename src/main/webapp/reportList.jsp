@@ -3,5 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <sy:layout title="Lista Segnalazioni">
-    <jsp:body></jsp:body>
+   <jsp:body>
+       <c:forEach var="report" items="${listReport}">
+           <sy:report report="${report}" question="${question}"/>
+       </c:forEach>
+   </jsp:body>
 </sy:layout>
