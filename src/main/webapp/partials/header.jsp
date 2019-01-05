@@ -53,6 +53,7 @@
                             <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
                             <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
                             <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
+                            <li><a href="user/QuestionController?action=showFavorite" class="button">Domande Preferite</a></li>                            
                             <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una domanda!</a></li>
                             <li><a href="editProfile.jsp" class="alert button">Modifica Profilo</a></li>
                         </ul>

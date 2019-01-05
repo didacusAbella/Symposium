@@ -75,7 +75,14 @@ public interface QuestionManager {
      **/
     int addFavourite(String userEmail, int questionId) throws SQLException;
 
-
+    /**
+     * Return the favorite questions of an user
+     * @param userEmail user e-mail
+     * @return user favorite questions
+     * @throws SQLException if db encounter an error
+     */
+    List<Question> findFavorite(String userEmail) throws SQLException;
+    
     /**
      * Shows a list of question sorted by last edit
      *
