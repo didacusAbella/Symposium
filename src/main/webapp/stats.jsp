@@ -5,8 +5,21 @@
 
 <sy:layout title="Symposium - Statistiche">
     <jsp:body>
-        <c:forEach var="stats" items="${stats}">
-            <sy:stats stats="${stats}" bannedUsers="${bannedUsers}"/>
-        </c:forEach>
+        <div class="grid-x">
+            <div class="grid-container">
+                <form method="post" action="admin/StatsController?action=generateStats">
+                    <label> inserisci anno:
+                        <select name="year">
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                        </select>
+                    </label>
+                    <input type="submit" value="Genera Report" class="button">
+                </form>
+                <sy:stats bannedUsers="${bannedUsers}" stats="${stats}">
+
+                </sy:stats>
+            </div>
+        </div>
     </jsp:body>
 </sy:layout>

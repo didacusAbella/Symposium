@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Optional;
 
 /**
@@ -47,6 +48,7 @@ public class SignupAction implements Action {
                 return "/signUp.jsp";
             } else {
                 newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
+                newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
                 user.createUser(newUser);
                 return "/signIn.jsp";
             }

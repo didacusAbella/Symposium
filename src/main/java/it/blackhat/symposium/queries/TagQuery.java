@@ -30,6 +30,9 @@ public final class TagQuery {
 
     public static final String FIND_TAG = "SELECT id,name FROM tag WHERE nome = ?";
 
+    public static final String NUM_TAG = "SELECT name, uses FROM tag,statstag WHERE"
+            + " tag.id=statstag.tagId AND statstag.statsId=(SELECT id"
+            + " FROM stats WHERE year = ? LIMIT 1)";
 
 }
 
