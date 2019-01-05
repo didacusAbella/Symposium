@@ -1,9 +1,3 @@
-<%-- 
-    Document   : userOverview
-    Created on : 2-gen-2019, 14.48.57
-    Author     : SDelPiano
---%>
-
 <%@tag description="View for tag model" pageEncoding="UTF-8" %>
 
 <%-- The list of normal or fragment attributes can be specified here: --%>
