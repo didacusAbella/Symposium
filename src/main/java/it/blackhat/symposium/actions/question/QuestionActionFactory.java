@@ -37,6 +37,8 @@ public class QuestionActionFactory implements ActionFactory {
                         new RetrieveQuestionTagsAction());
             case "addFavourite":
                 return new AddFavouriteAction();
+            case "showFavorite":
+                return new ShowFavoriteAction();
             case "showNewQuestion":
                 return new ShowNewQuestionAction();
             default:
