@@ -29,7 +29,8 @@ public class GenerateReportListAction implements Action {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            List<Report> listReports = reportManager.retrieveReport(0);
+            List<Report> listReports = reportManager.retrieveAllReports();
+            System.out.println(listReports);
             req.setAttribute("listReports", listReports);
             return "/reportList.jsp";
         } catch (SQLException e) {
