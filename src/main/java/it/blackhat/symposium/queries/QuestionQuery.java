@@ -34,7 +34,7 @@ public final class QuestionQuery {
     public static final String FAVORITES = "INSERT INTO favorites "
             + "VALUES (?, ?)";
   
-    public static final String SELECT_FAVORITE= "SELECT question.id,content, "
+    public static final String SELECT_FAVORITE = "SELECT question.id,content, "
             + "lastUpdate,creationDate,numReports,userFk,title  FROM favorites"
             + ", question  WHERE question.id= favorites.questionId AND "
             + "favorites.userId=?";

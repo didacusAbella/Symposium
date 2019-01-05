@@ -1,4 +1,3 @@
-
 package it.blackhat.symposium.helpers;
 
 import java.sql.ResultSet;
@@ -16,10 +15,10 @@ public class MapCompleteHandler implements ResultSetHandler<Map<String, Integer>
     @Override
     public Map<String, Integer> handle(ResultSet rs) throws SQLException {
         Map<String, Integer> tagMap = new HashMap<>();
-        while(rs.next()){
+        while (rs.next()) {
             tagMap.put(rs.getString("name"), rs.getInt("uses"));
         }
         return tagMap;
     }
-    
+
 }

@@ -39,10 +39,11 @@ public class GenerateStatsAction implements Action {
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
             String desideredDate = req.getParameter("year");
-            int users = statsModelManager.getNumberUsers(Integer.parseInt(desideredDate));
-            int reports = statsModelManager.getNumberReports(Integer.parseInt(desideredDate));
-            int bannedUsers = statsModelManager.getBannedUsers(Integer.parseInt(desideredDate));
-            Map<String, Integer> tags = tagModelManager.mostUsedTags(Integer.parseInt(desideredDate));
+            int year = Integer.parseInt(desideredDate);
+            int users = statsModelManager.getNumberUsers(year);
+            int reports = statsModelManager.getNumberReports(year);
+            int bannedUsers = statsModelManager.getBannedUsers(year);
+            Map<String, Integer> tags = tagModelManager.mostUsedTags(year);
             statitics = new StatsModel();
             statitics.setNumSigned(users);
             statitics.setTotalReports(reports);

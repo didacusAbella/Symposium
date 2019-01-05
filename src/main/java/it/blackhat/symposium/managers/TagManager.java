@@ -65,7 +65,7 @@ public interface TagManager {
      *
      * @param year year of the stats
      * @return a list of most used tags
-     * @throws SQLException
+     * @throws SQLException if db error occurred
      */
     Map<String, Integer> mostUsedTags(int year) throws SQLException;
 }
