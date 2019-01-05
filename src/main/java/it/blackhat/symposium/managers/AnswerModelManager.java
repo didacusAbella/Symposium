@@ -20,7 +20,8 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
     @Override
     public int insertAnswer(Answer answer) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(INSERT_ANSWER, answer.getContent(), answer.getUserFk(), answer.getQuestionFk(),
+        int update = run.update(INSERT_ANSWER, answer.getContent(),
+                answer.getUserFk(), answer.getQuestionFk(),
                 answer.getCreationDate());
         return update;
     }
@@ -47,6 +48,7 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
         return answers;
     }
 
+    @Override
     public List<Answer> retrieveAllQuestionAnswers() throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         ResultSetHandler<List<Answer>> j = new BeanListHandler<>(AnswerModel.class);

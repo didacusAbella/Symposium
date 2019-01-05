@@ -2,6 +2,7 @@ package it.blackhat.symposium.queries;
 
 /**
  * This class contains all queries for user table
+ *
  * @author didacus
  */
 public final class UserQuery {
@@ -23,7 +24,7 @@ public final class UserQuery {
             + "WHERE email=?";
     public static final String TAKE_ALL_USERS = "SELECT * FROM user";
 
-    public static final String BAN = "UPDATE user SET banLastDate=?";
+    public static final String BAN = "UPDATE user SET banLastDate=? where email=?";
 
     /**
      * Create an user query object. The constructor is private

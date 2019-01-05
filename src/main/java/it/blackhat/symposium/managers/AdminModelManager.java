@@ -20,7 +20,7 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
     public Optional<Admin> findAdmin(String username, String password)
             throws SQLException {
         QueryRunner findQuery = new QueryRunner(this.dataSource);
-        System.out.println("Username "+username+" Password "+password);
+        System.out.println("Username " + username + " Password " + password);
         Admin foundAdmin = findQuery.query(SIGN_IN,
                 new BeanHandler<>(AdminModel.class), username, password);
         return Optional.ofNullable(foundAdmin);

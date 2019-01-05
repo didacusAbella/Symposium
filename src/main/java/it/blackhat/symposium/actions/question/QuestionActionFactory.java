@@ -3,6 +3,7 @@ package it.blackhat.symposium.actions.question;
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
+import it.blackhat.symposium.actions.stats.UpdateStatsAction;
 import it.blackhat.symposium.actions.tag.InsertTagAction;
 import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
 import it.blackhat.symposium.helpers.InvalidActionException;
@@ -19,7 +20,7 @@ public class QuestionActionFactory implements ActionFactory {
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
             case "insertQuestion":
-                return new InsertQuestionAction(new InsertTagAction());
+                return new InsertQuestionAction(new InsertTagAction(), new UpdateStatsAction());
             case "deleteQuestion":
                 return new DeleteQuestionAction();
             case "reportQuestion":

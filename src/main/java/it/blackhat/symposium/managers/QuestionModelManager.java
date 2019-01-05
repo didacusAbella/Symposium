@@ -8,7 +8,9 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -43,11 +45,23 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int insertQuestion(Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(INSERT_QUESTION, question.getContent(), question.getLastUpdate(), question.getCreationDate(),
-                question.getNumReports(), question.getUserFk(), question.getTitle());
-        return update;
+
+        BigInteger update = run.insert(INSERT_QUESTION, new ScalarHandler<BigInteger>(),
+                question.getContent(), question.getLastUpdate(),
+                question.getCreationDate(), question.getNumReports(),
+                question.getUserFk(), question.getTitle());
+        return update.intValue();
     }
 
+    @Override
+    public int insertQuestionTag(int questionId, String tagName) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(INSERT_QUESTION_TAG, questionId, tagName);
+        return update;
+
+    }
+
+    @Override
     public int insertQuestionTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int upd = run.update(INSERT_QUESTION_TAG, tag.getId(), question.getId());
@@ -69,10 +83,10 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
-    public int addFavourite(String userEmail, int questionId ) throws SQLException {
+    public int addFavourite(String userEmail, int questionId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         System.out.println(questionId);
-        int upd = run.update(FAVORITES, userEmail, questionId );
+        int upd = run.update(FAVORITES, userEmail, questionId);
         return upd;
     }
 

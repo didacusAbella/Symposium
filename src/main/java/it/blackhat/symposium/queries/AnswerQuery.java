@@ -2,10 +2,14 @@ package it.blackhat.symposium.queries;
 
 /**
  * This class contains all answer's queries
+ *
  * @author SDelPiano
  */
 public final class AnswerQuery {
 
+    /**
+     * Create an empty answer query
+     */
     private AnswerQuery() {
         super();
     }
