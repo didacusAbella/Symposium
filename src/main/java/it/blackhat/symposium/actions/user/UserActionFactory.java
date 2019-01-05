@@ -7,8 +7,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 /**
  * This class is used to create user action objects
  *
- * @author 2Deimos
- * @author Przemyslaw Szopian
+ * @author 2Deimos,Przemyslaw Szopian
  */
 public class UserActionFactory implements ActionFactory {
 
