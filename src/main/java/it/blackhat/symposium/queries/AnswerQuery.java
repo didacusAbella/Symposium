@@ -20,10 +20,16 @@ public final class AnswerQuery {
     public static final String DELETE_ANSWER = "DELETE FROM answer "
             + "WHERE id = ?";
 
+    public static final String DELETE_ANSWER_BY_QUESTION = "DELETE FROM answer "
+            + "WHERE questionFk = ?";
+
     public static final String BEST_ANSWER = "UPDATE answer SET correct=1 "
             + "WHERE id=?";
 
     public static final String TAKE_ANSWERS = "SELECT * FROM answer "
             + "WHERE questionFk = ?";
+
     public static final String TAKE_ALL_ANSWERS = "SELECT * FROM answer";
+
+
 }
