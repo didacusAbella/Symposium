@@ -16,7 +16,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * The class describes the ban of a user from an admin
  *
- * @author Parrilli Carminantonio
+ * @author Parrilli Carminantonio,DDeimos
  *
  */
 public class BanAction implements Action {
