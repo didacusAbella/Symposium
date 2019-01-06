@@ -39,7 +39,7 @@ public class InsertAnswerAction implements Action {
         try {
             Answer answer = new AnswerModel();
             BeanUtils.populate(answer, req.getParameterMap());
-            if (BeanValidator.validateBean(answer)) {
+            if (BeanValidator.<Answer>validateBean(answer)) {
                 answerManager.insertAnswer(answer);
                 return "/index.jsp";
             } else {
