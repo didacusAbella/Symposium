@@ -2,7 +2,6 @@ package it.blackhat.symposium.managers;
 
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.Report;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -31,6 +30,13 @@ public interface ReportManager {
      * @throws SQLException if db error occurred
      */
     List<Report> retrieveReport(int questionFk) throws SQLException;
+    
+    /**
+     * Retrieve all the reported questions
+     * @return a list of all the reported questions
+     * @throws SQLException if an error occurs
+     */
+    public List<Report> retrieveAllReports() throws SQLException;
 
 
 }
