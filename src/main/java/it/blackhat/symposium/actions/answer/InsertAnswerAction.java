@@ -39,7 +39,7 @@ public class InsertAnswerAction implements Action {
         try {
             Answer answer = new AnswerModel();
             BeanUtils.populate(answer, req.getParameterMap());
-            if (BeanValidator.<Answer>validateBean(answer)) {
+            if (BeanValidator.validateBean(answer)) {
                 answerManager.insertAnswer(answer);
                 return "/index.jsp";
             } else {
@@ -53,7 +53,7 @@ public class InsertAnswerAction implements Action {
             return "/error500.jsp";
         } catch (SQLException e) {
             addAnswerLog.error("Errore interno", e);
+            return "/error500.jsp";
         }
-        return "/error500.jsp";
     }
 }

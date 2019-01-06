@@ -24,8 +24,8 @@
                        <p><form action="user/QuestionController?action=addFavourite" method="POST" data-abide novalidate>
                            <input type="hidden" name="userEmail" value="${user.email}">
                            <input type="hidden" name="questionId" value="${question.id}">
-                           <a href="user/AnswerController?action=insertAnswer"></a>
-                           <input type="submit" value="AddToFavourite">
+                           <a href="user/AnswerController?action=showAnswerPage&questionId=${question.id}" class="button">Rispondi</a>
+                           <input type="submit" class="button" value="AddToFavourite">
                        </form></p>
                    </c:if>
                    <c:forEach items="${tags}" var="tag">
