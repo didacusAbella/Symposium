@@ -26,10 +26,7 @@ public class QuestionActionFactory implements ActionFactory {
             case "deleteQuestion":
                 return new DeleteQuestionAction(new DeleteAnswerByQuestionAction(),
                         new DeleteQuestionTagAction());
-
-            case "reportQuestion":
-                return new ReportQuestionAction();
-
+                
             case "deleteQuestionAdmin":
                 return new DeleteQuestionAdminAction();
 

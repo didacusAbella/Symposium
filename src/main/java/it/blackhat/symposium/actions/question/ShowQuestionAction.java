@@ -19,8 +19,8 @@ import java.util.Optional;
  */
 public class ShowQuestionAction extends CompositeAction {
 
-    private QuestionManager questionManager;
-    private Log showQuestionActionLog = LogFactory.getLog(ShowQuestionAction.class);
+    private final QuestionManager questionManager;
+    private final Log showQuestionActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
     /**
      * Calls a list of actions and initializes a new Question Manager
