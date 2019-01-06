@@ -32,7 +32,7 @@ public class InsertQuestionAction extends CompositeAction {
 
     /**
      * Create a new insert action
-     * @param actions 
+     * @param actions other actions to execute
      */
     public InsertQuestionAction(Action... actions) {
         super(actions);
