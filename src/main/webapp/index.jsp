@@ -5,7 +5,6 @@
 
 <sy:layout title="Symposium-Benvenuto">
     <jsp:body>
-       <jsp:forward page="GuestController?action=showQuestions"/>
         <div class="grid-x padding-3 align-center">
             <div class="grid-container">
                 <sy:question questionTags="${questionTags}"></sy:question>
