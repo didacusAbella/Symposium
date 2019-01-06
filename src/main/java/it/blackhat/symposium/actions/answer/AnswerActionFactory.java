@@ -23,6 +23,8 @@ public class AnswerActionFactory implements ActionFactory {
                 return new ChooseBestAnswerAction();
             case "deleteAnswerAdmin":
                 return new DeleteAnswerAdminAction();
+            case "showAnswerPage":
+                return new ShowAnswerPage();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

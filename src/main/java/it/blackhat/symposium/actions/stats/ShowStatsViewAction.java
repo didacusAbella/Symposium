@@ -1,18 +1,17 @@
-package it.blackhat.symposium.actions.question;
+package it.blackhat.symposium.actions.stats;
 
 import it.blackhat.symposium.actions.Action;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Describes the report question action
- * @author Andrea
+ * Create the stats's view
  */
-public class ReportQuestionAction implements Action {
+public class ShowStatsViewAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        return "";
+        return "/stats.jsp";
     }
-    
 }

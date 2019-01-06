@@ -13,11 +13,12 @@ import java.io.IOException;
 
 /**
  * The class handles requests for actions concerning the user
+ *
  * @author 2Deimos
  */
 
 @WebServlet(name = "UserController",
-       urlPatterns = {"/user/UserController", "/admin/UserController"})
+        urlPatterns = {"/user/UserController", "/admin/UserController"})
 public class UserController extends DispatcherController {
 
     private ActionFactory userFactory;
@@ -34,7 +35,7 @@ public class UserController extends DispatcherController {
     }
 
     @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvalidActionException {
         String action = request.getParameter("action");
         Action userAction = this.userFactory.createAction(action);

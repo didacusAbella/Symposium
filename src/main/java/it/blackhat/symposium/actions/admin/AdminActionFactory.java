@@ -17,7 +17,8 @@ public class AdminActionFactory implements ActionFactory {
                 return new SignoutAdmin();
             case "showUsersAction":
                 return new ShowUsersAction();
-             
+            case "generateReportListAction":
+                return new GenerateReportListAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
