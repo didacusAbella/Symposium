@@ -37,6 +37,8 @@ public class UserModel implements User {
 
     private boolean typeGrad;
 
+    private int year;
+
     /**
      * Creates an empty User
      */
@@ -52,14 +54,16 @@ public class UserModel implements User {
      * @param lastName  last name of the user
      * @param password  password of the user
      * @param email     e-mail of the user
+     * @param year      year of the inscription
      */
     public UserModel(String username, String firstName, String lastName,
-                     String password, String email) {
+                     String password, String email, int year) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
+        this.year = year;
     }
 
     @Override
@@ -132,6 +136,15 @@ public class UserModel implements User {
         this.banLastDate = banLastDate;
     }
 
+    @Override
+    public int getYear() {
+        return this.year;
+    }
+
+    @Override
+    public void setYear(int year) {
+        this.year = year;
+    }
     @Override
     public String toString() {
         return "UserModel{"

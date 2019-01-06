@@ -24,8 +24,10 @@ public class ReportModel implements Report {
     private String userFk;
 
     @NotNull
-    private int year;
+    private int questionFk;
 
+    @NotNull
+    private int year;
 
     /**
      * Create an empty ReportModel
@@ -37,16 +39,17 @@ public class ReportModel implements Report {
     /**
      * Create a new Report with id, category, reason and user
      *
-     * @param id       the report's id
+     * @param id the report's id
      * @param category the report's category
-     * @param reason   the report's reason
-     * @param userFk   the user foreign key
-     * @param year     the report's year
+     * @param reason the report's reason
+     * @param userFk the user foreign key
+     * @param year the report's year
      */
-    public ReportModel(int id, String category, String reason, int year, String userFk) {
+    public ReportModel(int id, String category, String reason, int year, String userFk, int questionFk) {
         this.id = id;
         this.category = category;
         this.reason = reason;
+        this.questionFk = questionFk;
         this.userFk = userFk;
         this.year = year;
     }
@@ -106,4 +109,20 @@ public class ReportModel implements Report {
     public void setYear(int year) {
         this.year = year;
     }
+
+    @Override
+    public int getQuestionFk() {
+        return questionFk;
+    }
+
+    @Override
+    public void setQuestionFk(int questionFk) {
+        this.questionFk = questionFk;
+    }
+
+    @Override
+    public String toString() {
+        return "ReportModel{" + "id=" + id + ", category=" + category + ", reason=" + reason + ", userFk=" + userFk + ", questionFk=" + questionFk + ", year=" + year + '}';
+    }
+  
 }

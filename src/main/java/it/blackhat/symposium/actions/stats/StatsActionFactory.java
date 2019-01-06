@@ -7,7 +7,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 /**
  * Factory for create StatsAction
  *
- * @author didacus
+ * @author SDelPiano
  */
 public class StatsActionFactory implements ActionFactory {
 
@@ -16,6 +16,8 @@ public class StatsActionFactory implements ActionFactory {
         switch (actionType) {
             case "generateStats":
                 return new GenerateStatsAction();
+            case "showStats":
+                return new ShowStatsViewAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

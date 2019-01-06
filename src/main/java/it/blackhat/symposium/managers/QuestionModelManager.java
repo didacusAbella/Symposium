@@ -1,6 +1,5 @@
 package it.blackhat.symposium.managers;
 
-
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
 import it.blackhat.symposium.models.Tag;
@@ -21,7 +20,6 @@ import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
 /**
  * @author SDelPiano
  */
-
 public class QuestionModelManager extends ConnectionManager implements QuestionManager {
 
     @SuppressWarnings("Duplicates")
@@ -89,11 +87,12 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         int upd = run.update(FAVORITES, userEmail, questionId);
         return upd;
     }
-    
+
     @Override
-    public List<Question> findFavorite(String userEmail) throws SQLException{
+    public List<Question> findFavorite(String userEmail) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        List<Question> questions = run.query(SELECT_FAVORITE, new BeanListHandler<>(QuestionModel.class), userEmail);
+        List<Question> questions = run.query(SELECT_FAVORITE, 
+                new BeanListHandler<>(QuestionModel.class), userEmail);
         return questions;
     }
 
@@ -113,4 +112,3 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
 }
-

@@ -21,8 +21,8 @@ public final class UserQuery {
             + "WHERE email=?";
 
     public static final String SIGN_UP = "INSERT INTO user (username, "
-            + "firstName, lastName, email, password, typeGrad) "
-            + "VALUES( ? , ? , ? , ? , ? , ?)";
+            + "firstName, lastName, email, password, typeGrad,year) "
+            + "VALUES( ? , ? , ? , ? , ? , ?, ?)";
 
     public static final String SIGN_IN = "SELECT * FROM user WHERE email=? "
             + "AND password=?";

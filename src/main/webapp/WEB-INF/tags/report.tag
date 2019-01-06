@@ -11,7 +11,7 @@
 <div class="columns small-9 medium-6 large-3">
     <dl>
         <dt>Domanda:</dt>
-        <dd>${question.title}</dd>
+        <dd><a href="/user/QuestionController?showQuestion&questionId=${question.id}">${question.title}</a></dd>
         <dt>Category:</dt>
         <dd>${report.category}</dd>
         <dt>Reason:</dt>

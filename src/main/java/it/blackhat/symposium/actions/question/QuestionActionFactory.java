@@ -31,7 +31,7 @@ public class QuestionActionFactory implements ActionFactory {
             case "modifyTagQuestionAdmin":
                 return new ModifyTagQuestionAdminAction();
             case "seachQuestionsBy":
-                return new SeachQuestionsBy();
+                return new SeachQuestionByAction();
             case "showQuestion":
                 return new ShowQuestionAction(new RetrieveQuestionAnswersAction(),
                         new RetrieveQuestionTagsAction());

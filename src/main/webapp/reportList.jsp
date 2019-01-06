@@ -4,8 +4,8 @@
 
 <sy:layout title="Symposium - Lista Segnalazioni">
    <jsp:body>
-       <c:forEach var="report" items="${listReports}">
-           <sy:report report="${report}" question="${question}"/>
+       <c:forEach var="report" items="${listReports}" varStatus="status">
+           <sy:report report="${report}" question="${listQuestions[status.index]}"/>
        </c:forEach>
    </jsp:body>
 </sy:layout>
