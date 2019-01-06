@@ -1,7 +1,7 @@
 <%-- 
     Document   : questionDetails
     Created on : 3 gen 2019, 10:53:45
-    Author     : didacus
+    Author     : Andrea Raiola
 --%>
 <%@tag description="Question Details custom tag" pageEncoding="UTF-8"%>
 <%@attribute name="question" type="it.blackhat.symposium.models.QuestionModel" required="true" rtexprvalue="true"%>

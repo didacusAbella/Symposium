@@ -8,4 +8,11 @@
 <%@attribute name="tag" type="it.blackhat.symposium.models.TagModel" required="true" rtexprvalue="true"%>
 
 <span class="label primary">${tag.name}</span>
+<c:if test="${not empty admin}">
+    <form action="admin/TagController?action=changeTag" method="POST" data-abide novalidate>
+        <input type="search" placeholder="New Name Tag" name="tagName" required>
+        <input type="hidden" name="tagId" value="${tag.id}">
+        <button type="submit" class="button">Cambia</button>
+    </form>
+</c:if>
 
