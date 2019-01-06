@@ -29,9 +29,12 @@ public class ChangeTagAction implements Action{
         
         try{
             String tagName = req.getParameter("tagName");
+            String questionIdentificativo = req.getParameter("questionId");
+            int questionId = Integer.parseInt(questionIdentificativo);
             String tagIdentificativo = req.getParameter("tagId");
-            int tagId = Integer.getInteger(tagIdentificativo); 
-            tags.updateTag(tagName, tagId);
+            int tagId = Integer.parseInt(tagIdentificativo); 
+
+            tags.updateTag(tagName, questionId, tagId);
             return "/index.jsp"; 
         }
         catch(SQLException e){

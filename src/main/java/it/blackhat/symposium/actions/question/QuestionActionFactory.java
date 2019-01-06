@@ -36,7 +36,7 @@ public class QuestionActionFactory implements ActionFactory {
             case "modifyTagQuestionAdmin":
                 return new ModifyTagQuestionAdminAction();
 
-            case "seachQuestionsBy":
+            case "seachQuestionBy":
                 return new SeachQuestionByAction();
 
             case "showQuestion":
@@ -51,7 +51,10 @@ public class QuestionActionFactory implements ActionFactory {
 
             case "showNewQuestion":
                 return new ShowNewQuestionAction();
-
+                
+            case "showQuestions":
+                return new ShowQuestionsAction();
+                
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

@@ -1,7 +1,7 @@
 <%-- 
     Document   : questionDetails
     Created on : 3 gen 2019, 10:53:45
-    Author     : didacus
+    Author     : Andrea Raiola
 --%>
 <%@tag description="Question Details custom tag" pageEncoding="UTF-8"%>
 <%@attribute name="question" type="it.blackhat.symposium.models.QuestionModel" required="true" rtexprvalue="true"%>
@@ -29,7 +29,7 @@
                         </form></p>
                     </c:if>
                     <c:forEach items="${tags}" var="tag">
-                        <sy:tagDetails tag="${tag}"></sy:tagDetails>
+                        <sy:tagDetails tag="${tag}" question="${question}"></sy:tagDetails>
                     </c:forEach>
                     <c:forEach items="${answers}" var="answer">
                         <sy:answer answer="${answer}"></sy:answer>
