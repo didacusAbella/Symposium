@@ -5,6 +5,7 @@ import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
 import it.blackhat.symposium.actions.question.SeachQuestionsBy;
 import it.blackhat.symposium.actions.question.ShowQuestionAction;
+import it.blackhat.symposium.actions.question.ShowQuestionsAction;
 import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
@@ -29,6 +30,8 @@ public class GuestActionFactory implements ActionFactory {
             case "showQuestion":
                 return new ShowQuestionAction(new RetrieveQuestionAnswersAction(),
                         new RetrieveQuestionTagsAction());
+            case "showQuestions":
+                return new ShowQuestionsAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
