@@ -1,4 +1,4 @@
-package it.blackhat.symposium.actions.question;
+package it.blackhat.symposium.actions.report;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.QuestionManager;
