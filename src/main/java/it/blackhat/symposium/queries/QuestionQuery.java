@@ -33,8 +33,8 @@ public final class QuestionQuery {
             + " WHERE question.id = questiontag.questionId "
             + "AND tag.id = questiontag.tagId AND ? = tag.name";
 
-    public static final String LASTEDIT = "SELECT content FROM question"
-            + " ORDER BY lastUpdate DESC";
+    public static final String LASTEDIT = "SELECT * FROM question"
+            + " ORDER BY question.lastUpdate DESC";
 
     public static final String FAVORITES = "INSERT INTO favorites "
             + "VALUES (?, ?)";

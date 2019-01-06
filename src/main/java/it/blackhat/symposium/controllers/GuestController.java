@@ -29,6 +29,9 @@ public class GuestController extends DispatcherController {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InvalidActionException {
         String action = request.getParameter("action");
+        if (action == null) {
+            action = "showQuestions";
+        }
         Action guestAction = this.gaf.createAction(action);
         String page = guestAction.execute(request, response);
         this.dispatch(request, response, page);
