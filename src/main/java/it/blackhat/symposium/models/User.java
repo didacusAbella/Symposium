@@ -107,4 +107,18 @@ public interface User {
      */
     void setBanLastDate(Date banLastDate);
 
+    /**
+     * get the year of the inscription
+     *
+     * @return the year of the inscription
+     */
+    int getYear();
+
+    /**
+     * Set the year of the user's inscription
+     *
+     * @param year year of the inscription
+     */
+    void setYear(int year);
+
 }

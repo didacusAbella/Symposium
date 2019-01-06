@@ -1,6 +1,7 @@
 package it.blackhat.symposium.actions.guest;
 
 import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
@@ -14,15 +15,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Optional;
 
 /**
- * @author killer, 2Deimos Describes the guest's signup action
+ * Describes the guest's signup action
+ * @author Parrilli Carminantonio
+ * @author 2Deimos
  */
 
 public class SignupAction implements Action {
     private UserManager user;
-    private Log signinLog = LogFactory.getLog(SigninAction.class);
+    private Log signUpLog = LogFactory.getLog(SigninAction.class);
 
     /**
      * Add another user in the database if not present
@@ -38,6 +42,7 @@ public class SignupAction implements Action {
 
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
+            BeanValidator.validateBean(newUser);
             Optional<User> found = user.findEmail(newUser.getEmail());
 
             if (found.isPresent()) {
@@ -45,17 +50,18 @@ public class SignupAction implements Action {
                 return "/signUp.jsp";
             } else {
                 newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
+                newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
                 user.createUser(newUser);
                 return "/signIn.jsp";
             }
         } catch (SQLException e) {
-            signinLog.error("problemi interni SQL", e);
+            signUpLog.error("problemi interni SQL", e);
             return "/error500.jsp";
         } catch (IllegalAccessException e) {
-            signinLog.error("problemi interni Accesso", e);
+            signUpLog.error("problemi interni Accesso", e);
             return "/error500.jsp";
         } catch (InvocationTargetException e) {
-            signinLog.error("problemi interni Invocazione", e);
+            signUpLog.error("problemi interni Invocazione", e);
             return "/error500.jsp";
         }
     }

@@ -22,8 +22,8 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
     @Override
     public int getNumberUsers(int interestedYear) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource); //TODO News scalar handler
-        int usersTotal = run.query(GET_NUM_USERS, new ScalarHandler<Integer>(), interestedYear);
-        return usersTotal;
+        Long usersTotal = run.query(GET_NUM_USERS, new ScalarHandler<Long>(), interestedYear);
+        return usersTotal.intValue();
     }
 
     @Override
@@ -35,7 +35,8 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
     @Override
     public int getNumberReports(int interestedYear) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        return run.query(GET_NUM_REPORTS, new ScalarHandler<Integer>(), interestedYear);
+        Long numrep = run.query(GET_NUM_REPORTS, new ScalarHandler<Long>(), interestedYear);
+        return numrep.intValue();
     }
     @Override
     public int createStats(int interestedYear) throws SQLException {
@@ -51,7 +52,7 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
     @Override
     public int getBannedUsers(int interestedYear) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int temp = run.query(GET_BANNED_USERS, new ScalarHandler<Integer>(), interestedYear);
-        return temp;
+        Long temp = run.query(GET_BANNED_USERS, new ScalarHandler<Long>(), interestedYear);
+        return temp.intValue();
     }
 }

@@ -1,6 +1,5 @@
 package it.blackhat.symposium.models;
 
-
 /**
  * Interface for represent Report resource
  *
@@ -77,4 +76,18 @@ public interface Report {
      * @param year new year of the report
      */
     void setYear(int year);
+
+    /**
+     * Get the question foreign key
+     * @return the question's foreign key
+     */
+    int getQuestionFk();
+
+    /**
+     * Set the question foreign key
+     * @param questionFk the question foreign key
+     */
+    void setQuestionFk(int questionFk);
+
+    
 }

@@ -50,7 +50,8 @@ public class UserModelManager extends ConnectionManager implements UserManager {
     public int createUser(User user) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int create = run.update(SIGN_UP, user.getUsername(), user.getFirstName(),
-                user.getLastName(), user.getEmail(), user.getPassword(), user.getTypeGrad());
+                user.getLastName(), user.getEmail(), user.getPassword(),
+                user.getTypeGrad(), user.getYear());
         return create;
     }
 

@@ -76,6 +76,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
+    public int deleteQuestionTag(int questionId) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        int update = run.update(DELETE_QUESTION_TAG, questionId);
+        return update;
+    }
+
+    @Override
     public int changeQuestionTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int upd = run.update(CHANGE_TAG, tag.getId(), question.getId());
@@ -88,6 +95,14 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         System.out.println(questionId);
         int upd = run.update(FAVORITES, userEmail, questionId);
         return upd;
+    }
+
+    @Override
+    public List<Question> findFavorite(String userEmail) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        List<Question> questions = run.query(SELECT_FAVORITE,
+                new BeanListHandler<>(QuestionModel.class), userEmail);
+        return questions;
     }
 
     @Override

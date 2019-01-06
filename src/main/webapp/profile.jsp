@@ -7,21 +7,20 @@
     <jsp:body>
         <div class="grid-x margin-x align-center">
             <div class="grid small-12 medium-6 large-6 callout primary">
-                <form action="user/UserController?action=showProfile" method="post"data-abide novalidate>
-                    <img alt="profilePage" src="https://image.flaticon.com/icons/png/128/118/118781.png<%--getProfileImage(Session)--%>"><br/><br/>
-                    <a href="editProfile.jsp" class="button">Modifica L'account</a>
+                <span><i class="fi-torso" style="font-size: 80px"></i></span>
+                <div class="cell">
+                    <a href="user/UserController?action=showEditProfile" class="button">Modifica L'account</a>
                     <a href="favorites.jsp" class="button">I tuoi preferiti salvati</a>
                     <button class="button" onclick="alert('Sei Sicuro?');">Elimina L'account</button>
-
-                    <dl>
-                        <dt>Nome:</dt><dd>${user.firstName}</dd>
-                        <dt>Cognome:</dt><dd>${user.lastName}</dd>
-                        <dt>Corso di laurea:</dt>
-                        <dd>
-                            <input type="checkbox" name="typeGrad" value="false" disabled/><label for="typeGrad">Magistrale</label>
-                        </dd>
-                    </dl>
-                </form>
+                </div>
+                <dl>
+                    <dt>Nome:</dt><dd>${user.firstName}</dd>
+                    <dt>Cognome:</dt><dd>${user.lastName}</dd>
+                    <dt>Corso di laurea:</dt>
+                    <dd>
+                        <input type="checkbox" name="typeGrad" value="${user.typeGrad}" disabled/><label for="typeGrad">Magistrale</label>
+                    </dd>
+                </dl>
             </div>    
         </div>
     </jsp:body>

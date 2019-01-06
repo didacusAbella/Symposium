@@ -4,6 +4,7 @@ import it.blackhat.symposium.models.Tag;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This interface describe the methods of Tag Manager
@@ -25,11 +26,13 @@ public interface TagManager {
     /**
      * Updates an older tag with a newer one in the tag's table
      *
-     * @param tag a tag object
+     * @param tagName the content of the tag
+     * @param questionId the Id of the question
+     * @param tagId the id of the tag
      * @return the number of updated rows
      * @throws SQLException if the operation fails
      */
-    int updateTag(Tag tag) throws SQLException;
+    int updateTag(String tagName, int questionId, int tagId) throws SQLException;
 
 
     /**
@@ -58,4 +61,13 @@ public interface TagManager {
      * @throws SQLException if db error occurred
      */
     List<Tag> retrieveQuestionTags(int questionId) throws SQLException;
+
+    /**
+     * Retrieve the most used tags of a year
+     *
+     * @param year year of the stats
+     * @return a list of most used tags
+     * @throws SQLException if db error occurred
+     */
+    Map<String, Integer> mostUsedTags(int year) throws SQLException;
 }
