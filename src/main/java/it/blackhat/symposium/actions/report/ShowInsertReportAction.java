@@ -9,6 +9,8 @@ public class ShowInsertReportAction implements Action {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
+        int questionId = Integer.parseInt(req.getParameter("questionId"));
+        req.setAttribute("questionId", questionId);
         return "/insertReport.jsp";
     }
     

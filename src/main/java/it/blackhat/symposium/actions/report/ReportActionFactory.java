@@ -15,6 +15,8 @@ public class ReportActionFactory implements ActionFactory {
         switch(actionType){
             case "showInsertReport":
                 return new ShowInsertReportAction();
+            case "insertReport":
+                return new ReportQuestionAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }
