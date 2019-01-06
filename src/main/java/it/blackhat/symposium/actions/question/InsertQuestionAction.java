@@ -46,11 +46,11 @@ public class InsertQuestionAction extends CompositeAction {
         try {
             Question newQuestion = new QuestionModel();
             BeanUtils.populate(newQuestion, req.getParameterMap());
+            newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));
+            newQuestion.setLastUpdate(new Date(Calendar.getInstance().getTime().getTime()));
+            UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
+            newQuestion.setUserFk(currentUser.getEmail());
             if (BeanValidator.validateBean(newQuestion)) {
-                newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));
-                newQuestion.setLastUpdate(new Date(Calendar.getInstance().getTime().getTime()));
-                UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
-                newQuestion.setUserFk(currentUser.getEmail());
                 int idQuestion = this.questionManager.insertQuestion(newQuestion);
                 super.execute(req, res);
                 String[] tagList = TagExtractor.extractTag(req);
