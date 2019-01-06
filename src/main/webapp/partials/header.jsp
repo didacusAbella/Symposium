@@ -20,7 +20,7 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <form action="GuestController?action=seachQuestionByAction" method="post" data-abide novalidate>
+        <form action="GuestController?action=seachQuestionBy" method="post" data-abide novalidate>
             <ul class="dropdown menu" data-dropdown-menu>
                 <li><input type="search" placeholder="Cerca" name="searchBy" required></li>
                 <li><button type="submit" class="button">Cerca</button></li>
@@ -52,6 +52,10 @@
                         <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
                         <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
                         <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
+                        <li><form action="user/QuestionController?action=showFavorite" method="POST">
+                            <button type="submit" class="button">Domande Preferite</a>
+                            <input type="hidden" value="${user.email}" name="userEmail">
+                            </form></li>
                         <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una
                                 domanda!</a></li>
                         <li><a href="user/UserController?action=showEditProfile" class="alert button">Modifica Profilo</a></li>
