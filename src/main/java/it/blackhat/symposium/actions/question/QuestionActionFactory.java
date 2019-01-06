@@ -51,7 +51,10 @@ public class QuestionActionFactory implements ActionFactory {
 
             case "showNewQuestion":
                 return new ShowNewQuestionAction();
-
+                
+            case "showQuestions":
+                return new ShowQuestionsAction();
+                
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

@@ -41,7 +41,7 @@ public class ShowQuestionsAction implements Action {
                 questionTag.add(new QuestionTag(question, tags));
             }
             req.setAttribute("questionTags", questionTag);
-            return "/index.jsp";
+            return "/allQuestions.jsp";
         } catch (SQLException e) {
             showQuestionLog.error("Errore Interno", e);
             return "/error500.jsp";
