@@ -29,7 +29,7 @@
                         </form></p>
                     </c:if>
                     <c:forEach items="${tags}" var="tag">
-                        <sy:tagDetails tag="${tag}"></sy:tagDetails>
+                        <sy:tagDetails tag="${tag}" question="${question}"></sy:tagDetails>
                     </c:forEach>
                     <c:forEach items="${answers}" var="answer">
                         <sy:answer answer="${answer}"></sy:answer>

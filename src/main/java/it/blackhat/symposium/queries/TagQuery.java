@@ -33,7 +33,12 @@ public final class TagQuery {
     public static final String NUM_TAG = "SELECT name, uses FROM tag,statstag WHERE"
             + " tag.id=statstag.tagId AND statstag.statsId=(SELECT id"
             + " FROM stats WHERE year = ? LIMIT 1)";
-
+    
+    public static final String CHANGE_SINGLE_TAG = "UPDATE questiontag AS qt " +
+            "SET qt.`tagId` = (SELECT id as idT " +
+            "FROM tag " +
+            "WHERE name= ? ) " +
+            "WHERE qt.`questionId`= ?  AND qt.`tagId` = ?";
 }
 
 
