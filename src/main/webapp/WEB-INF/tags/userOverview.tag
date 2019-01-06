@@ -5,8 +5,6 @@
 --%>
 
 <%@tag description="View for tag model" pageEncoding="UTF-8" %>
-
-<%-- The list of normal or fragment attributes can be specified here: --%>
 <%@attribute name="user" type="it.blackhat.symposium.models.UserModel" required="true" rtexprvalue="true" %>
 <form method="post" action="admin/UserController?action=banUser">
     <div class="columns small-9 medium-6 large-3">

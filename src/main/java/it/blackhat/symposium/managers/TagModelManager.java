@@ -31,9 +31,9 @@ public class TagModelManager extends ConnectionManager implements TagManager {
 
 
     @Override
-    public int updateTag(Tag tagId) throws SQLException {
+    public int updateTag(String tagName, int tagId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(CHANGE_TAG, tagId);
+        int update = run.update(CHANGE_TAG,tagName,tagId);
         return update;
     }
 
