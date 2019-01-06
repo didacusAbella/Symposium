@@ -19,17 +19,17 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author Giuseppe Madonna
  */
-public class SeachQuestionsBy implements Action {
+public class SeachQuestionByAction implements Action {
 
     private final QuestionManager quest;
     private final List<String> tags;
     private String word;
-    private final Log searchQuestionByLog = LogFactory.getLog(SeachQuestionsBy.class);
+    private final Log searchQuestionByLog = LogFactory.getLog(SeachQuestionByAction.class);
 
     /**
-     * Costructor of SeachQuestionsBy
+     * Costructor of SeachQuestionsByAction
      */
-    public SeachQuestionsBy() {
+    public SeachQuestionByAction() {
         quest = new QuestionModelManager();
         tags = new ArrayList<>();
         word = new String();
@@ -134,3 +134,4 @@ public class SeachQuestionsBy implements Action {
         word = word.trim().replaceAll(" +", " ");
     }
 }
+
