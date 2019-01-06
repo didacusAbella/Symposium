@@ -25,7 +25,7 @@ public class DeleteQuestionAction extends CompositeAction {
     /**
      * Create a constructor for DeleteQuestionAction
      *
-     * @param actions
+     * @param actions other actions to execute
      */
     public DeleteQuestionAction(Action... actions) {
         super(actions);

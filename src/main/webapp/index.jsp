@@ -10,7 +10,6 @@
             <c:forEach var="question1" items="questions">
                 <sy:question question="${question}" tags="${tags}"/>
             </c:forEach>
-            <a href="user/QuestionController?action=showQuestion&questionId=15" class="button">Prova</a>
 
         </div>
     </jsp:body>
