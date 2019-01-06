@@ -44,7 +44,6 @@ public class SignupAction implements Action {
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
 
-            if (BeanValidator.validateBean(newUser)) {
                 Optional<User> found = user.findEmail(newUser.getEmail());
                 if (found.isPresent()) {
                     req.setAttribute("emailErr", "Already Exist");
@@ -52,13 +51,13 @@ public class SignupAction implements Action {
                 } else {
                     newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
                     newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
-                    user.createUser(newUser);
-                    return "/signIn.jsp";
+                    if (BeanValidator.validateBean(newUser)) {
+                        user.createUser(newUser);
+                        return "/signIn.jsp";
+                    } else {
+                        return "/error400.jsp";
+                    }
                 }
-            } else {
-                return "/error400.jsp";
-            }
-
         } catch (SQLException e) {
             signUpLog.error("problemi interni SQL", e);
             return "/error500.jsp";
