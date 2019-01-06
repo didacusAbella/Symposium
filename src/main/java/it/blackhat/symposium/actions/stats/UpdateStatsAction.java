@@ -11,13 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.time.Year;
+/**
+ * Update the stats in the database
+ * @author Symposium Group
+ *
+ */
 
 public class UpdateStatsAction implements Action {
     private final StatsManager statsManager;
     private final Log updateStatsLog = LogFactory.getLog(UpdateStatsAction.class);
 
     /**
-     * Update the stats
+     * The constructor of the page
      */
     public UpdateStatsAction() {
         this.statsManager = new StatsModelManager();

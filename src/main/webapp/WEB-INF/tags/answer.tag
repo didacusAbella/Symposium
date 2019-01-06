@@ -1,7 +1,7 @@
 <%-- 
     Document   : answer
     Created on : 3 gen 2019, 11:21:57
-    Author     : didacus
+    Author     : Symposium Group
 --%>
 
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>

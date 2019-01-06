@@ -1,7 +1,7 @@
 <%-- 
     Document   : adminSignin
     Created on : 3 gen 2019, 15:37:29
-    Author     : didacus, Parrilli Carminantonio
+    Author     : Symposium Group
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"

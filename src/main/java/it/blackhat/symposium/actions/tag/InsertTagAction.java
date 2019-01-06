@@ -13,6 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
+/**
+ * Inserts a tag in the database
+ * @author Symposium Group
+ *
+ */
+
 public class InsertTagAction implements Action {
     private final Log insertTagLog = LogFactory.getLog(InsertTagAction.class);
     private final TagManager tagManager;

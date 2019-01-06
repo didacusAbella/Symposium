@@ -3,7 +3,7 @@ package it.blackhat.symposium.queries;
 /**
  * This class contains all queries for user table
  *
- * @author didacus
+ * @author Symposium Group
  */
 public final class UserQuery {
 

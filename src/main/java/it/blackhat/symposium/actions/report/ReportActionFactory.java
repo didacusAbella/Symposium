@@ -6,13 +6,13 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class ReportActionFactory implements ActionFactory {
 
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
-        switch(actionType){
+        switch (actionType) {
             case "showInsertReport":
                 return new ShowInsertReportAction();
             case "insertReport":

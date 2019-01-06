@@ -16,6 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Shows the questions on the site
+ * @author Symposium Group
+ *
+ */
 
 public class ShowQuestionsAction implements Action {
 

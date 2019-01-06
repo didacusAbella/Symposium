@@ -1,7 +1,7 @@
 <%-- 
     Document   : tagDetails
     Created on : 3 gen 2019, 11:12:56
-    Author     : didacus
+    Author     : Symposium Group
 --%>
 
 <%@tag description="Custom Tag for Question Tag" pageEncoding="UTF-8"%>

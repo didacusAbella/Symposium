@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Create a new Action to show to QuestionPage
- * @author didacus
+ * @author Symposium Group
  */
 public class ShowNewQuestionAction implements Action {
 

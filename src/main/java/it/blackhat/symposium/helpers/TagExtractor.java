@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * This Class extract tag from request
+ * @author Symposium Group
  */
 public class TagExtractor {
 

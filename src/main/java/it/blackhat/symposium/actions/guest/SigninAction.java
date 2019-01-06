@@ -21,7 +21,9 @@ import java.util.Optional;
 /**
  * Describes the guest's signin action
  *
- * @author 2Deimos, Parrilli Carminantonio, SDelPiano
+ * @author 2Deimos
+ * @author Parrilli Carminantonio
+ * @author SDelPiano
  */
 
 public class SigninAction implements Action {

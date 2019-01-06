@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class ReportController extends DispatcherController {
     

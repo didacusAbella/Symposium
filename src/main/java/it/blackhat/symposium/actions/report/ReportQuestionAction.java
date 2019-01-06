@@ -26,7 +26,9 @@ public class ReportQuestionAction implements Action {
     private final QuestionManager questionManager;
     private final ReportManager reportManager;
     private final Log reportQuestionActionLog = LogFactory.getLog(ReportQuestionAction.class);
-
+/**
+ * The constructor of the class
+ */
     public ReportQuestionAction() {
         questionManager = new QuestionModelManager();
         reportManager = new ReportModelManager();

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Signout Admin
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class SignoutAdmin implements Action {
 

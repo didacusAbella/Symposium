@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author Giuseppe Madonna, SDelPiano
+ * @author Giuseppe Madonna
+ * @author SDelPiano
  */
 public interface UserManager {
     /**

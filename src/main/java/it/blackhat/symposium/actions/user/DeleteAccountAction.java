@@ -13,7 +13,7 @@ import java.util.Optional;
 /**
  * Deletes the account of the user
  *
- * @author killer
+ * @author Parrilli Carminantonio
  */
 public class DeleteAccountAction implements Action {
     private UserManager user;

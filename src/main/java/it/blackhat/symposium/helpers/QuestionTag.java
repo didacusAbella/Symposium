@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Classes for map question and tag
- * @author didacus
+ * @author Symposium Group
  */
 public final class QuestionTag {
     
