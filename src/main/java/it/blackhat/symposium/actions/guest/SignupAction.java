@@ -1,6 +1,7 @@
 package it.blackhat.symposium.actions.guest;
 
 import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
@@ -41,6 +42,7 @@ public class SignupAction implements Action {
 
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
+            BeanValidator.validateBean(newUser);
             Optional<User> found = user.findEmail(newUser.getEmail());
 
             if (found.isPresent()) {

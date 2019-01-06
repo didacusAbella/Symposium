@@ -2,6 +2,7 @@ package it.blackhat.symposium.actions.answer;
 
 
 import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
 import it.blackhat.symposium.models.Answer;
@@ -38,6 +39,7 @@ public class InsertAnswerAction implements Action {
         try {
             Answer answer = new AnswerModel();
             BeanUtils.populate(answer, req.getParameterMap());
+            BeanValidator.validateBean(answer);
             answerManager.insertAnswer(answer);
 
             return "/index.jsp";
