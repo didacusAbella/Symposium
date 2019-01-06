@@ -53,7 +53,7 @@ public class InsertAnswerAction implements Action {
             return "/error500.jsp";
         } catch (SQLException e) {
             addAnswerLog.error("Errore interno", e);
+            return "/error500.jsp";
         }
-        return "/error500.jsp";
     }
 }
