@@ -32,7 +32,7 @@ public interface TagManager {
      * @return the number of updated rows
      * @throws SQLException if the operation fails
      */
-    int updateTag(String tagName, int questioId, int tagId) throws SQLException;
+    int updateTag(String tagName, int questionId, int tagId) throws SQLException;
 
 
     /**
