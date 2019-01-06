@@ -5,32 +5,25 @@
 
 <sy:layout title="Symposium ${question.title}">
     <div data-abide-error class="alert callout" style="display: none;">
-    <p><i class="fi-alert"></i> Ricontrolla la form</p>
-</div>
-<div class="grid-y" style="height: 50px;"></div>
-<div class="grid-x margin-x align-center">
-    <c:choose>
-        <c:when test="${answer.correct}">
-            <div class="grid small-12 medium-6 large-6 callout success align-center">
-        </c:when>
-        <c:otherwise>
-            <div class="grid small-12 medium-6 large-6 callout warning align-center">
-        </c:otherwise>
-    </c:choose>
-         <h3 class="float-center">${question.title}</h3>
-        <a href="user/UserController?action=showProfile"><img alt="profilePage"  class="float-center" src="https://image.flaticon.com/icons/png/128/118/118781.png"></a>
-        <p>${question.content}</p>
-        <c:forEach items="${questionTag.tags}" var="tag">
-            <span class="label">${tag.name}</span>
-        </c:forEach>
-        <form action="user/AnswerController?action=insertAnswer" method="post" data-abide novalidate>
-            <label>
-                <textarea rows="2" required maxlength="65535" id="answer" name="answer"></textarea>
-                <span class="form-error"> Devi scrivere qualcosa</span>
-            </label>
-            <input type="submit" value="Rispondi" class="button">
-        </form>
-
+        <p><i class="fi-alert"></i> Ricontrolla la form</p>
     </div>
-</div>
+    <div class="grid-y" style="height: 50px;"></div>
+    <div class="grid-x margin-x align-center">
+        <div class="grid small-12 medium-6 large-6 callout primary align-center">
+            <h3 class="float-center">${question.title}</h3>
+            <a href="user/UserController?action=showProfile"><img alt="profilePage"  class="float-center" src="https://image.flaticon.com/icons/png/128/118/118781.png"></a>
+            <p>${question.content}</p>
+            <c:forEach items="${tags}" var="tag">
+                <span class="label">${tag.name}</span>
+            </c:forEach>
+            <form action="user/AnswerController?action=insertAnswer" method="post" data-abide novalidate>
+                <label>
+                    <textarea rows="2" required maxlength="65535" id="answer" name="answer"></textarea>
+                    <span class="form-error"> Devi scrivere qualcosa</span>
+                </label>
+                <input type="submit" value="Rispondi" class="button">
+            </form>
+
+        </div>
+    </div>
 </sy:layout>
