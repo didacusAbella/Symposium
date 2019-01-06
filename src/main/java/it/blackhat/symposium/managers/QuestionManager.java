@@ -109,6 +109,7 @@ public interface QuestionManager {
      * @return a List of all the questions founded
      * @throws SQLException if it encounter an error
      */
+    List<Question> showQuestionsByAuthor(String email) throws SQLException;
     List<Question> seachQuestionsByTag(String tag) throws SQLException;
 
     /**
