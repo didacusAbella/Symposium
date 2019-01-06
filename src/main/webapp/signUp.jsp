@@ -3,7 +3,6 @@
     Created on : 25 dec 2018
     Author     : Parrilli Carminantonio
 --%>
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
