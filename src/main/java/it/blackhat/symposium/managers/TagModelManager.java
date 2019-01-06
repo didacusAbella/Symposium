@@ -1,11 +1,11 @@
 package it.blackhat.symposium.managers;
 
-import it.blackhat.symposium.helpers.MapCompleteHandler;
 import it.blackhat.symposium.models.Tag;
 import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.BeanMapHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -21,6 +21,7 @@ import static it.blackhat.symposium.queries.TagQuery.*;
  */
 public class TagModelManager extends ConnectionManager implements TagManager {
 
+
     @Override
     public int insertTag(Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
@@ -29,11 +30,10 @@ public class TagModelManager extends ConnectionManager implements TagManager {
     }
 
 
-
     @Override
-    public int updateTag(Tag tagId) throws SQLException {
+    public int updateTag(String tagName, int tagId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(CHANGE_TAG, tagId);
+        int update = run.update(CHANGE_TAG, tagName, tagId);
         return update;
     }
 
@@ -63,7 +63,10 @@ public class TagModelManager extends ConnectionManager implements TagManager {
     @Override
     public Map<String, Integer> mostUsedTags(int year) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        Map<String, Integer> most = run.query(NUM_TAG, new MapCompleteHandler(), year);
+        ResultSetHandler<Map<String, Integer>> a = new BeanMapHandler<String, Integer>
+                (Integer.class, "name");
+        Map<String, Integer> most = run.query(NUM_TAG, a, year);
         return most;
+
     }
 }

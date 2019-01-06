@@ -3,7 +3,7 @@ package it.blackhat.symposium.actions.guest;
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
-import it.blackhat.symposium.actions.question.SeachQuestionsBy;
+import it.blackhat.symposium.actions.question.SeachQuestionByAction;
 import it.blackhat.symposium.actions.question.ShowQuestionAction;
 import it.blackhat.symposium.actions.question.ShowQuestionsAction;
 import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
@@ -24,7 +24,7 @@ public class GuestActionFactory implements ActionFactory {
             case "signUp":
                 return new SignupAction();
             case "seachQuestionsBy":
-                return new SeachQuestionsBy();      
+                return new SeachQuestionByAction();      
             case "signinAdmin":
                 return new SigninAdminAction();
             case "showQuestion":

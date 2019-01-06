@@ -7,7 +7,7 @@ package it.blackhat.symposium.queries;
  * @author: GMadness97
  **/
 public final class QuestionQuery {
-    public static final String DELETE_QUESTION = "DELETE FROM question WHERE id = ?";
+
 
     /**
      * create an empty question query
@@ -19,6 +19,11 @@ public final class QuestionQuery {
     public static final String INSERT_QUESTION = "INSERT INTO"
             + " question(content,lastUpdate,creationDate,numReports,"
             + "userFk,title) VALUES(?,?,?,?,?,?)";
+
+    public static final String DELETE_QUESTION = "DELETE FROM question WHERE id = ?";
+
+    public static final String DELETE_QUESTION_TAG = "DELETE FROM questiontag WHERE questionId = ?";
+
     public static final String RESEARCH_BY_WORDS = "SELECT * FROM question"
             + " WHERE content LIKE '%?%'";
 
@@ -49,5 +54,6 @@ public final class QuestionQuery {
 
     public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag(questionId,tagId) "
             + "VALUES(?,(SELECT id FROM tag WHERE name = ?))";
+
 
 }
