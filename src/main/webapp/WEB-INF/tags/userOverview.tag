@@ -15,6 +15,7 @@
             <dd>${user.email}</dd>
             <dt>Ban:</dt>
             <dd>
+                <input type="hidden" name="email" value="${user.email}"/>
                 <input type="radio" name="typeBan" value="false" id="false"><label for="false">Ban Temporaneo</label>
                 <input type="radio" name="typeBan" value="true" id="true"><label for="true">Ban Permanente</label>
                 <input type="submit" class="button tiny" value="Conferma"/>

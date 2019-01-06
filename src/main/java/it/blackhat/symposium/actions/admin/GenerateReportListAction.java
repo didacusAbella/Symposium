@@ -46,7 +46,6 @@ public class GenerateReportListAction implements Action {
             List<Question> listQuestions = new ArrayList<>();
 
             for (Report r : listReports) {
-                System.out.println("Generazione Segnalazione" + r.getQuestionFk());
                 Optional<Question> found = questionManager.findQuestion(r.getQuestionFk());
                 listQuestions.add(found.get());
             }

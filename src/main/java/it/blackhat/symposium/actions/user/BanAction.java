@@ -19,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class BanAction implements Action {
 
-    private final Date banForever;
+    private Date banForever;
     private Date endBanDate;
     private final UserManager userManager;
     private final Log banActionLogger = LogFactory.getLog(BanAction.class);
@@ -29,7 +29,6 @@ public class BanAction implements Action {
      */
     public BanAction() {
         this.userManager = new UserModelManager();
-        this.banForever = new Date(Long.MAX_VALUE);
     }
 
     @Override
@@ -38,14 +37,19 @@ public class BanAction implements Action {
             Calendar todayDate = Calendar.getInstance();
             todayDate.add(Calendar.MONTH, 1);
             this.endBanDate = new Date(todayDate.getTimeInMillis());
+            todayDate.add(Calendar.YEAR, 100);
+            this.banForever = new Date(todayDate.getTimeInMillis());
+            System.out.println("Data: " + endBanDate);
             String emailUser = req.getParameter("email");
             boolean typeBan = Boolean.parseBoolean(req.getParameter("typeBan"));
+
             if (typeBan) {
                 this.userManager.banUser(banForever, emailUser);
             } else {
                 this.userManager.banUser(endBanDate, emailUser);
             }
-            return "/admin/UserController?action=showUsers";
+
+            return "/admin/AdminController?action=showUsersAction";
         } catch (SQLException e) {
             this.banActionLogger.error("Errore Interno", e);
             return "/error500.jsp";
