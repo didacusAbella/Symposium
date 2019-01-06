@@ -56,6 +56,16 @@ public interface QuestionManager {
     int deleteQuestion(int questionId) throws SQLException;
 
     /**
+     * Delete a question
+     *
+     * @param questionId id of the question
+     * @return the number of row updated
+     * @throws SQLException if it encounter an error
+     **/
+
+    int deleteQuestionTag(int questionId) throws SQLException;
+
+    /**
      * Change Tag in a question
      *
      * @param question question
@@ -77,12 +87,13 @@ public interface QuestionManager {
 
     /**
      * Return the favorite questions of an user
+     *
      * @param userEmail user e-mail
      * @return user favorite questions
      * @throws SQLException if db encounter an error
      */
     List<Question> findFavorite(String userEmail) throws SQLException;
-    
+
     /**
      * Shows a list of question sorted by last edit
      *

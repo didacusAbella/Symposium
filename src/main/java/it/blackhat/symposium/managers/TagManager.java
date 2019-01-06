@@ -26,12 +26,11 @@ public interface TagManager {
     /**
      * Updates an older tag with a newer one in the tag's table
      *
-     * @param tagName the content of the tag
      * @param tagId the id of the tag
      * @return the number of updated rows
      * @throws SQLException if the operation fails
      */
-    int updateTag(String tagName, int tagId) throws SQLException;
+    int updateTag(int tagId) throws SQLException;
 
 
     /**
