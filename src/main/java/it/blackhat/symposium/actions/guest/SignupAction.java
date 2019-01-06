@@ -1,6 +1,7 @@
 package it.blackhat.symposium.actions.guest;
 
 import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
@@ -19,6 +20,7 @@ import java.util.Optional;
 
 /**
  * Describes the guest's signup action
+ *
  * @author Parrilli Carminantonio
  * @author 2Deimos
  */
@@ -41,17 +43,22 @@ public class SignupAction implements Action {
 
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
-            Optional<User> found = user.findEmail(newUser.getEmail());
 
-            if (found.isPresent()) {
-                req.setAttribute("emailErr", "Already Exist");
-                return "/signUp.jsp";
+            if (BeanValidator.validateBean(newUser)) {
+                Optional<User> found = user.findEmail(newUser.getEmail());
+                if (found.isPresent()) {
+                    req.setAttribute("emailErr", "Already Exist");
+                    return "/signUp.jsp";
+                } else {
+                    newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
+                    newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
+                    user.createUser(newUser);
+                    return "/signIn.jsp";
+                }
             } else {
-                newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
-                newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
-                user.createUser(newUser);
-                return "/signIn.jsp";
+                return "/error400.jsp";
             }
+
         } catch (SQLException e) {
             signUpLog.error("problemi interni SQL", e);
             return "/error500.jsp";

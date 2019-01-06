@@ -3,11 +3,6 @@
     Created on : 3 gen 2019, 10:53:45
     Author     : Andrea Raiola
 --%>
-<%--
-   Document   : questionDetails
-   Created on : 3 gen 2019, 10:53:45
-   Author     : Andrea Raiola
---%>
 <%@tag description="Question Details custom tag" pageEncoding="UTF-8"%>
 <%@attribute name="question" type="it.blackhat.symposium.models.QuestionModel" required="true" rtexprvalue="true"%>
 <%@attribute name="answers" type="java.util.List<it.blackhat.symposium.models.AnswerModel>" required="true" rtexprvalue="true"%>
