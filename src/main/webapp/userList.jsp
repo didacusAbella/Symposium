@@ -15,9 +15,9 @@
             <c:forEach var="user" items="${listUsers}" >
             
             <div class="callout primary">
-               <div class="grid-3 grid-padding-10">
+               
                 <sy:userOverview user="${user}"/>
-               </div>
+               
              </div>
             </c:forEach>
         </div>  
