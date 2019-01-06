@@ -30,7 +30,9 @@ public class ChangeTagAction implements Action{
         try{
             String tagName = req.getParameter("tagName");
             String tagIdentificativo = req.getParameter("tagId");
-            int tagId = Integer.getInteger(tagIdentificativo); 
+            System.out.println("Tag ID:"+tagIdentificativo);
+            
+            int tagId = Integer.parseInt(tagIdentificativo); 
             tags.updateTag(tagName, tagId);
             return "/index.jsp"; 
         }
