@@ -18,7 +18,17 @@
                     <dt>Cognome:</dt><dd>${user.lastName}</dd>
                     <dt>Corso di laurea:</dt>
                     <dd>
-                        <input type="checkbox" name="typeGrad" value="${user.typeGrad}" disabled/><label for="typeGrad">Magistrale</label>
+                        <c:choose>
+                            <c:when test="${user.typeGrad}">
+                                <input type="checkbox" id="typeGrad" name="typeGrad" value="${user.typeGrad}" checked
+                                       disabled>
+                                <label for="typeGrad">Magistrale</label>
+                            </c:when>
+                            <c:otherwise>
+                                <input type="checkbox" name="typeGrad" value="${user.typeGrad}" disabled>
+                                <label for="typeGrad">Magistrale</label>
+                            </c:otherwise>
+                        </c:choose>
                     </dd>
                 </dl>
             </div>    

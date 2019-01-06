@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
+<%@ taglib prefix="sy" tagdir="/WEB-INF/tags/" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -8,27 +8,46 @@
         <h1 class="text-center">Modifica Profilo di ${user.username}</h1>
         <div class="grid-x margin-x align-center">
             <div class="grid small-12 medium-6 large-6 callout primary">
-                <form action="user/UserController?action=editProfile" method="post"data-abide novalidate>
+                <form action="user/UserController?action=editProfile" method="post" data-abide novalidate>
                     <dl>
-                        <dd><input  type="hidden" placeholder="E-mail" id="email" name="email" value="${user.email}"required>
-                        <dt>Nome:</dt><dd><input type="text" placeholder="Name" id="name" name="firstName" value="${user.firstName}"required>
+                        <dd><input type="hidden" placeholder="E-mail" id="email" name="email" value="${user.email}"
+                                   required>
+                        <dt>Nome:</dt>
+                        <dd><input type="text" placeholder="Name" id="name" name="firstName" value="${user.firstName}"
+                                   required>
                             <span class="form-error"> Inserisci un nome valido</span></dd>
-                        <dt>Cognome:</dt><dd><input type="text" placeholder="LastName" id="lastname" name="lastName" value="${user.lastName}" required>
+                        <dt>Cognome:</dt>
+                        <dd><input type="text" placeholder="LastName" id="lastname" name="lastName"
+                                   value="${user.lastName}" required>
                             <span class="form-error">Inserisci un cognome valido</span></dd>
-                        <dt>Password:</dt><dd><input type="password" placeholder="Password" id="password" name="password" value="${user.password}" required>
+                        <dt>Password:</dt>
+                        <dd><input type="password" placeholder="Password" id="password" name="password"
+                                   value="${user.password}" required>
                             <span class="form-error"> Inserisci una password valida</span></dd>
-                        <dt>Username:</dt><dd><input type="text" placeholder="Username" id="username" name="username" value="${user.username}"  required>
+                        <dt>Username:</dt>
+                        <dd><input type="text" placeholder="Username" id="username" name="username"
+                                   value="${user.username}" required>
                             <span class="form-error">Inserisci un username valido </span></dd>
                         <dt>Corso di laurea:</dt>
                         <dd>
-                            <input type="checkbox" name="typeGrad" value="false"/><label for="typeGrad">Magistrale</label>
+                            <c:choose>
+                                <c:when test="${user.typeGrad}">
+                                    <input type="checkbox" id="typeGrad" disabled name="typeGrad"
+                                           value="${user.typeGrad}" checked>
+                                    <label for="typeGrad">Magistrale</label>
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="checkbox" name="typeGrad" value="${user.typeGrad}">
+                                    <label for="typeGrad">Magistrale</label>
+                                </c:otherwise>
+                            </c:choose>
                         </dd>
                         <dd>
                             <input class="button" type="submit" value="Modifica">
                         </dd>
                     </dl>
                 </form>
-            </div>    
+            </div>
         </div>
     </jsp:body>
 </sy:layout>
