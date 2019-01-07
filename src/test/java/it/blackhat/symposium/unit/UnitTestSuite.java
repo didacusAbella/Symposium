@@ -6,7 +6,17 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    AdminModelTest.class
+    AdminModelTest.class,
+    AdminActionFactoryTest.class,
+    AdminModelManagerConstractorTest.class,
+    AdminModelManagerTest.class,
+    AdminModelTest.class,
+    StatsActionFactoryTest.class,
+    StatsModelManagerTest.class,
+    StatsModelTest.class,
+    UserActionFactoryTest.class,
+    UserModelManagerTest.class,
+    UserModelTest.class
 })
 public class UnitTestSuite {
   
