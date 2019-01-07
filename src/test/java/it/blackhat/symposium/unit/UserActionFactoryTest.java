@@ -26,60 +26,60 @@ public class UserActionFactoryTest {
 
     @Test
     public void createActionSignOutTest() {
-        try{
+        try {
             Action actionSignOut;
             actionSignOut = (Action) new UserActionFactory().createAction("signOut");
             Assert.assertTrue(actionSignOut instanceof SignoutAction);
         }
-        catch(InvalidActionException e){
+        catch(InvalidActionException e) {
             fail("Eccezione non gestita");
         }
     }
     
     @Test
     public void createActionShowProfileTest() {
-        try{
+        try {
             Action actionShowProfile;
             actionShowProfile = (Action) new UserActionFactory().createAction("showProfile");
             Assert.assertTrue(actionShowProfile instanceof ShowProfileAction);
         }
-        catch(InvalidActionException e){
+        catch(InvalidActionException e) {
             fail("Eccezione non gestita");
         }
     }
     
     @Test
     public void createActionEditProfileTest() {
-        try{
+        try {
             Action actionEditProfile;
             actionEditProfile = (Action) new UserActionFactory().createAction("editProfile");
             Assert.assertTrue(actionEditProfile instanceof EditProfileAction);
         }
-        catch(InvalidActionException e){
+        catch(InvalidActionException e) {
             fail("Eccezione non gestita");
         }
     }
         
     @Test
     public void createActionShowEditProfileTest() {
-        try{
+        try {
             Action actionShowEditProfile;
             actionShowEditProfile = (Action) new UserActionFactory().createAction("showEditProfile");
             Assert.assertTrue(actionShowEditProfile instanceof ShowEditProfileAction);
         }
-        catch(InvalidActionException e){
+        catch(InvalidActionException e) {
             fail("Eccezione non gestita");
         }
     }
             
     @Test
     public void createActionBanTest() {
-        try{
+        try {
             Action actionBan;
             actionBan = (Action) new UserActionFactory().createAction("banUser");
             Assert.assertTrue(actionBan instanceof BanAction);
         }
-        catch(InvalidActionException e){
+        catch(InvalidActionException e) {
             fail("Eccezione non gestita");
         }
     }

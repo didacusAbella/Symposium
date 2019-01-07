@@ -9,6 +9,7 @@ import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import java.sql.SQLException;
 import org.junit.Assert;
+import org.junit.Test;
 
 
 /**
@@ -17,7 +18,8 @@ import org.junit.Assert;
  */
 public class UserModelManagerTest {
     
-    public UserModelManagerTest() throws SQLException{
+    @Test
+    public void UserModelManagerConstructorTest() throws SQLException{
         UserManager testCostructorUser = new UserModelManager();
         Assert.assertTrue(testCostructorUser instanceof UserModelManager);
     }  
