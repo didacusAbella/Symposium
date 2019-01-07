@@ -102,6 +102,6 @@ public class AdminModelTest {
      */
     @Test
     public void testToString() {
-        assertEquals("Amministratore password", admin.toString());
+        assertEquals("AdminModel{username=Amministratore, password=password}", admin.toString());
     }
 }
