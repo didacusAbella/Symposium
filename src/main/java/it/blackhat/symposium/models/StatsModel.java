@@ -92,6 +92,6 @@ public class StatsModel implements Stats {
                 + ", numSigned=" + numSigned
                 + ", totalReports=" + totalReports
                 + ", year=" + year
-                + '}';
+                + "}";
     }
 }
