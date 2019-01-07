@@ -1,33 +1,64 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.blackhat.symposium.unit;
 
+import it.blackhat.symposium.models.Admin;
+import it.blackhat.symposium.models.AdminModel;
+import org.junit.Assert;
+import org.junit.Before;
+
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  *
- * @author didacus
+ * @author Przemyslaw Szopian
  */
 public class AdminModelTest {
+    private Admin admin;
+    
+    @Before
+    public void setUp(){
+        admin = new AdminModel(1, "Amministratore", "password");
+    }
+    /**
+     * Test of getId method, of class AdminModel.
+     */
+    @Test
+    public void constractorEmpty(){
+        AdminModel admin1 = new AdminModel();
+        assertTrue(admin1 instanceof AdminModel);
+    }
+    
+    @Test
+    public void constractorFull(){
+        AdminModel admin1 = new AdminModel(3, "Blackhat", "Symposium");
+        boolean b1 = 3 == admin1.getId();
+        boolean b2 = "Blackhat".equals(admin1.getUsername());
+        boolean b3 = "Symposium".equals(admin1.getPassword());
+        boolean bFinal = b1 && b2 && b3;
+        Assert.assertTrue(bFinal);
+    }
+    
+    @Test
+    public void testGetId() {
+        assertEquals(1, admin.getId());
+    }
+
+    /**
+     * Test of setId method, of class AdminModel.
+     */
+    @Test
+    public void testSetId() {
+        int id = 2;
+        admin.setId(id);
+        assertEquals(2, admin.getId());
+    }
 
     /**
      * Test of getUsername method, of class AdminModel.
      */
     @Test
     public void testGetUsername() {
-        assertTrue(true);
-    }
-
-    /**
-     * Test of getPassword method, of class AdminModel.
-     */
-    @Test
-    public void testGetPassword() {
-        assertTrue(true);
+        assertEquals("Amministratore", admin.getUsername());
     }
 
     /**
@@ -35,7 +66,17 @@ public class AdminModelTest {
      */
     @Test
     public void testSetUsername() {
-        assertTrue(true);
+        System.out.println("setUsername");
+        admin.setUsername("Symposium");
+        assertEquals("Symposium", admin.getUsername());
+    }
+
+    /**
+     * Test of getPassword method, of class AdminModel.
+     */
+    @Test
+    public void testGetPassword() {
+        assertEquals("password", admin.getPassword());
     }
 
     /**
@@ -43,15 +84,8 @@ public class AdminModelTest {
      */
     @Test
     public void testSetPassword() {
-        assertTrue(true);
-    }
-
-    /**
-     * Test of hashCode method, of class AdminModel.
-     */
-    @Test
-    public void testHashCode() {
-        assertTrue(true);
+        admin.setPassword("pincopallino");
+        assertEquals("pincopallino", admin.getPassword());
     }
 
     /**
@@ -59,7 +93,8 @@ public class AdminModelTest {
      */
     @Test
     public void testEquals() {
-        assertTrue(true);
+        Object obj = null;
+        assertEquals(false, admin.equals(obj));
     }
 
     /**
@@ -67,7 +102,6 @@ public class AdminModelTest {
      */
     @Test
     public void testToString() {
-        assertTrue(true);
+        assertEquals("Amministratore password", admin.toString());
     }
-    
 }
