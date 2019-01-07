@@ -50,7 +50,7 @@ public abstract class ConnectionManager {
         try {
             this.dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/SymposiumDB");
         } catch (NamingException ex) {
-            CONNECTION_LOG.fatal("Could not create datasource", ex);
+            CONNECTION_LOG.fatal("Could not create datasource");
         }
     }
 }
