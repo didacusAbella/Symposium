@@ -19,7 +19,7 @@ import org.junit.Test;
 
 /**
  *
- * @author acer
+ * @author Giuseppe Madonna
  */
 public class UserActionFactoryTest {
    

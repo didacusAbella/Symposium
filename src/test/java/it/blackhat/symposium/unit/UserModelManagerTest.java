@@ -13,7 +13,7 @@ import org.junit.Assert;
 
 /**
  *
- * @author acer
+ * @author Giuseppe Madonna
  */
 public class UserModelManagerTest {
     
