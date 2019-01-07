@@ -3,7 +3,6 @@ package it.blackhat.symposium.unit;
 import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Date;
@@ -19,7 +18,7 @@ public class BeanValidatorTest {
         question = new QuestionModel("Test bellissimo", "test della validazione in corso",
                 "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
                 new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
-        Assert.assertEquals(true, BeanValidator.validateBean(question));
+        assertEquals(true, BeanValidator.validateBean(question));
     }
 
     @Test
