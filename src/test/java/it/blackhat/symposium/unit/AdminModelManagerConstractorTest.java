@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
  *
  * @author Przemyslaw Szopian
  */
-public class AdminModelManagerTest {
+public class AdminModelManagerConstractorTest {
    
     /**
      * Test of findAdmin method, of class AdminModelManager.
