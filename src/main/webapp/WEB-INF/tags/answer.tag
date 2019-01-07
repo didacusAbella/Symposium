@@ -6,16 +6,17 @@
 
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 <%@attribute name="answer" type="it.blackhat.symposium.models.AnswerModel"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<section class="media-object">
-    <div class="media-object-section">
-        <div class="thumbnail">
-            <i class="fi-torso"></i>
-        </div>
+
+<div class="card">
+    <div class="card-divider">
+        <strong>${answer.userFk}</strong>
     </div>
-    <div class="media-object-section">
-        <p>
-            ${answer.content}
-        </p>
+    <div class="card-section">
+        <p>${answer.content}</p>
+        <c:if test="${not empty user}">
+            <a href="user/AnswerController?action=chooseBestAnswer" class="button hollow">Risposta Migliore</a>
+        </c:if>
     </div>
-</section>
+</div>

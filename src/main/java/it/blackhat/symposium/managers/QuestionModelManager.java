@@ -113,6 +113,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
 
     @Override
+    public List<Question> showQuestionsByAuthor(String email) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        List<Question> questions = run.query(RESEARCH_BY_USER, new BeanListHandler<>(QuestionModel.class), email);
+        return questions;
+    }
+
+    @Override
     public Optional<Question> findQuestion(int questionId) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         Question question = run.query(TAKE_QUESTION,

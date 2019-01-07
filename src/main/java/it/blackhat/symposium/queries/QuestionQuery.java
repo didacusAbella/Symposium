@@ -26,6 +26,8 @@ public final class QuestionQuery {
 
     public static final String RESEARCH_BY_WORDS = "SELECT * FROM question"
             + " WHERE content LIKE '%?%'";
+    public static final String RESEARCH_BY_USER = "SELECT * FROM question"
+            + " WHERE userFk=?";
 
     public static final String RESEARCH_BY_TAG = "SELECT question.id ,content,"
             + "lastUpdate,creationDate,numReports,userFk,title"
