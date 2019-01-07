@@ -14,7 +14,7 @@ public class StatsModelTest {
      * The test for the empty constructor
      */
     @Test
-    public void testStatsModel() {
+    public void testStatsModelEmpty() {
         StatsModel testStatsModel = new StatsModel();
         Assert.assertTrue(testStatsModel instanceof StatsModel);
     }
@@ -22,7 +22,7 @@ public class StatsModelTest {
      * The test for the full constructor
      */
     @Test
-    public void testStatsModelIntIntIntInt() {
+    public void testStatsModelFull() {
         StatsModel testStatsModel = new StatsModel(12, 23, 45, 67);
         boolean b1 = (12==testStatsModel.getId());
         boolean b2 = (23==testStatsModel.getNumSigned());
