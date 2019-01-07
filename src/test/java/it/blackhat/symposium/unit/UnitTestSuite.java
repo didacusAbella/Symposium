@@ -6,7 +6,10 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    AdminModelTest.class
+        AdminModelTest.class,
+        TagModelManagerTest.class,
+        TagActionFactoryTest.class,
+        TagModelTest.class
 })
 public class UnitTestSuite {
   
