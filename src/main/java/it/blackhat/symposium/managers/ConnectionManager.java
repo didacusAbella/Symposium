@@ -9,7 +9,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * @author didacus
+ * @author Symposium Group
  */
 public abstract class ConnectionManager {
 

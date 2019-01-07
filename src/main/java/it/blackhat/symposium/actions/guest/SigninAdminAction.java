@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Describes the admin sign in action
- *
- * @author didacus,Parrilli Carminantonio
+ * @author Symposium Group
  */
 public class SigninAdminAction implements Action {
 

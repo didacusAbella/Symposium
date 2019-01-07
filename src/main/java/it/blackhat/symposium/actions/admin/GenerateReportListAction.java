@@ -28,7 +28,8 @@ public class GenerateReportListAction implements Action {
     private final ReportManager reportManager;
     private final QuestionManager questionManager;
 
-    private final Log generateReportListActionLog = LogFactory.getLog(GenerateReportListAction.class);
+    private final Log generateReportListActionLog = 
+            LogFactory.getLog(GenerateReportListAction.class);
 
     ;
     /**

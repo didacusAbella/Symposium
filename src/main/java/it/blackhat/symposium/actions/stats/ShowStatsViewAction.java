@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Create the stats's view
+ * @author Symposium Group
  */
 public class ShowStatsViewAction implements Action {
 

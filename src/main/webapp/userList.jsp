@@ -13,15 +13,13 @@
 
         <h1>Gestione Utente</h1>
        
-        <div class="callout grid-x grid-margin-x callout">
+        <div class="grid-x">
             <c:forEach var="user" items="${listUsers}" >
-            
-            
+            <div class="cell medium-6 large-4">
   				<div class="callout primary">
                 <sy:userOverview user="${user}"/>
                 </div>
-                
-            
+            </div>
             </c:forEach>
         </div>  
     </jsp:body>

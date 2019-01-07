@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Diego Avella
+ * @author Symposium Group
  */
 public interface Action {
 

@@ -6,7 +6,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class AdminActionFactory implements ActionFactory {
 

@@ -12,7 +12,8 @@ import java.util.List;
 import static it.blackhat.symposium.queries.AnswerQuery.*;
 
 /**
- * @author Gozzetto, SDelPiano
+ * @author Gozzetto
+ * @author SDelPiano
  */
 public class AnswerModelManager extends ConnectionManager implements AnswerManager {
 

@@ -16,7 +16,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
  * @author SDelPiano
  */
 public class ReportModelManager extends ConnectionManager implements ReportManager {
-
+    @Override
     public int insertReport(Report report, Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         int upd = run.update(INSERT_REPORT, report.getCategory(), report.getReason(),
