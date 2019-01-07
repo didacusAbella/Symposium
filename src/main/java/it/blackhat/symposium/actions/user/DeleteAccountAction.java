@@ -22,14 +22,14 @@ public class DeleteAccountAction implements Action {
      * Initialize an UserModelManager
      */
     public DeleteAccountAction() {
-        user = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-
+        user = new UserModelManager();
         try {
             Optional<User> found = user.findUser(email, DigestUtils.sha256Hex(password));
             if (found.isPresent()) {

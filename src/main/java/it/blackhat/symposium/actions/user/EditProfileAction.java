@@ -22,19 +22,20 @@ public class EditProfileAction implements Action {
 
     private UserManager user;
 
-    private Log editProfileLog = LogFactory.getLog(EditProfileAction.class);
+    private final Log editProfileLog = LogFactory.getLog(EditProfileAction.class);
 
     /**
      * Initialize a new User Model Manager
      */
     public EditProfileAction() {
-        user = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
         try {
+            this.user = new UserModelManager();
             User newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
             boolean typeGrad = Boolean.parseBoolean(req.getParameter("typeGrad"));

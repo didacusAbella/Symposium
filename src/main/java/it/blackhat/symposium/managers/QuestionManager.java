@@ -105,11 +105,18 @@ public interface QuestionManager {
     /**
      * Return the questions founded by the query
      *
-     * @param tag tag used in the reseach
+     * @param email the email of the author
      * @return a List of all the questions founded
      * @throws SQLException if it encounter an error
      */
     List<Question> showQuestionsByAuthor(String email) throws SQLException;
+    
+    /**
+     * Search all questions by tag
+     * @param tag the specific tag to search
+     * @return a list of questions that have the tag
+     * @throws SQLException if db encounter an error
+     */
     List<Question> seachQuestionsByTag(String tag) throws SQLException;
 
     /**

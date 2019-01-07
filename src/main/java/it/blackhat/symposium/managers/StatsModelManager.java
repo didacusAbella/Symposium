@@ -10,8 +10,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 import static it.blackhat.symposium.queries.StatsQuery.*;
-
-//import it.blackhat.symposium.models.Stats;
+import javax.sql.DataSource;
 
 /**
  * The model manager for interacting with the database
@@ -19,6 +18,22 @@ import static it.blackhat.symposium.queries.StatsQuery.*;
  *
  */
 public class StatsModelManager extends ConnectionManager implements StatsManager {
+
+    /**
+     * Create a StatsManager with a specified DataSource
+     * @param ds 
+     */
+    public StatsModelManager(DataSource ds) {
+        super(ds);
+    }
+
+    /**
+     * Create the Default StatsManager
+     */
+    public StatsModelManager() {
+        super();
+    }
+    
     @Override
     public int getNumberUsers(int interestedYear) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource); //TODO News scalar handler

@@ -17,19 +17,20 @@ import java.sql.SQLException;
  */
 
 public class DeleteAnswerByQuestionAction implements Action {
-    private final AnswerManager answerManager;
+    private AnswerManager answerManager;
     private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerByQuestionAction.class);
 
     /**
      * Initializes an Answer Manager
      */
     public DeleteAnswerByQuestionAction() {
-        answerManager = new AnswerModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.answerManager = new AnswerModelManager();
             String questionId = req.getParameter("id");
             int questId = Integer.parseInt(questionId);
             answerManager.removeAnswerByQuestion(questId);

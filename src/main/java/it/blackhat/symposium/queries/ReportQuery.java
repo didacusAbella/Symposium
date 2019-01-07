@@ -21,7 +21,7 @@ public final class ReportQuery {
             + " report(category,reason,year,questionFk,userFk)"
             + "VALUES(?,?,?,?,?); UPDATE question SET numReports=numReports+1 WHERE id=?";
     
-     public static final String GET_ALL_REPORTS = "SELECT * from report";
+    public static final String GET_ALL_REPORTS = "SELECT * from report";
      
     public static final String GET_ALL_REPORTS_FOR_QUESTION = "SELECT DISTINCT"
             + " q.id, content, lastUpdate, creationDate, numReports, "

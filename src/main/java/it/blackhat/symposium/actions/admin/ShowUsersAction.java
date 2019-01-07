@@ -11,6 +11,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.List;
 
 import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 /**
@@ -20,18 +21,19 @@ import it.blackhat.symposium.models.User;
  */
 
 public class ShowUsersAction implements Action {
-    private final UserModelManager user;
+    private UserManager user;
     private final Log showUserActionLog = LogFactory.getLog(ShowUsersAction.class);;
     /**
      * The constructor of the class
      */
     public ShowUsersAction() {
-        user = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.user = new UserModelManager();
             List<User> listUsers = user.retrieveUsers();
             req.setAttribute("listUsers", listUsers);
             return "/userList.jsp";
