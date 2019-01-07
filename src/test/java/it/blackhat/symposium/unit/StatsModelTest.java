@@ -1,9 +1,8 @@
 package it.blackhat.symposium.unit;
 
+import it.blackhat.symposium.models.StatsModel;
 import org.junit.Assert;
 import org.junit.Test;
-
-import it.blackhat.symposium.models.StatsModel;
 /**
  * The class tests StatsModelTest
  * @author Parrilli Carminantonio
@@ -109,6 +108,12 @@ public class StatsModelTest {
     @Test
     public void testToString() {
         StatsModel testStat= new StatsModel(98,76,54,32);
-        Assert.assertEquals("id=98, numSigned=76, totalReports=54, year=32}", testStat.toString());
+        String test = "StatsModel{"
+                + "id=" + 98
+                + ", numSigned=" + 76
+                + ", totalReports=" + 54
+                + ", year=" + 32
+                + '}';
+        Assert.assertEquals(test, testStat.toString());
     }   
 }
