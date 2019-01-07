@@ -1,7 +1,5 @@
 package it.blackhat.symposium.unit;
 
-
-
 import static org.junit.Assert.fail;
 
 import org.junit.Assert;
@@ -37,7 +35,6 @@ public class StatsActionFactoryTest {
      */
     @Test
     public void testCreateActionShowStats() {
-        
         try {
             Action actionShowStats;
             actionShowStats = (Action) new StatsActionFactory().createAction("showStats");
@@ -45,23 +42,13 @@ public class StatsActionFactoryTest {
         } catch (InvalidActionException e) {
             fail("Eccezione non gestita");
         }
-       
-       
     }
     /**
      * The test for the exception
+     * @throws InvalidActionException 
      */
-    @Test
-    public void testCreateActionInvalidAction() {
-        try {
-            new StatsActionFactory().createAction("test");
-            fail("Eccezione gestita");
-        } catch (InvalidActionException e) {
-            Assert.assertTrue(true);
-        }
-       
-        
+    @Test(expected=InvalidActionException.class)
+    public void testCreateActionInvalidAction() throws InvalidActionException {
+        new StatsActionFactory().createAction("test");
     }
-    
-
 }
