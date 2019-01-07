@@ -25,7 +25,7 @@
             <div class="grid-y" style="height: 50px;"></div>
             <div class="grid-x margin-x align-center">
                 <div class="grid small-12 medium-6 large-6 callout primary">
-                    <h4>Symposium Accesso Amministratore</h4>
+                    <h4>Accesso Amministratore</h4>
                     <div>
                         <input type="text" name="username" placeholder="Username" required pattern="\w{6,20}" />
                         <span class="form-error"> Inserisci un username valido</span>
