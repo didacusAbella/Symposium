@@ -8,7 +8,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
 
-<sy:layout title="Symposium-Admin SignIn">
+<sy:layout title="Symposium-Accesso Amministratore">
     <jsp:body>
         <c:if test="${not empty errLogAdmin}">
             <div class="callout alert" data-closable>
@@ -20,12 +20,12 @@
         </c:if>
         <form method="post" action="GuestController?action=signinAdmin" data-abide novalidate>
             <div data-abide-error class="alert callout" style="display: none;">
-                <p><i class="fi-alert"></i>  Username o Password non validi</p>
+                <p><i class="fi-alert"></i> Username o Password non validi</p>
             </div>
             <div class="grid-y" style="height: 50px;"></div>
             <div class="grid-x margin-x align-center">
                 <div class="grid small-12 medium-6 large-6 callout primary">
-                    <h4>Symposium AdminSignIn</h4>
+                    <h4>Symposium Accesso Amministratore</h4>
                     <div>
                         <input type="text" name="username" placeholder="Username" required pattern="\w{6,20}" />
                         <span class="form-error"> Inserisci un username valido</span>
