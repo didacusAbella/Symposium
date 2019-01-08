@@ -19,8 +19,6 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    AdminManagerTest.class,
-    UserModelManagerTest.class
 })
 public class IntegrationTestSuite {
     
