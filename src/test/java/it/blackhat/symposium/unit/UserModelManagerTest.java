@@ -7,9 +7,12 @@ package it.blackhat.symposium.unit;
 
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
+import org.apache.commons.dbcp2.BasicDataSource;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 
 /**
@@ -20,7 +23,8 @@ public class UserModelManagerTest {
     
     @Test
     public void UserModelManagerConstructorTest() throws SQLException{
-        UserManager testCostructorUser = new UserModelManager();
+        DataSource ds = Mockito.mock(BasicDataSource.class);
+        UserManager testCostructorUser = new UserModelManager(ds);
         Assert.assertTrue(testCostructorUser instanceof UserModelManager);
     }  
 }
