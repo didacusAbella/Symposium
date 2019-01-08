@@ -12,7 +12,6 @@ import it.blackhat.symposium.actions.admin.ShowUsersAction;
 import it.blackhat.symposium.actions.admin.SignoutAdmin;
 import it.blackhat.symposium.helpers.InvalidActionException;
 import org.junit.Assert;
-import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
@@ -23,37 +22,31 @@ public class AdminActionFactoryTest {
 
     @Test
     public void testAdminSignout() throws InvalidActionException {
-        try {
-            Action actionAdminSignout;
-            actionAdminSignout = (Action) new AdminActionFactory().createAction("adminSignout");
-            Assert.assertTrue(actionAdminSignout instanceof SignoutAdmin);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+
+        Action actionAdminSignout;
+        actionAdminSignout = (Action) new AdminActionFactory().createAction("adminSignout");
+        Assert.assertTrue(actionAdminSignout instanceof SignoutAdmin);
+
     }
 
     @Test
     public void testShowUsersAction() throws InvalidActionException {
-        try {
-            Action actionShowUsers;
-            actionShowUsers = (Action) new AdminActionFactory().createAction("showUsersAction");
-            Assert.assertTrue(actionShowUsers instanceof ShowUsersAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+
+        Action actionShowUsers;
+        actionShowUsers = (Action) new AdminActionFactory().createAction("showUsersAction");
+        Assert.assertTrue(actionShowUsers instanceof ShowUsersAction);
+
     }
 
     @Test
     public void testGenereteList() throws InvalidActionException {
-        try {
-            Action actionGenerateReportList;
-            actionGenerateReportList = (Action) new AdminActionFactory().createAction("generateReportListAction");
-            Assert.assertTrue(actionGenerateReportList instanceof GenerateReportListAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+
+        Action actionGenerateReportList;
+        actionGenerateReportList = (Action) new AdminActionFactory().createAction("generateReportListAction");
+        Assert.assertTrue(actionGenerateReportList instanceof GenerateReportListAction);
+
     }
-    
+
     @Test(expected = InvalidActionException.class)
     public void testInvalidAction() throws InvalidActionException {
         new AdminActionFactory().createAction("test");
