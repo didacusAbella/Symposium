@@ -21,7 +21,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class SeachQuestionByAction implements Action {
 
-    private final QuestionManager quest;
+    private QuestionManager quest;
     private final List<String> tags;
     private String word;
     private final Log searchQuestionByLog = LogFactory.getLog(SeachQuestionByAction.class);
@@ -30,13 +30,14 @@ public class SeachQuestionByAction implements Action {
      * Costructor of SeachQuestionsByAction
      */
     public SeachQuestionByAction() {
-        quest = new QuestionModelManager();
+        super();
         tags = new ArrayList<>();
         word = new String();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
+        this.quest = new QuestionModelManager();
         String parameter = req.getParameter("searchBy");
         findTags(parameter);
         List<Question> questions = new ArrayList<>();

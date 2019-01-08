@@ -29,7 +29,7 @@ public class TagController extends DispatcherController {
     }
     
     @Override
-    public String getServletInfo(){
+    public String getServletInfo() {
         return "TagController";
     }
     

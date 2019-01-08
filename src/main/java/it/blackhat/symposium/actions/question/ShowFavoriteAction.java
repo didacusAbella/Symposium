@@ -26,12 +26,13 @@ public class ShowFavoriteAction implements Action {
      * Inizialize questionManager 
      */
     public ShowFavoriteAction() {
-        questionManager = new QuestionModelManager();
+        super();
     }
     
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
             User user = new UserModel();
             user = (User) req.getSession().getAttribute("user");
             String userEmail = user.getEmail() ;

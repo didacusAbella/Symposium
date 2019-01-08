@@ -28,7 +28,7 @@ import java.util.Calendar;
  */
 public class InsertQuestionAction extends CompositeAction {
     private final Log insertQustionLog = LogFactory.getLog(InsertQuestionAction.class);
-    private final QuestionManager questionManager;
+    private QuestionManager questionManager;
 
 
     /**
@@ -38,12 +38,12 @@ public class InsertQuestionAction extends CompositeAction {
      */
     public InsertQuestionAction(Action... actions) {
         super(actions);
-        this.questionManager = new QuestionModelManager();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
             Question newQuestion = new QuestionModel();
             BeanUtils.populate(newQuestion, req.getParameterMap());
             newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));

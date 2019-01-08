@@ -17,27 +17,24 @@ import java.sql.SQLException;
  * @author 2Deimos
  */
 public class ChooseBestAnswerAction implements Action {
-    private final AnswerManager answerManager;
+    private AnswerManager answerManager;
     private final Log chooseBestAnswerLog = LogFactory.getLog(ChooseBestAnswerAction.class);
 
     /**
      * Initialize a new Answer Manager
      */
     public ChooseBestAnswerAction() {
-        answerManager = new AnswerModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.answerManager = new AnswerModelManager();
             String idAnswer = req.getParameter("id");
             int idAnswerInt = Integer.parseInt(idAnswer);
-
-
             answerManager.bestAnswer(idAnswerInt);
-
             return "/*PAGINA ANCORA NON CREATA*";
-
         } catch (SQLException e) {
             chooseBestAnswerLog.error("Errore interno", e);
             return "/error500.jsp";

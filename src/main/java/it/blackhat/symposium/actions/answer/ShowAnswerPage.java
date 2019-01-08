@@ -17,22 +17,26 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  *
- * @author didacus
+ * @author SymposiumGroup
  */
 public class ShowAnswerPage implements Action {
 
-    private final QuestionManager questionManager;
-    private final TagManager tagManager;
+    private QuestionManager questionManager;
+    private TagManager tagManager;
     private final Log showAnswerPageLog = LogFactory.getLog(ShowAnswerPage.class);
 
+    /**
+     * Create an action that show the answer page
+     */
     public ShowAnswerPage() {
-        this.questionManager = new QuestionModelManager();
-        this.tagManager = new TagModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
+            this.tagManager = new TagModelManager();
             int questionId = Integer.parseInt(req.getParameter("questionId"));
             Optional<Question> question = this.questionManager.findQuestion(questionId);
             if (question.isPresent()) {

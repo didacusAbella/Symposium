@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author Angelo Maffettone
  */
 public class DeleteAnswerAdminAction implements Action {
-    private final AnswerManager answerManager;
+    private AnswerManager answerManager;
     private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAdminAction.class);
 
 
@@ -25,21 +25,18 @@ public class DeleteAnswerAdminAction implements Action {
      * Initializes a Answer Manager
      */
     public DeleteAnswerAdminAction() {
-        answerManager = new AnswerModelManager();
+        super();
     }
 
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.answerManager = new AnswerModelManager();
             String idAnswer = req.getParameter("id");
             int idAnswerInt = Integer.parseInt(idAnswer);
-
-
             answerManager.removeAnswer(idAnswerInt);
-
             return "/dashboard.jsp";
-
         } catch (SQLException e) {
             deleteAnswerLog.error("Errore interno", e);
             return "/error500.jsp";
