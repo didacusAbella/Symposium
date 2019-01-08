@@ -18,7 +18,7 @@
   </button>
   </div>
     </c:if>
-        <form action="GuestController?action=signIn" method="post" data-abide novalidate>
+        <form action="GuestController?action=signIn" name="SignInForm" method="post" data-abide novalidate>
       <div data-abide-error class="alert callout" style="display: none;">
     <p><i class="fi-alert"></i> Ricontrolla la form</p></div>
     <div class="grid-y" style="height: 50px;"></div>
