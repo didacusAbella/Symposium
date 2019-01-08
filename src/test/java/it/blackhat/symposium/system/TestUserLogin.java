@@ -26,6 +26,20 @@ public class TestUserLogin {
         form.submit();
         boolean logged = driver.getPageSource().contains("oromis95");
         Assert.assertTrue(logged);
-        driver.close();
+        // driver.close();
+    }
+
+    @Test
+    public void testLoginClientNotOk() {
+        driver.get("http://localhost:8080/Symposium/signIn.jsp");
+        WebElement usernameStuff = driver.findElements(By.name("email")).get(0);
+        usernameStuff.sendKeys("g.gianni22@studenti.unisa.it");
+        WebElement passwordStuff = driver.findElements(By.name("password")).get(0);
+        passwordStuff.sendKeys("P@ssw0rd");
+        WebElement form = driver.findElement(By.name("SignInForm"));
+        form.submit();
+        boolean b1 = driver.getPageSource().contains("Email o password errata");
+        Assert.assertTrue(b1);
+        // driver.close();
     }
 }

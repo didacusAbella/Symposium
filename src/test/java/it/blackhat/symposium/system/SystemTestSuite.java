@@ -15,6 +15,7 @@ import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
+        TestUserLogin.class
 
 })
 public class SystemTestSuite {
