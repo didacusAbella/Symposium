@@ -18,30 +18,26 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 public class StatsActionFactoryTest {
     /**
      * The test for CreateActionGenerateStats
+     * @throws InvalidActionException 
      */
     @Test
-    public void testCreateActionGenerateStats() 
+    public void testCreateActionGenerateStats() throws InvalidActionException 
     {
-        try {
             Action actionGenerateStats;
             actionGenerateStats = (Action) new StatsActionFactory().createAction("generateStats");
             Assert.assertTrue(actionGenerateStats instanceof  GenerateStatsAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
     /**
      * The test for CreateActionShowStats
+     * @throws InvalidActionException 
      */
     @Test
-    public void testCreateActionShowStats() {
-        try {
+    public void testCreateActionShowStats() throws InvalidActionException {
+        
             Action actionShowStats;
             actionShowStats = (Action) new StatsActionFactory().createAction("showStats");
             Assert.assertTrue(actionShowStats instanceof  ShowStatsViewAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+         
     }
     /**
      * The test for the exception
