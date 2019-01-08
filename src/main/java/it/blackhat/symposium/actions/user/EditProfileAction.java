@@ -3,6 +3,7 @@ package it.blackhat.symposium.actions.user;
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
+import it.blackhat.symposium.models.User;
 import it.blackhat.symposium.models.UserModel;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
@@ -21,22 +22,24 @@ public class EditProfileAction implements Action {
 
     private UserManager user;
 
-    private Log editProfileLog = LogFactory.getLog(EditProfileAction.class);
+    private final Log editProfileLog = LogFactory.getLog(EditProfileAction.class);
 
     /**
      * Initialize a new User Model Manager
      */
     public EditProfileAction() {
-        user = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
         try {
-            UserModel newUser = new UserModel();
-            System.out.println(req.getParameterMap().get("email"));
+            this.user = new UserModelManager();
+            User newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
+            boolean typeGrad = Boolean.parseBoolean(req.getParameter("typeGrad"));
+            newUser.setTypeGrad(typeGrad);
             int upDate = user.editProfile(newUser);
             if (upDate == 1) {
                 req.setAttribute("user", newUser);

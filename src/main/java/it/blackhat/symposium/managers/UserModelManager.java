@@ -13,9 +13,25 @@ import java.util.List;
 import java.util.Optional;
 
 import static it.blackhat.symposium.queries.UserQuery.*;
+import javax.sql.DataSource;
 
 
 public class UserModelManager extends ConnectionManager implements UserManager {
+
+    /**
+     * Create a UserManager with a specified DataSource
+     * @param ds 
+     */
+    public UserModelManager(DataSource ds) {
+        super(ds);
+    }
+
+    /**
+     * Create the Default UserManager
+     */
+    public UserModelManager() {
+        super();
+    }
 
     @Override
     public int editProfile(User user) throws SQLException {

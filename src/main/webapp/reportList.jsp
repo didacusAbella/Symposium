@@ -4,8 +4,15 @@
 
 <sy:layout title="Symposium - Lista Segnalazioni">
    <jsp:body>
+    <div class="grid-x">
        <c:forEach var="report" items="${listReports}" varStatus="status">
+           
+           <div class="cell medium-6 large-4">
+  				<div class="callout primary">
            <sy:report report="${report}" question="${listQuestions[status.index]}"/>
+           </div>
+          </div>
        </c:forEach>
+       </div>
    </jsp:body>
 </sy:layout>

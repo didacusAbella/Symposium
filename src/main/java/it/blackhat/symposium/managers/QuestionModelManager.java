@@ -17,6 +17,7 @@ import java.util.Optional;
 
 import static it.blackhat.symposium.queries.QuestionQuery.*;
 import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
+import javax.sql.DataSource;
 
 /**
  * @author SDelPiano
@@ -24,7 +25,22 @@ import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
 
 public class QuestionModelManager extends ConnectionManager implements QuestionManager {
 
-    @SuppressWarnings("Duplicates")
+    /**
+     * Create a QuestionManager with a specified DataSource
+     * @param ds the DataSource
+     */
+    public QuestionModelManager(DataSource ds) {
+        super(ds);
+    }
+
+    /**
+     * Create a default QuestionManager
+     */
+    public QuestionModelManager() {
+        super();
+    }
+    
+    
     @Override
     public List<Question> seachQuestionsByTag(String tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
@@ -33,7 +49,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         return questions;
     }
 
-    @SuppressWarnings("Duplicates")
+   
     @Override
     public List<Question> seachQuestionByWords(String words) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
@@ -109,6 +125,14 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     public List<Question> showLastEdit() throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
         List<Question> questions = run.query(LASTEDIT, new BeanListHandler<>(QuestionModel.class));
+        return questions;
+    }
+
+    @Override
+    public List<Question> showQuestionsByAuthor(String email) throws SQLException {
+        QueryRunner run = new QueryRunner(this.dataSource);
+        List<Question> questions = run.query(RESEARCH_BY_USER, 
+                new BeanListHandler<>(QuestionModel.class), email);
         return questions;
     }
 

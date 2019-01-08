@@ -13,22 +13,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
+/**
+ * Inserts a tag in the database
+ * @author Symposium Group
+ *
+ */
+
 public class InsertTagAction implements Action {
     private final Log insertTagLog = LogFactory.getLog(InsertTagAction.class);
-    private final TagManager tagManager;
+    private TagManager tagManager;
 
 
     /**
      * Create an action to insert tags
      */
     public InsertTagAction() {
-        this.tagManager = new TagModelManager();
+        super();
     }
 
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.tagManager = new TagModelManager();
             String[] tags = TagExtractor.extractTag(req);
             for (String tag : tags) {
                 Tag newTag = new TagModel();

@@ -3,7 +3,7 @@ package it.blackhat.symposium.models;
 /**
  * Interface for represent Admin resource
  *
- * @author Diego Avella
+ * @author Symposium Group
  * @version 1.0
  * @since 1.0
  */

@@ -18,11 +18,17 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Apache BVal. For Bean Validation. Core + JSR -->
+        <!-- https://mvnrepository.com/artifact/org.apache.bval/bval-jsr -->
         <dependency>
             <groupId>org.apache.bval</groupId>
-            <artifactId>org.apache.bval.bundle</artifactId>
-            <version>2.0.0</version>
+            <artifactId>bval-jsr</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
         </dependency>
         <!-- Apache Commons DBUtils for ORM and DB interaction -->
         <dependency>
@@ -130,7 +136,18 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.5.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

@@ -27,9 +27,6 @@ public class QuestionActionFactory implements ActionFactory {
                 return new DeleteQuestionAction(new DeleteAnswerByQuestionAction(),
                         new DeleteQuestionTagAction());
 
-            case "reportQuestion":
-                return new ReportQuestionAction();
-
             case "deleteQuestionAdmin":
                 return new DeleteQuestionAdminAction();
 
@@ -42,6 +39,8 @@ public class QuestionActionFactory implements ActionFactory {
             case "showQuestion":
                 return new ShowQuestionAction(new RetrieveQuestionAnswersAction(),
                         new RetrieveQuestionTagsAction());
+            case "showQuestionByAuthor":
+                return new ShowMyQuestion();
 
             case "addFavourite":
                 return new AddFavouriteAction();
@@ -51,10 +50,10 @@ public class QuestionActionFactory implements ActionFactory {
 
             case "showNewQuestion":
                 return new ShowNewQuestionAction();
-                
+
             case "showQuestions":
                 return new ShowQuestionsAction();
-                
+
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

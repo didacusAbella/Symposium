@@ -16,24 +16,30 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Shows the questions on the site
+ * @author Symposium Group
+ *
+ */
 
 public class ShowQuestionsAction implements Action {
 
-    private final QuestionManager questionManager;
-    private final TagManager tagManager;
+    private QuestionManager questionManager;
+    private TagManager tagManager;
     private final Log showQuestionLog = LogFactory.getLog(ShowQuestionsAction.class);
 
     /**
      * Initializes a Question Manager
      */
     public ShowQuestionsAction() {
-        questionManager = new QuestionModelManager();
-        this.tagManager = new TagModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
+            this.tagManager = new TagModelManager();
             List<Question> questions = questionManager.showLastEdit();
             List<QuestionTag> questionTag = new ArrayList<>();
             for (Question question : questions) {

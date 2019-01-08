@@ -1,5 +1,7 @@
 package it.blackhat.symposium.helpers;
 
+import org.apache.bval.jsr.ApacheValidationProvider;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -14,8 +16,9 @@ import java.util.Set;
 public class BeanValidator {
 
     private static Validator validator;
-    private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-
+    private static ValidatorFactory factory = Validation
+            .byProvider(ApacheValidationProvider.class)
+            .configure().buildValidatorFactory();
     /**
      *
      * @param <T> the bean class to validate

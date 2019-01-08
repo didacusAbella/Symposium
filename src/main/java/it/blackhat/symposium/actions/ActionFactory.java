@@ -4,7 +4,7 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public interface ActionFactory {
     

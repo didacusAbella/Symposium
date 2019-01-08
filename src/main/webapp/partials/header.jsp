@@ -50,7 +50,7 @@
                     <a href="#">${user.username}</a>
                     <ul class="menu vertical">
                         <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
-                        <li><a href="myQuestions.jsp" class="button">Le mie domande</a></li>
+                        <li><a href="user/QuestionController?action=showQuestionByAuthor" class="button">Le mie domande</a></li>
                         <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
                         <li><form action="user/QuestionController?action=showFavorite" method="POST">
                             <button type="submit" class="button">Domande Preferite</a>

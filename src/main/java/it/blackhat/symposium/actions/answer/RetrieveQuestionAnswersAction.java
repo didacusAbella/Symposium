@@ -20,23 +20,23 @@ import java.util.List;
  * @author 2Deimos
  */
 public class RetrieveQuestionAnswersAction implements Action {
-    private final AnswerManager answerManager;
+    private AnswerManager answerManager;
     private final Log retrieveAnswersLog = LogFactory.getLog(RetrieveQuestionAnswersAction.class);
 
     /**
      * Initializes a Answer Manager
      */
     public RetrieveQuestionAnswersAction() {
-        answerManager = new AnswerModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.answerManager = new AnswerModelManager();
             String questionId = req.getParameter("questionId");
             int questionIdInt = Integer.parseInt(questionId);
             List<Answer> answers = answerManager.retrieveQuestionAnswers(questionIdInt);
-
             req.setAttribute("answers", answers);
             return "#";
         } catch (SQLException e) {

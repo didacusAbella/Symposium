@@ -8,7 +8,7 @@ import org.apache.commons.dbutils.ResultSetHandler;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class MapCompleteHandler implements ResultSetHandler<Map<String, Integer>> {
 

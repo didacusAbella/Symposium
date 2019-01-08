@@ -13,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Describes the admin sign in action
- *
- * @author didacus,Parrilli Carminantonio
+ * @author Symposium Group
  */
 public class SigninAdminAction implements Action {
 
-    private final AdminManager admin;
+    private AdminManager admin;
 
     /**
      * Find a user in the database and if it can't be found return with null
      */
     public SigninAdminAction() {
-        admin = new AdminModelManager();
+        super();
     }
 
     @Override
@@ -32,6 +31,7 @@ public class SigninAdminAction implements Action {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         try {
+            admin = new AdminModelManager();
             Optional<Admin> found = admin.findAdmin(username, password);
             if (found.isPresent()) {
                 HttpSession session = req.getSession(true);

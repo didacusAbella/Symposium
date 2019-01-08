@@ -6,7 +6,7 @@
 <sy:layout title="Symposium-Benvenuto">
     <jsp:body>
         <div class="grid-x padding-3 align-center">
-            <div class="grid-container">
+            <div class="callout primary">
                 <sy:question questionTags="${questionTags}"></sy:question>
             </div>
         </div>

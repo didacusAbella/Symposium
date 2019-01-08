@@ -12,6 +12,7 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class GuestController
+ * @author Symposium Group
  */
 @WebServlet(name = "GuestController", urlPatterns = {"/GuestController"})
 public class GuestController extends DispatcherController {

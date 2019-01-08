@@ -10,12 +10,28 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static it.blackhat.symposium.queries.AnswerQuery.*;
+import javax.sql.DataSource;
 
 /**
- * @author Gozzetto, SDelPiano
+ * @author Gozzetto
+ * @author SDelPiano
  */
 public class AnswerModelManager extends ConnectionManager implements AnswerManager {
 
+    /**
+     * Create an AnswerManager with a specified DataSource
+     * @param ds the DataSource
+     */
+    public AnswerModelManager(DataSource ds) {
+        super(ds);
+    }
+
+    /**
+     * Create a default AnswerManager
+     */
+    public AnswerModelManager() {
+        super();
+    }
 
     @Override
     public int insertAnswer(Answer answer) throws SQLException {

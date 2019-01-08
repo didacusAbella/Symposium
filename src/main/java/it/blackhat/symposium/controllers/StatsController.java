@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 @WebServlet(name = "StatsController", 
         urlPatterns = {"/admin/StatsController"})

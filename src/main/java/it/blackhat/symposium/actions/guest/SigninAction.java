@@ -21,23 +21,26 @@ import java.util.Optional;
 /**
  * Describes the guest's signin action
  *
- * @author 2Deimos, Parrilli Carminantonio, SDelPiano
+ * @author 2Deimos
+ * @author Parrilli Carminantonio
+ * @author SDelPiano
  */
 
 public class SigninAction implements Action {
-    private final UserManager user;
+    private UserManager user;
     private final Log signinLog = LogFactory.getLog(SigninAction.class);
 
     /**
      * Find a user in the database and if it can't be found return with null
      */
     public SigninAction() {
-        user = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.user = new UserModelManager();
             String email = req.getParameter("email");
             String password = req.getParameter("password");
             password = DigestUtils.sha256Hex(password);

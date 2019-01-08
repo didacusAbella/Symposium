@@ -14,26 +14,27 @@ import org.apache.commons.logging.LogFactory;
 /**
  * The class describes the ban of a user from an admin
  *
- * @author Parrilli Carminantonio,DDeimos
- *
+ * @author Parrilli Carminantonio
+ * @author 2Deimos
  */
 public class BanAction implements Action {
 
     private Date banForever;
     private Date endBanDate;
-    private final UserManager userManager;
+    private UserManager userManager;
     private final Log banActionLogger = LogFactory.getLog(BanAction.class);
 
     /**
      * The costructor of the class
      */
     public BanAction() {
-        this.userManager = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.userManager = new UserModelManager();
             Calendar todayDate = Calendar.getInstance();
             todayDate.add(Calendar.MONTH, 1);
             this.endBanDate = new Date(todayDate.getTimeInMillis());

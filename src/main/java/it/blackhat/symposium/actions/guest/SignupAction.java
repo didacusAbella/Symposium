@@ -20,11 +20,12 @@ import java.util.Optional;
 
 /**
  * Describes the guest's signup action
+ *
  * @author Parrilli Carminantonio
  * @author 2Deimos
  */
-
 public class SignupAction implements Action {
+
     private UserManager user;
     private Log signUpLog = LogFactory.getLog(SigninAction.class);
 
@@ -32,27 +33,30 @@ public class SignupAction implements Action {
      * Add another user in the database if not present
      */
     public SignupAction() {
-        user = new UserModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
         try {
-
+            this.user = new UserModelManager();
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
-            BeanValidator.validateBean(newUser);
-            Optional<User> found = user.findEmail(newUser.getEmail());
 
+            Optional<User> found = user.findEmail(newUser.getEmail());
             if (found.isPresent()) {
                 req.setAttribute("emailErr", "Already Exist");
                 return "/signUp.jsp";
             } else {
                 newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
                 newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
-                user.createUser(newUser);
-                return "/signIn.jsp";
+                if (BeanValidator.validateBean(newUser)) {
+                    user.createUser(newUser);
+                    return "/signIn.jsp";
+                } else {
+                    return "/error400.jsp";
+                }
             }
         } catch (SQLException e) {
             signUpLog.error("problemi interni SQL", e);

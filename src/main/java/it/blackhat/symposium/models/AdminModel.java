@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Concrete Implementation of Admin Interface
  *
- * @author Diego Avella
+ * @author Symposium Group
  * @author 2Deimos
  */
 public class AdminModel implements Admin {

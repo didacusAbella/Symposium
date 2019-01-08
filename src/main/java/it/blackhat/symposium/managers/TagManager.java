@@ -9,7 +9,8 @@ import java.util.Map;
 /**
  * This interface describe the methods of Tag Manager
  *
- * @author 2Deimos, SDelPiano
+ * @author 2Deimos
+ * @author SDelPiano
  */
 public interface TagManager {
 

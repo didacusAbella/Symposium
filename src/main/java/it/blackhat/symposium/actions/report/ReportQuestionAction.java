@@ -1,4 +1,4 @@
-package it.blackhat.symposium.actions.question;
+package it.blackhat.symposium.actions.report;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.QuestionManager;
@@ -23,18 +23,22 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ReportQuestionAction implements Action {
 
-    private final QuestionManager questionManager;
-    private final ReportManager reportManager;
+    private QuestionManager questionManager;
+    private ReportManager reportManager;
     private final Log reportQuestionActionLog = LogFactory.getLog(ReportQuestionAction.class);
 
+    /**
+     * The constructor of the class
+     */
     public ReportQuestionAction() {
-        questionManager = new QuestionModelManager();
-        reportManager = new ReportModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
+            this.reportManager = new ReportModelManager();
             String category = req.getParameter("category");
             String reason = req.getParameter("reason");
             int year = Calendar.getInstance().get(Calendar.YEAR);

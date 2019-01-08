@@ -10,24 +10,25 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
+ *Changes a tag from the database
  * @author Giuseppe Madonna
  */
-public class ChangeTagAction implements Action{
+public class ChangeTagAction implements Action {
 
-    private final TagManager tags ;
-    private final Log ChangeTagLog = LogFactory.getLog(ChangeTagAction.class);
+    private TagManager tags ;
+    private final Log changeTagLog = LogFactory.getLog(ChangeTagAction.class);
     /**
      * Class Constructor
      */
-    public ChangeTagAction(){
-        tags = new TagModelManager();
+    public ChangeTagAction() {
+        super();
     }
     
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         
-        try{
+        try {
+            this.tags = new TagModelManager();
             String tagName = req.getParameter("tagName");
             String questionIdentificativo = req.getParameter("questionId");
             int questionId = Integer.parseInt(questionIdentificativo);
@@ -37,8 +38,8 @@ public class ChangeTagAction implements Action{
             tags.updateTag(tagName, questionId, tagId);
             return "/index.jsp"; 
         }
-        catch(SQLException e){
-            ChangeTagLog.error("Errore Interno", e);
+        catch (SQLException e) {
+            changeTagLog.error("Errore Interno", e);
             return "/error500.jsp";
         }
     } 

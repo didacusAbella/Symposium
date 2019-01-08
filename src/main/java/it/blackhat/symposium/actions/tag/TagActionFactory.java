@@ -6,18 +6,18 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
  *
- * @author acer
+ * @author Symposium Group
  */
 public class TagActionFactory implements ActionFactory {
 
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
-       switch(actionType){
-            case "changeTag" :
-               return new ChangeTagAction();
+        switch (actionType) {
+            case "changeTag":
+                return new ChangeTagAction();
             default:
-               throw new InvalidActionException("Azione non supportata");
-       }
+                throw new InvalidActionException("Azione non supportata");
+        }
     }
-    
+
 }

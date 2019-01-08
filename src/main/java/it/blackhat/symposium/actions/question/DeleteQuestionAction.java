@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class DeleteQuestionAction extends CompositeAction {
 
-    private final QuestionManager questionManager;
+    private QuestionManager questionManager;
     private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
 
     /**
@@ -29,7 +29,6 @@ public class DeleteQuestionAction extends CompositeAction {
      */
     public DeleteQuestionAction(Action... actions) {
         super(actions);
-        this.questionManager = new QuestionModelManager();
     }
 
     /**
@@ -40,6 +39,7 @@ public class DeleteQuestionAction extends CompositeAction {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
             String idQuestion = req.getParameter("id");
             int idQuestionInt = Integer.parseInt(idQuestion);
             questionManager.deleteQuestion(idQuestionInt);

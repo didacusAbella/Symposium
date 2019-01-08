@@ -28,35 +28,39 @@ import java.util.Calendar;
  */
 public class InsertQuestionAction extends CompositeAction {
     private final Log insertQustionLog = LogFactory.getLog(InsertQuestionAction.class);
-    private final QuestionManager questionManager;
+    private QuestionManager questionManager;
 
 
     /**
      * Create a new insert action
+     *
      * @param actions other actions to execute
      */
     public InsertQuestionAction(Action... actions) {
         super(actions);
-        this.questionManager = new QuestionModelManager();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
             Question newQuestion = new QuestionModel();
             BeanUtils.populate(newQuestion, req.getParameterMap());
-            BeanValidator.validateBean(newQuestion);
             newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));
             newQuestion.setLastUpdate(new Date(Calendar.getInstance().getTime().getTime()));
             UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
             newQuestion.setUserFk(currentUser.getEmail());
-            int idQuestion = this.questionManager.insertQuestion(newQuestion);
-            super.execute(req, res);
-            String[] tagList = TagExtractor.extractTag(req);
-            for (String tag : tagList) {
-                this.questionManager.insertQuestionTag(idQuestion, tag);
+            if (BeanValidator.validateBean(newQuestion)) {
+                int idQuestion = this.questionManager.insertQuestion(newQuestion);
+                super.execute(req, res);
+                String[] tagList = TagExtractor.extractTag(req);
+                for (String tag : tagList) {
+                    this.questionManager.insertQuestionTag(idQuestion, tag);
+                }
+                return "/index.jsp";
+            } else {
+                return "/error400.jsp";
             }
-            return "/index.jsp";
         } catch (IllegalAccessException e) {
             this.insertQustionLog.error("Accesso Illegale", e);
             return "/error500.jsp";
