@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.SQLException;
+
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.h2.tools.DeleteDbFiles;
 import org.h2.tools.RunScript;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -15,12 +15,10 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    AdminManagerTest.class,
-    UserModelManagerTest.class
 })
 public class IntegrationTestSuite {
     

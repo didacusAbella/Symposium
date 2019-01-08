@@ -23,7 +23,7 @@ public final class StatsQuery {
             + "FROM report WHERE year = ?";
 
     public static final String CREATE_STATS = "INSERT INTO stats(numSigned, totalReports, year) "
-            + "VALUES(?, ?, ?,) ";
+            + "VALUES(?, ?, ?) ";
 
     public static final String GET_BANNED_USERS = "SELECT COUNT(*) FROM user "
             + "WHERE YEAR(banLastDate) >= ?;";
