@@ -109,7 +109,7 @@ create table if not exists report
 	questionFk int not null,
 	userFk varchar(45) not null,
 	constraint report_question_id_fk
-		foreign key (questionFk) references question (id),
+		foreign key (questionFk) references question (id) on delete cascade,
 	constraint report_user_email_fk
 		foreign key (userFk) references user (email)
 ) charset=utf8;

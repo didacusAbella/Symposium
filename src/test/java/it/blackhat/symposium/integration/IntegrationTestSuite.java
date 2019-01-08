@@ -1,11 +1,6 @@
 package it.blackhat.symposium.integration;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.sql.SQLException;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.h2.tools.RunScript;
 import org.junit.AfterClass;
@@ -13,13 +8,18 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.sql.SQLException;
+
 /**
  *
  * @author Symposium Group
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-
+        QuestionManagerTest.class
 })
 public class IntegrationTestSuite {
     

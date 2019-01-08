@@ -25,7 +25,7 @@ public final class QuestionQuery {
     public static final String DELETE_QUESTION_TAG = "DELETE FROM questiontag WHERE questionId = ?";
 
     public static final String RESEARCH_BY_WORDS = "SELECT * FROM question"
-            + " WHERE content LIKE '%?%'";
+            + " WHERE content LIKE ?";
     public static final String RESEARCH_BY_USER = "SELECT * FROM question"
             + " WHERE userFk=?";
 
