@@ -10,14 +10,13 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import java.math.BigInteger;
+import javax.sql.DataSource;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 import static it.blackhat.symposium.queries.QuestionQuery.*;
-import static it.blackhat.symposium.queries.TagQuery.CHANGE_TAG;
-import javax.sql.DataSource;
 
 /**
  * @author SDelPiano
@@ -27,6 +26,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
 
     /**
      * Create a QuestionManager with a specified DataSource
+     *
      * @param ds the DataSource
      */
     public QuestionModelManager(DataSource ds) {
@@ -39,8 +39,8 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     public QuestionModelManager() {
         super();
     }
-    
-    
+
+
     @Override
     public List<Question> seachQuestionsByTag(String tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
@@ -49,12 +49,12 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         return questions;
     }
 
-   
+
     @Override
     public List<Question> seachQuestionByWords(String words) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
+        QueryRunner run = new QueryRunner(this.dataSource); //bug in like query
         ResultSetHandler<List<Question>> h = new BeanListHandler<>(QuestionModel.class);
-        List<Question> questions = run.query(RESEARCH_BY_TAG, h, words);
+        List<Question> questions = run.query(RESEARCH_BY_WORDS, h, "%" + words + "%");
         return questions;
     }
 
@@ -62,12 +62,11 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     public int insertQuestion(Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
 
-        BigInteger update = run.insert(INSERT_QUESTION, new ScalarHandler<BigInteger>(),
+        BigDecimal update = run.insert(INSERT_QUESTION, new ScalarHandler<>(),
                 question.getContent(), question.getLastUpdate(),
                 question.getCreationDate(), question.getNumReports(),
                 question.getUserFk(), question.getTitle());
-        int updateInt = update.intValue();
-        return updateInt;
+        return update.intValue();
     }
 
     @Override
@@ -76,13 +75,6 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         int update = run.update(INSERT_QUESTION_TAG, questionId, tagName);
         return update;
 
-    }
-
-    @Override
-    public int insertQuestionTag(Question question, Tag tag) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(INSERT_QUESTION_TAG, tag.getId(), question.getId());
-        return upd;
     }
 
     @Override
@@ -102,7 +94,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int changeQuestionTag(Question question, Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(CHANGE_TAG, tag.getId(), question.getId());
+        int upd = run.update(CHANGE_QUESTION_TAG, tag.getId(), question.getId());
         return upd;
     }
 
@@ -132,7 +124,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public List<Question> showQuestionsByAuthor(String email) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        List<Question> questions = run.query(RESEARCH_BY_USER, 
+        List<Question> questions = run.query(RESEARCH_BY_USER,
                 new BeanListHandler<>(QuestionModel.class), email);
         return questions;
     }
