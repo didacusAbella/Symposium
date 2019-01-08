@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class QuestionActionFactoryTest {
     ActionFactory questionFactory;
@@ -19,118 +18,74 @@ public class QuestionActionFactoryTest {
     }
 
     @Test
-    public void testInsertQuestionAction() {
-        try {
-            Action test = questionFactory.createAction("insertQuestion");
-            assertTrue(test instanceof InsertQuestionAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testInsertQuestionAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("insertQuestion");
+        assertTrue(test instanceof InsertQuestionAction);
     }
 
     @Test
-    public void testDeleteQuestionAction() {
-        try {
-            Action test = questionFactory.createAction("deleteQuestion");
-            assertTrue(test instanceof DeleteQuestionAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testDeleteQuestionAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("deleteQuestion");
+        assertTrue(test instanceof DeleteQuestionAction);
     }
 
     @Test
-    public void testDeleteQuestionAdminAction() {
-        try {
-            Action test = questionFactory.createAction("deleteQuestionAdmin");
-            assertTrue(test instanceof DeleteQuestionAdminAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testDeleteQuestionAdminAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("deleteQuestionAdmin");
+        assertTrue(test instanceof DeleteQuestionAdminAction);
     }
 
     @Test
-    public void testModifyTagQuestionAdminAction() {
-        try {
-            Action test = questionFactory.createAction("modifyTagQuestionAdmin");
-            assertTrue(test instanceof ModifyTagQuestionAdminAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testModifyTagQuestionAdminAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("modifyTagQuestionAdmin");
+        assertTrue(test instanceof ModifyTagQuestionAdminAction);
     }
 
     @Test
-    public void testSeachQuestionByAction() {
-        try {
-            Action test = questionFactory.createAction("seachQuestionBy");
-            assertTrue(test instanceof SeachQuestionByAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testSeachQuestionByAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("seachQuestionBy");
+        assertTrue(test instanceof SeachQuestionByAction);
     }
 
     @Test
-    public void testShowQuestionAction() {
-        try {
-            Action test = questionFactory.createAction("showQuestion");
-            assertTrue(test instanceof ShowQuestionAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testShowQuestionAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("showQuestion");
+        assertTrue(test instanceof ShowQuestionAction);
     }
 
     @Test
-    public void testShowQuestionByAuthorAction() {
-        try {
-            Action test = questionFactory.createAction("showQuestionByAuthor");
-            assertTrue(test instanceof ShowMyQuestion);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testShowQuestionByAuthorAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("showQuestionByAuthor");
+        assertTrue(test instanceof ShowMyQuestion);
     }
 
     @Test
-    public void testAddFavouriteAction() {
-        try {
-            Action test = questionFactory.createAction("addFavourite");
-            assertTrue(test instanceof AddFavouriteAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testAddFavouriteAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("addFavourite");
+        assertTrue(test instanceof AddFavouriteAction);
     }
 
     @Test
-    public void testShowFavoriteAction() {
-        try {
-            Action test = questionFactory.createAction("showFavorite");
-            assertTrue(test instanceof ShowFavoriteAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testShowFavoriteAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("showFavorite");
+        assertTrue(test instanceof ShowFavoriteAction);
     }
 
     @Test
-    public void testShowNewQuestionAction() {
-        try {
-            Action test = questionFactory.createAction("showNewQuestion");
-            assertTrue(test instanceof ShowNewQuestionAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testShowNewQuestionAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("showNewQuestion");
+        assertTrue(test instanceof ShowNewQuestionAction);
     }
 
     @Test
-    public void testShowQuestionsAction() {
-        try {
-            Action test = questionFactory.createAction("showQuestions");
-            assertTrue(test instanceof ShowQuestionsAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+    public void testShowQuestionsAction() throws InvalidActionException {
+        Action test = questionFactory.createAction("showQuestions");
+        assertTrue(test instanceof ShowQuestionsAction);
     }
 
     @Test(expected = InvalidActionException.class)
     public void createInvalidActionExceptionTest() throws InvalidActionException {
-        new QuestionActionFactory().createAction("gianni");
+        questionFactory.createAction("gianni");
     }
 
 }
