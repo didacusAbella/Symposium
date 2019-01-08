@@ -1,7 +1,7 @@
 package it.blackhat.symposium.controllers;
 
 import it.blackhat.symposium.actions.Action;
-import it.blackhat.symposium.actions.guest.GuestActionFactory;
+import it.blackhat.symposium.actions.user.guest.GuestActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
 import javax.servlet.ServletException;

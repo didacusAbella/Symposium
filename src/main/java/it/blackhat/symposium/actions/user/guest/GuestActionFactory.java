@@ -1,4 +1,4 @@
-package it.blackhat.symposium.actions.guest;
+package it.blackhat.symposium.actions.user.guest;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;

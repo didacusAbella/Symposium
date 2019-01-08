@@ -1,7 +1,7 @@
 package it.blackhat.symposium.actions.stats;
 
 import it.blackhat.symposium.actions.Action;
-import it.blackhat.symposium.actions.guest.SigninAction;
+import it.blackhat.symposium.actions.user.guest.SigninAction;
 import it.blackhat.symposium.managers.StatsManager;
 import it.blackhat.symposium.managers.StatsModelManager;
 import it.blackhat.symposium.managers.TagManager;
