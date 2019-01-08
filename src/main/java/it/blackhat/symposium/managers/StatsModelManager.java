@@ -56,7 +56,8 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
     @Override
     public int createStats(int interestedYear) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        return run.execute(CREATE_STATS, interestedYear);
+        return run.execute(CREATE_STATS, getNumberUsers(interestedYear), 
+                getNumberReports(interestedYear), interestedYear);//test
     }
     @Override
     public Optional<Stats> getStats(int interestedYear) throws SQLException {
