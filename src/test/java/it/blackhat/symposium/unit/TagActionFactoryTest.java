@@ -7,21 +7,18 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.fail;
-
 public class TagActionFactoryTest {
 
     @Test
-    public void createActionChangeTagTest() {
+    public void createActionChangeTagTest() throws InvalidActionException {
 
-        try {
+
             Action actionChangeTag;
             actionChangeTag = new TagActionFactory().createAction("changeTag");
             Assert.assertTrue(actionChangeTag instanceof ChangeTagAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+
     }
+
 
     @Test(expected = InvalidActionException.class)
     public void createInvalidActionExceptionTest() throws InvalidActionException {
