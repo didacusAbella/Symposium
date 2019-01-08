@@ -66,7 +66,8 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
                 question.getContent(), question.getLastUpdate(),
                 question.getCreationDate(), question.getNumReports(),
                 question.getUserFk(), question.getTitle());
-        return update.intValue();
+        int updateInt = update.intValue();
+        return updateInt;
     }
 
     @Override
