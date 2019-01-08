@@ -116,7 +116,7 @@ create table if not exists report
 
 INSERT INTO admin (username, password) VALUES ('Supergoku', 'P@ssw0rd');
 INSERT INTO `user` VALUES 
-('Andrea','Andrea','Raiola','a.prova@studenti.unisa.it','b107c980be2fe296119dd0da938d1c0af3d4ea83d037b5d6dd14679c7abc5645','2019-02-06',0,NULL),
+('Andrea','Andrea','Raiola','a.prova@studenti.unisa.it','b107c980be2fe296119dd0da938d1c0af3d4ea83d037b5d6dd14679c7abc5645','2019-02-06',0,2018),
 ('Porcaccia','Andrea','Raiola','a.raiola15@studenti.unisa.it','b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342',NULL,0,2019),
 ('Andrew','Andrea','AAAAAAAAAA','andry123','7f9ed89c7297f99669b6e79d9d8d404d19f160ca40b40f42896506fa7942786b',NULL,0,NULL),
 ('Bob907','Bobbby','Bobbby','b.bobbby@studenti.unisa.it','bobbby',NULL,0,2019),
@@ -131,7 +131,7 @@ INSERT INTO `user` VALUES
 ('Supermario','Balotelli','Mario','m.balotelli@studenti.unisa.it','b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342',NULL,0,NULL),
 ('eldeimos','Andlea','Laiola','p.olcodio@studenti.unisa.it','b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342',NULL,0,2019),
 ('Memo98171','Sandra','Marchigiano','p.szopian@studenti.unisa.it','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',NULL,0,NULL),
-('SDelPiano97','Salvatore','Del Piano','s.delpiano@studenti.unisa.it','2c514fd06a156c3df50cacbbe6eecada59a74b6160795ec927b7f4186b707eef','2019-02-06',0,NULL);
+('SDelPiano97','Salvatore','Del Piano','s.delpiano@studenti.unisa.it','2c514fd06a156c3df50cacbbe6eecada59a74b6160795ec927b7f4186b707eef','2019-02-06',0,2018);
 
 INSERT INTO `tag` VALUES 
 (21,'esame'),(22,'Is'),
@@ -210,7 +210,7 @@ INSERT INTO `report` VALUES
 (8,'spam','Lo odio',2019,28,'G.MADONNA3@studenti.unisa.it'),
 (9,'spam','Ma che vuole',2019,28,'s.delpiano@studenti.unisa.it');
 
-INSERT INTO `stats` VALUES (1,0,0,2019),(2,0,0,2018);
+INSERT INTO `stats` VALUES (1,5,4,2019),(2,2,0,2018);
 
 INSERT INTO `statstag` VALUES 
 (6,1,21),(4,1,23),(4,1,175),(1,1,176),(2,1,177),(2,1,178),(1,1,179),(1,1,180),(1,1,181),(2,1,182),

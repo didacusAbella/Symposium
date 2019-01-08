@@ -53,4 +53,5 @@ public interface StatsManager {
      * @throws SQLException if db errors occurred
      */
     int createStats(int interestedYear) throws SQLException;
+    
 }
