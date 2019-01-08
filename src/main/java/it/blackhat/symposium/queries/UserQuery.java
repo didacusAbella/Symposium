@@ -30,7 +30,7 @@ public final class UserQuery {
     public static final String EDIT_PROFILE = "UPDATE user SET username=?, "
             + "firstName=?, lastName=?, password=?, typeGrad=? WHERE email=?";
 
-    public static final String DELETE_ACCOUNT = "DELETE * FROM user "
+    public static final String DELETE_ACCOUNT = "DELETE FROM user "
             + "WHERE email=?";
 
     public static final String TAKE_ALL_USERS = "SELECT * FROM user";
