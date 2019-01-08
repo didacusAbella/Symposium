@@ -1,8 +1,12 @@
 package it.blackhat.symposium.unit;
 
 import it.blackhat.symposium.managers.AdminModelManager;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.mockito.Mockito;
 
 /**
  *
@@ -15,7 +19,8 @@ public class AdminModelManagerTest {
      */
     @Test
     public void constractorEmpty(){
-        AdminModelManager admin = new AdminModelManager();
+        DataSource ds = Mockito.mock(BasicDataSource.class);
+        AdminModelManager admin = new AdminModelManager(ds);
         assertTrue(admin instanceof AdminModelManager);
     }
     

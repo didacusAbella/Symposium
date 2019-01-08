@@ -20,19 +20,20 @@ import java.util.List;
  * @author 2Deimos
  */
 public class RetrieveQuestionTagsAction implements Action {
-    private final TagManager tagManager;
+    private TagManager tagManager;
     private final Log retrieveQuestionTagsLog = LogFactory.getLog(RetrieveQuestionTagsAction.class);
 
     /**
      * Initializes a Tag Manager
      */
     public RetrieveQuestionTagsAction() {
-        tagManager = new TagModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.tagManager = new TagModelManager();
             String questionId = req.getParameter("questionId");
             int questionIdInt = Integer.parseInt(questionId);
             List<Tag> tags = tagManager.retrieveQuestionTags(questionIdInt);

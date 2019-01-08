@@ -6,13 +6,11 @@ import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
 import it.blackhat.symposium.models.*;
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -25,19 +23,20 @@ import java.util.Calendar;
  * @author Gozzetto
  */
 public class InsertAnswerAction implements Action {
-    private final AnswerManager answerManager;
+    private AnswerManager answerManager;
     private final Log addAnswerLog = LogFactory.getLog(InsertAnswerAction.class);
 
     /**
      * Initializes a Answer Manager
      */
     public InsertAnswerAction() {
-        answerManager = new AnswerModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.answerManager = new AnswerModelManager();
             Answer answer = new AnswerModel();
             User user = (UserModel) req.getSession().getAttribute("user");
             int questionID = Integer.parseInt(req.getParameter("questionID"));

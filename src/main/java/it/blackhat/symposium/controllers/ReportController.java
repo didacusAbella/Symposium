@@ -27,7 +27,8 @@ public class ReportController extends DispatcherController {
     
 
     @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, InvalidActionException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException, InvalidActionException {
         String action = request.getParameter("action");
         Action questionAction = this.reportFactory.createAction(action);
         String page = questionAction.execute(request, response);

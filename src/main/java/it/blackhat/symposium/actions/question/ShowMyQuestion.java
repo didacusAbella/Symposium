@@ -11,31 +11,30 @@ import it.blackhat.symposium.models.Tag;
 import it.blackhat.symposium.models.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ShowMyQuestion implements Action {
-    private final QuestionManager questionManager;
-    private final TagManager tagManager;
+
+    private QuestionManager questionManager;
+    private TagManager tagManager;
     private final Log showQuestionLog = LogFactory.getLog(ShowQuestionsAction.class);
 
+    /**
+     * Action that show user's questions
+     */
     public ShowMyQuestion() {
-        questionManager = new QuestionModelManager();
-        this.tagManager = new TagModelManager();
+        super();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            questionManager = new QuestionModelManager();
+            this.tagManager = new TagModelManager();
             User user = (User) req.getSession().getAttribute("user");
             List<Question> questions = questionManager.showQuestionsByAuthor(user.getEmail());
             List<QuestionTag> questionTag = new ArrayList<>();
