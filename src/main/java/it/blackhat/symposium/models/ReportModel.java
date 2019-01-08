@@ -44,8 +44,10 @@ public class ReportModel implements Report {
      * @param reason the report's reason
      * @param userFk the user foreign key
      * @param year the report's year
+     * @param questionFk the question's id
      */
-    public ReportModel(int id, String category, String reason, int year, String userFk, int questionFk) {
+    public ReportModel(int id, String category, String reason, int year, 
+            String userFk, int questionFk) {
         this.id = id;
         this.category = category;
         this.reason = reason;
@@ -122,7 +124,9 @@ public class ReportModel implements Report {
 
     @Override
     public String toString() {
-        return "ReportModel{" + "id=" + id + ", category=" + category + ", reason=" + reason + ", userFk=" + userFk + ", questionFk=" + questionFk + ", year=" + year + '}';
+        return "ReportModel{" + "id=" + id + ", category=" + category 
+                + ", reason=" + reason + ", userFk=" + userFk + ", questionFk=" 
+                + questionFk + ", year=" + year + '}';
     }
   
 }

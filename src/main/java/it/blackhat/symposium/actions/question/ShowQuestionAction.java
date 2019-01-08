@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 public class ShowQuestionAction extends CompositeAction {
 
-    private final QuestionManager questionManager;
+    private QuestionManager questionManager;
     private final Log showQuestionActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
     /**
@@ -29,12 +29,12 @@ public class ShowQuestionAction extends CompositeAction {
      */
     public ShowQuestionAction(Action... actions) {
         super(actions);
-        questionManager = new QuestionModelManager();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
             super.execute(req, res);
             String questionId = req.getParameter("questionId");
             int questionIdInt = Integer.parseInt(questionId);

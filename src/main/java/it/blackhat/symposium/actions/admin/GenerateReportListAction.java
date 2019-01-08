@@ -25,8 +25,8 @@ import org.apache.commons.logging.LogFactory;
 
 public class GenerateReportListAction implements Action {
 
-    private final ReportManager reportManager;
-    private final QuestionManager questionManager;
+    private ReportManager reportManager;
+    private QuestionManager questionManager;
 
     private final Log generateReportListActionLog = 
             LogFactory.getLog(GenerateReportListAction.class);
@@ -36,12 +36,13 @@ public class GenerateReportListAction implements Action {
      * The constructor of the class
      */
     public GenerateReportListAction() {
-        reportManager = new ReportModelManager();
-        questionManager = new QuestionModelManager();
+        
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
+        this.reportManager = new ReportModelManager();
+        this.questionManager = new QuestionModelManager();
         try {
             List<Report> listReports = reportManager.retrieveAllReports();
             List<Question> listQuestions = new ArrayList<>();

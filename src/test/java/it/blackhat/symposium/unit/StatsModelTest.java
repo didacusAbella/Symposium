@@ -1,9 +1,8 @@
 package it.blackhat.symposium.unit;
 
+import it.blackhat.symposium.models.StatsModel;
 import org.junit.Assert;
 import org.junit.Test;
-
-import it.blackhat.symposium.models.StatsModel;
 /**
  * The class tests StatsModelTest
  * @author Parrilli Carminantonio
@@ -14,7 +13,7 @@ public class StatsModelTest {
      * The test for the empty constructor
      */
     @Test
-    public void testStatsModel() {
+    public void testStatsModelEmpty() {
         StatsModel testStatsModel = new StatsModel();
         Assert.assertTrue(testStatsModel instanceof StatsModel);
     }
@@ -22,7 +21,7 @@ public class StatsModelTest {
      * The test for the full constructor
      */
     @Test
-    public void testStatsModelIntIntIntInt() {
+    public void testStatsModelFull() {
         StatsModel testStatsModel = new StatsModel(12, 23, 45, 67);
         boolean b1 = (12==testStatsModel.getId());
         boolean b2 = (23==testStatsModel.getNumSigned());
@@ -109,6 +108,12 @@ public class StatsModelTest {
     @Test
     public void testToString() {
         StatsModel testStat= new StatsModel(98,76,54,32);
-        Assert.assertEquals("id=98, numSigned=76, totalReports=54, year=32}", testStat.toString());
+        String test = "StatsModel{"
+                + "id=" + 98
+                + ", numSigned=" + 76
+                + ", totalReports=" + 54
+                + ", year=" + 32
+                + '}';
+        Assert.assertEquals(test, testStat.toString());
     }   
 }

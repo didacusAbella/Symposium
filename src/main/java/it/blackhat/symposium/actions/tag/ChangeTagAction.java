@@ -15,19 +15,20 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ChangeTagAction implements Action {
 
-    private final TagManager tags ;
+    private TagManager tags ;
     private final Log changeTagLog = LogFactory.getLog(ChangeTagAction.class);
     /**
      * Class Constructor
      */
     public ChangeTagAction() {
-        tags = new TagModelManager();
+        super();
     }
     
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         
         try {
+            this.tags = new TagModelManager();
             String tagName = req.getParameter("tagName");
             String questionIdentificativo = req.getParameter("questionId");
             int questionId = Integer.parseInt(questionIdentificativo);

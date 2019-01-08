@@ -15,18 +15,20 @@ import java.sql.SQLException;
  */
 public class AddFavouriteAction implements Action {
     
-    private final QuestionManager questionManager;
+    private QuestionManager questionManager;
     private final Log addFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
     /**
      * Create a new Action for add a question to favourites
      */
     public AddFavouriteAction() {
-        questionManager = new QuestionModelManager();
+        super();
     }
+    
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.questionManager = new QuestionModelManager();
             String idQuestion = req.getParameter("questionId");
             int idQuestionInt = Integer.parseInt(idQuestion);
             String emailUser = req.getParameter("userEmail");

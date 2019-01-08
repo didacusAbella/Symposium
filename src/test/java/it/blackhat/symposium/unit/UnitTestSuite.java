@@ -7,10 +7,21 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         AdminModelTest.class,
-        TagModelManagerTest.class,
-        TagActionFactoryTest.class,
-        TagModelTest.class
+        AdminActionFactoryTest.class,
+        AdminModelManagerConstractorTest.class,
+        AdminModelManagerTest.class,
+        AdminModelTest.class,
+        StatsActionFactoryTest.class,
+        StatsModelManagerTest.class,
+        StatsModelTest.class,
+        UserActionFactoryTest.class,
+        UserModelManagerTest.class,
+        UserModelTest.class,
+        QuestionActionFactoryTest.class,
+        QuestionModelManagerTest.class,
+        QuestionModelTest.class,
+        BeanValidatorTest.class
 })
 public class UnitTestSuite {
-  
+
 }

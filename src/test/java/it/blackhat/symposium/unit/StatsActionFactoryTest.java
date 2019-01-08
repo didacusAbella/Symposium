@@ -48,7 +48,7 @@ public class StatsActionFactoryTest {
      * @throws InvalidActionException 
      */
     @Test(expected=InvalidActionException.class)
-    public void testCreateActionInvalidAction() throws InvalidActionException {
+    public void testInvalidActionException() throws InvalidActionException {
         new StatsActionFactory().createAction("test");
     }
 }

@@ -17,27 +17,29 @@ import java.util.Map;
 
 /**
  * Generates a report of the site for the admin
- * 
+ *
  * @author Parrilli Carminantonio
  *
  */
 public class GenerateStatsAction implements Action {
-    private final StatsManager statsModelManager;
+
+    private StatsManager statsModelManager;
     private final Log signinLog = LogFactory.getLog(SigninAction.class);
     private StatsModel statitics;
-    private final TagManager tagModelManager;
-    
+    private TagManager tagModelManager;
+
     /**
      * The constructor of the class
      */
     public GenerateStatsAction() {
-        statsModelManager = new StatsModelManager();
-        tagModelManager = new TagModelManager();
+        super();
     }
-    
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
+            this.statsModelManager = new StatsModelManager();
+            this.tagModelManager = new TagModelManager();
             String desideredDate = req.getParameter("year");
             int year = Integer.parseInt(desideredDate);
             int users = statsModelManager.getNumberUsers(year);
