@@ -11,7 +11,7 @@ import org.junit.Test;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class AdminManagerTest {
     
@@ -23,9 +23,15 @@ public class AdminManagerTest {
     }
     
     @Test
-    public void testFindAdmin() throws SQLException {
+    public void testFindAdminValid() throws SQLException {
         Optional<Admin> admin = this.adminManager.findAdmin("Supergoku", "P@ssw0rd");
         Assert.assertTrue(admin.isPresent());
+    }
+    
+    @Test
+    public void testFindAdminInvalid() throws SQLException {
+        Optional<Admin> admin = this.adminManager.findAdmin("GiannoLoSa", "EinveceNo");
+        Assert.assertFalse(admin.isPresent());                
     }
     
 }
