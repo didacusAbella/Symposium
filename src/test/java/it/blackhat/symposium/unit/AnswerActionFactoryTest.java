@@ -6,9 +6,8 @@ import it.blackhat.symposium.actions.answer.*;
 import it.blackhat.symposium.helpers.InvalidActionException;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+
 
 
 /**
@@ -23,53 +22,33 @@ public class AnswerActionFactoryTest {
     }
 
     @Test
-    public void testInsertAnswerAction() {
-        try {
+    public void testInsertAnswerAction() throws InvalidActionException {
             Action test = answerFactory.createAction("insertAnswer");
             assertTrue(test instanceof InsertAnswerAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testDeleteQuestionAction() {
-        try {
+    public void testDeleteQuestionAction() throws InvalidActionException {
             Action test = answerFactory.createAction("deleteAnswer");
             assertTrue(test instanceof DeleteAnswerAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testChooseBestAnswerAction() {
-        try {
+    public void testChooseBestAnswerAction() throws InvalidActionException {
             Action test = answerFactory.createAction("chooseBestAnswer");
             assertTrue(test instanceof ChooseBestAnswerAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testDeleteAnswerAdminAction() {
-        try {
+    public void testDeleteAnswerAdminAction() throws InvalidActionException {
             Action test = answerFactory.createAction("deleteAnswerAdmin");
             assertTrue(test instanceof DeleteAnswerAdminAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testShowAnswerPageAction() {
-        try {
+    public void testShowAnswerPageAction() throws InvalidActionException {
             Action test = answerFactory.createAction("showAnswerPage");
             assertTrue(test instanceof ShowAnswerPage);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test(expected = InvalidActionException.class)

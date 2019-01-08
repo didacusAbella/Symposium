@@ -9,19 +9,10 @@ import it.blackhat.symposium.actions.guest.SignupAction;
 import it.blackhat.symposium.actions.question.SeachQuestionByAction;
 import it.blackhat.symposium.actions.question.ShowQuestionAction;
 import it.blackhat.symposium.actions.question.ShowQuestionsAction;
-import it.blackhat.symposium.actions.user.BanAction;
-import it.blackhat.symposium.actions.user.EditProfileAction;
-import it.blackhat.symposium.actions.user.ShowEditProfileAction;
-import it.blackhat.symposium.actions.user.ShowProfileAction;
-import it.blackhat.symposium.actions.user.SignoutAction;
-import it.blackhat.symposium.actions.user.UserActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import static junit.framework.TestCase.assertTrue;
-import static junit.framework.TestCase.fail;
 
 /**
  *
@@ -37,62 +28,39 @@ public class GuestActionFactoryTest {
 
 
     @Test
-    public void testSignInAction() {
-        try {
+    public void testSignInAction() throws InvalidActionException {
             Action test = guestFactory.createAction("signIn");
             assertTrue(test instanceof SigninAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testSignUpAction() {
-        try {
+    public void testSignUpAction() throws InvalidActionException {
             Action test = guestFactory.createAction("signUp");
             assertTrue(test instanceof SignupAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testSeachQuestionsByAction() {
-        try {
+    public void testSeachQuestionsByAction() throws InvalidActionException {
             Action test = guestFactory.createAction("seachQuestionsBy");
             assertTrue(test instanceof SeachQuestionByAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testSignInAdminAction() {
-        try {
+    public void testSignInAdminAction() throws InvalidActionException {
             Action test = guestFactory.createAction("signInAdmin");
             assertTrue(test instanceof SigninAdminAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
 
     @Test
-    public void testShowQuestionAction() {
-        try {
+    public void testShowQuestionAction() throws InvalidActionException {
             Action test = guestFactory.createAction("showQuestion");
             assertTrue(test instanceof ShowQuestionAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
     }
     @Test
-    public void testShowQuestionsAction() {
-        try {
+    public void testShowQuestionsAction() throws InvalidActionException {
             Action test = guestFactory.createAction("showQuestions");
             assertTrue(test instanceof ShowQuestionsAction);
-        } catch (InvalidActionException e) {
-            fail("Eccezione non gestita");
-        }
+
     }
 
     @Test(expected = InvalidActionException.class)
