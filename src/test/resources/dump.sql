@@ -10,7 +10,7 @@ create table if not exists stats
 	id int auto_increment primary key,
 	numSigned int null,
 	totalReports int null,
-	year int null
+	year int null unique
 ) charset=utf8;
 
 create table if not exists tag

@@ -11,7 +11,7 @@ import org.junit.Test;
 
 /**
  *
- * @author didacus
+ * @author Symposium Group
  */
 public class AdminManagerTest {
     
