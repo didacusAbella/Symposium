@@ -19,7 +19,8 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    AdminManagerTest.class
+    AdminManagerTest.class,
+    UserModelManagerTest.class
 })
 public class IntegrationTestSuite {
     
@@ -29,7 +30,7 @@ public class IntegrationTestSuite {
     public static void setupDb() throws SQLException, FileNotFoundException {
         mockDbDatasource = new BasicDataSource();
         mockDbDatasource.setDriverClassName("org.h2.Driver");
-        mockDbDatasource.setUrl("jdbc:h2:it./symposiumTest:symposiumdb1;MODE=MYSQL;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1");
+        mockDbDatasource.setUrl("jdbc:h2:./symposiumTest;MODE=MYSQL;DATABASE_TO_UPPER=false;");
         mockDbDatasource.setUsername("sa");
         mockDbDatasource.setPassword("");
         RunScript.execute(mockDbDatasource.getConnection(), 
