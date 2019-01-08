@@ -26,5 +26,4 @@ public class StatsModelManagerTest {
         StatsModelManager testConstuctor = new StatsModelManager(ds);
         Assert.assertTrue(testConstuctor instanceof StatsModelManager);
     }
-
 }
