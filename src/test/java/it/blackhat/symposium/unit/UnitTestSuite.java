@@ -8,7 +8,6 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         AdminModelTest.class,
         AdminActionFactoryTest.class,
-        AdminModelManagerConstractorTest.class,
         AdminModelManagerTest.class,
         AdminModelTest.class,
         StatsActionFactoryTest.class,
