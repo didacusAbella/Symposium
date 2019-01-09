@@ -34,11 +34,12 @@
                     <a href="#">Sezione Amministratore</a>
                     <ul class="menu vertical">
                         <li><a href="admin/AdminController?action=showUsersAction" class="primary button">Lista
-                                Utenti</a></li>
-                        <li><a href="admin/AdminController?action=showQuestionsAction" class="button">Lista Domande</a>
+                            Utenti</a>
                         </li>
-                        <li><a href="admin/AdminController?action=retrieveQuestionAnswersAction" class="button">Lista
-                                Risposte</a></li>
+                        <li><a href="admin/QuestionController?action=#" class="button">Lista Domande</a>
+                        </li>
+                        <li><a href="admin/AnswerController?action=#" class="button">Lista Risposte</a>
+                        </li>
                         <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a>
                         </li>
                         <li><a href="admin/StatsController?action=showStats" class="alert button">Genera Report</a></li>
