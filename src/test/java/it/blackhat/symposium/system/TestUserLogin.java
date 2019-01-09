@@ -2,7 +2,7 @@ package it.blackhat.symposium.system;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +18,7 @@ public class TestUserLogin {
         driver = SystemTestSuite.seleniumDriver;
     }
 
-    @Test
+    @Ignore
     public void testLoginClientOk() {
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("email")).get(0);

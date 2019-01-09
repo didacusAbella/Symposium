@@ -43,11 +43,11 @@
                     <span class="form-error"> Inserisci una password valida</span>
                     </div>
                     <div>
-                    <input type="email" placeholder="Email Ateneo" name="email"pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it" required />
+                    <input type="email" placeholder="Email Ateneo" id="email" name="email"pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it" required />
                     <span class="form-error"> Inserisci una mail valida</span>
                     </div>
                     <div>
-                    <input type="email" placeholder="Conferma Email Ateneo" name="confirmMail" required />
+                    <input type="email" placeholder="Conferma Email Ateneo" required data-equalto="email"/>
                     <span class="form-error"> Inserisci una mail valida</span>
                     </div>
                     <fieldset>

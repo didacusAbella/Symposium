@@ -4,6 +4,7 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
 import it.blackhat.symposium.models.Tag;
+import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -134,6 +135,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         Question question = run.query(TAKE_QUESTION,
                 new BeanHandler<>(QuestionModel.class), questionId);
         return Optional.ofNullable(question);
+    }
+    
+    @Override
+    public boolean controlFavorite(String email,int idQuestion) throws SQLException{
+        QueryRunner run = new QueryRunner(this.dataSource);
+        List<Tag> tags = run.query(CONTROL_FAVORITES, new BeanListHandler<>(TagModel.class), email, idQuestion);
+        return tags.isEmpty();
     }
 
 }
