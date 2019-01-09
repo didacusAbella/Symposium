@@ -240,6 +240,7 @@
                     <failIfNoTests>false</failIfNoTests>
                     <printSummary>true</printSummary>
                     <forkCount>0</forkCount>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
             <plugin>
