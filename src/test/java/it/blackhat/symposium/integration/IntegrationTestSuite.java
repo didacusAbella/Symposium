@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        QuestionManagerTest.class
+        StatsModelManagerDBTest.class
 })
 public class IntegrationTestSuite {
     

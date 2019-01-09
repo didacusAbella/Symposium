@@ -62,7 +62,7 @@
                     </ul>
                 </li>
                 <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
-                    <input class="hollow button" type="submit" value="Log Out">
+                    <input class="hollow button" type="submit" value="Log Out" name="LogOut">
                 </form>
             </c:when>
             <c:otherwise>
