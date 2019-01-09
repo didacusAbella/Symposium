@@ -12,7 +12,6 @@ import it.blackhat.symposium.models.AnswerModel;
 import java.io.FileNotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
