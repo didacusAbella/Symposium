@@ -240,6 +240,9 @@
                     <failIfNoTests>false</failIfNoTests>
                     <printSummary>true</printSummary>
                     <forkCount>0</forkCount>
+                    <excludes>
+                        <exclude>it.blackhat.symposium.system.**</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
