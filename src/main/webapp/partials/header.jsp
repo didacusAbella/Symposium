@@ -52,10 +52,7 @@
                         <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
                         <li><a href="user/QuestionController?action=showQuestionByAuthor" class="button">Le mie domande</a></li>
                         <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
-                        <li><form action="user/QuestionController?action=showFavorite" method="POST">
-                            <button type="submit" class="button">Domande Preferite</a>
-                            <input type="hidden" value="${user.email}" name="userEmail">
-                            </form></li>
+                        <li><a href="user/QuestionController?action=showFavorite" class="button">Domande Preferite</a></li>
                         <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una
                                 domanda!</a></li>
                         <li><a href="user/UserController?action=showEditProfile" class="alert button">Modifica Profilo</a></li>
