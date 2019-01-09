@@ -1,47 +1,35 @@
 package it.blackhat.symposium.integration;
 
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.h2.tools.RunScript;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.SQLException;
+import org.junit.After;
+import org.junit.Before;
 
-/**
- *
- * @author Symposium Group
- */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        QuestionManagerTest.class
-})
-public class IntegrationTestSuite {
-    
+public class IntegrationTestCase {
+
     public static BasicDataSource mockDbDatasource;
-    
-    @BeforeClass
-    public static void setupDb() throws SQLException, FileNotFoundException {
+
+    @Before
+    public void setUp() throws SQLException, FileNotFoundException {
         mockDbDatasource = new BasicDataSource();
         mockDbDatasource.setDriverClassName("org.h2.Driver");
         mockDbDatasource.setUrl("jdbc:h2:./symposiumTest;MODE=MYSQL;DATABASE_TO_UPPER=false;");
         mockDbDatasource.setUsername("sa");
         mockDbDatasource.setPassword("");
-        RunScript.execute(mockDbDatasource.getConnection(), 
-                new FileReader(new File(IntegrationTestSuite.class.getResource("/dump.sql")
+        RunScript.execute(mockDbDatasource.getConnection(),
+                new FileReader(new File(IntegrationTestCase.class.getResource("/dump.sql")
                         .getFile())));
     }
-    
-    
-    @AfterClass
-    public static void clenupDb() throws SQLException{
+
+    @After
+    public void tearDown() throws SQLException {
         mockDbDatasource.getConnection()
                 .createStatement().execute("drop all objects delete files");
     }
-    
+
 }
