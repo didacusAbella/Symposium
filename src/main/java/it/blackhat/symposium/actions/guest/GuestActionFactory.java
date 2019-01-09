@@ -23,7 +23,7 @@ public class GuestActionFactory implements ActionFactory {
                 return new SigninAction();
             case "signUp":
                 return new SignupAction();
-            case "seachQuestionBy":
+            case "searchQuestionsBy":
                 return new SeachQuestionByAction();      
             case "signinAdmin":
                 return new SigninAdminAction();

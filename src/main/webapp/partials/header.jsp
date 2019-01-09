@@ -20,10 +20,13 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <form action="GuestController?action=seachQuestionBy" method="post" data-abide novalidate>
+        <form action="GuestController?action=searchQuestionsBy" method="post" data-abide novalidate>
             <ul class="dropdown menu" data-dropdown-menu>
-                <li><input type="search" placeholder="Cerca" name="searchBy" required></li>
-                <li><button type="submit" class="button">Cerca</button></li>
+                <li><label>
+                    <input type="search" placeholder="Cerca" name="searchBy" pattern="#[a-zA-Z]+|[a-zA-Z]+" required>
+                    <span class="form-error">Il contenuto inserito non è valido!</span>
+                </label></li>
+                <li><input type="submit" class="button" value="Cerca"></li>
         </form>
         <c:choose>
             <c:when test="${not empty admin}">
@@ -42,7 +45,7 @@
                     </ul>
                 </li>
                 <form action="admin/AdminController?action=adminSignout" method="post" data-abide novalidate>
-                    <input class="hollow button" type="submit" value="Log Out">
+                    <input class="hollow button" type="submit" value="Log Out" name="LogOut">
                 </form>
             </c:when>
             <c:when test="${not empty user}">
@@ -52,17 +55,14 @@
                         <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
                         <li><a href="user/QuestionController?action=showQuestionByAuthor" class="button">Le mie domande</a></li>
                         <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
-                        <li><form action="user/QuestionController?action=showFavorite" method="POST">
-                            <button type="submit" class="button">Domande Preferite</a>
-                            <input type="hidden" value="${user.email}" name="userEmail">
-                            </form></li>
+                        <li><a href="user/QuestionController?action=showFavorite" class="button">Domande Preferite</a></li>
                         <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una
                                 domanda!</a></li>
                         <li><a href="user/UserController?action=showEditProfile" class="alert button">Modifica Profilo</a></li>
                     </ul>
                 </li>
                 <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
-                    <input class="hollow button" type="submit" value="Log Out">
+                    <input class="hollow button" type="submit" value="Log Out" name="LogOut">
                 </form>
             </c:when>
             <c:otherwise>

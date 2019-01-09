@@ -18,7 +18,7 @@
   </button>
   </div>
     </c:if>
-        <form action="GuestController?action=signUp" method="post" data-abide novalidate>
+        <form action="GuestController?action=signUp" method="post" name="SignUpForm"  data-abide novalidate>
             <div data-abide-error class="alert callout" style="display: none;">
                 <p><i class="fi-alert"></i>Ricontrolla la form</p></div>
             <div class="grid-y" style="height: 50px;"></div>
@@ -32,22 +32,22 @@
                     </div>
                     <div>
                     <input type="text" placeholder="Nome" name="firstName" pattern="\w{6,20}" required />
-                    <span class="form-error"> Inserisci un nome  valido</span>
+                    <span class="form-error"> Inserisci un nome valido</span>
                     </div>
                     <div>
                     <input type="text" placeholder="Cognome"name="lastName" pattern="\w{6,20}" required />
-                    <span class="form-error"> Inserisci un cognome  valido</span>
+                    <span class="form-error"> Inserisci un cognome valido</span>
                     </div>
                     <div>
                     <input type="password" placeholder="Password" name="password" pattern="\w{6,20}" required /> 
                     <span class="form-error"> Inserisci una password valida</span>
                     </div>
                     <div>
-                    <input type="email" placeholder="Email Ateneo" name="email"pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it" required />
+                    <input type="email" placeholder="Email Ateneo" id="email" name="email"pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it" required />
                     <span class="form-error"> Inserisci una mail valida</span>
                     </div>
                     <div>
-                    <input type="email" placeholder="Conferma Email Ateneo" required />
+                    <input type="email" placeholder="Conferma Email Ateneo" required data-equalto="email"/>
                     <span class="form-error"> Inserisci una mail valida</span>
                     </div>
                     <fieldset>
