@@ -4,8 +4,6 @@ import it.blackhat.symposium.managers.QuestionManager;
 import it.blackhat.symposium.managers.QuestionModelManager;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
-import it.blackhat.symposium.models.Tag;
-import it.blackhat.symposium.models.TagModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -23,9 +21,10 @@ import static org.junit.Assert.assertTrue;
 
 public class QuestionManagerTest extends IntegrationTestCase {
     private QuestionManager questionManager;
-    private Date testDate = new Date(Calendar.getInstance().getTime().getTime());
+    private final Date testDate = new Date(Calendar.getInstance().getTime().getTime());
 
     @Before
+    @Override
     public void setUp() throws SQLException, FileNotFoundException {
         super.setUp();
         questionManager = new QuestionModelManager(IntegrationTestCase.mockDbDatasource);
@@ -113,7 +112,7 @@ public class QuestionManagerTest extends IntegrationTestCase {
     @Test
     public void findFavoriteValid() throws SQLException {
         List<Question> list = questionManager.findFavorite("d.tropeano@studenti.unisa.it");
-        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals("It should return empty", true, list.isEmpty());
     }
 
     @Test

@@ -28,3 +28,21 @@ div.tagsinput span.tag {
 div.tagsinput span.tag a {
    color: #ffffff; 
 }
+
+#easyPaginate {
+    width: inherit;
+}
+
+.easyPaginateNav {
+    text-align: center;
+}
+
+.easyPaginateNav a {
+    padding:5px;
+    
+}
+
+.easyPaginateNav a.current {
+    font-weight:bold;
+    text-decoration:underline;
+}

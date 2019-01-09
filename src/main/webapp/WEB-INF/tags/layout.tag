@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="./assets/index.css"/>
     <link rel="shortcut icon" type="image/png" href="./assets/images/LogoSymposium.png"/>
     <script type="text/javascript" defer="true" src="./webjars/jquery/3.3.1/dist/jquery.min.js"></script>
-    <script type="text/javascript" async="true"
+    <script type="text/javascript" defer="true" src="http://frontalcreative.com/cdn/js/jquery.easyPaginate.js"></script>
+    <script type="text/javascript" defer="true"
             src="./webjars/what-input/5.1.1/dist/what-input.min.js"></script>
     <script type="text/javascript" defer="true"
             src="./webjars/foundation-sites/6.5.1/dist/js/foundation.min.js"></script>

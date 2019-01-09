@@ -21,7 +21,9 @@ import java.io.FileNotFoundException;
 
 public class StatsModelManagerTest extends IntegrationTestCase {
     private StatsManager testConstructor;
+    
     @Before
+    @Override
     public void setUp() throws SQLException, FileNotFoundException {
         super.setUp();
         this.testConstructor = new StatsModelManager(IntegrationTestCase.mockDbDatasource);
@@ -39,7 +41,7 @@ public class StatsModelManagerTest extends IntegrationTestCase {
         Assert.assertEquals(0, test);
     }
 
-    @Test @Ignore
+    @Ignore
     public void testUpdateStatsTagCORRECT() throws SQLException {
         int test = testConstructor.updateStatsTag(2019, "esame");
         Assert.assertEquals(1, test);

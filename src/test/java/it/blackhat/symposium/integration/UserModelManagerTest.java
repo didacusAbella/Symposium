@@ -29,6 +29,7 @@ public class UserModelManagerTest extends IntegrationTestCase {
     private UserManager user;
     
     @Before
+    @Override
     public void setUp() throws SQLException, FileNotFoundException {
         super.setUp();
         this.user = new UserModelManager(IntegrationTestCase.mockDbDatasource);
