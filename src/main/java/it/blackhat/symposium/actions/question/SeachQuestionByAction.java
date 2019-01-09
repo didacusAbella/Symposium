@@ -49,7 +49,7 @@ public class SeachQuestionByAction implements Action {
                 support.addAll(seachByTag(tags.get(i)));
                 if (support.size() > 0) {
                     if (flag != 0) {
-                        CollectionUtils.intersection(questions, support);
+                        questions = (List<Question>) CollectionUtils.intersection(questions, support);
                     } else {
                         questions.addAll(support);
                         flag = 1;
@@ -62,26 +62,21 @@ public class SeachQuestionByAction implements Action {
         }
 
         try {
-            support.addAll(seachByWords(word));
-            if (support.size() > 0) {
-                if (flag != 0) {
-                    CollectionUtils.intersection(questions, support);
-                }
-                else {
-                    questions.addAll(support);
-                    flag = 1;
+            if(!word.isEmpty()){
+                support.addAll(seachByWords(word));
+                if (support.size() > 0) {
+                    if (flag != 0) {
+                        questions = (List<Question>) CollectionUtils.union(questions, support);
+                    }
+                    else {
+                        questions.addAll(support);
+                        flag = 1;
+                    }
                 }
             }
         } catch (SQLException e) {
             searchQuestionByLog.error("Errore Interno", e);
         }
-
-        System.out.println("Grandezza :" + questions.size());
-
-        for (int i = 0; i < questions.size(); i++) {
-            System.out.println("Id : " + questions.get(i).getId());
-        }
-
         req.setAttribute("questions", questions);
         return "/searchResult.jsp";
     }
@@ -95,10 +90,8 @@ public class SeachQuestionByAction implements Action {
     private List<Question> seachByWords(String word) throws SQLException {
         List<Question> questions = quest.seachQuestionByWords(word);
         if (questions.size() > 0) {
-            System.out.println("Ritorna la lista");
             return questions;
         } else {
-            System.out.println("Ritorna nulla");
             return questions;
         }
     }
@@ -112,10 +105,8 @@ public class SeachQuestionByAction implements Action {
     private List<Question> seachByTag(String tag) throws SQLException {
         List<Question> questions = quest.seachQuestionsByTag(tag);
         if (questions.size() > 0) {
-            System.out.println("Ritorna la lista");
             return questions;
         } else {
-            System.out.println("Ritorna nulla");
             return questions;
         }
     }
@@ -132,7 +123,7 @@ public class SeachQuestionByAction implements Action {
             tags.add(matches.group(1));
         }
         word = reseach.replaceAll(regExp, "");
-        word = word.trim().replaceAll(" +", " ");
+        word = word.trim().replaceAll(" +", "");
     }
 }
 
