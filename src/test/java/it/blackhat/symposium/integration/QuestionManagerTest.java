@@ -4,15 +4,19 @@ import it.blackhat.symposium.managers.QuestionManager;
 import it.blackhat.symposium.managers.QuestionModelManager;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
-import java.io.FileNotFoundException;
+import it.blackhat.symposium.models.Tag;
+import it.blackhat.symposium.models.TagModel;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -93,32 +97,58 @@ public class QuestionManagerTest extends IntegrationTestCase {
         assertEquals(false, test > 0);
     }
 
-    @Ignore
-    public void testChangeQuestionTagValid() {
+    @Test
+    public void addFavouriteValid() throws SQLException {
+        int test = questionManager.addFavourite("d.tropeano@studenti.unisa.it",19);
+        assertEquals(1, test);
 
     }
 
-    @Ignore
-    public void testChangeQuestionTagInvalid() {
+    @Test (expected=SQLException.class)
+    public void addFavouriteInvalid() throws SQLException {
+        int test = questionManager.addFavourite("d.tropeano@studenti.unisa.it",1000);
+
     }
 
     @Test
-    public void addFavourite() {
+    public void findFavoriteValid() throws SQLException {
+        List<Question> list = questionManager.findFavorite("d.tropeano@studenti.unisa.it");
+        Assert.assertFalse(list.isEmpty());
     }
 
     @Test
-    public void findFavorite() {
+    public void findFavoriteInvalid() throws SQLException {
+        List<Question> list = questionManager.findFavorite("g.gianni11@studenti.unisa.it");
+        Assert.assertTrue(list.isEmpty());
     }
 
     @Test
-    public void showLastEdit() {
+    public void showLastEditValid() throws SQLException {
+        List<Question> list = questionManager.showLastEdit();
+        Assert.assertFalse(list.isEmpty());
     }
 
     @Test
-    public void showQuestionsByAuthor() {
+    public void showQuestionsByAuthorValid() throws SQLException {
+        List<Question> list = questionManager.showQuestionsByAuthor("d.tropeano@studenti.unisa.it");
+        Assert.assertFalse(list.isEmpty());
     }
 
     @Test
-    public void findQuestion() {
+    public void showQuestionsByAuthorInvalid() throws SQLException {
+        List<Question> list = questionManager.showQuestionsByAuthor("s.saaaaa@studenti.unisa.it");
+        Assert.assertTrue(list.isEmpty());
+    }
+
+    @Test
+    public void findQuestionValid() throws SQLException {
+        Optional<Question> question = questionManager.findQuestion(28);
+        Assert.assertTrue(question.isPresent());
+    }
+
+    @Test
+    public void findQuestionInvalid() throws SQLException {
+        Optional<Question> question = questionManager.findQuestion(1000);
+        Assert.assertFalse(question.isPresent());
     }
 }

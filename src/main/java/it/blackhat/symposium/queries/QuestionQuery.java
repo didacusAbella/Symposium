@@ -57,5 +57,6 @@ public final class QuestionQuery {
     public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag(questionId,tagId) "
             + "VALUES(?,(SELECT id FROM tag WHERE name = ?))";
 
-
+    public static final String CONTROL_FAVORITES ="SELECT f.userId FROM favorites AS f"
+            + " WHERE f.`userId`= ? AND f.`questionId`=?";
 }

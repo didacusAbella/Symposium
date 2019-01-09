@@ -4,6 +4,7 @@ package it.blackhat.symposium.managers;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
 import it.blackhat.symposium.models.Tag;
+import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -11,7 +12,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import javax.sql.DataSource;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -61,7 +62,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int insertQuestion(Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        Long update = run.insert(INSERT_QUESTION, new ScalarHandler<>(),
+        BigInteger update = run.insert(INSERT_QUESTION, new ScalarHandler<>(),
                 question.getContent(), question.getLastUpdate(),
                 question.getCreationDate(), question.getNumReports(),
                 question.getUserFk(), question.getTitle());
@@ -134,6 +135,13 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
         Question question = run.query(TAKE_QUESTION,
                 new BeanHandler<>(QuestionModel.class), questionId);
         return Optional.ofNullable(question);
+    }
+    
+    @Override
+    public boolean controlFavorite(String email,int idQuestion) throws SQLException{
+        QueryRunner run = new QueryRunner(this.dataSource);
+        List<Tag> tags = run.query(CONTROL_FAVORITES, new BeanListHandler<>(TagModel.class), email, idQuestion);
+        return tags.isEmpty();
     }
 
 }
