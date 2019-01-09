@@ -36,12 +36,12 @@
                         <input type="submit" class="button hollow" value="Aggingi ai Preferiti">
                         <c:if test="${question.userFk == user.email}">
                             <a href="user/QuestionController?action=deleteQuestion&questionId=${question.id}"
-                               class="button alert">Elimina
+                               class="button alert" name="buttonDeleteUser">Elimina
                             </a>
                         </c:if>
                         <c:if test="${not empty admin}">
                             <a href="admin/QuestionController?action=deleteQuestion&questionId=${question.id}"
-                               class="button alert">Elimina
+                               class="button alert" name="buttonDelete">Elimina
                             </a>
                         </c:if>
                     </form>

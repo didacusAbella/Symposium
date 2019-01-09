@@ -8,7 +8,7 @@
     <jsp:body>
         <div class="grid-x align-center">
             <div class="cell large-6 medium-6 small-12">
-                <form action="user/QuestionController?action=insertQuestion" method="post">
+                <form action="user/QuestionController?action=insertQuestion" method="post" name="newQuestion">
                     <fieldset class="fieldset">
                         <legend>Inserisci una nuova Domanda</legend>
                         <label>
@@ -22,7 +22,7 @@
                         <div class="cell">
                             <label>
                                 Tags:
-                                <input name="tags" class="tags" value=""  id="tags_1">
+                                <input name="tags" class="tags" name="tags" id="tags_1">
                             </label>
                         </div>
                         <div style="margin-top: 10px;">
