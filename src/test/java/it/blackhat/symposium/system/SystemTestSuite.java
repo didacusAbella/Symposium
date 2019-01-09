@@ -15,7 +15,7 @@ import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        TestUserLogOut.class
+        TestUserDeleteQuestion.class
 
 })
 public class SystemTestSuite {
