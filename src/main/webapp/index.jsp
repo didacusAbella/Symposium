@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
 
-
 <c:choose>
     <c:when test="${not empty user}">
         <jsp:include page="user/QuestionController?action=showQuestions"/>
