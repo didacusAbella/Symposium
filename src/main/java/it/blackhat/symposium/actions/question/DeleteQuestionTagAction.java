@@ -31,9 +31,8 @@ public class DeleteQuestionTagAction implements Action {
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
             this.questionManager = new QuestionModelManager();
-            String idQuestion = req.getParameter("id");
-            int idQuestionInt = Integer.parseInt(idQuestion);
-            questionManager.deleteQuestionTag(idQuestionInt);
+            int idQuestion = Integer.parseInt(req.getParameter("questionId"));
+            questionManager.deleteQuestionTag(idQuestion);
             return "/index.jsp";
 
         } catch (SQLException e) {

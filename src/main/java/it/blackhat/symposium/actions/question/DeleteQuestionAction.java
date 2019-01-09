@@ -31,18 +31,12 @@ public class DeleteQuestionAction extends CompositeAction {
         super(actions);
     }
 
-    /**
-     * Initializes a Question Manager
-     */
-
-
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
             this.questionManager = new QuestionModelManager();
-            String idQuestion = req.getParameter("id");
-            int idQuestionInt = Integer.parseInt(idQuestion);
-            questionManager.deleteQuestion(idQuestionInt);
+            int idQuestion = Integer.parseInt(req.getParameter("questionId"));
+            questionManager.deleteQuestion(idQuestion);
             super.execute(req, res);
             return "/index.jsp";
 

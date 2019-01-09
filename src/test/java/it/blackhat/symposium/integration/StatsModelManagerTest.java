@@ -42,14 +42,12 @@ public class StatsModelManagerTest extends IntegrationTestCase {
     @Test @Ignore
     public void testUpdateStatsTagCORRECT() throws SQLException {
         int test = testConstructor.updateStatsTag(2019, "esame");
-        Assert.assertEquals(7, test);
+        Assert.assertEquals(1, test);
     }
     
-    @Test @Ignore
+    @Test (expected = SQLException.class)
     public void testUpdateStatsTagWRONG() throws SQLException {
         int test = testConstructor.updateStatsTag(1990, "Carminantonio");
-        System.out.println(test);
-        Assert.assertEquals(0, test);
     }
 
     @Test

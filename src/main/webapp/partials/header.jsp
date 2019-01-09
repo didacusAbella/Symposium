@@ -22,8 +22,11 @@
     <div class="top-bar-right">
         <form action="GuestController?action=searchQuestionsBy" method="post" data-abide novalidate>
             <ul class="dropdown menu" data-dropdown-menu>
-                <li><input type="search" placeholder="Cerca" name="searchBy" required></li>
-                <li><button type="submit" class="button">Cerca</button></li>
+                <li><label>
+                    <input type="search" placeholder="Cerca" name="searchBy" pattern="#[a-zA-Z]+|[a-zA-Z]+" required>
+                    <span class="form-error">Il contenuto inserito non è valido!</span>
+                </label></li>
+                <li><input type="submit" class="button" value="Cerca"></li>
         </form>
         <c:choose>
             <c:when test="${not empty admin}">
@@ -59,7 +62,7 @@
                     </ul>
                 </li>
                 <form action="user/UserController?action=signOut" method="post" data-abide novalidate>
-                    <input class="hollow button" type="submit" value="Log Out">
+                    <input class="hollow button" type="submit" value="Log Out" name="LogOut">
                 </form>
             </c:when>
             <c:otherwise>
