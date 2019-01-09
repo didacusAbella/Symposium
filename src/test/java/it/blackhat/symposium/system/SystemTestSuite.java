@@ -11,10 +11,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
 
 /**
- * @author didacus
+ * @author Gozzetto
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
+        TestUserLogOut.class
 
 })
 public class SystemTestSuite {
