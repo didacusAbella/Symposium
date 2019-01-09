@@ -3,6 +3,7 @@ package it.blackhat.symposium.integration;
 import it.blackhat.symposium.managers.AdminManager;
 import it.blackhat.symposium.managers.AdminModelManager;
 import it.blackhat.symposium.models.Admin;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.Optional;
 import org.junit.Assert;
@@ -13,13 +14,14 @@ import org.junit.Test;
  *
  * @author Symposium Group
  */
-public class AdminManagerTest {
+public class AdminManagerTest extends IntegrationTestCase {
     
     private AdminManager adminManager;
     
     @Before
-    public void setUp(){
-        this.adminManager = new AdminModelManager(IntegrationTestSuite.mockDbDatasource);
+    public void setUp() throws SQLException, FileNotFoundException{
+        super.setUp();
+        this.adminManager = new AdminModelManager(IntegrationTestCase.mockDbDatasource);
     }
     
     @Test

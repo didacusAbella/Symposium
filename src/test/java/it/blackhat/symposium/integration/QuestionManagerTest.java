@@ -4,6 +4,7 @@ import it.blackhat.symposium.managers.QuestionManager;
 import it.blackhat.symposium.managers.QuestionModelManager;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
+import java.io.FileNotFoundException;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -14,14 +15,16 @@ import java.util.Calendar;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class QuestionManagerTest {
+public class QuestionManagerTest extends IntegrationTestCase {
     private QuestionManager questionManager;
     private Date testDate = new Date(Calendar.getInstance().getTime().getTime());
 
     @Before
-    public void setUp() {
-        questionManager = new QuestionModelManager(IntegrationTestSuite.mockDbDatasource);
+    public void setUp() throws SQLException, FileNotFoundException {
+        super.setUp();
+        questionManager = new QuestionModelManager(IntegrationTestCase.mockDbDatasource);
     }
 
     @Test
@@ -54,7 +57,7 @@ public class QuestionManagerTest {
                 "Posso superare IS io ci credo", "d.tropeano@studenti.unisa.it",
                 testDate, testDate, 302, 0);
         int test = questionManager.insertQuestion(question);
-        assertEquals("1", test); //TEST NON FUNGE
+        assertTrue(test > 0);
     }
 
     @Ignore
