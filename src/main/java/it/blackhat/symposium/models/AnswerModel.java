@@ -122,8 +122,8 @@ public class AnswerModel implements Answer {
         return "AnswerModel{"
                 + "id=" + id
                 + ", questionFk=" + questionFk
-                + ", userFk='" + userFk + '\''
-                + ", content='" + content + '\''
+                + ", userFk=" + userFk
+                + ", content=" + content
                 + ", creationDate=" + creationDate
                 + ", correct=" + correct
                 + '}';

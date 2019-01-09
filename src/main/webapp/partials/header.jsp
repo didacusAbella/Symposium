@@ -20,7 +20,7 @@
         </ul>
     </div>
     <div class="top-bar-right">
-        <form action="GuestController?action=seachQuestionBy" method="post" data-abide novalidate>
+        <form action="GuestController?action=searchQuestionsBy" method="post" data-abide novalidate>
             <ul class="dropdown menu" data-dropdown-menu>
                 <li><input type="search" placeholder="Cerca" name="searchBy" required></li>
                 <li><button type="submit" class="button">Cerca</button></li>

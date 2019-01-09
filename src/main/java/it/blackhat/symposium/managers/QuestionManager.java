@@ -35,23 +35,12 @@ public interface QuestionManager {
     int insertQuestionTag(int questionId, String tagName) throws SQLException;
 
     /**
-     * Insert a tag in a question
-     *
-     * @param question question data
-     * @param tag      tag data
-     * @return the number of row updated
-     * @throws SQLException if it encounter an error
-     **/
-    int insertQuestionTag(Question question, Tag tag) throws SQLException;
-
-    /**
      * Delete a question
      *
      * @param questionId id of the question
      * @return the number of row updated
      * @throws SQLException if it encounter an error
      **/
-
 
     int deleteQuestion(int questionId) throws SQLException;
 
@@ -110,9 +99,10 @@ public interface QuestionManager {
      * @throws SQLException if it encounter an error
      */
     List<Question> showQuestionsByAuthor(String email) throws SQLException;
-    
+
     /**
      * Search all questions by tag
+     *
      * @param tag the specific tag to search
      * @return a list of questions that have the tag
      * @throws SQLException if db encounter an error
