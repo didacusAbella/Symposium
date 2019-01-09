@@ -6,7 +6,9 @@ import it.blackhat.symposium.managers.QuestionModelManager;
 import it.blackhat.symposium.models.Question;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
@@ -77,7 +79,8 @@ public class SeachQuestionByAction implements Action {
         } catch (SQLException e) {
             searchQuestionByLog.error("Errore Interno", e);
         }
-        req.setAttribute("questions", questions);
+        Set<Question> finale = new HashSet<>(questions);
+        req.setAttribute("questions", finale);
         return "/searchResult.jsp";
     }
 
