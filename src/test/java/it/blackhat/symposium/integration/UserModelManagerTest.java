@@ -9,6 +9,7 @@ import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import it.blackhat.symposium.models.UserModel;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.sql.Date;
@@ -23,13 +24,14 @@ import org.junit.Test;
  *
  * @author Giuseppe Madonna
  */
-public class UserModelManagerTest {
+public class UserModelManagerTest extends IntegrationTestCase {
    
     private UserManager user;
     
     @Before
-    public void setUp() {
-        this.user = new UserModelManager(IntegrationTestSuite.mockDbDatasource);
+    public void setUp() throws SQLException, FileNotFoundException {
+        super.setUp();
+        this.user = new UserModelManager(IntegrationTestCase.mockDbDatasource);
     }
 
     /**

@@ -61,8 +61,7 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     @Override
     public int insertQuestion(Question question) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-
-        BigDecimal update = run.insert(INSERT_QUESTION, new ScalarHandler<>(),
+        Long update = run.insert(INSERT_QUESTION, new ScalarHandler<>(),
                 question.getContent(), question.getLastUpdate(),
                 question.getCreationDate(), question.getNumReports(),
                 question.getUserFk(), question.getTitle());

@@ -11,6 +11,7 @@ import org.junit.Test;
 import it.blackhat.symposium.managers.StatsManager;
 import it.blackhat.symposium.managers.StatsModelManager;
 import it.blackhat.symposium.models.Stats;
+import java.io.FileNotFoundException;
 
 /**
  *The testig class  for the methods of StatsModelManager
@@ -18,11 +19,12 @@ import it.blackhat.symposium.models.Stats;
  *
  */
 
-public class StatsModelManagerDBTest {
+public class StatsModelManagerTest extends IntegrationTestCase {
     private StatsManager testConstructor;
     @Before
-    public void setUp() throws Exception {
-        this.testConstructor = new StatsModelManager(IntegrationTestSuite.mockDbDatasource);
+    public void setUp() throws SQLException, FileNotFoundException {
+        super.setUp();
+        this.testConstructor = new StatsModelManager(IntegrationTestCase.mockDbDatasource);
     }
 
     @Test

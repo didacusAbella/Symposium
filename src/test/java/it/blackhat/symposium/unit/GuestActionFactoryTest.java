@@ -41,13 +41,13 @@ public class GuestActionFactoryTest {
 
     @Test
     public void testSeachQuestionsByAction() throws InvalidActionException {
-            Action test = guestFactory.createAction("seachQuestionsBy");
+            Action test = guestFactory.createAction("searchQuestionsBy");
             assertTrue(test instanceof SeachQuestionByAction);
     }
 
     @Test
     public void testSignInAdminAction() throws InvalidActionException {
-            Action test = guestFactory.createAction("signInAdmin");
+            Action test = guestFactory.createAction("signinAdmin");
             assertTrue(test instanceof SigninAdminAction);
     }
 
