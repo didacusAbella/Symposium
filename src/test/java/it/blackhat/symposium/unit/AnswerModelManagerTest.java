@@ -7,6 +7,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import it.blackhat.symposium.managers.StatsModelManager;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.mockito.Mockito;
 /**
  * The class test AnswerModelManager
  * @author Gozzetto
@@ -19,7 +22,8 @@ public class AnswerModelManagerTest {
      */
     @Test
     public void testAnswerModelManager() throws SQLException {
-        AnswerModelManager testConstuctor = new AnswerModelManager();
+        DataSource ds = Mockito.mock(BasicDataSource.class);
+        AnswerModelManager testConstuctor = new AnswerModelManager(ds);
         Assert.assertTrue(testConstuctor instanceof AnswerModelManager);
     }
 

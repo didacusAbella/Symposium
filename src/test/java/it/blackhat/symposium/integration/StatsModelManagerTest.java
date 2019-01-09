@@ -23,9 +23,7 @@ public class StatsModelManagerTest extends IntegrationTestCase {
     private StatsManager testConstructor;
     
     @Before
-    @Override
     public void setUp() throws SQLException, FileNotFoundException {
-        super.setUp();
         this.testConstructor = new StatsModelManager(IntegrationTestCase.mockDbDatasource);
     }
 

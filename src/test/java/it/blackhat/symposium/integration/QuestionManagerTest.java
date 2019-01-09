@@ -24,9 +24,7 @@ public class QuestionManagerTest extends IntegrationTestCase {
     private final Date testDate = new Date(Calendar.getInstance().getTime().getTime());
 
     @Before
-    @Override
     public void setUp() throws SQLException, FileNotFoundException {
-        super.setUp();
         questionManager = new QuestionModelManager(IntegrationTestCase.mockDbDatasource);
     }
 
@@ -112,7 +110,7 @@ public class QuestionManagerTest extends IntegrationTestCase {
     @Test
     public void findFavoriteValid() throws SQLException {
         List<Question> list = questionManager.findFavorite("d.tropeano@studenti.unisa.it");
-        Assert.assertEquals("It should return empty", true, list.isEmpty());
+        Assert.assertEquals("It should return empty", false, list.isEmpty());
     }
 
     @Test

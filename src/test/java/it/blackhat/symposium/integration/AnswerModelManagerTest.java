@@ -26,9 +26,7 @@ public class AnswerModelManagerTest extends IntegrationTestCase {
     private AnswerManager testConstructor;
 
     @Before
-    @Override
     public void setUp() throws SQLException, FileNotFoundException {
-        super.setUp();
         this.testConstructor = new AnswerModelManager(IntegrationTestCase.mockDbDatasource);
         this.dataProva.set(2019, 1, 6);
         this.date = new Date(this.dataProva.getTime().getTime());
