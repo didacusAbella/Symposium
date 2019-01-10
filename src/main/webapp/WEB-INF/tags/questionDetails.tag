@@ -23,30 +23,32 @@
             <div class="card-section">
                 <h4>${question.title}</h4>
                 <p>${question.content}</p>
-                <c:if test="${not empty user || not empty admin}">
-                    <c:forEach items="${tags}" var="tag">
-                        <span class="label">${tag.name}</span>
-                    </c:forEach>
-                    <p>
-                    <form action="user/QuestionController?action=addFavourite" method="POST" data-abide novalidate>
-                        <input type="hidden" name="userEmail" value="${user.email}">
-                        <input type="hidden" name="questionId" value="${question.id}">
-                        <a href="user/AnswerController?action=showAnswerPage&questionId=${question.id}"
-                           class="button hollow">Rispondi</a>
-                        <input type="submit" class="button hollow" value="Aggingi ai Preferiti">
-                        <c:if test="${question.userFk == user.email}">
-                            <a href="user/QuestionController?action=deleteQuestion&questionId=${question.id}"
-                               class="button alert" name="buttonDeleteUser">Elimina
-                            </a>
-                        </c:if>
-                        <c:if test="${not empty admin}">
+                <c:forEach items="${tags}" var="tag">
+                    <span class="label">${tag.name}</span>
+                </c:forEach>
+                    <p style="margin-top:10px;">
+                    <c:choose>
+                        <c:when test="${not empty user}">
+                            <a href="user/AnswerController?action=showAnswerPage&questionId=${question.id}" 
+                               class="button hollow">Rispondi</a>
+                            <c:choose>
+                                <c:when test="${question.userFk == user.email}">
+                                    <a href="user/QuestionController?action=deleteQuestion&questionId=${question.id}" class="button alert" 
+                                       name="buttonDeleteUser">Elimina</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="user/QuestionController?action=addFavourite&questionId=${question.id}&userEmail=${user.email}" 
+                                       name="Favorites" class="button alert" name="buttonDeleteUser">Aggiungi ai Preferiti</a>
+                                </c:otherwise>
+                            </c:choose>     
+                        </c:when>
+                        <c:when test="${not empty admin}">
                             <a href="admin/QuestionController?action=deleteQuestion&questionId=${question.id}"
-                               class="button alert" name="buttonDelete">Elimina
-                            </a>
-                        </c:if>
-                    </form>
-                    </p>
-                </c:if>
+                               class="button alert" name="buttonDelete">Elimina</a>
+                            <a href="admin/TagController?action=showEditTag&questionId=${question.id}" class="button alert" name="changeTag">Modifica Tag</a>
+                        </c:when>
+                    </c:choose>
+                </p>
             </div>
         </div>
         <h3>Risposte:</h3>
