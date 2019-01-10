@@ -53,8 +53,9 @@ public class QuestionModel implements Question {
      * @param id           id of the question
      * @param numReports   numer of reports of the question
      */
-    public QuestionModel(String title, String content, String userFk,
-                         Date creationDate, Date lastUpdate, int id, int numReports) {
+    public QuestionModel(String title, String content, String userFk, 
+            Date creationDate, Date lastUpdate, int id,
+            int numReports) {
         this.title = title;
         this.content = content;
         this.userFk = userFk;
@@ -136,36 +137,29 @@ public class QuestionModel implements Question {
 
     @Override
     public String toString() {
-        return "QuestionModel{"
-                + "title='" + title + '\''
-                + ", content='" + content + '\''
-                + ", userFk='" + userFk + '\''
-                + ", creationDate=" + creationDate
-                + ", lastUpdate=" + lastUpdate
-                + ", id=" + id
-                + ", numReports=" + numReports
-                + '}';
+        return "QuestionModel{" + "title='" + title + '\'' + ", content='" + content 
+                + '\'' + ", userFk='" + userFk
+                + '\'' + ", creationDate=" + creationDate + ", lastUpdate=" 
+                + lastUpdate + ", id=" + id
+                + ", numReports=" + numReports + '}';
     }
-    
+
     @Override
-    public boolean equals(Object o){
-        if(o==this){
+    public boolean equals(Object o) {
+        if (o == this) {
             return true;
         }
-        if(!(o instanceof QuestionModel)){
+        if (!(o instanceof QuestionModel)) {
             return false;
         }
         QuestionModel c = (QuestionModel) o;
 
-        return title.equals(c.title) 
-                && content.equals(c.content) 
-                && userFk.equals(c.userFk) 
+        return title.equals(c.title) && content.equals(c.content) && userFk.equals(c.userFk)
                 && creationDate.equals(c.creationDate) 
-                && lastUpdate.equals(c.lastUpdate)
-                && id==c.id
-                && numReports==c.numReports;
+                && lastUpdate.equals(c.lastUpdate) && id == c.id
+                && numReports == c.numReports;
     }
-       
+
     @Override
     public int hashCode() {
         int result = 17;

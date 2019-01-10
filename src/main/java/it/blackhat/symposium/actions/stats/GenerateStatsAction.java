@@ -18,12 +18,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
+
 /**
  * Generates a report of the site for the admin
  *
  * @author Parrilli Carminantonio
  *
  */
+
 public class GenerateStatsAction implements Action {
 
     private StatsManager statsModelManager;
@@ -48,13 +50,10 @@ public class GenerateStatsAction implements Action {
             int users = statsModelManager.getNumberUsers(year);
             int reports = statsModelManager.getNumberReports(year);
             int bannedUsers = statsModelManager.getBannedUsers(year);
-            Map<String, Integer> tags = tagModelManager.mostUsedTags(year)
-                    .entrySet()
-                    .stream()
+            Map<String, Integer> tags = tagModelManager.mostUsedTags(year).entrySet().stream()
                     .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                    .collect(toMap(Map.Entry::getKey,
-                            Map.Entry::getValue,
-                            (e1, e2) -> e2, LinkedHashMap::new));
+                    .collect(toMap(Map.Entry::getKey, 
+                            Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
             statitics = new StatsModel();
             statitics.setNumSigned(users);
             statitics.setTotalReports(reports);
