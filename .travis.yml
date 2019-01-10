@@ -6,9 +6,6 @@ cache:
     - $HOME/.m2
 dist: xenial
 script: | 
-    mvn test -Dtest=it.blackhat.symposium.unit.UnitTestSuite && 
-    mvn test -Dtest=it.blackhat.symposium.integration.IntegrationTestSuite && 
-    mvn test -Dtest=it.blackhat.symposium.system.SystemTestSuite
+    mvn test
 after_success:
-  - mvn cobertura:cobertura
   - bash <(curl -s https://codecov.io/bash)
