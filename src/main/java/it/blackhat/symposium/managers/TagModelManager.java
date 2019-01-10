@@ -6,12 +6,16 @@ import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import static it.blackhat.symposium.queries.TagQuery.*;
-import javax.sql.DataSource;
+import static java.util.stream.Collectors.toMap;
 
 
 /**
@@ -77,7 +81,13 @@ public class TagModelManager extends ConnectionManager implements TagManager {
     @Override
     public Map<String, Integer> mostUsedTags(int year) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        Map<String, Integer> most = run.query(NUM_TAG, new MapCompleteHandler(), year);
+        Map<String, Integer> most = run.query(NUM_TAG, new MapCompleteHandler(), year)
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(toMap(Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e2, LinkedHashMap::new));
         return most;
 
     }

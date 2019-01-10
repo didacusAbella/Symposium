@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="sy" tagdir="/WEB-INF/tags/"%>
+<%@ taglib prefix="sy" tagdir="/WEB-INF/tags/" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -14,8 +14,10 @@
                     <button class="button" onclick="alert('Sei Sicuro?');">Elimina L'account</button>
                 </div>
                 <dl>
-                    <dt>Nome:</dt><dd>${user.firstName}</dd>
-                    <dt>Cognome:</dt><dd>${user.lastName}</dd>
+                    <dt>Nome:</dt>
+                    <dd>${user.firstName}</dd>
+                    <dt>Cognome:</dt>
+                    <dd>${user.lastName}</dd>
                     <dt>Corso di laurea:</dt>
                     <dd>
                         <c:choose>
@@ -32,7 +34,7 @@
                         </c:choose>
                     </dd>
                 </dl>
-            </div>    
+            </div>
         </div>
     </jsp:body>
 </sy:layout>
