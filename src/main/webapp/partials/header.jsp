@@ -23,8 +23,8 @@
         <form action="GuestController?action=searchQuestionsBy" method="post" data-abide novalidate>
             <ul class="dropdown menu" data-dropdown-menu>
                 <li><label>
-                    <input type="search" placeholder="Cerca" name="searchBy" pattern="#[a-zA-Z]+|[a-zA-Z]+" required>
-                    <span class="form-error">Il contenuto inserito non Ã¨ valido!</span>
+                    <input type="search" placeholder="Cerca" name="searchBy" pattern="#[a-zA-Z]+|[a-zA-Z]+" oninvalid="this.setCustomValidity('Questo campo deve essere riempito')"required>
+                    <span class="form-error">Il contenuto inserito non è valido!</span>
                 </label></li>
                 <li><input type="submit" class="button" value="Cerca"></li>
         </form>
