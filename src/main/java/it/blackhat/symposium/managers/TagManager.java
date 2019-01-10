@@ -5,6 +5,7 @@ import it.blackhat.symposium.models.Tag;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * This interface describe the methods of Tag Manager
@@ -48,11 +49,11 @@ public interface TagManager {
     /**
      * Find a tag
      *
-     * @param tagId the tag's id
+     * @param tagName the tag's id
      * @return the number of deleted rows
      * @throws SQLException if db error occured
      */
-    int findTag(int tagId) throws SQLException;
+    Optional<Tag> findTag(String tagName) throws SQLException;
 
     /**
      * Retrieves all tags related to a question
