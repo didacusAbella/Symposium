@@ -11,7 +11,7 @@
                 <div class="cell">
                     <a href="user/UserController?action=showEditProfile" class="button">Modifica L'account</a>
                     <a href="favorites.jsp" class="button">I tuoi preferiti salvati</a>
-                    <button class="button" onclick="alert('Sei Sicuro?');">Elimina L'account</button>
+                    <a href="user/UserController?action=deleteAccount" class="button">Elimina Account</a>
                 </div>
                 <dl>
                     <dt>Nome:</dt>
