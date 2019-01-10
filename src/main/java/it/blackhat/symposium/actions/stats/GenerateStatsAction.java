@@ -13,8 +13,6 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
@@ -50,10 +48,7 @@ public class GenerateStatsAction implements Action {
             int users = statsModelManager.getNumberUsers(year);
             int reports = statsModelManager.getNumberReports(year);
             int bannedUsers = statsModelManager.getBannedUsers(year);
-            Map<String, Integer> tags = tagModelManager.mostUsedTags(year).entrySet().stream()
-                    .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                    .collect(toMap(Map.Entry::getKey, 
-                            Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+            Map<String, Integer> tags = tagModelManager.mostUsedTags(year);
             statitics = new StatsModel();
             statitics.setNumSigned(users);
             statitics.setTotalReports(reports);
