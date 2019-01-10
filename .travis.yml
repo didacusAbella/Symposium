@@ -8,4 +8,5 @@ dist: xenial
 script: | 
     mvn test
 after_success:
+  - mvn cobertura:cobertura
   - bash <(curl -s https://codecov.io/bash)
