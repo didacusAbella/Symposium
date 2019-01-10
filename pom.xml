@@ -240,6 +240,7 @@
                     <argLine>-Xms1024m -Xmx2048m</argLine>
                     <failIfNoTests>false</failIfNoTests>
                     <printSummary>true</printSummary>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                     <excludes>
                         <exclude>it.blackhat.symposium.system.**</exclude>
                     </excludes>
