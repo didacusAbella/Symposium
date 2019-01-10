@@ -21,13 +21,12 @@ import org.junit.Test;
  */
 
 public class AnswerModelManagerTest extends IntegrationTestCase {
-    private Calendar dataProva = Calendar.getInstance();
+    private final Calendar dataProva = Calendar.getInstance();
     private Date date;
     private AnswerManager testConstructor;
 
     @Before
     public void setUp() throws SQLException, FileNotFoundException {
-        super.setUp();
         this.testConstructor = new AnswerModelManager(IntegrationTestCase.mockDbDatasource);
         this.dataProva.set(2019, 1, 6);
         this.date = new Date(this.dataProva.getTime().getTime());
