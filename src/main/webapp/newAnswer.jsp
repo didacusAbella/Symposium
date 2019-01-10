@@ -23,7 +23,7 @@
                     <textarea rows="2" required maxlength="65535" id="answerContent" name="answerContent"></textarea>
                     <span class="form-error"> Devi scrivere qualcosa</span>
                 </label>
-                <input type="submit" value="Rispondi" class="button">
+                <input type="submit" value="Rispondi" class="button" name="submitAnswer">
             </form>
 
         </div>
