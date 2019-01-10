@@ -24,6 +24,8 @@ public class UserActionFactory implements ActionFactory {
                 return new ShowEditProfileAction();
             case "banUser":
                 return new BanAction();
+            case "deleteAccount":
+                return new DeleteAccountAction();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

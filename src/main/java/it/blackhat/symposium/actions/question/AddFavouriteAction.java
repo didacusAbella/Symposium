@@ -36,14 +36,14 @@ public class AddFavouriteAction extends CompositeAction {
             String emailUser = req.getParameter("userEmail");
             if(questionManager.controlFavorite(emailUser, idQuestionInt)) {
                 questionManager.addFavourite(emailUser, idQuestionInt);
+                return "/user/QuestionController?action=showFavorite";
             }
             else {
-                super.execute(req, res);
+                 return super.execute(req, res);
             }
         } catch (SQLException e) {
             addFavouriteActionLog.error("Errore interno", e);
             return "/error500.jsp";
         }
-        return "/index.jsp";
     }
 }
