@@ -35,23 +35,12 @@ public interface QuestionManager {
     int insertQuestionTag(int questionId, String tagName) throws SQLException;
 
     /**
-     * Insert a tag in a question
-     *
-     * @param question question data
-     * @param tag      tag data
-     * @return the number of row updated
-     * @throws SQLException if it encounter an error
-     **/
-    int insertQuestionTag(Question question, Tag tag) throws SQLException;
-
-    /**
      * Delete a question
      *
      * @param questionId id of the question
      * @return the number of row updated
      * @throws SQLException if it encounter an error
      **/
-
 
     int deleteQuestion(int questionId) throws SQLException;
 
@@ -110,9 +99,10 @@ public interface QuestionManager {
      * @throws SQLException if it encounter an error
      */
     List<Question> showQuestionsByAuthor(String email) throws SQLException;
-    
+
     /**
      * Search all questions by tag
+     *
      * @param tag the specific tag to search
      * @return a list of questions that have the tag
      * @throws SQLException if db encounter an error
@@ -136,6 +126,15 @@ public interface QuestionManager {
      * @throws SQLException if it encounter an error
      */
     Optional<Question> findQuestion(int questionId) throws SQLException;
+    
+    /**
+     * Find if a Question is already a favorite of the user
+     * @param email user email
+     * @param idQuestion if of the question
+     * @return true if it is, false else
+     * @throws SQLException if the db fail
+     */
+    boolean controlFavorite(String email,int idQuestion) throws SQLException;
 }
 
 

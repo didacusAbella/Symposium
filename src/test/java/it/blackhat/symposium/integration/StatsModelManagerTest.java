@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import it.blackhat.symposium.managers.StatsManager;
 import it.blackhat.symposium.managers.StatsModelManager;
 import it.blackhat.symposium.models.Stats;
+import java.io.FileNotFoundException;
 
 /**
  *The testig class  for the methods of StatsModelManager
@@ -17,11 +19,12 @@ import it.blackhat.symposium.models.Stats;
  *
  */
 
-public class StatsModelManagerDBTest {
+public class StatsModelManagerTest extends IntegrationTestCase {
     private StatsManager testConstructor;
+    
     @Before
-    public void setUp() throws Exception {
-        this.testConstructor = new StatsModelManager(IntegrationTestSuite.mockDbDatasource);
+    public void setUp() throws SQLException, FileNotFoundException {
+        this.testConstructor = new StatsModelManager(IntegrationTestCase.mockDbDatasource);
     }
 
     @Test
@@ -29,21 +32,22 @@ public class StatsModelManagerDBTest {
         int test = testConstructor.getNumberUsers(2019);
         Assert.assertEquals(5, test);
     }
+    
+    @Test
     public void testGetNumberUsersWRONG() throws SQLException {
         int test = testConstructor.getNumberUsers(1990);
         Assert.assertEquals(0, test);
     }
 
-    @Test
+    @Ignore
     public void testUpdateStatsTagCORRECT() throws SQLException {
         int test = testConstructor.updateStatsTag(2019, "esame");
-        Assert.assertEquals(7, test);
+        Assert.assertEquals(1, test);
     }
     
-    @Test
+    @Test (expected = SQLException.class)
     public void testUpdateStatsTagWRONG() throws SQLException {
         int test = testConstructor.updateStatsTag(1990, "Carminantonio");
-        Assert.assertEquals(0, test);
     }
 
     @Test
@@ -51,6 +55,7 @@ public class StatsModelManagerDBTest {
         int test = testConstructor.getNumberReports(2019);
         Assert.assertEquals(3, test);
     }
+    
     @Test
     public void testGetNumberReportsWRONG() throws SQLException {
         int test = testConstructor.getNumberReports(1990);
@@ -63,10 +68,9 @@ public class StatsModelManagerDBTest {
         Assert.assertTrue( testConstructor.getStats(2020).isPresent());
     }
     
-    @Test
+    @Test(expected =  SQLException.class)
     public void testCreateStatsWRONG() throws SQLException {
-        testConstructor.createStats(2018);
-        Assert.assertFalse( testConstructor.getStats(2018).isPresent());
+       testConstructor.createStats(2018);
     }
     
     @Test
@@ -74,6 +78,7 @@ public class StatsModelManagerDBTest {
         Optional<Stats> test = testConstructor.getStats(2019);
         Assert.assertTrue(test.isPresent());
     }
+    
     @Test
     public void testGetStatsWRONG() throws SQLException {
         Optional<Stats> test = testConstructor.getStats(1990);
@@ -85,9 +90,10 @@ public class StatsModelManagerDBTest {
         int test = testConstructor.getBannedUsers(2018);
         Assert.assertEquals(2, test);
     }
+    
     @Test
     public void testGetBannedUsersWRONG() throws SQLException {
-        int test = testConstructor.getBannedUsers(1990);
+        int test = testConstructor.getBannedUsers(2300);
         Assert.assertEquals(0, test);
     }
 

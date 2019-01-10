@@ -9,13 +9,13 @@
     
     <c:if test="${not empty admin}">
         <td>
-            <a href="/admin/QuestionController?action=deleteQuestion&questionId=${question.id}" class="button">
+            <a href="/admin/QuestionController?action=deleteQuestion&questionId=${question.id}" class="button" name="delete1">
                 Elimina Domanda
             </a>
         </td>
     <c:if test="${question.userFk == email}">
         <td>
-            <a href="/user/QuestionController?action=deleteQuestion&questionId=${question.id}" class="button">
+            <a href="/user/QuestionController?action=deleteQuestion&questionId=${question.id}" class="button" name="delete2">
                 Elimina Domanda
             </a>
         </td>

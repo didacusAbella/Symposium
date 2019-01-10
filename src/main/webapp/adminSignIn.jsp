@@ -18,7 +18,7 @@
                 </button>
             </div>
         </c:if>
-        <form method="post" action="GuestController?action=signinAdmin" data-abide novalidate>
+        <form method="post" action="GuestController?action=signinAdmin" name="adminForm" data-abide novalidate>
             <div data-abide-error class="alert callout" style="display: none;">
                 <p><i class="fi-alert"></i> Username o Password non validi</p>
             </div>

@@ -65,8 +65,8 @@ public class TagModel implements Tag {
     @Override
     public String toString() {
         return "TagModel{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + '}';
+                + "id = " + id
+                + ", name = " + name
+                + "}";
     }
 }

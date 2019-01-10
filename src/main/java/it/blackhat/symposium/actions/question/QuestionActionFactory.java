@@ -2,7 +2,6 @@ package it.blackhat.symposium.actions.question;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
-import it.blackhat.symposium.actions.answer.DeleteAnswerByQuestionAction;
 import it.blackhat.symposium.actions.answer.RetrieveQuestionAnswersAction;
 import it.blackhat.symposium.actions.stats.UpdateStatsAction;
 import it.blackhat.symposium.actions.tag.InsertTagAction;
@@ -24,7 +23,7 @@ public class QuestionActionFactory implements ActionFactory {
                 return new InsertQuestionAction(new InsertTagAction(), new UpdateStatsAction());
 
             case "deleteQuestion":
-                return new DeleteQuestionAction(new DeleteAnswerByQuestionAction(),
+                return new DeleteQuestionAction(
                         new DeleteQuestionTagAction());
 
             case "deleteQuestionAdmin":
@@ -43,7 +42,7 @@ public class QuestionActionFactory implements ActionFactory {
                 return new ShowMyQuestion();
 
             case "addFavourite":
-                return new AddFavouriteAction();
+                return new AddFavouriteAction(new ShowQuestionAction());
 
             case "showFavorite":
                 return new ShowFavoriteAction();

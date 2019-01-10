@@ -38,15 +38,6 @@ public interface AnswerManager {
      * @return true if the operation go well, false otherwise
      * @throws SQLException if db errors occurred
      */
-    int removeAnswerByQuestion(int id) throws SQLException;
-
-    /**
-     * Insert an Answer given a id
-     *
-     * @param id Answer id to remove
-     * @return true if the operation go well, false otherwise
-     * @throws SQLException if db errors occurred
-     */
     int bestAnswer(int id) throws SQLException;
 
     /**

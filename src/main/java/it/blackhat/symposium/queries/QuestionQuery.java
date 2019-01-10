@@ -25,7 +25,7 @@ public final class QuestionQuery {
     public static final String DELETE_QUESTION_TAG = "DELETE FROM questiontag WHERE questionId = ?";
 
     public static final String RESEARCH_BY_WORDS = "SELECT * FROM question"
-            + " WHERE content LIKE '%?%'";
+            + " WHERE content LIKE ?";
     public static final String RESEARCH_BY_USER = "SELECT * FROM question"
             + " WHERE userFk=?";
 
@@ -57,5 +57,6 @@ public final class QuestionQuery {
     public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag(questionId,tagId) "
             + "VALUES(?,(SELECT id FROM tag WHERE name = ?))";
 
-
+    public static final String CONTROL_FAVORITES ="SELECT f.userId FROM favorites AS f"
+            + " WHERE f.`userId`= ? AND f.`questionId`=?";
 }
