@@ -7,15 +7,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.SQLException;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 
 public class IntegrationTestCase {
 
     public static BasicDataSource mockDbDatasource;
 
-    @Before
-    public void setUp() throws SQLException, FileNotFoundException {
+    @BeforeClass
+    public static void setupDb() throws SQLException, FileNotFoundException {
         mockDbDatasource = new BasicDataSource();
         mockDbDatasource.setDriverClassName("org.h2.Driver");
         mockDbDatasource.setUrl("jdbc:h2:./symposiumTest;MODE=MYSQL;DATABASE_TO_UPPER=false;");
@@ -26,8 +26,8 @@ public class IntegrationTestCase {
                         .getFile())));
     }
 
-    @After
-    public void tearDown() throws SQLException {
+    @AfterClass
+    public static void clearDb() throws SQLException {
         mockDbDatasource.getConnection()
                 .createStatement().execute("drop all objects delete files");
     }

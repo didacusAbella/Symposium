@@ -21,11 +21,10 @@ import static org.junit.Assert.assertTrue;
 
 public class QuestionManagerTest extends IntegrationTestCase {
     private QuestionManager questionManager;
-    private Date testDate = new Date(Calendar.getInstance().getTime().getTime());
+    private final Date testDate = new Date(Calendar.getInstance().getTime().getTime());
 
     @Before
     public void setUp() throws SQLException, FileNotFoundException {
-        super.setUp();
         questionManager = new QuestionModelManager(IntegrationTestCase.mockDbDatasource);
     }
 
@@ -111,7 +110,7 @@ public class QuestionManagerTest extends IntegrationTestCase {
     @Test
     public void findFavoriteValid() throws SQLException {
         List<Question> list = questionManager.findFavorite("d.tropeano@studenti.unisa.it");
-        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals("It should return empty", false, list.isEmpty());
     }
 
     @Test

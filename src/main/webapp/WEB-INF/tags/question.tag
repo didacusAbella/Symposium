@@ -14,12 +14,6 @@
 <c:forEach items="${questionTags}" var="questionTag">
     <div class="media-object">
         <div class="media-object-section">
-            <div>
-                <p><i class="fi-torso"></i></p>
-                <h5>${questioTag.question.userFk}</h5>
-            </div>
-        </div>
-        <div class="media-object-section">
             <h4>
                 <c:choose>
                     <c:when test="${not empty user}">
