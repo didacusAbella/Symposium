@@ -20,7 +20,6 @@ public class AdminManagerTest extends IntegrationTestCase {
     
     @Before
     public void setUp() throws SQLException, FileNotFoundException{
-        super.setUp();
         this.adminManager = new AdminModelManager(IntegrationTestCase.mockDbDatasource);
     }
     

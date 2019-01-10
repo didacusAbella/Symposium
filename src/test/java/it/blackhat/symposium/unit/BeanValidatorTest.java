@@ -11,11 +11,10 @@ import java.util.Calendar;
 import static org.junit.Assert.assertEquals;
 
 public class BeanValidatorTest {
-    Question question;
 
     @Test
     public void testValidateBeanValid() {
-        question = new QuestionModel("Test bellissimo", "test della validazione in corso",
+        Question question = new QuestionModel("Test bellissimo", "test della validazione in corso",
                 "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
                 new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
         assertEquals(true, BeanValidator.validateBean(question));
@@ -23,9 +22,9 @@ public class BeanValidatorTest {
 
     @Test
     public void testValidateBeanInvalid() {
-        question = new QuestionModel(null, "test della validazione in corso",
-                "a.raiola14@studenti.unisa.it", null,
-                null, 10, 1);
+        Question question = new QuestionModel("a", "test della validazione in corso",
+                "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
+                new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
         assertEquals(false, BeanValidator.validateBean(question));
     }
 }
