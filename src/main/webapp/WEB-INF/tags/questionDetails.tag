@@ -52,8 +52,14 @@
             </div>
         </div>
         <h3>Risposte:</h3>
+        <c:set var="found" value="false"/>
         <c:forEach items="${answers}" var="answer">
-            <sy:answer answer="${answer}"></sy:answer>
+            <c:if test="${answer.correct}">
+                <c:set var="found" value="true"/>
+            </c:if>
+        </c:forEach>
+        <c:forEach items="${answers}" var="item">
+            <sy:answer answer="${item}" found="${found}"></sy:answer>
         </c:forEach>
     </div>
 </article>
