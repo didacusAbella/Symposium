@@ -44,6 +44,7 @@ public abstract class DispatcherController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
+            req.setCharacterEncoding("UTF-8");
             this.processRequest(req, resp);
         } catch (InvalidActionException ex) {
             DISPATCH_LOG.error("Comando non supportato", ex);
@@ -54,6 +55,7 @@ public abstract class DispatcherController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
+            req.setCharacterEncoding("UTF-8");
             this.processRequest(req, resp);
         } catch (InvalidActionException ex) {
             DISPATCH_LOG.error("Comando non supportato", ex);

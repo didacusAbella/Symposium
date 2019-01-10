@@ -126,6 +126,15 @@ public interface QuestionManager {
      * @throws SQLException if it encounter an error
      */
     Optional<Question> findQuestion(int questionId) throws SQLException;
+    
+    /**
+     * Find if a Question is already a favorite of the user
+     * @param email user email
+     * @param idQuestion if of the question
+     * @return true if it is, false else
+     * @throws SQLException if the db fail
+     */
+    boolean controlFavorite(String email,int idQuestion) throws SQLException;
 }
 
 

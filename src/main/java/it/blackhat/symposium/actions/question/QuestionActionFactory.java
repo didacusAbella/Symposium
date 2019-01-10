@@ -42,7 +42,7 @@ public class QuestionActionFactory implements ActionFactory {
                 return new ShowMyQuestion();
 
             case "addFavourite":
-                return new AddFavouriteAction();
+                return new AddFavouriteAction(new ShowQuestionAction());
 
             case "showFavorite":
                 return new ShowFavoriteAction();

@@ -4,8 +4,6 @@ import it.blackhat.symposium.managers.QuestionManager;
 import it.blackhat.symposium.managers.QuestionModelManager;
 import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
-import it.blackhat.symposium.models.Tag;
-import it.blackhat.symposium.models.TagModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
