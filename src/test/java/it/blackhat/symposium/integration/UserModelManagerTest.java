@@ -30,7 +30,6 @@ public class UserModelManagerTest extends IntegrationTestCase {
     
     @Before
     public void setUp() throws SQLException, FileNotFoundException {
-        super.setUp();
         this.user = new UserModelManager(IntegrationTestCase.mockDbDatasource);
     }
 

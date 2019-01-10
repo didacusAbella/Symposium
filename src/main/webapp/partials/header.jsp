@@ -37,8 +37,7 @@
                                 Utenti</a></li>
                         <li><a href="admin/AdminController?action=showQuestionsAction" class="button">Lista Domande</a>
                         </li>
-                        <li><a href="admin/AdminController?action=retrieveQuestionAnswersAction" class="button">Lista
-                                Risposte</a></li>
+                        <li><a href="admin/AnswerController?action=showAnswers" class="button">Lista Risposte</a></li>
                         <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a>
                         </li>
                         <li><a href="admin/StatsController?action=showStats" class="alert button">Genera Report</a></li>
