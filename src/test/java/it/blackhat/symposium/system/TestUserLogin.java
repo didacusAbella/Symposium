@@ -19,7 +19,7 @@ public class TestUserLogin  extends SystemTestCase{
         driver = SystemTestCase.seleniumDriver;
     }
 
-    @Ignore
+    @Test
     public void testLoginClientOk() {
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("email")).get(0);

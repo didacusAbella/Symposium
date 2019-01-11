@@ -29,8 +29,8 @@ public class TestAdminGenerateReport extends SystemTestCase {
         WebElement form = driver.findElement(By.name("adminForm"));
         form.submit();
         driver.get("http://localhost:8080/Symposium/admin/StatsController?action=showStats");
-        WebElement reportStuff = driver.findElements(By.name("report")).get(0);
-        reportStuff.click();
+        WebElement reportStuff = driver.findElement(By.name("stats"));
+        reportStuff.submit();
         boolean registered = driver.getPageSource().contains("Report Anno: 2018");
         Assert.assertTrue(registered);
     }
