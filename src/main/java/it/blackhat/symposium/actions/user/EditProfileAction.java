@@ -1,6 +1,7 @@
 package it.blackhat.symposium.actions.user;
 
 import it.blackhat.symposium.actions.Action;
+import it.blackhat.symposium.helpers.BeanValidator;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * Describes edit profile action!
@@ -38,13 +40,20 @@ public class EditProfileAction implements Action {
             this.user = new UserModelManager();
             User newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
+            newUser.setPassword(DigestUtils.sha256Hex(req.getParameter("password")));
             boolean typeGrad = Boolean.parseBoolean(req.getParameter("typeGrad"));
             newUser.setTypeGrad(typeGrad);
-            int upDate = user.editProfile(newUser);
-            if (upDate == 1) {
-                req.setAttribute("user", newUser);
-                return "/profile.jsp";
-            } else {
+            
+            if(BeanValidator.validateBean(newUser)){
+                int upDate = user.editProfile(newUser);
+                if (upDate == 1) {
+                    req.setAttribute("user", newUser);
+                    return "/profile.jsp";
+                } else {
+                    return "/error400.jsp";
+                }
+            }else{
+                System.out.println(newUser);
                 return "/error400.jsp";
             }
         } catch (SQLException e) {

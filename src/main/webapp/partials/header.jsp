@@ -4,10 +4,6 @@
 @version 1.0
 @date 18/12/2018
 -->
-<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="large">
-    <button class="menu-icon" type="button" data-toggle="example-menu"></button>
-    <div class="title-bar-title">Symposium</div>
-</div>
 
 <nav class="top-bar" id="example-menu">
     <div class="top-bar-left">
@@ -26,7 +22,7 @@
                     <input type="search" placeholder="Cerca" name="searchBy" pattern="#[a-zA-Z]+|[a-zA-Z]+" required>
                     <span class="form-error">Il contenuto inserito non è valido!</span>
                 </label></li>
-                <li><input type="submit" class="button" value="Cerca"></li>
+                <li><input type="submit" class="button" name="search" value="Cerca"></li>
         </form>
         <c:choose>
             <c:when test="${not empty admin}">
@@ -35,9 +31,7 @@
                     <ul class="menu vertical">
                         <li><a href="admin/AdminController?action=showUsersAction" class="primary button">Lista
                                 Utenti</a></li>
-                        </li>
-                        <li><a href="admin/AnswerController?action=showAnswers" class="button">Lista Risposte</a></li>
-                        <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a>
+                        <li><a href="admin/AdminController?action=generateReportListAction" name="report" class="success button">Segnalazioni</a>
                         </li>
                         <li><a href="admin/StatsController?action=showStats" class="alert button">Genera Report</a></li>
                     </ul>
@@ -50,9 +44,8 @@
                 <li>
                     <a href="#">${user.username}</a>
                     <ul class="menu vertical">
-                        <li><a href="user/UserController?action=showProfile" class="primary button">Profilo</a></li>
+                        <li><a href="user/UserController?action=showProfile" name="profile" class="primary button">Profilo</a></li>
                         <li><a href="user/QuestionController?action=showQuestionByAuthor" class="button">Le mie domande</a></li>
-                        <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
                         <li><a href="user/QuestionController?action=showFavorite" class="button">Domande Preferite</a></li>
                         <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una
                                 domanda!</a></li>

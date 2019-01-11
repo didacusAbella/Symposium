@@ -8,15 +8,16 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+
 /**
  * @author Gozzetto
  */
-public class TestAdminBanUser {
+public class TestAdminBanUser extends SystemTestCase {
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Test

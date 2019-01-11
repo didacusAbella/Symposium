@@ -25,8 +25,6 @@ public class AnswerActionFactory implements ActionFactory {
                 return new DeleteAnswerAdminAction();
             case "showAnswerPage":
                 return new ShowAnswerPage();
-            case "showAnswers":
-                return new ShowAnswers();
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

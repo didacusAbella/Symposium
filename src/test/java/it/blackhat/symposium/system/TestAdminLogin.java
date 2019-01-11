@@ -11,12 +11,12 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestAdminLogin {
+public class TestAdminLogin extends SystemTestCase {
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Test
@@ -30,8 +30,6 @@ public class TestAdminLogin {
         form.submit();
         boolean registered = driver.getPageSource().contains("Sezione Amministratore");
         Assert.assertTrue(registered);
-        // driver.close();
-
     }
     @Test
     public void testSignUpUsernameInvalid() {
@@ -44,7 +42,6 @@ public class TestAdminLogin {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un username valido");
         Assert.assertTrue(registered);
-        // driver.close();
 
     }
     @Test
@@ -58,7 +55,6 @@ public class TestAdminLogin {
         form.submit();
         boolean registered = driver.getPageSource().contains("Credenziali Errate");
         Assert.assertTrue(registered);
-        // driver.close();
 
     }
     @Test
@@ -72,7 +68,6 @@ public class TestAdminLogin {
         form.submit();
         boolean registered = driver.getPageSource().contains("Credenziali Errate");
         Assert.assertTrue(registered);
-        // driver.close();
 
     }
     @Test
@@ -86,7 +81,6 @@ public class TestAdminLogin {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una password");
         Assert.assertTrue(registered);
-        // driver.close();
 
     }
 }

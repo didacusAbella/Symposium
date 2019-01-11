@@ -17,7 +17,10 @@
     <div class="card-section">
         <blockquote>${answer.content}</blockquote>
         <c:if test="${not empty user && user.email != answer.userFk && !found}">
-            <a href="user/AnswerController?action=chooseBestAnswer&id=${answer.id}" class="button hollow">Risposta Migliore</a>
+            <a href="user/AnswerController?action=chooseBestAnswer&id=${answer.id}" name="bottone" class="button hollow">Risposta Migliore</a>
+        </c:if>
+        <c:if test="${not empty admin}">
+            <a href="admin/AnswerController?action=deleteAnswerAdmin&id=${answer.id}" class="button alert">Elimina Risposta</a>
         </c:if>
     </div>
 </div>

@@ -14,7 +14,7 @@
                         <option value="2019">2019</option>
                     </select>
                 </label>
-                <input type="submit" value="Genera Report" class="button">
+                <input type="submit" name="report" value="Genera Report" class="button">
             </form>
             <div class="cell auto">
                 <sy:stats bannedUsers="${bannedUsers}" stats="${stats}" tags="${tags}"/>

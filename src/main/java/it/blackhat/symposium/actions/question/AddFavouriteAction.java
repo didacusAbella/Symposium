@@ -34,7 +34,7 @@ public class AddFavouriteAction extends CompositeAction {
             String idQuestion = req.getParameter("questionId");
             int idQuestionInt = Integer.parseInt(idQuestion);
             String emailUser = req.getParameter("userEmail");
-            if(questionManager.controlFavorite(emailUser, idQuestionInt)) {
+            if (questionManager.controlFavorite(emailUser, idQuestionInt)) {
                 questionManager.addFavourite(emailUser, idQuestionInt);
                 return "/user/QuestionController?action=showFavorite";
             }

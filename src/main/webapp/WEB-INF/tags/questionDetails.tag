@@ -39,6 +39,7 @@
                                 <c:otherwise>
                                     <a href="user/QuestionController?action=addFavourite&questionId=${question.id}&userEmail=${user.email}" 
                                        name="Favorites" class="button alert" name="buttonDeleteUser">Aggiungi ai Preferiti</a>
+                                    <a href="user/ReportController?action=showInsertReport&questionId=${question.id}" class="button alert">Segnala Domanda</a>
                                 </c:otherwise>
                             </c:choose>     
                         </c:when>

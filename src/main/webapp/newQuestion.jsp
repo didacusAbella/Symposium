@@ -7,7 +7,7 @@
     <jsp:body>
         <div class="grid-x align-center">
             <div class="cell large-6 medium-6 small-12">
-                <form action="user/QuestionController?action=insertQuestion" method="post" accept-charset="UTF-8">
+                <form action="user/QuestionController?action=insertQuestion" method="post" name="newQuestion" accept-charset="UTF-8">
 
                     <fieldset class="fieldset">
                         <legend>Inserisci una nuova Domanda</legend>
@@ -26,7 +26,7 @@
                             </label>
                         </div>
                         <div style="margin-top: 10px;">
-                            <input type="submit" class="button" value="Inserisci domanda">
+                            <input type="submit" class="button" name="insertt" value="Inserisci domanda">
                         </div> 
                     </fieldset>
                 </form>

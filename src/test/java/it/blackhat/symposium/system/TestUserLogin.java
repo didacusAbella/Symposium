@@ -11,12 +11,12 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserLogin {
+public class TestUserLogin  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Ignore
@@ -30,7 +30,6 @@ public class TestUserLogin {
         form.submit();
         boolean logged = driver.getPageSource().contains("oromis95");
         Assert.assertTrue(logged);
-        // driver.close();
     }
 
     @Test
@@ -44,7 +43,6 @@ public class TestUserLogin {
         form.submit();
         boolean b1 = driver.getPageSource().contains("Email o password errata");
         Assert.assertTrue(b1);
-        // driver.close();
     }
     @Test
     public void testLoginClientPasswordNotOk() {
@@ -57,7 +55,6 @@ public class TestUserLogin {
         form.submit();
         boolean b1 = driver.getPageSource().contains("Email o password errata");
         Assert.assertTrue(b1);
-        // driver.close();
     }
     @Test
     public void testLoginClientPasswordWrong() {
@@ -70,7 +67,6 @@ public class TestUserLogin {
         form.submit();
         boolean b1 = driver.getPageSource().contains("Inserisci una password valida");
         Assert.assertTrue(b1);
-        // driver.close();
     }
     @Test
     public void testLoginClientEmailWrong() {
@@ -83,7 +79,6 @@ public class TestUserLogin {
         form.submit();
         boolean b1 = driver.getPageSource().contains("Inserisci una mail valida");
         Assert.assertTrue(b1);
-        // driver.close();
     }
     @Test
     public void testLoginClientEmailPasswordWrong() {
@@ -98,6 +93,5 @@ public class TestUserLogin {
         Assert.assertTrue(b1);
         boolean b2 = driver.getPageSource().contains("Inserisci una password valida");
         Assert.assertTrue(b2);
-        // driver.close();
     }
 }

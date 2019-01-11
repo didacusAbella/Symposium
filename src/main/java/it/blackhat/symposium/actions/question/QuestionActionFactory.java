@@ -29,9 +29,6 @@ public class QuestionActionFactory implements ActionFactory {
             case "deleteQuestionAdmin":
                 return new DeleteQuestionAdminAction();
 
-            case "modifyTagQuestionAdmin":
-                return new ModifyTagQuestionAdminAction();
-
             case "seachQuestionBy":
                 return new SeachQuestionByAction();
 

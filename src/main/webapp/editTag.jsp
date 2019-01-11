@@ -13,7 +13,7 @@
                             <sy:tagDetails tag="${tag}"></sy:tagDetails>
                         </c:forEach>
                         <input type="hidden" name="questionId" value="${questionId}"/> 
-                        <input type="submit" class="button" name="changeTag" value="Cambia"/>        
+                        <input type="submit" class="button" name="change" value="Cambia"/>
                     </fieldset>
                 </form>
             </div>

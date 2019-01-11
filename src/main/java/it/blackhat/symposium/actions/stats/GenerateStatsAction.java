@@ -14,12 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.Map;
+
+import static java.util.stream.Collectors.toMap;
+
 /**
  * Generates a report of the site for the admin
  *
  * @author Parrilli Carminantonio
  *
  */
+
 public class GenerateStatsAction implements Action {
 
     private StatsManager statsModelManager;

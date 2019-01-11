@@ -29,13 +29,13 @@ public class ChangeTagAction implements Action {
         
         try {
             this.tags = new TagModelManager();
-            String tagName = req.getParameter("tagName");
+            String[] tagnames = req.getParameterValues("tag");
             String questionIdentificativo = req.getParameter("questionId");
             int questionId = Integer.parseInt(questionIdentificativo);
-            String tagIdentificativo = req.getParameter("tagId");
-            int tagId = Integer.parseInt(tagIdentificativo); 
-
-            tags.updateTag(tagName, questionId, tagId);
+            String[] tagids = req.getParameterValues("tagId");
+            for(int i = 0; i < tagids.length; i++){
+                tags.updateTag(tagnames[i], questionId, Integer.parseInt(tagids[i]));
+            }
             return "/index.jsp"; 
         }
         catch (SQLException e) {

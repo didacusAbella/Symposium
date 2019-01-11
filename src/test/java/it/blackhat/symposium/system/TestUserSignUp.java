@@ -1,5 +1,6 @@
 package it.blackhat.symposium.system;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,12 +12,12 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserSignUp {
+public class TestUserSignUp  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Test
@@ -40,7 +41,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Accedi");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientUsernameWrong() {
@@ -63,7 +63,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un nome utente valido");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientFirstNameWrong() {
@@ -86,7 +85,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un nome valido");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientLastNameWrong() {
@@ -109,7 +107,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un cognome valido");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientPasswordWrong() {
@@ -132,7 +129,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una password valida");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientEmailWrong() {
@@ -155,7 +151,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una mail valida");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientVerifyWrong() {
@@ -178,7 +173,6 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una mail valida");
         Assert.assertTrue(registered);
-        // driver.close();
     }
     @Test
     public void testSignUpClientEmailExists() {
@@ -201,6 +195,5 @@ public class TestUserSignUp {
         form.submit();
         boolean registered = driver.getPageSource().contains("L'email immessa è già in uso");
         Assert.assertTrue(registered);
-        // driver.close();
     }
 }

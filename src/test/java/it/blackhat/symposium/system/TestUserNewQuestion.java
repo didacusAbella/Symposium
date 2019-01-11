@@ -10,12 +10,12 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserNewQuestion {
+public class TestUserNewQuestion  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Test
@@ -37,7 +37,7 @@ public class TestUserNewQuestion {
         tagsStuff.sendKeys(Keys.TAB);
         WebElement form1 = driver.findElement(By.name("newQuestion"));
         form1.submit();
-        boolean b1 = driver.getPageSource().contains("titolook");
+        boolean b1 = driver.getPageSource().contains("contenuto prova");
         Assert.assertTrue(b1);
 
     }
