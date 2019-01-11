@@ -28,7 +28,7 @@ public final class StatsQuery {
     public static final String GET_BANNED_USERS = "SELECT COUNT(*) FROM user "
             + "WHERE YEAR(banLastDate) >= ?;";
 
-    public static final String UPDATE_STATSTAG = "INSERT INTO statstag(uses,statsId,tagid) "
+    public static final String UPDATE_STATSTAG = "INSERT INTO statstag(uses,statsId,tagId) "
             + "VALUES((uses+1),(SELECT id FROM stats WHERE year = ?),"
             + "(SELECT id FROM tag WHERE name = ? LIMIT 1)) ON DUPLICATE KEY UPDATE uses = uses+1";
 }
