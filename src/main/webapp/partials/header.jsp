@@ -31,7 +31,7 @@
                     <ul class="menu vertical">
                         <li><a href="admin/AdminController?action=showUsersAction" class="primary button">Lista
                                 Utenti</a></li>
-                        <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a>
+                        <li><a href="admin/AdminController?action=generateReportListAction" name="report" class="success button">Segnalazioni</a>
                         </li>
                         <li><a href="admin/StatsController?action=showStats" class="alert button">Genera Report</a></li>
                     </ul>
