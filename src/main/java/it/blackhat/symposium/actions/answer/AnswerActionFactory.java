@@ -17,8 +17,6 @@ public class AnswerActionFactory implements ActionFactory {
         switch (actionType) {
             case "insertAnswer":
                 return new InsertAnswerAction();
-            case "deleteAnswer":
-                return new DeleteAnswerAction();
             case "chooseBestAnswer":
                 return new ChooseBestAnswerAction();
             case "deleteAnswerAdmin":
