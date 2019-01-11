@@ -39,6 +39,7 @@ public class TestUserNewQuestion  extends SystemTestCase{
         form1.submit();
         boolean b1 = driver.getPageSource().contains("titolook");
         Assert.assertTrue(b1);
+        driver.close();
 
     }
     @Test
@@ -60,6 +61,7 @@ public class TestUserNewQuestion  extends SystemTestCase{
         form1.submit();
         boolean b1 = driver.getPageSource().contains("Error 400!");
         Assert.assertTrue(b1);
+        driver.close();
 
     }
     @Test
@@ -81,6 +83,7 @@ public class TestUserNewQuestion  extends SystemTestCase{
         form1.submit();
         boolean b1 = driver.getPageSource().contains("Error 400!");
         Assert.assertTrue(b1);
+        driver.close();
     }
     @Test
     public void testNewQuestionWithoutTag() {
@@ -100,6 +103,7 @@ public class TestUserNewQuestion  extends SystemTestCase{
         form1.submit();
         boolean b1 = driver.getPageSource().contains("titolooka");
         Assert.assertTrue(b1);
+        driver.close();
 
     }
 }

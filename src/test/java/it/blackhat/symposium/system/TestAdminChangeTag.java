@@ -19,8 +19,8 @@ public class TestAdminChangeTag extends SystemTestCase {
         driver = SystemTestCase.seleniumDriver;
     }
 
-    @Ignore
-    public void testSignUpAdminOk() {
+    @Test
+    public void testChangeTagOk() {
         driver.get("http://localhost:8080/Symposium/adminSignIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("username")).get(0);
         usernameStuff.sendKeys("supergoku");
@@ -31,14 +31,15 @@ public class TestAdminChangeTag extends SystemTestCase {
         driver.get("http://localhost:8080/Symposium/admin/QuestionController?action=showQuestion&questionId=53");
         WebElement changeTagStuff = driver.findElements(By.name("changeTag")).get(0);
         changeTagStuff.click();
-        WebElement changeTag1Stuff = driver.findElements(By.name("tagName")).get(0);
-        System.out.println(changeTag1Stuff);
+        WebElement changeTag1Stuff = driver.findElements(By.name("tag")).get(0);
+        changeTag1Stuff.clear();
         changeTag1Stuff.sendKeys("diego");
-        WebElement changeTag2Stuff = driver.findElements(By.name("changeTag")).get(0);
+        WebElement changeTag2Stuff = driver.findElements(By.name("change")).get(0);
+        changeTag2Stuff.click();
         changeTag2Stuff.click();
         boolean registered1 = driver.getPageSource().contains("diego");
         Assert.assertTrue(registered1);
-        // driver.close();
+        driver.close();
 
     }
 }

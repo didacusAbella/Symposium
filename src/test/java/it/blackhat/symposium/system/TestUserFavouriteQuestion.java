@@ -34,7 +34,7 @@ public class TestUserFavouriteQuestion extends SystemTestCase {
         favoritesStuff.click();
         boolean logged = driver.getPageSource().contains("Visualizza");
         Assert.assertTrue(logged);
-        // driver.close();
+        driver.close();
     }
 }
 

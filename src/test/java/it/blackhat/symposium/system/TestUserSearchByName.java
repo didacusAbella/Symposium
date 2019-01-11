@@ -34,7 +34,7 @@ public class TestUserSearchByName  extends SystemTestCase {
         searchStuff.click();
         boolean logged = driver.getPageSource().contains("cattivoni");
         Assert.assertTrue(logged);
-        // driver.close();
+        driver.close();
     }
 
     @Test
@@ -52,6 +52,6 @@ public class TestUserSearchByName  extends SystemTestCase {
         searchStuff.click();
         boolean logged = driver.getPageSource().contains("Non ci sono domande");
         Assert.assertTrue(logged);
-        // driver.close();
+        driver.close();
     }
 }

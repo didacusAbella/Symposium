@@ -63,7 +63,7 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un nome utente valido");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testSignUpClientFirstNameWrong() {
@@ -86,7 +86,7 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un nome valido");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testSignUpClientLastNameWrong() {
@@ -109,7 +109,7 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un cognome valido");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testSignUpClientPasswordWrong() {
@@ -132,7 +132,7 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una password valida");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testSignUpClientEmailWrong() {
@@ -155,7 +155,7 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una mail valida");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testSignUpClientVerifyWrong() {
@@ -178,7 +178,7 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una mail valida");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testSignUpClientEmailExists() {
@@ -201,6 +201,6 @@ public class TestUserSignUp  extends SystemTestCase{
         form.submit();
         boolean registered = driver.getPageSource().contains("L'email immessa è già in uso");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
     }
 }
