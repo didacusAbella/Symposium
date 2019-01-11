@@ -42,8 +42,7 @@ public class TagModelManager extends ConnectionManager implements TagManager {
     @Override
     public int insertTag(Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        String constValue = String.format("\'%s\'", tag.getName());
-        int upd = run.update(INSERT_TAG, constValue, tag.getName());
+        int upd = run.update(INSERT_TAG, tag.getName(), tag.getName());
         return upd;
     }
 
