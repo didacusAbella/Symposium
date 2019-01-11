@@ -52,6 +52,5 @@ public class TestUserSearchByTag  extends SystemTestCase {
         searchStuff.click();
         boolean logged = driver.getPageSource().contains("Non ci sono domande");
         Assert.assertTrue(logged);
-        driver.close();
     }
 }

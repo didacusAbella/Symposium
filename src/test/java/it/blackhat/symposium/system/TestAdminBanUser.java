@@ -54,7 +54,6 @@ public class TestAdminBanUser extends SystemTestCase {
         form1.submit();
         boolean banned = driver.getPageSource().contains("Gestione Utente");
         Assert.assertTrue(banned);
-        driver.close();
 
     }
 }

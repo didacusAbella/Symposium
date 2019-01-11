@@ -31,6 +31,5 @@ public class TestUserBestAnswer extends SystemTestCase {
         driver.get("http://localhost:8080/Symposium/user/AnswerController?action=chooseBestAnswer&id=6");
         boolean logged = driver.getPageSource().contains("oromis95");
         Assert.assertTrue(logged);
-        driver.close();
     }
 }

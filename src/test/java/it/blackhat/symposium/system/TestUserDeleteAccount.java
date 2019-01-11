@@ -40,6 +40,5 @@ public class TestUserDeleteAccount  extends SystemTestCase {
         form1.submit();
         boolean logged = driver.getPageSource().contains("Email o password errata");
         Assert.assertTrue(logged);
-        driver.close();
     }
 }
