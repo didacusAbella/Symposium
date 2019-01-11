@@ -19,7 +19,7 @@ public class SystemTestCase {
     @BeforeClass
     public static void InitDriver() {
         ChromeOptions chromeOptions = new ChromeOptions();
-       // chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
         ChromeDriverManager.getInstance(CHROME).setup();
         SystemTestCase.seleniumDriver = new ChromeDriver(chromeOptions);
     }

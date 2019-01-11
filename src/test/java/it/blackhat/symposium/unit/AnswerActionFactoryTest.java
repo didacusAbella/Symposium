@@ -27,11 +27,6 @@ public class AnswerActionFactoryTest {
             assertTrue(test instanceof InsertAnswerAction);
     }
 
-    @Test
-    public void testDeleteQuestionAction() throws InvalidActionException {
-            Action test = answerFactory.createAction("deleteAnswer");
-            assertTrue(test instanceof DeleteAnswerAction);
-    }
 
     @Test
     public void testChooseBestAnswerAction() throws InvalidActionException {
