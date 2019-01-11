@@ -35,11 +35,6 @@ public class QuestionActionFactoryTest {
         assertTrue(test instanceof DeleteQuestionAdminAction);
     }
 
-    @Test
-    public void testModifyTagQuestionAdminAction() throws InvalidActionException {
-        Action test = questionFactory.createAction("modifyTagQuestionAdmin");
-        assertTrue(test instanceof ModifyTagQuestionAdminAction);
-    }
 
     @Test
     public void testSeachQuestionByAction() throws InvalidActionException {

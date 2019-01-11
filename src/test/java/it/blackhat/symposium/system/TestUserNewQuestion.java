@@ -37,7 +37,7 @@ public class TestUserNewQuestion  extends SystemTestCase{
         tagsStuff.sendKeys(Keys.TAB);
         WebElement form1 = driver.findElement(By.name("newQuestion"));
         form1.submit();
-        boolean b1 = driver.getPageSource().contains("titolook");
+        boolean b1 = driver.getPageSource().contains("contenuto prova");
         Assert.assertTrue(b1);
 
     }

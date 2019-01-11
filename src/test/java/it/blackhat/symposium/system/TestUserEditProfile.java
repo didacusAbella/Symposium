@@ -47,7 +47,6 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaione");
         Assert.assertTrue(changed);
-        driver.close();
     }
         
     @Test
@@ -76,9 +75,8 @@ public class TestUserEditProfile  extends SystemTestCase{
         check.sendKeys(Keys.SPACE);
         WebElement formEdit = driver.findElement(By.name("editForm"));
         formEdit.submit();
-        boolean changed = driver.getPageSource().contains("Error400");
+        boolean changed = driver.getPageSource().contains("Inserisci un username valido");
         Assert.assertTrue(changed);
-        driver.close();
     }
     
     @Test
@@ -109,7 +107,6 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("G.Maione");
         Assert.assertFalse(changed);
-        driver.close();
     }
     
     @Test
@@ -140,7 +137,6 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaioneINCREDIBILMENTELUNGOWOWSPETTACOLARE");
         Assert.assertFalse(changed);
-        driver.close();
     }
     
     @Test
@@ -169,9 +165,8 @@ public class TestUserEditProfile  extends SystemTestCase{
         check.sendKeys(Keys.SPACE);
         WebElement formEdit = driver.findElement(By.name("editForm"));
         formEdit.submit();
-        boolean changed = driver.getPageSource().contains("Error400");
+        boolean changed = driver.getPageSource().contains("Inserisci un nome valido");
         Assert.assertTrue(changed);
-        driver.close();
     }
         
     @Test
@@ -200,9 +195,8 @@ public class TestUserEditProfile  extends SystemTestCase{
         check.sendKeys(Keys.SPACE);
         WebElement formEdit = driver.findElement(By.name("editForm"));
         formEdit.submit();
-        boolean changed = driver.getPageSource().contains("Error400");
+        boolean changed = driver.getPageSource().contains("Inserisci un cognome valido");
         Assert.assertTrue(changed);
-        driver.close();
     }
     
     @Test
@@ -233,7 +227,6 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaioneINCREDIBILMENTELUNGOWOWSPETTACOLARE");
         Assert.assertFalse(changed);
-        driver.close();
     }
     
     @Test
