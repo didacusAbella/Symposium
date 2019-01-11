@@ -47,7 +47,7 @@
                     <span class="form-error"> Inserisci una mail valida</span>
                     </div>
                     <div>
-                    <input type="email" placeholder="Conferma Email Ateneo" required data-equalto="email"/>
+                    <input type="email" placeholder="Conferma Email Ateneo" name="confirmMail" required data-equalto="email"/>
                     <span class="form-error"> Inserisci una mail valida</span>
                     </div>
                     <fieldset>
