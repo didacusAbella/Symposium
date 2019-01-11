@@ -150,7 +150,7 @@ public class InizializerForSystemTesting {
             "('oromis95','Manola','Tropeano','d.tropeano@studenti.unisa.it','b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342',NULL,1,NULL)," +
             "('GBella','Marianna','Memoli','m.memoli@studenti.unisa.it','50f98487972c64c392a95ad78a61e3628c7ccd7d16ae179ce12ad8aaac791930',NULL,0,NULL)," +
             "('rayman','gianni','de maio','g.demaio24@studenti.unisa.it','61e0e1d9a95cb16a97c8689a9b97c4e310380b5e470605a62ef971a4add23a95',NULL,0,NULL)," +
-            "('gmadness','Giuseppe','Madonna','G.MADONNA3@studenti.unisa.it','451f4fd58350ea1d56b994333dad6c784d349634705f646e7ce11f6feff697af',NULL,0,NULL)," +
+            "('gmadness','Giuseppe','Madonna','g.madonna3@studenti.unisa.it','451f4fd58350ea1d56b994333dad6c784d349634705f646e7ce11f6feff697af',NULL,0,NULL)," +
             "('Supermario','Balotelli','Mario','m.balotelli@studenti.unisa.it','b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342',NULL,0,NULL)," +
             "('eldeimos','Andlea','Laiola','p.olcodio@studenti.unisa.it','b03ddf3ca2e714a6548e7495e2a03f5e824eaac9837cd7f159c67b90fb4b7342',NULL,0,2019)," +
             "('Memo98171','Sandra','Marchigiano','p.szopian@studenti.unisa.it','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',NULL,0,NULL)," +

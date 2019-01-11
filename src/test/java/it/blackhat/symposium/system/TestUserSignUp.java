@@ -62,7 +62,7 @@ public class TestUserSignUp {
         WebElement form = driver.findElement(By.name("SignUpForm"));
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un nome utente valido");
-        Assert.assertTrue(registered);
+        Assert.assertFalse(registered);
         // driver.close();
     }
     @Test

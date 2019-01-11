@@ -8,7 +8,7 @@
         <h1 class="text-center">Modifica Profilo di ${user.username}</h1>
         <div class="grid-x margin-x align-center">
             <div class="grid small-12 medium-6 large-6 callout primary">
-                <form action="user/UserController?action=editProfile" method="post" data-abide novalidate>
+                <form action="user/UserController?action=editProfile" method="post" name="editForm" data-abide novalidate>
                     <dl>
                         <dd><input type="hidden" placeholder="E-mail" id="email" name="email" value="${user.email}"
                                    required pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it">

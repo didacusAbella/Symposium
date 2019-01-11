@@ -15,9 +15,12 @@ import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        //TestUserDeleteQuestion.class
-        //TestNewAnswer.class
-          TestDeleteQuestionUser.class
+ SystemTestEditProfile
+ TestUserEditProfile.class
+ TestUserDeleteQuestion.class
+ TestNewAnswer.class
+ TestDeleteQuestionUser.class
+
 
 })
 public class SystemTestSuite {
