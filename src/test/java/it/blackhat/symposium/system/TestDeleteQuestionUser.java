@@ -13,12 +13,12 @@ import org.openqa.selenium.WebElement;
  * @author Parrilli Carminantonio
  *
  */
-public class TestDeleteQuestionUser {
+public class TestDeleteQuestionUser  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
     @Test
     public void testDeleteQuestion() {

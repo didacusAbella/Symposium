@@ -13,17 +13,7 @@ import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
 /**
  * @author Gozzetto
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
- SystemTestEditProfile
- TestUserEditProfile.class
- TestUserDeleteQuestion.class
- TestNewAnswer.class
- TestDeleteQuestionUser.class
-
-
-})
-public class SystemTestSuite {
+public class SystemTestCase {
     public static WebDriver seleniumDriver;
 
     @BeforeClass
@@ -31,6 +21,6 @@ public class SystemTestSuite {
         ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments("headless");
         ChromeDriverManager.getInstance(CHROME).setup();
-        SystemTestSuite.seleniumDriver = new ChromeDriver(chromeOptions);
+        SystemTestCase.seleniumDriver = new ChromeDriver(chromeOptions);
     }
 }

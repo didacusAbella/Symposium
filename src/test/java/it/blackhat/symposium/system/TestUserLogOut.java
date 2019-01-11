@@ -10,12 +10,12 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserLogOut {
+public class TestUserLogOut  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Test
