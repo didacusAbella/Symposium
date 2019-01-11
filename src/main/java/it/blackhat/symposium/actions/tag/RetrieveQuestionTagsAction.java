@@ -38,7 +38,8 @@ public class RetrieveQuestionTagsAction implements Action {
             int questionIdInt = Integer.parseInt(questionId);
             List<Tag> tags = tagManager.retrieveQuestionTags(questionIdInt);
             req.setAttribute("tags", tags);
-            return "#";
+            req.setAttribute("questionId", questionIdInt);
+            return "/editTag.jsp";
         } catch (SQLException e) {
             retrieveQuestionTagsLog.error("Errore interno", e);
             return "/error500.jsp";

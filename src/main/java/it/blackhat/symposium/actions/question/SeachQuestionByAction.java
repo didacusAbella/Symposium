@@ -51,7 +51,8 @@ public class SeachQuestionByAction implements Action {
                 support.addAll(seachByTag(tags.get(i)));
                 if (support.size() > 0) {
                     if (flag != 0) {
-                        questions = (List<Question>) CollectionUtils.intersection(questions, support);
+                        questions = (List<Question>) 
+                                CollectionUtils.intersection(questions, support);
                     } else {
                         questions.addAll(support);
                         flag = 1;
@@ -64,7 +65,7 @@ public class SeachQuestionByAction implements Action {
         }
 
         try {
-            if(!word.isEmpty()){
+            if (!word.isEmpty()) {
                 support.addAll(seachByWords(word));
                 if (support.size() > 0) {
                     if (flag != 0) {

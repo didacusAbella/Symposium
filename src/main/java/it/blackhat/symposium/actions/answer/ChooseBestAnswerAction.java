@@ -34,7 +34,7 @@ public class ChooseBestAnswerAction implements Action {
             String idAnswer = req.getParameter("id");
             int idAnswerInt = Integer.parseInt(idAnswer);
             answerManager.bestAnswer(idAnswerInt);
-            return "/*PAGINA ANCORA NON CREATA*";
+            return "/index.jsp";
         } catch (SQLException e) {
             chooseBestAnswerLog.error("Errore interno", e);
             return "/error500.jsp";
