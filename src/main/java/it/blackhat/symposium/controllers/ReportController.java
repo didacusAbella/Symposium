@@ -6,6 +6,7 @@ import it.blackhat.symposium.actions.report.ReportActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Symposium Group
  */
+@WebServlet(name = "ReportController", urlPatterns = {"/user/ReportController",
+        "/admin/ReportController"})
 public class ReportController extends DispatcherController {
     
     private ActionFactory reportFactory;
