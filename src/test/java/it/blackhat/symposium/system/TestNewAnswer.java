@@ -14,12 +14,12 @@ import org.openqa.selenium.WebElement;
  * @author Parrilli Carminantonio
  *
  */
-public class TestNewAnswer {
+public class TestNewAnswer  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
     @Test
     public void testNewAnswerOk() {
