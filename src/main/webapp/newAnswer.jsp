@@ -20,10 +20,10 @@
             <form action="user/AnswerController?action=insertAnswer" method="post" data-abide novalidate>
                 <label>
                     <input type="hidden" id="questionID" name="questionID" value="${question.id}">
-                    <textarea rows="2" required maxlength="65535" id="answerContent" name="answerContent"></textarea>
+                    <textarea rows="2" required maxlength="4096" id="answerContent" name="answerContent"></textarea>
                     <span class="form-error"> Devi scrivere qualcosa</span>
                 </label>
-                <input type="submit" value="Rispondi" class="button">
+                <input type="submit" value="Rispondi" class="button" name="theNewAnswer">
             </form>
 
         </div>

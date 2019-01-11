@@ -138,9 +138,10 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
     }
     
     @Override
-    public boolean controlFavorite(String email,int idQuestion) throws SQLException{
+    public boolean controlFavorite(String email, int idQuestion) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        List<Tag> tags = run.query(CONTROL_FAVORITES, new BeanListHandler<>(TagModel.class), email, idQuestion);
+        List<Tag> tags = run.query(CONTROL_FAVORITES, 
+                new BeanListHandler<>(TagModel.class), email, idQuestion);
         return tags.isEmpty();
     }
 

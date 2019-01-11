@@ -11,22 +11,22 @@
                 <form action="user/UserController?action=editProfile" method="post" data-abide novalidate>
                     <dl>
                         <dd><input type="hidden" placeholder="E-mail" id="email" name="email" value="${user.email}"
-                                   required>
+                                   required pattern="[a-z]{1}\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it">
                         <dt>Nome:</dt>
                         <dd><input type="text" placeholder="Name" id="name" name="firstName" value="${user.firstName}"
-                                   required>
+                                   required pattern="\w{6,20}">
                             <span class="form-error"> Inserisci un nome valido</span></dd>
                         <dt>Cognome:</dt>
                         <dd><input type="text" placeholder="LastName" id="lastname" name="lastName"
-                                   value="${user.lastName}" required>
+                                   value="${user.lastName}" required pattern="\w{6,20}">
                             <span class="form-error">Inserisci un cognome valido</span></dd>
                         <dt>Password:</dt>
                         <dd><input type="password" placeholder="Password" id="password" name="password"
-                                   value="${user.password}" required>
+                                   value="${user.password}" required pattern="\w{6,20}">
                             <span class="form-error"> Inserisci una password valida</span></dd>
                         <dt>Username:</dt>
                         <dd><input type="text" placeholder="Username" id="username" name="username"
-                                   value="${user.username}" required>
+                                   value="${user.username}" required pattern="\w{6,20}">
                             <span class="form-error">Inserisci un username valido </span></dd>
                         <dt>Corso di laurea:</dt>
                         <dd>
