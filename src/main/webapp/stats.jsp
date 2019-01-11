@@ -6,7 +6,7 @@
 <sy:layout title="Symposium - Statistiche">
     <jsp:body>
         <div class="grid-x grid-margin-x">
-            <form method="post" action="admin/StatsController?action=generateStats" class="cell large-4 medium-4 small-12">
+            <form method="post" name="stats" action="admin/StatsController?action=generateStats" class="cell large-4 medium-4 small-12">
                <h2>Symposium Generazione Report</h2>
                 <label> Inserisci anno:
                     <select name="year">
