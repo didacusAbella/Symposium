@@ -14,15 +14,16 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestAdminDeleteAnswer {
+public class TestAdminDeleteAnswer extends SystemTestCase{
 
  private static WebDriver driver;
 
         @Before
         public void setUp() {
+
             driver = SystemTestCase.seleniumDriver;
         }
-        @Ignore
+        @Test
         public void testDeleteAnswerOk() {
             driver.get("http://localhost:8080/Symposium/adminSignIn.jsp");
             WebElement usernameStuff = driver.findElements(By.name("username")).get(0);
@@ -31,7 +32,9 @@ public class TestAdminDeleteAnswer {
             passwordStuff.sendKeys("P@ssw0rd");
             WebElement form = driver.findElement(By.name("adminForm"));
             form.submit();
-            boolean registered = driver.getPageSource().contains("Sezione Amministratore");
+            driver.get("http://localhost:8080/Symposium/admin/QuestionController?action=showQuestion&questionId=56");
+            driver.get("http://localhost:8080/Symposium/admin/AnswerController?action=deleteAnswerAdmin&id=7");
+            boolean registered = driver.getPageSource().contains("Domande Top");
             Assert.assertTrue(registered);
 
     }
