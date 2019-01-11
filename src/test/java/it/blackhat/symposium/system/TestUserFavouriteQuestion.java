@@ -1,4 +1,5 @@
 package it.blackhat.symposium.system;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -10,16 +11,17 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserBestAnswer1 extends SystemTestCase {
+public class TestUserBestAnswer  extends SystemTestCase {
     private static WebDriver driver;
 
     @Before
     public void setUp() {
+
         driver = SystemTestCase.seleniumDriver;
     }
 
-    @Ignore
-    public void testLoginClientOk() {
+    @Test
+    public void testBestAnswerOk() {
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("email")).get(0);
         usernameStuff.sendKeys("d.tropeano@studenti.unisa.it");
@@ -27,11 +29,12 @@ public class TestUserBestAnswer1 extends SystemTestCase {
         passwordStuff.sendKeys("P@ssw0rd");
         WebElement form = driver.findElement(By.name("SignInForm"));
         form.submit();
-        driver.get("http://localhost:8080/Symposium/user/QuestionController?action=showQuestion&questionId=19");
-        
-
-        boolean logged = driver.getPageSource().contains("oromis95");
+        driver.get("http://localhost:8080/Symposium/user/QuestionController?action=showQuestion&questionId=56");
+        WebElement favoritesStuff = driver.findElements(By.name("Favorites")).get(0);
+        favoritesStuff.click();
+        boolean logged = driver.getPageSource().contains("Visualizza");
         Assert.assertTrue(logged);
         // driver.close();
     }
 }
+
