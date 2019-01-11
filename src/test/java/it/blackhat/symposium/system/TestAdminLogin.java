@@ -30,7 +30,7 @@ public class TestAdminLogin extends SystemTestCase {
         form.submit();
         boolean registered = driver.getPageSource().contains("Sezione Amministratore");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
 
     }
     @Test
@@ -44,7 +44,7 @@ public class TestAdminLogin extends SystemTestCase {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un username valido");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
 
     }
     @Test
@@ -58,7 +58,7 @@ public class TestAdminLogin extends SystemTestCase {
         form.submit();
         boolean registered = driver.getPageSource().contains("Credenziali Errate");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
 
     }
     @Test
@@ -72,7 +72,7 @@ public class TestAdminLogin extends SystemTestCase {
         form.submit();
         boolean registered = driver.getPageSource().contains("Credenziali Errate");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
 
     }
     @Test
@@ -86,7 +86,7 @@ public class TestAdminLogin extends SystemTestCase {
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci una password");
         Assert.assertTrue(registered);
-        // driver.close();
+        driver.close();
 
     }
 }

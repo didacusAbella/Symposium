@@ -47,6 +47,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaione");
         Assert.assertTrue(changed);
+        driver.close();
     }
         
     @Test
@@ -77,6 +78,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("Error400");
         Assert.assertTrue(changed);
+        driver.close();
     }
     
     @Test
@@ -107,6 +109,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("G.Maione");
         Assert.assertFalse(changed);
+        driver.close();
     }
     
     @Test
@@ -137,6 +140,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaioneINCREDIBILMENTELUNGOWOWSPETTACOLARE");
         Assert.assertFalse(changed);
+        driver.close();
     }
     
     @Test
@@ -167,6 +171,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("Error400");
         Assert.assertTrue(changed);
+        driver.close();
     }
         
     @Test
@@ -197,6 +202,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("Error400");
         Assert.assertTrue(changed);
+        driver.close();
     }
     
     @Test
@@ -227,6 +233,7 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaioneINCREDIBILMENTELUNGOWOWSPETTACOLARE");
         Assert.assertFalse(changed);
+        driver.close();
     }
     
     @Test
@@ -257,5 +264,6 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaioneINCREDIBILMENTELUNGOWOWSPETTACOLARE");
         Assert.assertFalse(changed);
+        driver.close();
     }
 }

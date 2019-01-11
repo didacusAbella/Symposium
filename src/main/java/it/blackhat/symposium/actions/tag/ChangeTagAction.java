@@ -29,7 +29,7 @@ public class ChangeTagAction implements Action {
         
         try {
             this.tags = new TagModelManager();
-            String[] tagnames = req.getParameterValues("tagName");
+            String[] tagnames = req.getParameterValues("tag");
             String questionIdentificativo = req.getParameter("questionId");
             int questionId = Integer.parseInt(questionIdentificativo);
             String[] tagids = req.getParameterValues("tagId");

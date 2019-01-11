@@ -1,16 +1,17 @@
 package it.blackhat.symposium.system;
-
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
  * @author Gozzetto
  */
-public class TestAdminLogOut  extends SystemTestCase{
+public class TestAdminChangeTag extends SystemTestCase {
     private static WebDriver driver;
 
     @Before
@@ -19,7 +20,7 @@ public class TestAdminLogOut  extends SystemTestCase{
     }
 
     @Test
-    public void testLogOutClientOk() {
+    public void testChangeTagOk() {
         driver.get("http://localhost:8080/Symposium/adminSignIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("username")).get(0);
         usernameStuff.sendKeys("supergoku");
@@ -27,11 +28,18 @@ public class TestAdminLogOut  extends SystemTestCase{
         passwordStuff.sendKeys("P@ssw0rd");
         WebElement form = driver.findElement(By.name("adminForm"));
         form.submit();
-        WebElement logOut = driver.findElement(By.name("LogOut"));
-        logOut.click();
-        boolean nologged = driver.getPageSource().contains("Sign In");
-        Assert.assertTrue(nologged);
+        driver.get("http://localhost:8080/Symposium/admin/QuestionController?action=showQuestion&questionId=53");
+        WebElement changeTagStuff = driver.findElements(By.name("changeTag")).get(0);
+        changeTagStuff.click();
+        WebElement changeTag1Stuff = driver.findElements(By.name("tag")).get(0);
+        changeTag1Stuff.clear();
+        changeTag1Stuff.sendKeys("diego");
+        WebElement changeTag2Stuff = driver.findElements(By.name("change")).get(0);
+        changeTag2Stuff.click();
+        changeTag2Stuff.click();
+        boolean registered1 = driver.getPageSource().contains("diego");
+        Assert.assertTrue(registered1);
         driver.close();
+
     }
 }
-
