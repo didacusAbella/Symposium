@@ -20,6 +20,7 @@ public class SystemTestCase {
     public static void InitDriver() {
         ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("--window-size=1000,800");
         ChromeDriverManager.getInstance(CHROME).setup();
         SystemTestCase.seleniumDriver = new ChromeDriver(chromeOptions);
     }

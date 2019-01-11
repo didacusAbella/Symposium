@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserBestAnswer  extends SystemTestCase {
+public class TestUserFavouriteQuestion extends SystemTestCase {
     private static WebDriver driver;
 
     @Before
@@ -21,7 +21,7 @@ public class TestUserBestAnswer  extends SystemTestCase {
     }
 
     @Test
-    public void testBestAnswerOk() {
+    public void testUserFavouriteQuestionOk() {
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("email")).get(0);
         usernameStuff.sendKeys("d.tropeano@studenti.unisa.it");
