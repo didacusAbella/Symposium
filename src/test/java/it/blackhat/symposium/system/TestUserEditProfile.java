@@ -264,6 +264,5 @@ public class TestUserEditProfile  extends SystemTestCase{
         formEdit.submit();
         boolean changed = driver.getPageSource().contains("GMaioneINCREDIBILMENTELUNGOWOWSPETTACOLARE");
         Assert.assertFalse(changed);
-        driver.close();
     }
 }
