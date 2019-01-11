@@ -36,7 +36,7 @@ public class DeleteAnswerAdminAction implements Action {
             String idAnswer = req.getParameter("id");
             int idAnswerInt = Integer.parseInt(idAnswer);
             answerManager.removeAnswer(idAnswerInt);
-            return "/dashboard.jsp";
+            return "/index.jsp";
         } catch (SQLException e) {
             deleteAnswerLog.error("Errore interno", e);
             return "/error500.jsp";

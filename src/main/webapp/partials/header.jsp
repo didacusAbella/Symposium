@@ -31,8 +31,6 @@
                     <ul class="menu vertical">
                         <li><a href="admin/AdminController?action=showUsersAction" class="primary button">Lista
                                 Utenti</a></li>
-                        </li>
-                        <li><a href="admin/AnswerController?action=showAnswers" class="button">Lista Risposte</a></li>
                         <li><a href="admin/AdminController?action=generateReportListAction" class="success button">Segnalazioni</a>
                         </li>
                         <li><a href="admin/StatsController?action=showStats" class="alert button">Genera Report</a></li>
@@ -48,7 +46,6 @@
                     <ul class="menu vertical">
                         <li><a href="user/UserController?action=showProfile" name="profile" class="primary button">Profilo</a></li>
                         <li><a href="user/QuestionController?action=showQuestionByAuthor" class="button">Le mie domande</a></li>
-                        <li><a href="myAnswers.jsp" class="button">Le mie Risposte</a></li>
                         <li><a href="user/QuestionController?action=showFavorite" class="button">Domande Preferite</a></li>
                         <li><a href="user/QuestionController?action=showNewQuestion" class="success button">Poni una
                                 domanda!</a></li>
