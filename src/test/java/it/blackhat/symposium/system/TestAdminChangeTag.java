@@ -19,7 +19,7 @@ public class TestAdminChangeTag extends SystemTestCase {
         driver = SystemTestCase.seleniumDriver;
     }
 
-    @Ignore
+    @Test
     public void testSignUpAdminOk() {
         driver.get("http://localhost:8080/Symposium/adminSignIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("username")).get(0);
@@ -32,7 +32,6 @@ public class TestAdminChangeTag extends SystemTestCase {
         WebElement changeTagStuff = driver.findElements(By.name("changeTag")).get(0);
         changeTagStuff.click();
         WebElement changeTag1Stuff = driver.findElements(By.name("tagName")).get(0);
-        System.out.println(changeTag1Stuff);
         changeTag1Stuff.sendKeys("diego");
         WebElement changeTag2Stuff = driver.findElements(By.name("changeTag")).get(0);
         changeTag2Stuff.click();

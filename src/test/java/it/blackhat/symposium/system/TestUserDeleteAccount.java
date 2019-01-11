@@ -23,9 +23,9 @@ public class TestUserDeleteAccount  extends SystemTestCase {
     public void testDeleteAccountOk() {
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("email")).get(0);
-        usernameStuff.sendKeys("d.tropeano@studenti.unisa.it");
+        usernameStuff.sendKeys("d.avella5@studenti.unisa.it");
         WebElement passwordStuff = driver.findElements(By.name("password")).get(0);
-        passwordStuff.sendKeys("P@ssw0rd");
+        passwordStuff.sendKeys("diegoavella");
         WebElement form = driver.findElement(By.name("SignInForm"));
         form.submit();
         driver.get("http://localhost:8080/Symposium/user/UserController?action=showProfile");
@@ -33,9 +33,9 @@ public class TestUserDeleteAccount  extends SystemTestCase {
         deleteStuff.click();
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement username1Stuff = driver.findElements(By.name("email")).get(0);
-        username1Stuff.sendKeys("d.tropeano@studenti.unisa.it");
+        username1Stuff.sendKeys("d.avella5@studenti.unisa.it");
         WebElement password1Stuff = driver.findElements(By.name("password")).get(0);
-        password1Stuff.sendKeys("P@ssw0rd");
+        password1Stuff.sendKeys("diegoavella");
         WebElement form1 = driver.findElement(By.name("SignInForm"));
         form1.submit();
         boolean logged = driver.getPageSource().contains("Email o password errata");
