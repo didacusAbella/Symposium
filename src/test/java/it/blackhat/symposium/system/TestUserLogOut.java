@@ -31,6 +31,5 @@ public class TestUserLogOut  extends SystemTestCase{
         logOut.click();
         boolean nologged = driver.getPageSource().contains("Sign In");
         Assert.assertTrue(nologged);
-        driver.close();
     }
 }

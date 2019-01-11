@@ -39,7 +39,6 @@ public class TestAdminChangeTag extends SystemTestCase {
         changeTag2Stuff.click();
         boolean registered1 = driver.getPageSource().contains("diego");
         Assert.assertTrue(registered1);
-        driver.close();
 
     }
 }

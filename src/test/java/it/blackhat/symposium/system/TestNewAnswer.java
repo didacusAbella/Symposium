@@ -57,6 +57,5 @@ public class TestNewAnswer  extends SystemTestCase{
         newInseredAnswer.submit();
         Boolean b1 = driver.getPageSource().contains("Devi scrivere qualcosa");
         Assert.assertTrue(b1);
-        driver.close();
     }
 }
