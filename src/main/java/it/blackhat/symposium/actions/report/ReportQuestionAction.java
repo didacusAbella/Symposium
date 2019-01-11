@@ -43,7 +43,6 @@ public class ReportQuestionAction implements Action {
             String reason = req.getParameter("reason");
             int year = Calendar.getInstance().get(Calendar.YEAR);
             int questionId = Integer.parseInt(req.getParameter("questionId"));
-
             Optional<Question> found = questionManager.findQuestion(questionId);
             if (found.isPresent()) {
                 Question question = found.get();
