@@ -30,7 +30,7 @@ public class TestUserLogin  extends SystemTestCase{
         form.submit();
         boolean logged = driver.getPageSource().contains("oromis95");
         Assert.assertTrue(logged);
-        // driver.close();
+        driver.close();
     }
 
     @Test
@@ -44,7 +44,7 @@ public class TestUserLogin  extends SystemTestCase{
         form.submit();
         boolean b1 = driver.getPageSource().contains("Email o password errata");
         Assert.assertTrue(b1);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testLoginClientPasswordNotOk() {
@@ -57,7 +57,7 @@ public class TestUserLogin  extends SystemTestCase{
         form.submit();
         boolean b1 = driver.getPageSource().contains("Email o password errata");
         Assert.assertTrue(b1);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testLoginClientPasswordWrong() {
@@ -70,7 +70,7 @@ public class TestUserLogin  extends SystemTestCase{
         form.submit();
         boolean b1 = driver.getPageSource().contains("Inserisci una password valida");
         Assert.assertTrue(b1);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testLoginClientEmailWrong() {
@@ -83,7 +83,7 @@ public class TestUserLogin  extends SystemTestCase{
         form.submit();
         boolean b1 = driver.getPageSource().contains("Inserisci una mail valida");
         Assert.assertTrue(b1);
-        // driver.close();
+        driver.close();
     }
     @Test
     public void testLoginClientEmailPasswordWrong() {
@@ -98,6 +98,6 @@ public class TestUserLogin  extends SystemTestCase{
         Assert.assertTrue(b1);
         boolean b2 = driver.getPageSource().contains("Inserisci una password valida");
         Assert.assertTrue(b2);
-        // driver.close();
+        driver.close();
     }
 }

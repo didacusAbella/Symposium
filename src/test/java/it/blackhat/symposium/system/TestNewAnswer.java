@@ -39,6 +39,7 @@ public class TestNewAnswer  extends SystemTestCase{
         driver.get("http://localhost:8080/Symposium/user/QuestionController?action=showQuestion&questionId=56");
         Boolean b1 = driver.getPageSource().contains("Questo è un test");
         Assert.assertTrue(b1);
+        driver.close();
     }
     @Test
     public void testNewAnswerNoContenent() 
@@ -56,5 +57,6 @@ public class TestNewAnswer  extends SystemTestCase{
         newInseredAnswer.submit();
         Boolean b1 = driver.getPageSource().contains("Devi scrivere qualcosa");
         Assert.assertTrue(b1);
+        driver.close();
     }
 }

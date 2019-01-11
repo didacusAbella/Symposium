@@ -31,6 +31,7 @@ public class TestUserDeleteQuestion  extends SystemTestCase{
         titleStuff.click();
         boolean b1 = driver.getPageSource().contains("verdura");
         Assert.assertFalse(b1);
+        driver.close();
 
     }
 }

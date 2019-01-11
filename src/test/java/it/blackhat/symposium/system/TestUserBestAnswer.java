@@ -18,7 +18,7 @@ public class TestUserBestAnswer extends SystemTestCase {
         driver = SystemTestCase.seleniumDriver;
     }
 
-    @Ignore
+    @Test
     public void testUserBestAnswerOk() {
         driver.get("http://localhost:8080/Symposium/signIn.jsp");
         WebElement usernameStuff = driver.findElements(By.name("email")).get(0);
@@ -28,10 +28,9 @@ public class TestUserBestAnswer extends SystemTestCase {
         WebElement form = driver.findElement(By.name("SignInForm"));
         form.submit();
         driver.get("http://localhost:8080/Symposium/user/QuestionController?action=showQuestion&questionId=19");
-        WebElement bestAnswerStuff = driver.findElements(By.name("bestAnswer")).get(0);
-        bestAnswerStuff.click();
+        driver.get("http://localhost:8080/Symposium/user/AnswerController?action=chooseBestAnswer&id=6");
         boolean logged = driver.getPageSource().contains("oromis95");
         Assert.assertTrue(logged);
-        // driver.close();
+        driver.close();
     }
 }

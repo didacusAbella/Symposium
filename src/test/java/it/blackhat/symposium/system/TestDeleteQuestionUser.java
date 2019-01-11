@@ -35,5 +35,6 @@ public class TestDeleteQuestionUser  extends SystemTestCase{
     driver.get("http://localhost:8080/Symposium/user/QuestionController?action=showQuestionByAuthor");
     Boolean b1 = driver.getPageSource().contains("Fashion");
     Assert.assertFalse(b1);
+    driver.close();
     }
 }
