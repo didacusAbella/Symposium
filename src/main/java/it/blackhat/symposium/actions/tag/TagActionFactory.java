@@ -13,6 +13,8 @@ public class TagActionFactory implements ActionFactory {
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
+            case "showEditTag":
+                return new RetrieveQuestionTagsAction();
             case "changeTag":
                 return new ChangeTagAction();
             default:

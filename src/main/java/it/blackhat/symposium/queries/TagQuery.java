@@ -28,11 +28,11 @@ public final class TagQuery {
             + "JOIN questiontag ON questiontag.tagId = tag.id "
             + "WHERE questiontag.questionId = ?; ";
 
-    public static final String FIND_TAG = "SELECT id,name FROM tag WHERE nome = ?";
+    public static final String FIND_TAG = "SELECT id,name FROM tag WHERE name = ?";
 
-    public static final String NUM_TAG = "SELECT name, uses FROM tag,statstag WHERE"
-            + " tag.id=statstag.tagId AND statstag.statsId=(SELECT id"
-            + " FROM stats WHERE year = ? LIMIT 1)";
+    public static final String NUM_TAG = "SELECT name, uses FROM tag JOIN statstag WHERE("
+            + " id=tagId AND statsId=(SELECT id"
+            + " FROM stats WHERE year = ? LIMIT 1))";
     
     public static final String CHANGE_SINGLE_TAG = "UPDATE questiontag AS qt " 
             + "SET qt.`tagId` = (SELECT id as idT FROM tag WHERE name= ? ) " 

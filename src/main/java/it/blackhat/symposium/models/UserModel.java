@@ -17,7 +17,7 @@ public class UserModel implements User {
     private Date banLastDate;
 
     @NotNull
-    @Size(min = 4, max = 20)
+    @Pattern(regexp = "[0-9a-zA-Z]{4,20}")
     private String username;
 
     @NotNull

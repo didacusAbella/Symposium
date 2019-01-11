@@ -13,6 +13,7 @@
                 Elimina Domanda
             </a>
         </td>
+    </c:if>
     <c:if test="${question.userFk == email}">
         <td>
             <a href="/user/QuestionController?action=deleteQuestion&questionId=${question.id}" class="button" name="delete2">

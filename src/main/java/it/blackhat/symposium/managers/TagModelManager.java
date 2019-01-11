@@ -5,17 +5,16 @@ import it.blackhat.symposium.models.Tag;
 import it.blackhat.symposium.models.TagModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import static it.blackhat.symposium.queries.TagQuery.*;
-import static java.util.stream.Collectors.toMap;
 
 
 /**
@@ -43,7 +42,8 @@ public class TagModelManager extends ConnectionManager implements TagManager {
     @Override
     public int insertTag(Tag tag) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int upd = run.update(INSERT_TAG, tag.getName(), tag.getName());
+        String constValue = String.format("\'%s\'", tag.getName());
+        int upd = run.update(INSERT_TAG, constValue, tag.getName());
         return upd;
     }
 
@@ -57,10 +57,10 @@ public class TagModelManager extends ConnectionManager implements TagManager {
 
 
     @Override
-    public int findTag(int tagId) throws SQLException {
+    public Optional<Tag> findTag(String tagName) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        int update = run.update(FIND_TAG, tagId);
-        return update;
+        Tag found = run.query(FIND_TAG, new BeanHandler<>(TagModel.class), tagName);
+        return Optional.ofNullable(found);
     }
 
     @Override
@@ -81,13 +81,8 @@ public class TagModelManager extends ConnectionManager implements TagManager {
     @Override
     public Map<String, Integer> mostUsedTags(int year) throws SQLException {
         QueryRunner run = new QueryRunner(this.dataSource);
-        Map<String, Integer> most = run.query(NUM_TAG, new MapCompleteHandler(), year)
-                .entrySet()
-                .stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .collect(toMap(Map.Entry::getKey,
-                        Map.Entry::getValue,
-                        (e1, e2) -> e2, LinkedHashMap::new));
+        Map<String, Integer> most = run.query(NUM_TAG, new MapCompleteHandler(), year);
+
         return most;
 
     }

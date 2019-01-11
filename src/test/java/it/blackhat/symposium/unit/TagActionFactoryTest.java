@@ -2,6 +2,7 @@ package it.blackhat.symposium.unit;
 
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.tag.ChangeTagAction;
+import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
 import it.blackhat.symposium.actions.tag.TagActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
 import org.junit.Assert;
@@ -16,6 +17,16 @@ public class TagActionFactoryTest {
             Action actionChangeTag;
             actionChangeTag = new TagActionFactory().createAction("changeTag");
             Assert.assertTrue(actionChangeTag instanceof ChangeTagAction);
+
+    }
+
+    @Test
+    public void showEditTagTest() throws InvalidActionException {
+
+
+        Action actionChangeTag;
+        actionChangeTag = new TagActionFactory().createAction("showEditTag");
+        Assert.assertTrue(actionChangeTag instanceof RetrieveQuestionTagsAction);
 
     }
 

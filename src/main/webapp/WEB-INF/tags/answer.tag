@@ -6,17 +6,18 @@
 
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 <%@attribute name="answer" type="it.blackhat.symposium.models.AnswerModel"%>
+<%@attribute name="found" type="java.lang.Boolean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <div class="card">
-    <div class="card-divider">
+    <div class="card-divider" style="${answer.correct ? 'background-color: #3adb76;' : 'background-color: #fff572;'}">
         <strong>${answer.userFk}</strong>
     </div>
     <div class="card-section">
-        <p>${answer.content}</p>
-        <c:if test="${not empty user}">
-            <a href="user/AnswerController?action=chooseBestAnswer" class="button hollow">Risposta Migliore</a>
+        <blockquote>${answer.content}</blockquote>
+        <c:if test="${not empty user && user.email != answer.userFk && !found}">
+            <a href="user/AnswerController?action=chooseBestAnswer&id=${answer.id}" class="button hollow">Risposta Migliore</a>
         </c:if>
     </div>
 </div>

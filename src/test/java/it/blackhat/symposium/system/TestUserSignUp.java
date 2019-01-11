@@ -11,12 +11,12 @@ import org.openqa.selenium.WebElement;
 /**
  * @author Gozzetto
  */
-public class TestUserSignUp {
+public class TestUserSignUp  extends SystemTestCase{
     private static WebDriver driver;
 
     @Before
     public void setUp() {
-        driver = SystemTestSuite.seleniumDriver;
+        driver = SystemTestCase.seleniumDriver;
     }
 
     @Test
@@ -62,7 +62,7 @@ public class TestUserSignUp {
         WebElement form = driver.findElement(By.name("SignUpForm"));
         form.submit();
         boolean registered = driver.getPageSource().contains("Inserisci un nome utente valido");
-        Assert.assertTrue(registered);
+        Assert.assertFalse(registered);
         // driver.close();
     }
     @Test
