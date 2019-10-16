@@ -27,46 +27,46 @@ import javax.sql.DataSource;
  */
 public class SignupAction implements Action {
 
-    private UserManager user;
-    private Log signUpLog = LogFactory.getLog(SigninAction.class);
+  private final UserManager user;
+  private Log signUpLog = LogFactory.getLog(SigninAction.class);
 
-    /**
-     * Add another user in the database if not present
-     */
-    public SignupAction(DataSource ds) {
-        super();
-        this.user = new UserModelManager(ds);
-    }
+  /**
+   * Add another user in the database if not present
+   */
+  public SignupAction(DataSource ds) {
+    super();
+    this.user = new UserModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
 
-        try {
-            UserModel newUser = new UserModel();
-            BeanUtils.populate(newUser, req.getParameterMap());
-            Optional<User> found = user.findEmail(newUser.getEmail());
-            if (found.isPresent()) {
-                req.setAttribute("emailErr", "Already Exist");
-                return "/signUp.jsp";
-            } else {
-                newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
-                newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
-                if (BeanValidator.validateBean(newUser)) {
-                    user.createUser(newUser);
-                    return "/signIn.jsp";
-                } else {
-                    return "/error400.jsp";
-                }
-            }
-        } catch (SQLException e) {
-            signUpLog.error("problemi interni SQL", e);
-            return "/error500.jsp";
-        } catch (IllegalAccessException e) {
-            signUpLog.error("problemi interni Accesso", e);
-            return "/error500.jsp";
-        } catch (InvocationTargetException e) {
-            signUpLog.error("problemi interni Invocazione", e);
-            return "/error500.jsp";
+    try {
+      UserModel newUser = new UserModel();
+      BeanUtils.populate(newUser, req.getParameterMap());
+      Optional<User> found = user.findEmail(newUser.getEmail());
+      if (found.isPresent()) {
+        req.setAttribute("emailErr", "Already Exist");
+        return "/signUp.jsp";
+      } else {
+        newUser.setPassword(DigestUtils.sha256Hex(newUser.getPassword()));
+        newUser.setYear(Calendar.getInstance().get(Calendar.YEAR));
+        if (BeanValidator.validateBean(newUser)) {
+          user.createUser(newUser);
+          return "/signIn.jsp";
+        } else {
+          return "/error400.jsp";
         }
+      }
+    } catch (SQLException e) {
+      signUpLog.error("problemi interni SQL", e);
+      return "/error500.jsp";
+    } catch (IllegalAccessException e) {
+      signUpLog.error("problemi interni Accesso", e);
+      return "/error500.jsp";
+    } catch (InvocationTargetException e) {
+      signUpLog.error("problemi interni Invocazione", e);
+      return "/error500.jsp";
     }
+  }
 }

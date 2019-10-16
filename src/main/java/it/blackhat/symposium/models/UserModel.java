@@ -13,148 +13,149 @@ import java.sql.Date;
  */
 public class UserModel implements User {
 
+  private Date banLastDate;
 
-    private Date banLastDate;
+  @NotNull
+  @Pattern(regexp = "[0-9a-zA-Z]{4,20}")
+  private String username;
 
-    @NotNull
-    @Pattern(regexp = "[0-9a-zA-Z]{4,20}")
-    private String username;
+  @NotNull
+  @Size(min = 4, max = 20)
+  private String firstName;
 
-    @NotNull
-    @Size(min = 4, max = 20)
-    private String firstName;
+  @NotNull
+  @Size(min = 4, max = 20)
+  private String lastName;
 
-    @NotNull
-    @Size(min = 4, max = 20)
-    private String lastName;
+  @NotNull
+  private String password;
 
-    @NotNull
-    private String password;
+  @NotNull
+  @Pattern(regexp = "[a-z]{1}\\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it")
+  private String email;
 
-    @NotNull
-    @Pattern(regexp = "[a-z]{1}\\.[a-z]{2,20}([1-9][0-9]?)?@studenti.unisa.it")
-    private String email;
+  private boolean typeGrad;
 
-    private boolean typeGrad;
+  private int year;
 
-    private int year;
+  /**
+   * Creates an empty User
+   */
+  public UserModel() {
+    super();
+  }
 
-    /**
-     * Creates an empty User
-     */
-    public UserModel() {
-        super();
-    }
+  /**
+   * Create a new User with username, first name, last name, password and
+   * e-mail.
+   *
+   * @param username username of the user
+   * @param firstName first name of the user
+   * @param lastName last name of the user
+   * @param password password of the user
+   * @param email e-mail of the user
+   * @param year year of the inscription
+   */
+  public UserModel(String username, String firstName, String lastName,
+          String password, String email, int year) {
+    this.username = username;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.password = password;
+    this.email = email;
+    this.year = year;
+  }
 
-    /**
-     * Create a new User with username, first name, last name, password and e-mail.
-     *
-     * @param username  username of the user
-     * @param firstName first name of the user
-     * @param lastName  last name of the user
-     * @param password  password of the user
-     * @param email     e-mail of the user
-     * @param year      year of the inscription
-     */
-    public UserModel(String username, String firstName, String lastName,
-                     String password, String email, int year) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.email = email;
-        this.year = year;
-    }
+  @Override
+  public String getUsername() {
+    return username;
+  }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
+  @Override
+  public void setUsername(String userName) {
+    this.username = userName;
+  }
 
-    @Override
-    public void setUsername(String userName) {
-        this.username = userName;
-    }
+  @Override
+  public String getFirstName() {
+    return firstName;
+  }
 
-    @Override
-    public String getFirstName() {
-        return firstName;
-    }
+  @Override
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    @Override
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  @Override
+  public String getLastName() {
+    return lastName;
+  }
 
-    @Override
-    public String getLastName() {
-        return lastName;
-    }
+  @Override
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    @Override
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  @Override
+  public String getEmail() {
+    return email;
+  }
 
-    @Override
-    public String getEmail() {
-        return email;
-    }
+  @Override
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  @Override
+  public String getPassword() {
+    return password;
+  }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+  @Override
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  @Override
+  public Boolean getTypeGrad() {
+    return typeGrad;
+  }
 
-    @Override
-    public Boolean getTypeGrad() {
-        return typeGrad;
-    }
+  @Override
+  public void setTypeGrad(boolean typeGrad) {
+    this.typeGrad = typeGrad;
+  }
 
-    @Override
-    public void setTypeGrad(boolean typeGrad) {
-        this.typeGrad = typeGrad;
-    }
+  @Override
+  public Date getBanLastDate() {
+    return banLastDate;
+  }
 
-    @Override
-    public Date getBanLastDate() {
-        return banLastDate;
-    }
+  @Override
+  public void setBanLastDate(Date banLastDate) {
+    this.banLastDate = banLastDate;
+  }
 
-    @Override
-    public void setBanLastDate(Date banLastDate) {
-        this.banLastDate = banLastDate;
-    }
+  @Override
+  public int getYear() {
+    return this.year;
+  }
 
-    @Override
-    public int getYear() {
-        return this.year;
-    }
+  @Override
+  public void setYear(int year) {
+    this.year = year;
+  }
 
-    @Override
-    public void setYear(int year) {
-        this.year = year;
-    }
-    @Override
-    public String toString() {
-        return "UserModel{"
-                + "banLastDate=" + banLastDate
-                + ", username='" + username + '\''
-                + ", firstName='" + firstName + '\''
-                + ", lastName='" + lastName + '\''
-                + ", password='" + password + '\''
-                + ", email='" + email + '\''
-                + ", typeGrad=" + typeGrad
-                + '}';
-    }
+  @Override
+  public String toString() {
+    return "UserModel{"
+            + "banLastDate=" + banLastDate
+            + ", username='" + username + '\''
+            + ", firstName='" + firstName + '\''
+            + ", lastName='" + lastName + '\''
+            + ", password='" + password + '\''
+            + ", email='" + email + '\''
+            + ", typeGrad=" + typeGrad
+            + '}';
+  }
 }

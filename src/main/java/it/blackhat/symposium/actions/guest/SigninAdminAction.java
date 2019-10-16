@@ -14,37 +14,38 @@ import javax.sql.DataSource;
 
 /**
  * Describes the admin sign in action
+ *
  * @author Symposium Group
  */
 public class SigninAdminAction implements Action {
 
-    private AdminManager admin;
+  private final AdminManager admin;
 
-    /**
-     * Find a user in the database and if it can't be found return with null
-     */
-    public SigninAdminAction(DataSource ds) {
-        super();
-        admin = new AdminModelManager(ds);
-    }
+  /**
+   * Find a user in the database and if it can't be found return with null
+   */
+  public SigninAdminAction(DataSource ds) {
+    super();
+    admin = new AdminModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        try {
-            
-            Optional<Admin> found = admin.findAdmin(username, password);
-            if (found.isPresent()) {
-                HttpSession session = req.getSession(true);
-                session.setAttribute("admin", found.get());
-                return "/index.jsp";
-            } else {
-                req.setAttribute("errLogAdmin", "Credenziali Errate");
-                return "/adminSignIn.jsp";
-            }
-        } catch (SQLException e) {
-            return "/error500.jsp";
-        }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    String username = req.getParameter("username");
+    String password = req.getParameter("password");
+    try {
+
+      Optional<Admin> found = admin.findAdmin(username, password);
+      if (found.isPresent()) {
+        HttpSession session = req.getSession(true);
+        session.setAttribute("admin", found.get());
+        return "/index.jsp";
+      } else {
+        req.setAttribute("errLogAdmin", "Credenziali Errate");
+        return "/adminSignIn.jsp";
+      }
+    } catch (SQLException e) {
+      return "/error500.jsp";
     }
+  }
 }

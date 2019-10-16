@@ -222,11 +222,11 @@ Checkstyle configuration that checks the sun coding conventions.
     <module name="MemberName"/>
     <module name="MethodName"/>
     <module name="Indentation">
-      <property name="arrayInitIndent" value="4"/>
-      <property name="basicOffset" value="4"/>
-      <property name="caseIndent" value="4"/>
-      <property name="lineWrappingIndentation" value="4"/>
-      <property name="throwsIndent" value="4"/>
+      <property name="arrayInitIndent" value="2"/>
+      <property name="basicOffset" value="2"/>
+      <property name="caseIndent" value="2"/>
+      <property name="lineWrappingIndentation" value="2"/>
+      <property name="throwsIndent" value="2"/>
     </module>
     <module name="NoWhitespaceAfter">
       <property name="tokens" value="ARRAY_INIT,AT,INC,DEC,UNARY_MINUS,UNARY_PLUS,BNOT,LNOT,DOT"/>

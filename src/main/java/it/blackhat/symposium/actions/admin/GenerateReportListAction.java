@@ -23,42 +23,42 @@ import org.apache.commons.logging.LogFactory;
  * @author Parrilli Carminantonio
  * @author Przemyslaw Szopian
  */
-
 public class GenerateReportListAction implements Action {
 
-    private ReportManager reportManager;
-    private QuestionManager questionManager;
+  private final ReportManager reportManager;
+  private final QuestionManager questionManager;
 
-    private final Log generateReportListActionLog = 
-            LogFactory.getLog(GenerateReportListAction.class);
+  private final Log generateReportListActionLog
+          = LogFactory.getLog(GenerateReportListAction.class);
 
-    ;
+  ;
     /**
      * The constructor of the class
+     * @param ds The datasource object
      */
     public GenerateReportListAction(DataSource ds) {
-        this.reportManager = new ReportModelManager(ds);
-        this.questionManager = new QuestionModelManager(ds);
+    this.reportManager = new ReportModelManager(ds);
+    this.questionManager = new QuestionModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      List<Report> listReports = reportManager.retrieveAllReports();
+      List<Question> listQuestions = new ArrayList<>();
+
+      for (Report r : listReports) {
+        Optional<Question> found = questionManager.findQuestion(r.getQuestionFk());
+        listQuestions.add(found.get());
+      }
+
+      req.setAttribute("listQuestions", listQuestions);
+      req.setAttribute("listReports", listReports);
+      return "/reportList.jsp";
+    } catch (SQLException e) {
+      generateReportListActionLog.error("Errore Interno SQL", e);
+      return "/error500.jsp";
     }
-
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            List<Report> listReports = reportManager.retrieveAllReports();
-            List<Question> listQuestions = new ArrayList<>();
-
-            for (Report r : listReports) {
-                Optional<Question> found = questionManager.findQuestion(r.getQuestionFk());
-                listQuestions.add(found.get());
-            }
-
-            req.setAttribute("listQuestions", listQuestions);
-            req.setAttribute("listReports", listReports);
-            return "/reportList.jsp";
-        } catch (SQLException e) {
-            generateReportListActionLog.error("Errore Interno SQL", e);
-            return "/error500.jsp";
-        }
-    }
+  }
 
 }

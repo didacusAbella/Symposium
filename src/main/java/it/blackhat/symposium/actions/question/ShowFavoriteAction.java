@@ -19,33 +19,32 @@ import org.apache.commons.logging.LogFactory;
  * @author Giuseppe Madonna
  */
 public class ShowFavoriteAction implements Action {
-    
-    private QuestionManager questionManager;
-    private Log showFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
-    
-    /**
-     * Inizialize questionManager 
-     */
-    public ShowFavoriteAction(DataSource ds) {
-        super();
-        this.questionManager = new QuestionModelManager(ds);
+
+  private QuestionManager questionManager;
+  private Log showFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
+
+  /**
+   * Inizialize questionManager
+   */
+  public ShowFavoriteAction(DataSource ds) {
+    super();
+    this.questionManager = new QuestionModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      User user = new UserModel();
+      user = (User) req.getSession().getAttribute("user");
+      String userEmail = user.getEmail();
+      List<Question> questions = questionManager.findFavorite(userEmail);
+
+      req.setAttribute("questions", questions);
+
+      return "/favoriteQuestion.jsp";
+    } catch (SQLException e) {
+      showFavouriteActionLog.error("Errore Interno :", e);
+      return "/error500.jsp";
     }
-    
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            User user = new UserModel();
-            user = (User) req.getSession().getAttribute("user");
-            String userEmail = user.getEmail() ;
-            List<Question> questions = questionManager.findFavorite(userEmail);
-           
-            req.setAttribute("questions", questions);
-            
-            return "/favoriteQuestion.jsp";
-        }     
-        catch (SQLException e) {
-            showFavouriteActionLog.error("Errore Interno :", e);
-            return "/error500.jsp";
-        }
-    }
+  }
 }

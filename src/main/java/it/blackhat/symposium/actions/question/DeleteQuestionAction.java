@@ -20,31 +20,31 @@ import javax.sql.DataSource;
  */
 public class DeleteQuestionAction extends CompositeAction {
 
-    private QuestionManager questionManager;
-    private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
+  private QuestionManager questionManager;
+  private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
 
-    /**
-     * Create a constructor for DeleteQuestionAction
-     *
-     * @param actions other actions to execute
-     */
-    public DeleteQuestionAction(DataSource ds, Action... actions) {
-        super(actions);
-        this.questionManager = new QuestionModelManager(ds);
+  /**
+   * Create a constructor for DeleteQuestionAction
+   *
+   * @param actions other actions to execute
+   */
+  public DeleteQuestionAction(DataSource ds, Action... actions) {
+    super(actions);
+    this.questionManager = new QuestionModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      int idQuestion = Integer.parseInt(req.getParameter("questionId"));
+      questionManager.deleteQuestion(idQuestion);
+      super.execute(req, res);
+      return "/index.jsp";
+
+    } catch (SQLException e) {
+      deleteQuestionLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            int idQuestion = Integer.parseInt(req.getParameter("questionId"));
-            questionManager.deleteQuestion(idQuestion);
-            super.execute(req, res);
-            return "/index.jsp";
-
-        } catch (SQLException e) {
-            deleteQuestionLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
-
-    }
+  }
 }

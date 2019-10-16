@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ShowProfileAction implements Action {
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        return "/profile.jsp";
-    }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    return "/profile.jsp";
+  }
 }

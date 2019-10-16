@@ -14,25 +14,25 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Symposium Group
  */
-@WebServlet(name = "StatsController", 
+@WebServlet(name = "StatsController",
         urlPatterns = {"/admin/StatsController"})
 public class StatsController extends DispatcherController {
-    
-    private ActionFactory statsFactory;
 
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        this.statsFactory = new StatsActionFactory(this.ds);
-    }
+  private ActionFactory statsFactory;
 
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action statsAction = this.statsFactory.createAction(action);
-        String page = statsAction.execute(request, response);
-        this.dispatch(request, response, page);
-    }
-    
+  @Override
+  public void init() throws ServletException {
+    super.init();
+    this.statsFactory = new StatsActionFactory(this.ds);
+  }
+
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action statsAction = this.statsFactory.createAction(action);
+    String page = statsAction.execute(request, response);
+    this.dispatch(request, response, page);
+  }
+
 }

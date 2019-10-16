@@ -10,25 +10,25 @@ import java.util.Set;
 
 /**
  *
- * @author Angelo Maffettone
- * This class hadle bean validation
+ * @author Angelo Maffettone This class hadle bean validation
  */
 public class BeanValidator {
 
-    private static Validator validator;
-    private static ValidatorFactory factory = Validation
-            .byProvider(ApacheValidationProvider.class)
-            .configure().buildValidatorFactory();
-    /**
-     *
-     * @param <T> the bean class to validate
-     * @param bean the bean to validate
-     * @return true if the validations goes ok
-     */
-    public static <T> boolean validateBean(T bean) {
-        validator = factory.getValidator();
-        Set<ConstraintViolation<T>> violations = validator.validate(bean);
-        return violations.isEmpty();
-    }
+  private static Validator validator;
+  private static ValidatorFactory factory = Validation
+          .byProvider(ApacheValidationProvider.class)
+          .configure().buildValidatorFactory();
+
+  /**
+   *
+   * @param <T> the bean class to validate
+   * @param bean the bean to validate
+   * @return true if the validations goes ok
+   */
+  public static <T> boolean validateBean(T bean) {
+    validator = factory.getValidator();
+    Set<ConstraintViolation<T>> violations = validator.validate(bean);
+    return violations.isEmpty();
+  }
 
 }

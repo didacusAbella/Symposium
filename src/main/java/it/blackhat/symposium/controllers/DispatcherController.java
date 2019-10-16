@@ -12,60 +12,60 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 public abstract class DispatcherController extends HttpServlet {
-    
-    private static final Log DISPATCH_LOG = LogFactory.getLog(DispatcherController.class);
-    
-    @Resource(name = "jdbc/SymposiumDB")
-    protected DataSource ds;
-    
 
-    /**
-     * Dispatch the request to specific page
-     *
-     * @param request the request
-     * @param response the response
-     * @param page the page to dispatch
-     * @throws IOException for io exception
-     * @throws ServletException for servlet exception
-     */
-    protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page)
-            throws IOException, ServletException {
-        this.getServletContext().getRequestDispatcher(page).forward(request, response);
-    }
+  private static final Log DISPATCH_LOG = LogFactory.getLog(DispatcherController.class);
 
-    /**
-     * Process the specific request
-     *
-     * @param request the request
-     * @param response the response
-     * @throws ServletException for servlet handling
-     * @throws IOException for io exception
-     * @throws it.blackhat.symposium.helpers.InvalidActionException for invalid action exception
-     */
-    protected abstract void processRequest(HttpServletRequest request,
-            HttpServletResponse response)
-            throws ServletException, IOException, InvalidActionException;
-    
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            this.processRequest(req, resp);
-        } catch (InvalidActionException ex) {
-            DISPATCH_LOG.error("Comando non supportato", ex);
-        }
+  @Resource(name = "jdbc/SymposiumDB")
+  protected DataSource ds;
+
+  /**
+   * Dispatch the request to specific page
+   *
+   * @param request the request
+   * @param response the response
+   * @param page the page to dispatch
+   * @throws IOException for io exception
+   * @throws ServletException for servlet exception
+   */
+  protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page)
+          throws IOException, ServletException {
+    this.getServletContext().getRequestDispatcher(page).forward(request, response);
+  }
+
+  /**
+   * Process the specific request
+   *
+   * @param request the request
+   * @param response the response
+   * @throws ServletException for servlet handling
+   * @throws IOException for io exception
+   * @throws it.blackhat.symposium.helpers.InvalidActionException for invalid
+   * action exception
+   */
+  protected abstract void processRequest(HttpServletRequest request,
+          HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException;
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+          throws ServletException, IOException {
+    try {
+      req.setCharacterEncoding("UTF-8");
+      this.processRequest(req, resp);
+    } catch (InvalidActionException ex) {
+      DISPATCH_LOG.error("Comando non supportato", ex);
     }
-    
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        try {
-            req.setCharacterEncoding("UTF-8");
-            this.processRequest(req, resp);
-        } catch (InvalidActionException ex) {
-            DISPATCH_LOG.error("Comando non supportato", ex);
-        }
+  }
+
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+          throws ServletException, IOException {
+    try {
+      req.setCharacterEncoding("UTF-8");
+      this.processRequest(req, resp);
+    } catch (InvalidActionException ex) {
+      DISPATCH_LOG.error("Comando non supportato", ex);
     }
-    
+  }
+
 }

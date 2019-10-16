@@ -26,45 +26,44 @@ import javax.sql.DataSource;
  * @author Parrilli Carminantonio
  * @author SDelPiano
  */
-
 public class SigninAction implements Action {
-    private UserManager user;
-    private final Log signinLog = LogFactory.getLog(SigninAction.class);
 
-    /**
-     * Find a user in the database and if it can't be found return with null
-     */
-    public SigninAction(DataSource ds) {
-        super();
-        this.user = new UserModelManager(ds);
-    }
+  private final UserManager user;
+  private final Log signinLog = LogFactory.getLog(SigninAction.class);
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            String email = req.getParameter("email");
-            String password = req.getParameter("password");
-            password = DigestUtils.sha256Hex(password);
-            Optional<User> found = user.findUser(email, password);
-            if (found.isPresent()) {
-                Date today = new Date(Calendar.getInstance().getTime().getTime());
-                if (found.get().getBanLastDate() == null 
-                        || today.after(found.get().getBanLastDate()))
-                {
-                    HttpSession session = req.getSession();
-                    session.setAttribute("user", found.get());
-                    return "/index.jsp";
-                } else {
-                    
-                    return "/error401.jsp";
-                }
-            } else {
-                req.setAttribute("emailErr", "Email o password errata ");
-                return "/signIn.jsp";
-            }
-        } catch (SQLException e) {
-            signinLog.error("problemi interni", e);
-            return "/error500.jsp";
+  /**
+   * Find a user in the database and if it can't be found return with null
+   */
+  public SigninAction(DataSource ds) {
+    super();
+    this.user = new UserModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      String email = req.getParameter("email");
+      String password = req.getParameter("password");
+      password = DigestUtils.sha256Hex(password);
+      Optional<User> found = user.findUser(email, password);
+      if (found.isPresent()) {
+        Date today = new Date(Calendar.getInstance().getTime().getTime());
+        if (found.get().getBanLastDate() == null
+                || today.after(found.get().getBanLastDate())) {
+          HttpSession session = req.getSession();
+          session.setAttribute("user", found.get());
+          return "/index.jsp";
+        } else {
+
+          return "/error401.jsp";
         }
+      } else {
+        req.setAttribute("emailErr", "Email o password errata ");
+        return "/signIn.jsp";
+      }
+    } catch (SQLException e) {
+      signinLog.error("problemi interni", e);
+      return "/error500.jsp";
     }
+  }
 }

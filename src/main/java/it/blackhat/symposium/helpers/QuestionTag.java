@@ -1,4 +1,3 @@
-
 package it.blackhat.symposium.helpers;
 
 import it.blackhat.symposium.models.Question;
@@ -7,53 +6,59 @@ import java.util.List;
 
 /**
  * Classes for map question and tag
+ *
  * @author Symposium Group
  */
 public final class QuestionTag {
-    
-    private Question question;
-    private List<Tag> tags;
 
-    /**
-     * Create a new question tag
-     * @param question the question
-     * @param tags the list of tags associated
-     */
-    public QuestionTag(Question question, List<Tag> tags) {
-        this.question = question;
-        this.tags = tags;
-    }
+  private Question question;
+  private List<Tag> tags;
 
-    /**
-     * Retrieve the question
-     * @return the question
-     */
-    public Question getQuestion() {
-        return question;
-    }
+  /**
+   * Create a new question tag
+   *
+   * @param question the question
+   * @param tags the list of tags associated
+   */
+  public QuestionTag(Question question, List<Tag> tags) {
+    this.question = question;
+    this.tags = tags;
+  }
 
-    /**
-     * Set a new Question
-     * @param question 
-     */
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+  /**
+   * Retrieve the question
+   *
+   * @return the question
+   */
+  public Question getQuestion() {
+    return question;
+  }
 
-    /**
-     * Get a tag list associated
-     * @return the tag list
-     */
-    public List<Tag> getTags() {
-        return tags;
-    }
+  /**
+   * Set a new Question
+   *
+   * @param question
+   */
+  public void setQuestion(Question question) {
+    this.question = question;
+  }
 
-    /**
-     * Set a new tag list
-     * @param tags the tag list
-     */
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }  
+  /**
+   * Get a tag list associated
+   *
+   * @return the tag list
+   */
+  public List<Tag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Set a new tag list
+   *
+   * @param tags the tag list
+   */
+  public void setTags(List<Tag> tags) {
+    this.tags = tags;
+  }
 
 }

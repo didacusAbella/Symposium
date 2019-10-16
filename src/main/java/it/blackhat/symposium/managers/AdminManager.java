@@ -10,15 +10,14 @@ import java.util.Optional;
  */
 public interface AdminManager {
 
-    /**
-     * Find an admin given username and password
-     *
-     * @param username the admin's username
-     * @param password tha admin's password
-     * @return an instance of admin
-     * @throws SQLException if db errors occurred
-     */
-    Optional<Admin> findAdmin(String username, String password) throws SQLException;
-
+  /**
+   * Find an admin given username and password
+   *
+   * @param username the admin's username
+   * @param password tha admin's password
+   * @return an instance of admin
+   * @throws SQLException if db errors occurred
+   */
+  Optional<Admin> findAdmin(String username, String password) throws SQLException;
 
 }

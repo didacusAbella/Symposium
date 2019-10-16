@@ -22,36 +22,36 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ShowAnswerPage implements Action {
 
-    private QuestionManager questionManager;
-    private TagManager tagManager;
-    private final Log showAnswerPageLog = LogFactory.getLog(ShowAnswerPage.class);
+  private final QuestionManager questionManager;
+  private final TagManager tagManager;
+  private final Log showAnswerPageLog = LogFactory.getLog(ShowAnswerPage.class);
 
-    /**
-     * Create an action that show the answer page
-     */
-    public ShowAnswerPage(DataSource ds) {
-        super();
-        this.questionManager = new QuestionModelManager(ds);
-        this.tagManager = new TagModelManager(ds);
-    }
+  /**
+   * Create an action that show the answer page
+   */
+  public ShowAnswerPage(DataSource ds) {
+    super();
+    this.questionManager = new QuestionModelManager(ds);
+    this.tagManager = new TagModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            int questionId = Integer.parseInt(req.getParameter("questionId"));
-            Optional<Question> question = this.questionManager.findQuestion(questionId);
-            if (question.isPresent()) {
-                List<Tag> tagList = this.tagManager.retrieveQuestionTags(questionId);
-                req.setAttribute("question", question.get());
-                req.setAttribute("tags", tagList);
-                return "/newAnswer.jsp";
-            } else {
-                return "/error500.jsp";
-            }
-        } catch (SQLException ex) {
-            this.showAnswerPageLog.error("Errore Interno", ex);
-            return "/error500.jsp";
-        }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      int questionId = Integer.parseInt(req.getParameter("questionId"));
+      Optional<Question> question = this.questionManager.findQuestion(questionId);
+      if (question.isPresent()) {
+        List<Tag> tagList = this.tagManager.retrieveQuestionTags(questionId);
+        req.setAttribute("question", question.get());
+        req.setAttribute("tags", tagList);
+        return "/newAnswer.jsp";
+      } else {
+        return "/error500.jsp";
+      }
+    } catch (SQLException ex) {
+      this.showAnswerPageLog.error("Errore Interno", ex);
+      return "/error500.jsp";
     }
+  }
 
 }

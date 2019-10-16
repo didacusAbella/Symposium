@@ -10,33 +10,34 @@ import java.util.List;
  *
  * @author SDelPiano
  */
-
 public interface ReportManager {
-    /**
-     * Add a report to a question
-     *
-     * @param report   report data
-     * @param question question to update the report's number
-     * @return true if the operation go well, false otherwise
-     * @throws SQLException if it encounter an error
-     **/
-    int insertReport(Report report, Question question) throws SQLException;
 
-    /**
-     * Retrieves all answers related to a question
+  /**
+   * Add a report to a question
+   *
+   * @param report report data
+   * @param question question to update the report's number
+   * @return true if the operation go well, false otherwise
+   * @throws SQLException if it encounter an error
      *
-     * @param questionFk the questionId for retrieve the reports
-     * @return a List of tags related to the reports
-     * @throws SQLException if db error occurred
-     */
-    List<Report> retrieveReport(int questionFk) throws SQLException;
-    
-    /**
-     * Retrieve all the reported questions
-     * @return a list of all the reported questions
-     * @throws SQLException if an error occurs
-     */
-    public List<Report> retrieveAllReports() throws SQLException;
+   */
+  int insertReport(Report report, Question question) throws SQLException;
 
+  /**
+   * Retrieves all answers related to a question
+   *
+   * @param questionFk the questionId for retrieve the reports
+   * @return a List of tags related to the reports
+   * @throws SQLException if db error occurred
+   */
+  List<Report> retrieveReport(int questionFk) throws SQLException;
+
+  /**
+   * Retrieve all the reported questions
+   *
+   * @return a list of all the reported questions
+   * @throws SQLException if an error occurs
+   */
+  public List<Report> retrieveAllReports() throws SQLException;
 
 }

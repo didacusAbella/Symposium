@@ -7,87 +7,88 @@ package it.blackhat.symposium.models;
  */
 public interface Report {
 
-    /**
-     * Retrieve the id of the report
-     *
-     * @return the id
-     */
-    int getId();
+  /**
+   * Retrieve the id of the report
+   *
+   * @return the id
+   */
+  int getId();
 
-    /**
-     * Change the id of the report
-     *
-     * @param id new id of the reason
-     */
-    void setId(int id);
+  /**
+   * Change the id of the report
+   *
+   * @param id new id of the reason
+   */
+  void setId(int id);
 
-    /**
-     * Retrieve the category of the report
-     *
-     * @return the category
-     */
-    String getCategory();
+  /**
+   * Retrieve the category of the report
+   *
+   * @return the category
+   */
+  String getCategory();
 
-    /**
-     * Change the category of the report
-     *
-     * @param category new category of the report
-     */
-    void setCategory(String category);
+  /**
+   * Change the category of the report
+   *
+   * @param category new category of the report
+   */
+  void setCategory(String category);
 
-    /**
-     * Retrieve the reason of the report
-     *
-     * @return the reason
-     */
-    String getReason();
+  /**
+   * Retrieve the reason of the report
+   *
+   * @return the reason
+   */
+  String getReason();
 
-    /**
-     * Change the reason of the report
-     *
-     * @param reason new reason of the report
-     */
-    void setReason(String reason);
+  /**
+   * Change the reason of the report
+   *
+   * @param reason new reason of the report
+   */
+  void setReason(String reason);
 
-    /**
-     * Retrieve the user author of the report
-     *
-     * @return user
-     */
-    String getUserFk();
+  /**
+   * Retrieve the user author of the report
+   *
+   * @return user
+   */
+  String getUserFk();
 
-    /**
-     * Change the user of the report
-     *
-     * @param userFk new user of the report
-     */
-    void setUserFk(String userFk);
+  /**
+   * Change the user of the report
+   *
+   * @param userFk new user of the report
+   */
+  void setUserFk(String userFk);
 
-    /**
-     * Retrieve the year of the report
-     *
-     * @return year
-     */
-    int getYear();
+  /**
+   * Retrieve the year of the report
+   *
+   * @return year
+   */
+  int getYear();
 
-    /**
-     * Change the year of the report
-     *
-     * @param year new year of the report
-     */
-    void setYear(int year);
+  /**
+   * Change the year of the report
+   *
+   * @param year new year of the report
+   */
+  void setYear(int year);
 
-    /**
-     * Get the question foreign key
-     * @return the question's foreign key
-     */
-    int getQuestionFk();
+  /**
+   * Get the question foreign key
+   *
+   * @return the question's foreign key
+   */
+  int getQuestionFk();
 
-    /**
-     * Set the question foreign key
-     * @param questionFk the question foreign key
-     */
-    void setQuestionFk(int questionFk);
+  /**
+   * Set the question foreign key
+   *
+   * @param questionFk the question foreign key
+   */
+  void setQuestionFk(int questionFk);
 
-    
 }

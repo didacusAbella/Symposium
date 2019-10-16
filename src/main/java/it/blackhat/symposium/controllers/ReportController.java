@@ -15,27 +15,24 @@ import javax.servlet.http.HttpServletResponse;
  * @author Symposium Group
  */
 @WebServlet(name = "ReportController", urlPatterns = {"/user/ReportController",
-        "/admin/ReportController"})
+  "/admin/ReportController"})
 public class ReportController extends DispatcherController {
-    
-    private ActionFactory reportFactory;
 
-    @Override
-    public void init() throws ServletException {
-        super.init(); 
-        this.reportFactory = new ReportActionFactory(this.ds);
-    }
+  private ActionFactory reportFactory;
 
-    
-    
+  @Override
+  public void init() throws ServletException {
+    super.init();
+    this.reportFactory = new ReportActionFactory(this.ds);
+  }
 
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action questionAction = this.reportFactory.createAction(action);
-        String page = questionAction.execute(request, response);
-        this.dispatch(request, response, page);
-    }
-    
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action questionAction = this.reportFactory.createAction(action);
+    String page = questionAction.execute(request, response);
+    this.dispatch(request, response, page);
+  }
+
 }

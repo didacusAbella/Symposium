@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package it.blackhat.symposium.models;
 
 import javax.validation.constraints.NotNull;
@@ -17,56 +11,56 @@ import javax.validation.constraints.Size;
  */
 public class TagModel implements Tag {
 
-    @NotNull
-    private int id;
+  @NotNull
+  private int id;
 
-    @NotNull
-    @Size(min = 1, max = 40)
-    private String name;
+  @NotNull
+  @Size(min = 1, max = 40)
+  private String name;
 
-    /**
-     * create an empty TagModel
-     */
-    public TagModel() {
-        super();
-    }
+  /**
+   * create an empty TagModel
+   */
+  public TagModel() {
+    super();
+  }
 
-    /**
-     * Create a new Tag with id and name.
-     *
-     * @param id   id of the tag
-     * @param name tag name of the tag
-     */
-    public TagModel(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  /**
+   * Create a new Tag with id and name.
+   *
+   * @param id id of the tag
+   * @param name tag name of the tag
+   */
+  public TagModel(int id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    @Override
-    public int getId() {
-        return id;
-    }
+  @Override
+  public int getId() {
+    return id;
+  }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
+  @Override
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    @Override
-    public String getName() {
-        return name;
-    }
+  @Override
+  public String getName() {
+    return name;
+  }
 
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Override
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    @Override
-    public String toString() {
-        return "TagModel{"
-                + "id = " + id
-                + ", name = " + name
-                + "}";
-    }
+  @Override
+  public String toString() {
+    return "TagModel{"
+            + "id = " + id
+            + ", name = " + name
+            + "}";
+  }
 }

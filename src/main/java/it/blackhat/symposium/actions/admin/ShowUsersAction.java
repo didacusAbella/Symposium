@@ -15,33 +15,38 @@ import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
 import javax.sql.DataSource;
+
 /**
  * The class return a list of users for an admin
+ *
  * @author Parrilli Carminantonio
  * @author Przemyslaw Szopian
  */
 
 public class ShowUsersAction implements Action {
-    private UserManager user;
-    private final Log showUserActionLog = LogFactory.getLog(ShowUsersAction.class);;
+
+  private UserManager user;
+  private final Log showUserActionLog = LogFactory.getLog(ShowUsersAction.class);
+
+  ;
     /**
      * The constructor of the class
      */
     public ShowUsersAction(DataSource ds) {
-        this.user = new UserModelManager(ds);
-    }
+    this.user = new UserModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            
-            List<User> listUsers = user.retrieveUsers();
-            req.setAttribute("listUsers", listUsers);
-            return "/userList.jsp";
-        } catch (SQLException e) {
-            showUserActionLog.error("Errore Interno SQL", e);
-            return "/error400.jsp";
-        }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+
+      List<User> listUsers = user.retrieveUsers();
+      req.setAttribute("listUsers", listUsers);
+      return "/userList.jsp";
+    } catch (SQLException e) {
+      showUserActionLog.error("Errore Interno SQL", e);
+      return "/error400.jsp";
     }
+  }
 
 }

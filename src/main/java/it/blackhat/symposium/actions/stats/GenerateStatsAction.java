@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.Map;
 
-import static java.util.stream.Collectors.toMap;
 import javax.sql.DataSource;
 
 /**
@@ -24,43 +23,42 @@ import javax.sql.DataSource;
  * @author Parrilli Carminantonio
  *
  */
-
 public class GenerateStatsAction implements Action {
 
-    private StatsManager statsModelManager;
-    private final Log signinLog = LogFactory.getLog(SigninAction.class);
-    private StatsModel statitics;
-    private TagManager tagModelManager;
+  private final StatsManager statsModelManager;
+  private final Log signinLog = LogFactory.getLog(SigninAction.class);
+  private StatsModel statitics;
+  private final TagManager tagModelManager;
 
-    /**
-     * The constructor of the class
-     */
-    public GenerateStatsAction(DataSource ds) {
-        super();
-        this.statsModelManager = new StatsModelManager(ds);
-        this.tagModelManager = new TagModelManager(ds);
-    }
+  /**
+   * The constructor of the class
+   */
+  public GenerateStatsAction(DataSource ds) {
+    super();
+    this.statsModelManager = new StatsModelManager(ds);
+    this.tagModelManager = new TagModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            String desideredDate = req.getParameter("year");
-            int year = Integer.parseInt(desideredDate);
-            int users = statsModelManager.getNumberUsers(year);
-            int reports = statsModelManager.getNumberReports(year);
-            int bannedUsers = statsModelManager.getBannedUsers(year);
-            Map<String, Integer> tags = tagModelManager.mostUsedTags(year);
-            statitics = new StatsModel();
-            statitics.setNumSigned(users);
-            statitics.setTotalReports(reports);
-            statitics.setYear(Integer.parseInt(desideredDate));
-            req.setAttribute("stats", statitics);
-            req.setAttribute("bannedUsers", bannedUsers);
-            req.setAttribute("tags", tags);
-            return "/stats.jsp";
-        } catch (SQLException e) {
-            signinLog.error("problemi interni SQL", e);
-            return "/error500.jsp";
-        }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      String desideredDate = req.getParameter("year");
+      int year = Integer.parseInt(desideredDate);
+      int users = statsModelManager.getNumberUsers(year);
+      int reports = statsModelManager.getNumberReports(year);
+      int bannedUsers = statsModelManager.getBannedUsers(year);
+      Map<String, Integer> tags = tagModelManager.mostUsedTags(year);
+      statitics = new StatsModel();
+      statitics.setNumSigned(users);
+      statitics.setTotalReports(reports);
+      statitics.setYear(Integer.parseInt(desideredDate));
+      req.setAttribute("stats", statitics);
+      req.setAttribute("bannedUsers", bannedUsers);
+      req.setAttribute("tags", tags);
+      return "/stats.jsp";
+    } catch (SQLException e) {
+      signinLog.error("problemi interni SQL", e);
+      return "/error500.jsp";
     }
+  }
 }

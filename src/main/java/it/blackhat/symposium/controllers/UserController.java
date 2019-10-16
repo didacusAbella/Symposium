@@ -16,31 +16,30 @@ import java.io.IOException;
  *
  * @author 2Deimos
  */
-
 @WebServlet(name = "UserController",
         urlPatterns = {"/user/UserController", "/admin/UserController"})
 public class UserController extends DispatcherController {
 
-    private ActionFactory userFactory;
+  private ActionFactory userFactory;
 
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        this.userFactory = new UserActionFactory(this.ds);
-    }
+  @Override
+  public void init() throws ServletException {
+    super.init();
+    this.userFactory = new UserActionFactory(this.ds);
+  }
 
-    @Override
-    public String getServletInfo() {
-        return "UserController";
-    }
+  @Override
+  public String getServletInfo() {
+    return "UserController";
+  }
 
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action userAction = this.userFactory.createAction(action);
-        String page = userAction.execute(request, response);
-        this.dispatch(request, response, page);
-    }
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action userAction = this.userFactory.createAction(action);
+    String page = userAction.execute(request, response);
+    this.dispatch(request, response, page);
+  }
 
 }

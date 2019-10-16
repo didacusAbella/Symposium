@@ -1,6 +1,5 @@
 package it.blackhat.symposium.actions.answer;
 
-
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
@@ -18,31 +17,30 @@ import javax.sql.DataSource;
  * @author Angelo Maffettone
  */
 public class DeleteAnswerAdminAction implements Action {
-    private AnswerManager answerManager;
-    private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAdminAction.class);
 
+  private AnswerManager answerManager;
+  private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAdminAction.class);
 
-    /**
-     * Initializes a Answer Manager
-     */
-    public DeleteAnswerAdminAction(DataSource ds) {
-        super();
-        this.answerManager = new AnswerModelManager(ds);
+  /**
+   * Initializes a Answer Manager
+   */
+  public DeleteAnswerAdminAction(DataSource ds) {
+    super();
+    this.answerManager = new AnswerModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+
+      String idAnswer = req.getParameter("id");
+      int idAnswerInt = Integer.parseInt(idAnswer);
+      answerManager.removeAnswer(idAnswerInt);
+      return "/index.jsp";
+    } catch (SQLException e) {
+      deleteAnswerLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
 
-
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            
-            String idAnswer = req.getParameter("id");
-            int idAnswerInt = Integer.parseInt(idAnswer);
-            answerManager.removeAnswer(idAnswerInt);
-            return "/index.jsp";
-        } catch (SQLException e) {
-            deleteAnswerLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
-
-    }
+  }
 }

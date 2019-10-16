@@ -13,32 +13,33 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * The class handles requests for actions concerning the answer
+ *
  * @author 2Deimos
  */
-@WebServlet(name = "AnswerController", 
+@WebServlet(name = "AnswerController",
         urlPatterns = {"/user/AnswerController", "/admin/AnswerController"})
 public class AnswerController extends DispatcherController {
 
-    private ActionFactory answerFactory;
+  private ActionFactory answerFactory;
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        this.answerFactory = new AnswerActionFactory(this.ds);
-    }
+  @Override
+  public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+    this.answerFactory = new AnswerActionFactory(this.ds);
+  }
 
-    @Override
-    public String getServletInfo() {
-        return "AnswerController";
-    }
+  @Override
+  public String getServletInfo() {
+    return "AnswerController";
+  }
 
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action answerAction = this.answerFactory.createAction(action);
-        String page = answerAction.execute(request, response);
-        this.dispatch(request, response, page);
-    }
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action answerAction = this.answerFactory.createAction(action);
+    String page = answerAction.execute(request, response);
+    this.dispatch(request, response, page);
+  }
 
 }

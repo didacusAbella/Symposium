@@ -1,4 +1,3 @@
-
 package it.blackhat.symposium.actions.question;
 
 import it.blackhat.symposium.actions.Action;
@@ -20,37 +19,37 @@ import javax.sql.DataSource;
  */
 public class ShowQuestionAction extends CompositeAction {
 
-    private QuestionManager questionManager;
-    private final Log showQuestionActionLog = LogFactory.getLog(ShowQuestionAction.class);
+  private QuestionManager questionManager;
+  private final Log showQuestionActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
-    /**
-     * Calls a list of actions and initializes a new Question Manager
-     *
-     * @param actions the list of actions
-     */
-    public ShowQuestionAction(DataSource ds, Action... actions) {
-        super(actions);
-        this.questionManager = new QuestionModelManager(ds);
+  /**
+   * Calls a list of actions and initializes a new Question Manager
+   *
+   * @param actions the list of actions
+   */
+  public ShowQuestionAction(DataSource ds, Action... actions) {
+    super(actions);
+    this.questionManager = new QuestionModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      super.execute(req, res);
+      String questionId = req.getParameter("questionId");
+      int questionIdInt = Integer.parseInt(questionId);
+
+      Optional<Question> question = questionManager.findQuestion(questionIdInt);
+      if (question.isPresent()) {
+        req.setAttribute("question", question.get());
+        return "/question.jsp";
+      } else {
+        return "/error400.jsp";
+      }
+    } catch (SQLException e) {
+      showQuestionActionLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
-
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            super.execute(req, res);
-            String questionId = req.getParameter("questionId");
-            int questionIdInt = Integer.parseInt(questionId);
-
-            Optional<Question> question = questionManager.findQuestion(questionIdInt);
-            if (question.isPresent()) {
-                req.setAttribute("question", question.get());
-                return "/question.jsp";
-            } else
-                return "/error400.jsp";
-        } catch (SQLException e) {
-            showQuestionActionLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
-    }
-
+  }
 
 }

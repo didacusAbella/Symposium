@@ -12,28 +12,29 @@ import java.io.IOException;
 
 /**
  * Servlet implementation class GuestController
+ *
  * @author Symposium Group
  */
 @WebServlet(name = "GuestController", urlPatterns = {"/GuestController"})
 public class GuestController extends DispatcherController {
-    private static final long serialVersionUID = 1L;
-    private GuestActionFactory gaf;
 
+  private static final long serialVersionUID = 1L;
+  private GuestActionFactory gaf;
 
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        this.gaf = new GuestActionFactory(this.ds);
-    }
+  @Override
+  public void init() throws ServletException {
+    super.init();
+    this.gaf = new GuestActionFactory(this.ds);
+  }
 
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action guestAction = this.gaf.createAction(action);
-        String page = guestAction.execute(request, response);
-        this.dispatch(request, response, page);
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action guestAction = this.gaf.createAction(action);
+    String page = guestAction.execute(request, response);
+    this.dispatch(request, response, page);
 
-    }
+  }
 
 }

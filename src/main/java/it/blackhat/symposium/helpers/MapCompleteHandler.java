@@ -12,13 +12,13 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class MapCompleteHandler implements ResultSetHandler<Map<String, Integer>> {
 
-    @Override
-    public Map<String, Integer> handle(ResultSet rs) throws SQLException {
-        Map<String, Integer> tagMap = new HashMap<>();
-        while (rs.next()) {
-            tagMap.put(rs.getString("name"), rs.getInt("uses"));
-        }
-        return tagMap;
+  @Override
+  public Map<String, Integer> handle(ResultSet rs) throws SQLException {
+    Map<String, Integer> tagMap = new HashMap<>();
+    while (rs.next()) {
+      tagMap.put(rs.getString("name"), rs.getInt("uses"));
     }
+    return tagMap;
+  }
 
 }

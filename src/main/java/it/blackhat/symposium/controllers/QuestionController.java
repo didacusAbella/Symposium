@@ -13,32 +13,33 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * The class handles requests for actions concerning the question
+ *
  * @author 2Deimos
  */
-@WebServlet(name = "QuestionController", 
+@WebServlet(name = "QuestionController",
         urlPatterns = {"/user/QuestionController", "/admin/QuestionController"})
 public class QuestionController extends DispatcherController {
 
-    private ActionFactory questionFactory;
+  private ActionFactory questionFactory;
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        this.questionFactory = new QuestionActionFactory(this.ds);
-    }
+  @Override
+  public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+    this.questionFactory = new QuestionActionFactory(this.ds);
+  }
 
-    @Override
-    public String getServletInfo() {
-        return "QuestionController";
-    }
+  @Override
+  public String getServletInfo() {
+    return "QuestionController";
+  }
 
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action questionAction = this.questionFactory.createAction(action);
-        String page = questionAction.execute(request, response);
-        this.dispatch(request, response, page);
-    }
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action questionAction = this.questionFactory.createAction(action);
+    String page = questionAction.execute(request, response);
+    this.dispatch(request, response, page);
+  }
 
 }

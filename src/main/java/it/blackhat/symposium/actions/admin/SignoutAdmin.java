@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SignoutAdmin implements Action {
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        req.getSession().removeAttribute("admin");
-        return "/index.jsp";
-    }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    req.getSession().removeAttribute("admin");
+    return "/index.jsp";
+  }
 
 }

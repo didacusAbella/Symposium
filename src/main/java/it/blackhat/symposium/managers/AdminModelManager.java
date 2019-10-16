@@ -11,34 +11,27 @@ import java.util.Optional;
 import static it.blackhat.symposium.queries.AdminQuery.SIGN_IN;
 import javax.sql.DataSource;
 
-
 /**
  * @author SDelPiano
  */
 public class AdminModelManager extends ConnectionManager implements AdminManager {
 
-    /**
-     * Create a default AdminManager
-     */
-    public AdminModelManager() {
-        super();
-    }
+  /**
+   * Create an AdminManager with specified DataSource
+   *
+   * @param ds the DataSource
+   */
+  public AdminModelManager(DataSource ds) {
+    super(ds);
+  }
 
-    /**
-     * Create an AdminManager with specified DataSource
-     * @param ds the DataSource
-     */
-    public AdminModelManager(DataSource ds) {
-        super(ds);
-    }
-
-    @Override
-    public Optional<Admin> findAdmin(String username, String password)
-            throws SQLException {
-        QueryRunner findQuery = new QueryRunner(this.dataSource);
-        System.out.println("Username " + username + " Password " + password);
-        Admin foundAdmin = findQuery.query(SIGN_IN,
-                new BeanHandler<>(AdminModel.class), username, password);
-        return Optional.ofNullable(foundAdmin);
-    }
+  @Override
+  public Optional<Admin> findAdmin(String username, String password)
+          throws SQLException {
+    QueryRunner findQuery = new QueryRunner(this.dataSource);
+    System.out.println("Username " + username + " Password " + password);
+    Admin foundAdmin = findQuery.query(SIGN_IN,
+            new BeanHandler<>(AdminModel.class), username, password);
+    return Optional.ofNullable(foundAdmin);
+  }
 }

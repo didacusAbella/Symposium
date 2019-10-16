@@ -8,46 +8,47 @@ package it.blackhat.symposium.models;
  * @since 1.0
  */
 public interface Admin {
-    /**
-     * Retrieve the id of the admin
-     *
-     * @return the id
-     */
-    int getId();
 
-    /**
-     * Change the id of the admin
-     *
-     * @param id the new id
-     */
-    void setId(int id);
+  /**
+   * Retrieve the id of the admin
+   *
+   * @return the id
+   */
+  int getId();
 
-    /**
-     * Retrieve the username of the admin
-     *
-     * @return the username
-     */
-    String getUsername();
+  /**
+   * Change the id of the admin
+   *
+   * @param id the new id
+   */
+  void setId(int id);
 
-    /**
-     * Change the username of the admin
-     *
-     * @param username the new username
-     */
-    void setUsername(String username);
+  /**
+   * Retrieve the username of the admin
+   *
+   * @return the username
+   */
+  String getUsername();
 
-    /**
-     * Retrieve the password of the admin
-     *
-     * @return the password
-     */
-    String getPassword();
+  /**
+   * Change the username of the admin
+   *
+   * @param username the new username
+   */
+  void setUsername(String username);
 
-    /**
-     * Change the password of the admin
-     *
-     * @param password the new password;
-     */
-    void setPassword(String password);
+  /**
+   * Retrieve the password of the admin
+   *
+   * @return the password
+   */
+  String getPassword();
+
+  /**
+   * Change the password of the admin
+   *
+   * @param password the new password;
+   */
+  void setPassword(String password);
 
 }

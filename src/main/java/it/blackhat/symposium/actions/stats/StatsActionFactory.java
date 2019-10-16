@@ -11,23 +11,23 @@ import javax.sql.DataSource;
  * @author SDelPiano
  */
 public class StatsActionFactory implements ActionFactory {
-  
-    private final DataSource ds;
-    
-    public StatsActionFactory(DataSource ds) {
-      this.ds = ds;
-    }
 
-    @Override
-    public Action createAction(String actionType) throws InvalidActionException {
-        switch (actionType) {
-            case "generateStats":
-                return new GenerateStatsAction(this.ds);
-            case "showStats":
-                return new ShowStatsViewAction();
-            default:
-                throw new InvalidActionException("Azione non supportata");
-        }
+  private final DataSource ds;
+
+  public StatsActionFactory(DataSource ds) {
+    this.ds = ds;
+  }
+
+  @Override
+  public Action createAction(String actionType) throws InvalidActionException {
+    switch (actionType) {
+      case "generateStats":
+        return new GenerateStatsAction(this.ds);
+      case "showStats":
+        return new ShowStatsViewAction();
+      default:
+        throw new InvalidActionException("Azione non supportata");
     }
+  }
 
 }

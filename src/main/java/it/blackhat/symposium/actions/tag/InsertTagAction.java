@@ -16,39 +16,38 @@ import javax.sql.DataSource;
 
 /**
  * Inserts a tag in the database
+ *
  * @author Symposium Group
  *
  */
-
 public class InsertTagAction implements Action {
-    private final Log insertTagLog = LogFactory.getLog(InsertTagAction.class);
-    private TagManager tagManager;
 
+  private final Log insertTagLog = LogFactory.getLog(InsertTagAction.class);
+  private final TagManager tagManager;
 
-    /**
-     * Create an action to insert tags
-     */
-    public InsertTagAction(DataSource ds) {
-        super();
-        this.tagManager = new TagModelManager(ds);
+  /**
+   * Create an action to insert tags
+   */
+  public InsertTagAction(DataSource ds) {
+    super();
+    this.tagManager = new TagModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      String[] tags = TagExtractor.extractTag(req);
+      for (String tag : tags) {
+        Tag newTag = new TagModel();
+        newTag.setName(tag);
+        this.tagManager.insertTag(newTag);
+      }
+      return "";
+    } catch (SQLException e) {
+      insertTagLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
 
-
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            String[] tags = TagExtractor.extractTag(req);
-            for (String tag : tags) {
-                Tag newTag = new TagModel();
-                newTag.setName(tag);
-                this.tagManager.insertTag(newTag);
-            }
-            return "";
-        } catch (SQLException e) {
-            insertTagLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
-
-    }
+  }
 
 }

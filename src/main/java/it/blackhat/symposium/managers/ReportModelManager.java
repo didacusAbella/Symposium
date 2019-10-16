@@ -18,44 +18,37 @@ import static it.blackhat.symposium.queries.ReportQuery.*;
  */
 public class ReportModelManager extends ConnectionManager implements ReportManager {
 
-    /**
-     * Create a ReportManager with specified DataSource
-     * @param ds the DataSource
-     */
-    public ReportModelManager(DataSource ds) {
-        super(ds);
-    }
+  /**
+   * Create a ReportManager with specified DataSource
+   *
+   * @param ds the DataSource
+   */
+  public ReportModelManager(DataSource ds) {
+    super(ds);
+  }
 
-    /**
-     * 
-     * Create a default ReportManager
-     */
-    public ReportModelManager() {
-        super();
-    }
-    
-    @Override
-    public int insertReport(Report report, Question question) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        run.update(INSERT_REPORT, report.getCategory(), report.getReason(),
-                report.getYear(), question.getId(), question.getUserFk());
-        int upd = run.update(UPDATE_QUESTION_REPORT, question.getId());
-        return upd;
-    }
+  @Override
+  public int insertReport(Report report, Question question) throws SQLException {
+    QueryRunner run = new QueryRunner(this.dataSource);
+    run.update(INSERT_REPORT, report.getCategory(), report.getReason(),
+            report.getYear(), question.getId(), question.getUserFk());
+    int upd = run.update(UPDATE_QUESTION_REPORT, question.getId());
+    return upd;
+  }
 
-    @Override
-    public List<Report> retrieveReport(int questionFk) throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        ResultSetHandler<List<Report>> j = new BeanListHandler<>(ReportModel.class);
-        List<Report> report = run.query(TAKE_REPORT, j, questionFk);
-        return report;
-    }
+  @Override
+  public List<Report> retrieveReport(int questionFk) throws SQLException {
+    QueryRunner run = new QueryRunner(this.dataSource);
+    ResultSetHandler<List<Report>> j = new BeanListHandler<>(ReportModel.class);
+    List<Report> report = run.query(TAKE_REPORT, j, questionFk);
+    return report;
+  }
 
-    @Override
-    public List<Report> retrieveAllReports() throws SQLException {
-        QueryRunner run = new QueryRunner(this.dataSource);
-        ResultSetHandler<List<Report>> j = new BeanListHandler<>(ReportModel.class);
-        List<Report> report = run.query(GET_ALL_REPORTS, j);
-        return report;
-    }
+  @Override
+  public List<Report> retrieveAllReports() throws SQLException {
+    QueryRunner run = new QueryRunner(this.dataSource);
+    ResultSetHandler<List<Report>> j = new BeanListHandler<>(ReportModel.class);
+    List<Report> report = run.query(GET_ALL_REPORTS, j);
+    return report;
+  }
 }

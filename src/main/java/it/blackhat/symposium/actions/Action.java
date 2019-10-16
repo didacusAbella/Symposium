@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 public interface Action {
 
-    /**
-     * Execute the Action based on http request and response
-     * @param req the request
-     * @param res the response
-     * @return the jsp page to redirect the user
-     */
-    String execute(HttpServletRequest req, HttpServletResponse res);
+  /**
+   * Execute the Action based on http request and response
+   *
+   * @param req the request
+   * @param res the response
+   * @return the jsp page to redirect the user
+   */
+  String execute(HttpServletRequest req, HttpServletResponse res);
 }

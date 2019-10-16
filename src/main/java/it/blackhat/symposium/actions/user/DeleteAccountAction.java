@@ -17,28 +17,28 @@ import org.apache.commons.logging.LogFactory;
  * @author Parrilli Carminantonio
  */
 public class DeleteAccountAction implements Action {
-    
-    private UserManager userManager;
-    private final Log deleteAccountLog = LogFactory.getLog(DeleteAccountAction.class);
 
-    /**
-     * Initialize an UserModelManager
-     */
-    public DeleteAccountAction(DataSource ds) {
-        super();
-        userManager = new UserModelManager(ds);
-    }
+  private final UserManager userManager;
+  private final Log deleteAccountLog = LogFactory.getLog(DeleteAccountAction.class);
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            User user = (User) req.getSession().getAttribute("user");
-            userManager.deleteAccount(user);
-            req.getSession().removeAttribute("user");
-            return "/index.jsp";
-        } catch (SQLException ex) {
-            deleteAccountLog.error("Errore Interno", ex);
-            return "/error500.jsp";
-        }
+  /**
+   * Initialize an UserModelManager
+   */
+  public DeleteAccountAction(DataSource ds) {
+    super();
+    userManager = new UserModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      User user = (User) req.getSession().getAttribute("user");
+      userManager.deleteAccount(user);
+      req.getSession().removeAttribute("user");
+      return "/index.jsp";
+    } catch (SQLException ex) {
+      deleteAccountLog.error("Errore Interno", ex);
+      return "/error500.jsp";
     }
+  }
 }

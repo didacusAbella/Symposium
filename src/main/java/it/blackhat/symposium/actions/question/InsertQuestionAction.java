@@ -1,6 +1,5 @@
 package it.blackhat.symposium.actions.question;
 
-
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.CompositeAction;
 import it.blackhat.symposium.helpers.BeanValidator;
@@ -28,49 +27,49 @@ import javax.sql.DataSource;
  * @author Gozzetto
  */
 public class InsertQuestionAction extends CompositeAction {
-    private final Log insertQustionLog = LogFactory.getLog(InsertQuestionAction.class);
-    private QuestionManager questionManager;
 
+  private final Log insertQustionLog = LogFactory.getLog(InsertQuestionAction.class);
+  private final QuestionManager questionManager;
 
-    /**
-     * Create a new insert action
-     *
-     * @param actions other actions to execute
-     */
-    public InsertQuestionAction(DataSource ds, Action... actions) {
-        super(actions);
-        this.questionManager = new QuestionModelManager();
-    }
+  /**
+   * Create a new insert action
+   *
+   * @param actions other actions to execute
+   */
+  public InsertQuestionAction(DataSource ds, Action... actions) {
+    super(actions);
+    this.questionManager = new QuestionModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            Question newQuestion = new QuestionModel();
-            BeanUtils.populate(newQuestion, req.getParameterMap());
-            newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));
-            newQuestion.setLastUpdate(new Date(Calendar.getInstance().getTime().getTime()));
-            UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
-            newQuestion.setUserFk(currentUser.getEmail());
-            if (BeanValidator.validateBean(newQuestion)) {
-                int idQuestion = this.questionManager.insertQuestion(newQuestion);
-                super.execute(req, res);
-                String[] tagList = TagExtractor.extractTag(req);
-                for (String tag : tagList) {
-                    this.questionManager.insertQuestionTag(idQuestion, tag);
-                }
-                return "/index.jsp";
-            } else {
-                return "/error400.jsp";
-            }
-        } catch (IllegalAccessException e) {
-            this.insertQustionLog.error("Accesso Illegale", e);
-            return "/error500.jsp";
-        } catch (InvocationTargetException e) {
-            this.insertQustionLog.error("Invocazione metodo sbagliata", e);
-            return "/error500.jsp";
-        } catch (SQLException e) {
-            this.insertQustionLog.error("Errore interno", e);
-            return "/error500.jsp";
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      Question newQuestion = new QuestionModel();
+      BeanUtils.populate(newQuestion, req.getParameterMap());
+      newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));
+      newQuestion.setLastUpdate(new Date(Calendar.getInstance().getTime().getTime()));
+      UserModel currentUser = (UserModel) req.getSession().getAttribute("user");
+      newQuestion.setUserFk(currentUser.getEmail());
+      if (BeanValidator.validateBean(newQuestion)) {
+        int idQuestion = this.questionManager.insertQuestion(newQuestion);
+        super.execute(req, res);
+        String[] tagList = TagExtractor.extractTag(req);
+        for (String tag : tagList) {
+          this.questionManager.insertQuestionTag(idQuestion, tag);
         }
+        return "/index.jsp";
+      } else {
+        return "/error400.jsp";
+      }
+    } catch (IllegalAccessException e) {
+      this.insertQustionLog.error("Accesso Illegale", e);
+      return "/error500.jsp";
+    } catch (InvocationTargetException e) {
+      this.insertQustionLog.error("Invocazione metodo sbagliata", e);
+      return "/error500.jsp";
+    } catch (SQLException e) {
+      this.insertQustionLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
+  }
 }

@@ -1,6 +1,5 @@
 package it.blackhat.symposium.actions.answer;
 
-
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
@@ -18,28 +17,29 @@ import javax.sql.DataSource;
  * @author 2Deimos
  */
 public class ChooseBestAnswerAction implements Action {
-    private AnswerManager answerManager;
-    private final Log chooseBestAnswerLog = LogFactory.getLog(ChooseBestAnswerAction.class);
 
-    /**
-     * Initialize a new Answer Manager
-     */
-    public ChooseBestAnswerAction(DataSource ds) {
-        super();
-        this.answerManager = new AnswerModelManager(ds);
-    }
+  private AnswerManager answerManager;
+  private final Log chooseBestAnswerLog = LogFactory.getLog(ChooseBestAnswerAction.class);
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            
-            String idAnswer = req.getParameter("id");
-            int idAnswerInt = Integer.parseInt(idAnswer);
-            answerManager.bestAnswer(idAnswerInt);
-            return "/index.jsp";
-        } catch (SQLException e) {
-            chooseBestAnswerLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
+  /**
+   * Initialize a new Answer Manager
+   */
+  public ChooseBestAnswerAction(DataSource ds) {
+    super();
+    this.answerManager = new AnswerModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+
+      String idAnswer = req.getParameter("id");
+      int idAnswerInt = Integer.parseInt(idAnswer);
+      answerManager.bestAnswer(idAnswerInt);
+      return "/index.jsp";
+    } catch (SQLException e) {
+      chooseBestAnswerLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
+  }
 }

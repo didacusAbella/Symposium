@@ -1,6 +1,5 @@
 package it.blackhat.symposium.actions.answer;
 
-
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.AnswerManager;
 import it.blackhat.symposium.managers.AnswerModelManager;
@@ -14,35 +13,35 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.sql.DataSource;
 
-
 /**
  * Describes the insert answer action by the user
  *
  * @author 2Deimos
  */
 public class RetrieveQuestionAnswersAction implements Action {
-    private AnswerManager answerManager;
-    private final Log retrieveAnswersLog = LogFactory.getLog(RetrieveQuestionAnswersAction.class);
 
-    /**
-     * Initializes a Answer Manager
-     */
-    public RetrieveQuestionAnswersAction(DataSource ds) {
-        super();
-        this.answerManager = new AnswerModelManager(ds);
-    }
+  private AnswerManager answerManager;
+  private final Log retrieveAnswersLog = LogFactory.getLog(RetrieveQuestionAnswersAction.class);
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            String questionId = req.getParameter("questionId");
-            int questionIdInt = Integer.parseInt(questionId);
-            List<Answer> answers = answerManager.retrieveQuestionAnswers(questionIdInt);
-            req.setAttribute("answers", answers);
-            return "#";
-        } catch (SQLException e) {
-            retrieveAnswersLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
+  /**
+   * Initializes a Answer Manager
+   */
+  public RetrieveQuestionAnswersAction(DataSource ds) {
+    super();
+    this.answerManager = new AnswerModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      String questionId = req.getParameter("questionId");
+      int questionIdInt = Integer.parseInt(questionId);
+      List<Answer> answers = answerManager.retrieveQuestionAnswers(questionIdInt);
+      req.setAttribute("answers", answers);
+      return "#";
+    } catch (SQLException e) {
+      retrieveAnswersLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
+  }
 }

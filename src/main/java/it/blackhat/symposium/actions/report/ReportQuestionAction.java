@@ -24,42 +24,42 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ReportQuestionAction implements Action {
 
-    private QuestionManager questionManager;
-    private ReportManager reportManager;
-    private final Log reportQuestionActionLog = LogFactory.getLog(ReportQuestionAction.class);
+  private QuestionManager questionManager;
+  private ReportManager reportManager;
+  private final Log reportQuestionActionLog = LogFactory.getLog(ReportQuestionAction.class);
 
-    /**
-     * The constructor of the class
-     */
-    public ReportQuestionAction(DataSource ds) {
-        super();
-        this.questionManager = new QuestionModelManager(ds);
-        this.reportManager = new ReportModelManager(ds);
-    }
+  /**
+   * The constructor of the class
+   */
+  public ReportQuestionAction(DataSource ds) {
+    super();
+    this.questionManager = new QuestionModelManager(ds);
+    this.reportManager = new ReportModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            String category = req.getParameter("category");
-            String reason = req.getParameter("reason");
-            int year = Calendar.getInstance().get(Calendar.YEAR);
-            int questionId = Integer.parseInt(req.getParameter("questionId"));
-            Optional<Question> found = questionManager.findQuestion(questionId);
-            if (found.isPresent()) {
-                Question question = found.get();
-                Report report = new ReportModel();
-                report.setCategory(category);
-                report.setReason(reason);
-                report.setYear(year);
-                reportManager.insertReport(report, question);
-                return "/index.jsp";
-            } else {
-                return "/error400.jsp";
-            }
-        } catch (SQLException e) {
-            reportQuestionActionLog.error("Errore interno", e);
-            return "/error500.jsp";
-        }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+      String category = req.getParameter("category");
+      String reason = req.getParameter("reason");
+      int year = Calendar.getInstance().get(Calendar.YEAR);
+      int questionId = Integer.parseInt(req.getParameter("questionId"));
+      Optional<Question> found = questionManager.findQuestion(questionId);
+      if (found.isPresent()) {
+        Question question = found.get();
+        Report report = new ReportModel();
+        report.setCategory(category);
+        report.setReason(reason);
+        report.setYear(year);
+        reportManager.insertReport(report, question);
+        return "/index.jsp";
+      } else {
+        return "/error400.jsp";
+      }
+    } catch (SQLException e) {
+      reportQuestionActionLog.error("Errore interno", e);
+      return "/error500.jsp";
     }
+  }
 
 }

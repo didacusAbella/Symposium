@@ -11,37 +11,38 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *Changes a tag from the database
+ * Changes a tag from the database
+ *
  * @author Giuseppe Madonna
  */
 public class ChangeTagAction implements Action {
 
-    private TagManager tags ;
-    private final Log changeTagLog = LogFactory.getLog(ChangeTagAction.class);
-    /**
-     * Class Constructor
-     */
-    public ChangeTagAction(DataSource ds) {
-        super();
-        this.tags = new TagModelManager(ds);
+  private final TagManager tags;
+  private final Log changeTagLog = LogFactory.getLog(ChangeTagAction.class);
+
+  /**
+   * Class Constructor
+   */
+  public ChangeTagAction(DataSource ds) {
+    super();
+    this.tags = new TagModelManager(ds);
+  }
+
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+
+    try {
+      String[] tagnames = req.getParameterValues("tag");
+      String questionIdentificativo = req.getParameter("questionId");
+      int questionId = Integer.parseInt(questionIdentificativo);
+      String[] tagids = req.getParameterValues("tagId");
+      for (int i = 0; i < tagids.length; i++) {
+        tags.updateTag(tagnames[i], questionId, Integer.parseInt(tagids[i]));
+      }
+      return "/index.jsp";
+    } catch (SQLException e) {
+      changeTagLog.error("Errore Interno", e);
+      return "/error500.jsp";
     }
-    
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        
-        try {
-            String[] tagnames = req.getParameterValues("tag");
-            String questionIdentificativo = req.getParameter("questionId");
-            int questionId = Integer.parseInt(questionIdentificativo);
-            String[] tagids = req.getParameterValues("tagId");
-            for(int i = 0; i < tagids.length; i++){
-                tags.updateTag(tagnames[i], questionId, Integer.parseInt(tagids[i]));
-            }
-            return "/index.jsp"; 
-        }
-        catch (SQLException e) {
-            changeTagLog.error("Errore Interno", e);
-            return "/error500.jsp";
-        }
-    } 
+  }
 }

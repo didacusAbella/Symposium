@@ -20,35 +20,35 @@ import javax.sql.DataSource;
 
 public class ShowMyQuestion implements Action {
 
-    private QuestionManager questionManager;
-    private TagManager tagManager;
-    private final Log showQuestionLog = LogFactory.getLog(ShowQuestionsAction.class);
+  private final QuestionManager questionManager;
+  private final TagManager tagManager;
+  private final Log showQuestionLog = LogFactory.getLog(ShowQuestionsAction.class);
 
-    /**
-     * Action that show user's questions
-     */
-    public ShowMyQuestion(DataSource ds) {
-        super();
-        this.questionManager = new QuestionModelManager();
-        this.tagManager = new TagModelManager();
-    }
+  /**
+   * Action that show user's questions
+   */
+  public ShowMyQuestion(DataSource ds) {
+    super();
+    this.questionManager = new QuestionModelManager(ds);
+    this.tagManager = new TagModelManager(ds);
+  }
 
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse res) {
-        try {
-            
-            User user = (User) req.getSession().getAttribute("user");
-            List<Question> questions = questionManager.showQuestionsByAuthor(user.getEmail());
-            List<QuestionTag> questionTag = new ArrayList<>();
-            for (Question question : questions) {
-                List<Tag> tags = this.tagManager.retrieveQuestionTags(question.getId());
-                questionTag.add(new QuestionTag(question, tags));
-            }
-            req.setAttribute("questionTags", questionTag);
-            return "/allQuestions.jsp";
-        } catch (SQLException e) {
-            showQuestionLog.error("Errore Interno", e);
-            return "/error500.jsp";
-        }
+  @Override
+  public String execute(HttpServletRequest req, HttpServletResponse res) {
+    try {
+
+      User user = (User) req.getSession().getAttribute("user");
+      List<Question> questions = questionManager.showQuestionsByAuthor(user.getEmail());
+      List<QuestionTag> questionTag = new ArrayList<>();
+      for (Question question : questions) {
+        List<Tag> tags = this.tagManager.retrieveQuestionTags(question.getId());
+        questionTag.add(new QuestionTag(question, tags));
+      }
+      req.setAttribute("questionTags", questionTag);
+      return "/allQuestions.jsp";
+    } catch (SQLException e) {
+      showQuestionLog.error("Errore Interno", e);
+      return "/error500.jsp";
     }
+  }
 }

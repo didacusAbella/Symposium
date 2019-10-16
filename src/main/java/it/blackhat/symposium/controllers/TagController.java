@@ -15,31 +15,30 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Giuseppe Madonna
  */
-
-@WebServlet(name = "TagController", 
+@WebServlet(name = "TagController",
         urlPatterns = {"/user/TagController", "/admin/TagController"})
 public class TagController extends DispatcherController {
 
-    private ActionFactory tagFactory;
-    
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        this.tagFactory = new TagActionFactory(this.ds);
-    }
-    
-    @Override
-    public String getServletInfo() {
-        return "TagController";
-    }
-    
-    @Override
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InvalidActionException {
-        String action = request.getParameter("action");
-        Action tagAction = this.tagFactory.createAction(action);
-        String page = tagAction.execute(request, response);
-        this.dispatch(request, response, page);
-    }
-    
+  private ActionFactory tagFactory;
+
+  @Override
+  public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+    this.tagFactory = new TagActionFactory(this.ds);
+  }
+
+  @Override
+  public String getServletInfo() {
+    return "TagController";
+  }
+
+  @Override
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException, InvalidActionException {
+    String action = request.getParameter("action");
+    Action tagAction = this.tagFactory.createAction(action);
+    String page = tagAction.execute(request, response);
+    this.dispatch(request, response, page);
+  }
+
 }
