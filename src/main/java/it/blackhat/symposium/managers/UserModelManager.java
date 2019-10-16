@@ -18,9 +18,8 @@ import javax.sql.DataSource;
 public class UserModelManager extends ConnectionManager implements UserManager {
 
   /**
-   * Create a UserManager with a specified DataSource
-   *
-   * @param ds
+   * Create the manager
+   * @param ds the datasource object
    */
   public UserModelManager(DataSource ds) {
     super(ds);

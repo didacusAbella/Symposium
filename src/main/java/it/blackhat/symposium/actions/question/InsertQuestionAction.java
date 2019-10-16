@@ -22,9 +22,7 @@ import java.util.Calendar;
 import javax.sql.DataSource;
 
 /**
- * Describes the insert question action by the user
- *
- * @author Gozzetto
+ * The action adds a question
  */
 public class InsertQuestionAction extends CompositeAction {
 
@@ -32,9 +30,9 @@ public class InsertQuestionAction extends CompositeAction {
   private final QuestionManager questionManager;
 
   /**
-   * Create a new insert action
-   *
-   * @param actions other actions to execute
+   * Create the action
+   * @param ds the datasource object
+   * @param actions the children actions
    */
   public InsertQuestionAction(DataSource ds, Action... actions) {
     super(actions);

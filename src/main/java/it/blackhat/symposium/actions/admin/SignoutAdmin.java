@@ -5,9 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Signout Admin
- *
- * @author Symposium Group
+ * This action logout the admin
  */
 public class SignoutAdmin implements Action {
 

@@ -12,17 +12,16 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * Describes the delete question action by user
- *
- * @author SDelPiano
+ * This action deletes all tags of a question
  */
 public class DeleteQuestionTagAction implements Action {
 
-  private QuestionManager questionManager;
+  private final QuestionManager questionManager;
   private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
 
   /**
-   * Create a constructor for DeleteQuestionTagAction
+   * Create the action
+   * @param ds the dataspurce object
    */
   public DeleteQuestionTagAction(DataSource ds) {
     super();

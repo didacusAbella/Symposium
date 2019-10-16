@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Giuseppe Madonna
+ * This controller handles tag actions
  */
 @WebServlet(name = "TagController",
         urlPatterns = {"/user/TagController", "/admin/TagController"})

@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Symposium Group
+ * This class handle report actions
  */
 @WebServlet(name = "ReportController", urlPatterns = {"/user/ReportController",
   "/admin/ReportController"})

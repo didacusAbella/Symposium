@@ -12,9 +12,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Deletes the account of the user
- *
- * @author Parrilli Carminantonio
+ * This action deletes the user
  */
 public class DeleteAccountAction implements Action {
 
@@ -22,7 +20,8 @@ public class DeleteAccountAction implements Action {
   private final Log deleteAccountLog = LogFactory.getLog(DeleteAccountAction.class);
 
   /**
-   * Initialize an UserModelManager
+   * Create the action
+   * @param ds the datasource object
    */
   public DeleteAccountAction(DataSource ds) {
     super();

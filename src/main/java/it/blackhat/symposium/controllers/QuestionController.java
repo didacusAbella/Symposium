@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * The class handles requests for actions concerning the question
  *
- * @author 2Deimos
  */
 @WebServlet(name = "QuestionController",
         urlPatterns = {"/user/QuestionController", "/admin/QuestionController"})

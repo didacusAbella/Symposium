@@ -18,18 +18,17 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Describes the report question action
- *
- * @author Andrea
+ * This action reports a question to admin
  */
 public class ReportQuestionAction implements Action {
 
-  private QuestionManager questionManager;
-  private ReportManager reportManager;
+  private final QuestionManager questionManager;
+  private final ReportManager reportManager;
   private final Log reportQuestionActionLog = LogFactory.getLog(ReportQuestionAction.class);
 
   /**
    * The constructor of the class
+   * @param ds the datasource object
    */
   public ReportQuestionAction(DataSource ds) {
     super();

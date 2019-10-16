@@ -18,25 +18,21 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * The class return a list of users for an admin
- *
- * @author Parrilli Carminantonio
- * @author Przemyslaw Szopian
+ * This action generate an admin report about platform's usage
  */
 public class GenerateReportListAction implements Action {
 
   private final ReportManager reportManager;
   private final QuestionManager questionManager;
-
   private final Log generateReportListActionLog
           = LogFactory.getLog(GenerateReportListAction.class);
 
-  ;
-    /**
-     * The constructor of the class
-     * @param ds The datasource object
-     */
-    public GenerateReportListAction(DataSource ds) {
+  /**
+   * Create the action
+   *
+   * @param ds The datasource object
+   */
+  public GenerateReportListAction(DataSource ds) {
     this.reportManager = new ReportModelManager(ds);
     this.questionManager = new QuestionModelManager(ds);
   }

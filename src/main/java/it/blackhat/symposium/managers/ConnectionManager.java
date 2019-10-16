@@ -1,4 +1,5 @@
 package it.blackhat.symposium.managers;
+
 import javax.sql.DataSource;
 
 /**
@@ -6,14 +7,14 @@ import javax.sql.DataSource;
  */
 public abstract class ConnectionManager {
 
-    protected DataSource dataSource;
+  protected DataSource dataSource;
 
-    /**
-     * Create a new Connection Manager with specified DaraSource.
-     *
-     * @param ds datasource to pass
-     */
-    public ConnectionManager(DataSource ds) {
-        dataSource = ds;
-    }
+  /**
+   * Create a new Connection Manager with specified DaraSource.
+   *
+   * @param ds datasource to pass
+   */
+  public ConnectionManager(DataSource ds) {
+    dataSource = ds;
+  }
 }

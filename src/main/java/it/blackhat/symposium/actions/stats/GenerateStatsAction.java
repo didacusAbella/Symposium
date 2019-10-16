@@ -18,10 +18,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 /**
- * Generates a report of the site for the admin
- *
- * @author Parrilli Carminantonio
- *
+ * This action generates the statistics for the report
  */
 public class GenerateStatsAction implements Action {
 
@@ -31,7 +28,8 @@ public class GenerateStatsAction implements Action {
   private final TagManager tagModelManager;
 
   /**
-   * The constructor of the class
+   * Create the action
+   * @param ds the datasource object
    */
   public GenerateStatsAction(DataSource ds) {
     super();

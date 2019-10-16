@@ -5,9 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class show editProfile page
- *
- * @author Symposium Group
+ * Show the edit profile page
  */
 public class ShowEditProfileAction implements Action {
 

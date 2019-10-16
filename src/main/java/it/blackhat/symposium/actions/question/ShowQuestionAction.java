@@ -15,16 +15,17 @@ import java.util.Optional;
 import javax.sql.DataSource;
 
 /**
- * @author Gozzetto
+ * This action shows a single question
  */
 public class ShowQuestionAction extends CompositeAction {
 
-  private QuestionManager questionManager;
+  private final QuestionManager questionManager;
   private final Log showQuestionActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
   /**
    * Calls a list of actions and initializes a new Question Manager
    *
+   * @param ds the datasource object
    * @param actions the list of actions
    */
   public ShowQuestionAction(DataSource ds, Action... actions) {

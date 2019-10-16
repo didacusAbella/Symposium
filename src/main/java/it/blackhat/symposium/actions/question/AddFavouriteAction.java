@@ -12,9 +12,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * Add one question to favourites
- *
- * @author Gozzetto
+ * This action add one question to user's favourites
  */
 public class AddFavouriteAction extends CompositeAction {
 
@@ -22,9 +20,9 @@ public class AddFavouriteAction extends CompositeAction {
   private final Log addFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
   /**
-   * Create a new Action for add a question to favourites
-   *
-   * @param actions list of actions
+   * Create the action
+   * @param ds the datasource object
+   * @param actions the list of actions
    */
   public AddFavouriteAction(DataSource ds, Action... actions) {
     super(actions);

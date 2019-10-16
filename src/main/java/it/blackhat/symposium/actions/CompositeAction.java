@@ -6,17 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Composite Action
- *
- * @version 0.1
- * @author 2Deimos
+ * A composite action is a set of action executed in order
  */
 public class CompositeAction implements Action {
 
   private final ArrayList<Action> actions;
 
   /**
-   * Initialize CompositeAction with an array of actions
+   * Initialize CompositeAction with an list of actions
    *
    * @param actions the array of actions
    */

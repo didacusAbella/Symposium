@@ -19,12 +19,8 @@ import java.util.List;
 import javax.sql.DataSource;
 
 /**
- * Shows the questions on the site
- *
- * @author Symposium Group
- *
+ * This actions shows all questions
  */
-
 public class ShowQuestionsAction implements Action {
 
   private final QuestionManager questionManager;
@@ -32,7 +28,8 @@ public class ShowQuestionsAction implements Action {
   private final Log showQuestionLog = LogFactory.getLog(ShowQuestionsAction.class);
 
   /**
-   * Initializes a Question Manager
+   * Create the action
+   * @param ds the datasource object
    */
   public ShowQuestionsAction(DataSource ds) {
     super();

@@ -10,15 +10,16 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- * This class is used to create question related action objects
- *
- * @author 2Deimos
- * @author Gozzetto
+ * Create famility of question action classes
  */
 public class QuestionActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the factory
+   * @param ds the datasource object
+   */
   public QuestionActionFactory(DataSource ds) {
     this.ds = ds;
   }
@@ -27,7 +28,8 @@ public class QuestionActionFactory implements ActionFactory {
   public Action createAction(String actionType) throws InvalidActionException {
     switch (actionType) {
       case "insertQuestion":
-        return new InsertQuestionAction(this.ds, new InsertTagAction(this.ds), new UpdateStatsAction(this.ds));
+        return new InsertQuestionAction(this.ds, new InsertTagAction(this.ds), 
+                new UpdateStatsAction(this.ds));
       case "deleteQuestion":
         return new DeleteQuestionAction(this.ds,
                 new DeleteQuestionTagAction(this.ds));

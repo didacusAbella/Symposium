@@ -14,17 +14,16 @@ import java.util.List;
 import javax.sql.DataSource;
 
 /**
- * Describes the insert answer action by the user
- *
- * @author 2Deimos
+ * This action finds all tags of a question
  */
 public class RetrieveQuestionTagsAction implements Action {
 
-  private TagManager tagManager;
+  private final TagManager tagManager;
   private final Log retrieveQuestionTagsLog = LogFactory.getLog(RetrieveQuestionTagsAction.class);
 
   /**
-   * Initializes a Tag Manager
+   * Create the action
+   * @param ds the datasource object
    */
   public RetrieveQuestionTagsAction(DataSource ds) {
     super();

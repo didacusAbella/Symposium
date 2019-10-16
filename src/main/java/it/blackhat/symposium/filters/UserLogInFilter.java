@@ -10,9 +10,6 @@ import java.io.IOException;
 /**
  * User Filter
  *
- * @author 2Deimos
- * @author GMadness97
- *
  */
 @WebFilter(filterName = "UserLogInFilter", urlPatterns = "/user/*")
 public class UserLogInFilter implements Filter {

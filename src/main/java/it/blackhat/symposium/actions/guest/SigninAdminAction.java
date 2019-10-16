@@ -13,16 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
- * Describes the admin sign in action
- *
- * @author Symposium Group
+ * This action maps the signin admin 
  */
 public class SigninAdminAction implements Action {
 
   private final AdminManager admin;
 
   /**
-   * Find a user in the database and if it can't be found return with null
+   * Create the action
+   * @param ds the datasource object
    */
   public SigninAdminAction(DataSource ds) {
     super();

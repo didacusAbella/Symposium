@@ -10,9 +10,6 @@ import java.io.IOException;
 /**
  * Admin Filter
  *
- * @author 2Deimos
- * @author GMadness97
- *
  */
 @WebFilter(filterName = "AdminLogInFilter", urlPatterns = "/admin/*")
 public class AdminLogInFilter implements Filter {

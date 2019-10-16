@@ -14,17 +14,16 @@ import java.util.List;
 import javax.sql.DataSource;
 
 /**
- * Describes the insert answer action by the user
- *
- * @author 2Deimos
+ * This action map the answers of a specific queestion
  */
 public class RetrieveQuestionAnswersAction implements Action {
 
-  private AnswerManager answerManager;
+  private final AnswerManager answerManager;
   private final Log retrieveAnswersLog = LogFactory.getLog(RetrieveQuestionAnswersAction.class);
 
   /**
-   * Initializes a Answer Manager
+   * Create the action
+   * @param ds the datasource object
    */
   public RetrieveQuestionAnswersAction(DataSource ds) {
     super();

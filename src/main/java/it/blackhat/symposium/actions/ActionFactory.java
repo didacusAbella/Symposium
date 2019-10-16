@@ -3,19 +3,16 @@ package it.blackhat.symposium.actions;
 import it.blackhat.symposium.helpers.InvalidActionException;
 
 /**
- *
- * @author Symposium Group
+ * Interface for creating Action family classes
  */
 public interface ActionFactory {
 
   /**
-   * Create a new action based on the action type. An Action is an end User
-   * Action or an inner action.
+   * Create a new action based on the action type. 
    *
    * @param actionType the action typr
    * @return a new Action
-   * @throws it.blackhat.symposium.helpers.InvalidActionException the invalid
-   * action exception
+   * @throws InvalidActionException the invalid action exception
    */
   Action createAction(String actionType) throws InvalidActionException;
 

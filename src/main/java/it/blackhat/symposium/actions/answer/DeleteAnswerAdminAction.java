@@ -12,17 +12,16 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * Describes the delete answer action by the admin
- *
- * @author Angelo Maffettone
+ * This action maps the deletion of an answer by the admin
  */
 public class DeleteAnswerAdminAction implements Action {
 
-  private AnswerManager answerManager;
+  private final AnswerManager answerManager;
   private final Log deleteAnswerLog = LogFactory.getLog(DeleteAnswerAdminAction.class);
 
   /**
    * Initializes a Answer Manager
+   * @param ds the datasource object
    */
   public DeleteAnswerAdminAction(DataSource ds) {
     super();

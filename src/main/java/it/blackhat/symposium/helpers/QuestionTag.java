@@ -7,7 +7,6 @@ import java.util.List;
 /**
  * Classes for map question and tag
  *
- * @author Symposium Group
  */
 public final class QuestionTag {
 
@@ -37,7 +36,7 @@ public final class QuestionTag {
   /**
    * Set a new Question
    *
-   * @param question
+   * @param question the new question
    */
   public void setQuestion(Question question) {
     this.question = question;

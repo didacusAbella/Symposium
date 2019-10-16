@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 
+/**
+ * This action shows the user's question
+ */
 public class ShowMyQuestion implements Action {
 
   private final QuestionManager questionManager;
@@ -25,7 +28,8 @@ public class ShowMyQuestion implements Action {
   private final Log showQuestionLog = LogFactory.getLog(ShowQuestionsAction.class);
 
   /**
-   * Action that show user's questions
+   * Create the action
+   * @param ds the datasource object
    */
   public ShowMyQuestion(DataSource ds) {
     super();

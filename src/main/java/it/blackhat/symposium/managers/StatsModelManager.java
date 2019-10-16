@@ -23,7 +23,7 @@ public class StatsModelManager extends ConnectionManager implements StatsManager
   /**
    * Create a StatsManager with a specified DataSource
    *
-   * @param ds
+   * @param ds the datasource object
    */
   public StatsModelManager(DataSource ds) {
     super(ds);

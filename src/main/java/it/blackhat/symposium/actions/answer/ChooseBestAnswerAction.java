@@ -12,17 +12,16 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * Describes the choose best answer action by the user
- *
- * @author 2Deimos
+ * This action choose the best answer for a user's question
  */
 public class ChooseBestAnswerAction implements Action {
 
-  private AnswerManager answerManager;
+  private final AnswerManager answerManager;
   private final Log chooseBestAnswerLog = LogFactory.getLog(ChooseBestAnswerAction.class);
 
   /**
-   * Initialize a new Answer Manager
+   * Create the action
+   * @param ds the datasource object
    */
   public ChooseBestAnswerAction(DataSource ds) {
     super();

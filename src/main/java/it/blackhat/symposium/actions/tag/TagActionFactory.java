@@ -6,13 +6,16 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- *
- * @author Symposium Group
+ * Create action for Tag family classes
  */
 public class TagActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the factory
+   * @param ds the datasource object
+   */
   public TagActionFactory(DataSource ds) {
     this.ds = ds;
   }

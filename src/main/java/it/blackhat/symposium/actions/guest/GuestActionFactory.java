@@ -11,14 +11,17 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- * This class is used to create guest action objects
- *
- * @author 2Deimos
+ * Factory for create guest action family classes
+ * @author didacus
  */
 public class GuestActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the factory
+   * @param ds the datasource object
+   */
   public GuestActionFactory(DataSource ds) {
     this.ds = ds;
   }

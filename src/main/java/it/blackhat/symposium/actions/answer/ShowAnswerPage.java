@@ -17,8 +17,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author SymposiumGroup
+ * This action show the answer page form
  */
 public class ShowAnswerPage implements Action {
 
@@ -27,7 +26,8 @@ public class ShowAnswerPage implements Action {
   private final Log showAnswerPageLog = LogFactory.getLog(ShowAnswerPage.class);
 
   /**
-   * Create an action that show the answer page
+   * Create the action
+   * @param ds the datasource object
    */
   public ShowAnswerPage(DataSource ds) {
     super();

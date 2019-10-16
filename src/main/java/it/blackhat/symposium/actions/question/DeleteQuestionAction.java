@@ -13,20 +13,17 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * Describes the delete question action by user
- *
- * @author 2Deimos
- * @author Gozzetto
+ * This action map the deletion of a question
  */
 public class DeleteQuestionAction extends CompositeAction {
 
-  private QuestionManager questionManager;
+  private final QuestionManager questionManager;
   private final Log deleteQuestionLog = LogFactory.getLog(DeleteQuestionAction.class);
 
   /**
-   * Create a constructor for DeleteQuestionAction
-   *
-   * @param actions other actions to execute
+   * Create the action
+   * @param ds the datasource object
+   * @param actions the children actions
    */
   public DeleteQuestionAction(DataSource ds, Action... actions) {
     super(actions);

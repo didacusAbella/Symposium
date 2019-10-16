@@ -5,9 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Describes the user's signout action
- *
- * @author 2Deimos
+ * Signout the user
  */
 public class SignoutAction implements Action {
 

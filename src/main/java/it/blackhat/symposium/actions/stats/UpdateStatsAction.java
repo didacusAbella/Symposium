@@ -14,19 +14,16 @@ import java.time.Year;
 import javax.sql.DataSource;
 
 /**
- * Update the stats in the database
- *
- * @author Symposium Group
- *
+ * This action updates the stat
  */
-
 public class UpdateStatsAction implements Action {
 
-  private StatsManager statsManager;
+  private final StatsManager statsManager;
   private final Log updateStatsLog = LogFactory.getLog(UpdateStatsAction.class);
 
   /**
-   * The constructor of the page
+   * Create the action
+   * @param ds the datasource object
    */
   public UpdateStatsAction(DataSource ds) {
     super();

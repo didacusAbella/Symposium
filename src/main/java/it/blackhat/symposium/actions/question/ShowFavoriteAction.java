@@ -15,16 +15,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author Giuseppe Madonna
+ * This action shows favourite questions
  */
 public class ShowFavoriteAction implements Action {
 
-  private QuestionManager questionManager;
-  private Log showFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
+  private final QuestionManager questionManager;
+  private final Log showFavouriteActionLog = LogFactory.getLog(ShowQuestionAction.class);
 
   /**
-   * Inizialize questionManager
+   * Create the action
+   * @param ds the datasource object
    */
   public ShowFavoriteAction(DataSource ds) {
     super();

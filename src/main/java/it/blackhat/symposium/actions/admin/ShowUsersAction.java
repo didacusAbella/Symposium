@@ -17,22 +17,15 @@ import it.blackhat.symposium.models.User;
 import javax.sql.DataSource;
 
 /**
- * The class return a list of users for an admin
  *
- * @author Parrilli Carminantonio
- * @author Przemyslaw Szopian
+ * This action show all users registered
  */
-
 public class ShowUsersAction implements Action {
 
-  private UserManager user;
+  private final UserManager user;
   private final Log showUserActionLog = LogFactory.getLog(ShowUsersAction.class);
-
-  ;
-    /**
-     * The constructor of the class
-     */
-    public ShowUsersAction(DataSource ds) {
+  
+  public ShowUsersAction(DataSource ds) {
     this.user = new UserModelManager(ds);
   }
 

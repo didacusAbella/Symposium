@@ -20,11 +20,8 @@ import java.util.Optional;
 import javax.sql.DataSource;
 
 /**
- * Describes the guest's signin action
- *
- * @author 2Deimos
- * @author Parrilli Carminantonio
- * @author SDelPiano
+ * This action maps the signin of a user 
+ * @author didacus
  */
 public class SigninAction implements Action {
 
@@ -32,7 +29,8 @@ public class SigninAction implements Action {
   private final Log signinLog = LogFactory.getLog(SigninAction.class);
 
   /**
-   * Find a user in the database and if it can't be found return with null
+   * Create the action
+   * @param ds the datasource
    */
   public SigninAction(DataSource ds) {
     super();

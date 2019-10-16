@@ -13,6 +13,10 @@ public class AdminActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the admin action factory
+   * @param ds the datasource object
+   */
   public AdminActionFactory(DataSource ds) {
     this.ds = ds;
   }

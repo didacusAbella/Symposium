@@ -6,14 +6,17 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- * This class is used to create user action objects
- *
- * @author 2Deimos,Przemyslaw Szopian
+ * Factory for create family of user classes
+ * @author didacus
  */
 public class UserActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the factory
+   * @param ds the datasource
+   */
   public UserActionFactory(DataSource ds) {
     this.ds = ds;
   }

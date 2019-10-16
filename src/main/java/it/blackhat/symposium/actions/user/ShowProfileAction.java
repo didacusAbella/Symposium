@@ -5,8 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Przemyslaw Szopian
+ * Show the profile page
  */
 public class ShowProfileAction implements Action {
 

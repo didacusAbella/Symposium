@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Symposium Group
+ * This controller handles stats actions
  */
 @WebServlet(name = "StatsController",
         urlPatterns = {"/admin/StatsController"})

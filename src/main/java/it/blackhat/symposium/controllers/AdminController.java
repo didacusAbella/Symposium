@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * The class handles requests for actions concerning the admin
  *
- * @author Symposium Group
  */
 @WebServlet(name = "AdminController", urlPatterns = {"/admin/AdminController"})
 public class AdminController extends DispatcherController {

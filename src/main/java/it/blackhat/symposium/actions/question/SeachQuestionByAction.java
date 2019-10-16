@@ -19,8 +19,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- *
- * @author Giuseppe Madonna
+ * Search question by tags or content
  */
 public class SeachQuestionByAction implements Action {
 
@@ -30,7 +29,8 @@ public class SeachQuestionByAction implements Action {
   private final Log searchQuestionByLog = LogFactory.getLog(SeachQuestionByAction.class);
 
   /**
-   * Costructor of SeachQuestionsByAction
+   * Create the action
+   * @param ds the datasource object
    */
   public SeachQuestionByAction(DataSource ds) {
     super();

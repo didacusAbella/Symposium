@@ -13,20 +13,19 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * The class describes the ban of a user from an admin
- *
- * @author Parrilli Carminantonio
- * @author 2Deimos
+ * This action bans the user
+ * @author didacus
  */
 public class BanAction implements Action {
 
   private Date banForever;
   private Date endBanDate;
-  private UserManager userManager;
+  private final UserManager userManager;
   private final Log banActionLogger = LogFactory.getLog(BanAction.class);
 
   /**
-   * The costructor of the class
+   * Create the action
+   * @param ds the datasource object
    */
   public BanAction(DataSource ds) {
     super();
@@ -41,7 +40,6 @@ public class BanAction implements Action {
       this.endBanDate = new Date(todayDate.getTimeInMillis());
       todayDate.add(Calendar.YEAR, 100);
       this.banForever = new Date(todayDate.getTimeInMillis());
-      System.out.println("Data: " + endBanDate);
       String emailUser = req.getParameter("email");
       boolean typeBan = Boolean.parseBoolean(req.getParameter("typeBan"));
 

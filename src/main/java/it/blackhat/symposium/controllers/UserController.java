@@ -14,7 +14,6 @@ import java.io.IOException;
 /**
  * The class handles requests for actions concerning the user
  *
- * @author 2Deimos
  */
 @WebServlet(name = "UserController",
         urlPatterns = {"/user/UserController", "/admin/UserController"})

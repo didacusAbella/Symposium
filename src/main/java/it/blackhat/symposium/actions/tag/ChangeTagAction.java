@@ -11,9 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Changes a tag from the database
- *
- * @author Giuseppe Madonna
+ * This action update the tags
  */
 public class ChangeTagAction implements Action {
 
@@ -21,7 +19,8 @@ public class ChangeTagAction implements Action {
   private final Log changeTagLog = LogFactory.getLog(ChangeTagAction.class);
 
   /**
-   * Class Constructor
+   * Create the action
+   * @param ds the datasource object
    */
   public ChangeTagAction(DataSource ds) {
     super();

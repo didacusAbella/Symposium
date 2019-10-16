@@ -20,18 +20,16 @@ import java.util.Optional;
 import javax.sql.DataSource;
 
 /**
- * Describes the guest's signup action
- *
- * @author Parrilli Carminantonio
- * @author 2Deimos
+ * This action map the signup of the user
  */
 public class SignupAction implements Action {
 
   private final UserManager user;
-  private Log signUpLog = LogFactory.getLog(SigninAction.class);
+  private final Log signUpLog = LogFactory.getLog(SigninAction.class);
 
   /**
-   * Add another user in the database if not present
+   * Create the action
+   * @param ds the datasource object
    */
   public SignupAction(DataSource ds) {
     super();

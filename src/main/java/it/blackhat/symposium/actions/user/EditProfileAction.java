@@ -18,18 +18,17 @@ import javax.sql.DataSource;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * Describes edit profile action!
- *
- * @author Przemyslaw Szopian
+ * This class edit the user profile
  */
 public class EditProfileAction implements Action {
 
-  private UserManager user;
+  private final UserManager user;
 
   private final Log editProfileLog = LogFactory.getLog(EditProfileAction.class);
 
   /**
-   * Initialize a new User Model Manager
+   * Create the action
+   * @param ds the datasource object
    */
   public EditProfileAction(DataSource ds) {
     super();

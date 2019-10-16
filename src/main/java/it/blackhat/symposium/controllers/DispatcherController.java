@@ -11,6 +11,9 @@ import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+/**
+ * Abstract controller for dispatch actions
+ */
 public abstract class DispatcherController extends HttpServlet {
 
   private static final Log DISPATCH_LOG = LogFactory.getLog(DispatcherController.class);
@@ -39,7 +42,7 @@ public abstract class DispatcherController extends HttpServlet {
    * @param response the response
    * @throws ServletException for servlet handling
    * @throws IOException for io exception
-   * @throws it.blackhat.symposium.helpers.InvalidActionException for invalid
+   * @throws InvalidActionException for invalid
    * action exception
    */
   protected abstract void processRequest(HttpServletRequest request,

@@ -5,9 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Create a new Action to show to QuestionPage
- *
- * @author Symposium Group
+ * This action show the question creation form
  */
 public class ShowNewQuestionAction implements Action {
 

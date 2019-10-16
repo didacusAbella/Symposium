@@ -16,18 +16,16 @@ import java.util.Calendar;
 import javax.sql.DataSource;
 
 /**
- * Describes the insert answer action by the user
- *
- * @author 2Deimos
- * @author Gozzetto
+ * This action map the insetion of an answer by the user
  */
 public class InsertAnswerAction implements Action {
 
-  private AnswerManager answerManager;
+  private final AnswerManager answerManager;
   private final Log addAnswerLog = LogFactory.getLog(InsertAnswerAction.class);
 
   /**
-   * Initializes a Answer Manager
+   * Create the action
+   * @param ds the datasource object
    */
   public InsertAnswerAction(DataSource ds) {
     super();
@@ -44,7 +42,6 @@ public class InsertAnswerAction implements Action {
       answer.setQuestionFk(questionID);
       answer.setContent(req.getParameter("answerContent"));
       answer.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));
-      System.out.println("Risposta " + answer);
       if (BeanValidator.validateBean(answer)) {
         answerManager.insertAnswer(answer);
         return "/index.jsp";

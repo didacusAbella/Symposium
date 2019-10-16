@@ -6,14 +6,17 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- * Factory for create StatsAction
- *
- * @author SDelPiano
+ * Create actions for family stats classes
+ * @author didacus
  */
 public class StatsActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the factory
+   * @param ds the datasource object
+   */
   public StatsActionFactory(DataSource ds) {
     this.ds = ds;
   }

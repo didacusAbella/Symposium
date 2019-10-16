@@ -10,7 +10,7 @@ import java.util.Set;
 
 /**
  *
- * @author Angelo Maffettone This class hadle bean validation
+ * Handle bean validation
  */
 public class BeanValidator {
 

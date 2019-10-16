@@ -6,13 +6,16 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- *
- * @author Symposium Group
+ * Create action of report family classes
  */
 public class ReportActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the factory
+   * @param ds the datasource object
+   */
   public ReportActionFactory(DataSource ds) {
     this.ds = ds;
   }

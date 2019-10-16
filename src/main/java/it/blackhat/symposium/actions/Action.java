@@ -4,8 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Symposium Group
+ * 
+ * An Action map an end User Action or an inner action with some specific 
+ * business code
  */
 public interface Action {
 

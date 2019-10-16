@@ -6,14 +6,17 @@ import it.blackhat.symposium.helpers.InvalidActionException;
 import javax.sql.DataSource;
 
 /**
- * This class is used to create answer related action objects
- *
- * @author 2Deimos
+ * Create answer's actions family classes
+ * @author didacus
  */
 public class AnswerActionFactory implements ActionFactory {
 
   private final DataSource ds;
 
+  /**
+   * Create the Factory
+   * @param ds the datasource object
+   */
   public AnswerActionFactory(DataSource ds) {
     this.ds = ds;
   }

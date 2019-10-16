@@ -15,10 +15,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * Inserts a tag in the database
- *
- * @author Symposium Group
- *
+ * This action add some tags
  */
 public class InsertTagAction implements Action {
 
@@ -26,7 +23,8 @@ public class InsertTagAction implements Action {
   private final TagManager tagManager;
 
   /**
-   * Create an action to insert tags
+   * Create the action
+   * @param ds the datasource object
    */
   public InsertTagAction(DataSource ds) {
     super();

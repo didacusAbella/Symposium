@@ -5,12 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Shows the reports for the admin
- *
- * @author Symposium Group
- *
+ * This action show the report form
  */
-
 public class ShowInsertReportAction implements Action {
 
   @Override
