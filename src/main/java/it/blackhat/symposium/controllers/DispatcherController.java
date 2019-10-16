@@ -2,16 +2,22 @@ package it.blackhat.symposium.controllers;
 
 import it.blackhat.symposium.helpers.InvalidActionException;
 import java.io.IOException;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 public abstract class DispatcherController extends HttpServlet {
     
     private static final Log DISPATCH_LOG = LogFactory.getLog(DispatcherController.class);
+    
+    @Resource(name = "jdbc/SymposiumDB")
+    protected DataSource ds;
+    
 
     /**
      * Dispatch the request to specific page

@@ -10,9 +10,13 @@ import it.blackhat.symposium.actions.question.SeachQuestionByAction;
 import it.blackhat.symposium.actions.question.ShowQuestionAction;
 import it.blackhat.symposium.actions.question.ShowQuestionsAction;
 import it.blackhat.symposium.helpers.InvalidActionException;
+import javax.sql.DataSource;
 import org.junit.Before;
 import org.junit.Test;
 import static junit.framework.TestCase.assertTrue;
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.junit.BeforeClass;
+import org.mockito.Mockito;
 
 /**
  *
@@ -20,10 +24,17 @@ import static junit.framework.TestCase.assertTrue;
  */
 public class GuestActionFactoryTest {
     ActionFactory guestFactory;
+    
+    private static DataSource ds;
+  
+    @BeforeClass
+    public static final void setUpClass(){
+      ds = Mockito.mock(BasicDataSource.class);
+    }
 
     @Before
     public void setUp() {
-        guestFactory = new GuestActionFactory();
+        guestFactory = new GuestActionFactory(ds);
     }
 
 
@@ -65,7 +76,7 @@ public class GuestActionFactoryTest {
 
     @Test(expected = InvalidActionException.class)
     public void createInvalidActionExceptionTest() throws InvalidActionException {
-        new GuestActionFactory().createAction("gianni");
+        new GuestActionFactory(ds).createAction("gianni");
     }
 
 }

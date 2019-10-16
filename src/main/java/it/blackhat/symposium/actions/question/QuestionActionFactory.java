@@ -7,6 +7,7 @@ import it.blackhat.symposium.actions.stats.UpdateStatsAction;
 import it.blackhat.symposium.actions.tag.InsertTagAction;
 import it.blackhat.symposium.actions.tag.RetrieveQuestionTagsAction;
 import it.blackhat.symposium.helpers.InvalidActionException;
+import javax.sql.DataSource;
 
 /**
  * This class is used to create question related action objects
@@ -15,38 +16,43 @@ import it.blackhat.symposium.helpers.InvalidActionException;
  * @author Gozzetto
  */
 public class QuestionActionFactory implements ActionFactory {
+  
+    private final DataSource ds;
+    
+    public QuestionActionFactory(DataSource ds) {
+      this.ds = ds;
+    }
 
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
         switch (actionType) {
             case "insertQuestion":
-                return new InsertQuestionAction(new InsertTagAction(), new UpdateStatsAction());
-
+                return new InsertQuestionAction(this.ds, new InsertTagAction(this.ds), new UpdateStatsAction(this.ds));
             case "deleteQuestion":
-                return new DeleteQuestionAction(
-                        new DeleteQuestionTagAction());
+                return new DeleteQuestionAction(this.ds,
+                        new DeleteQuestionTagAction(this.ds));
 
 
             case "seachQuestionBy":
-                return new SeachQuestionByAction();
+                return new SeachQuestionByAction(this.ds);
 
             case "showQuestion":
-                return new ShowQuestionAction(new RetrieveQuestionAnswersAction(),
-                        new RetrieveQuestionTagsAction());
+                return new ShowQuestionAction(this.ds, new RetrieveQuestionAnswersAction(this.ds),
+                        new RetrieveQuestionTagsAction(this.ds));
             case "showQuestionByAuthor":
-                return new ShowMyQuestion();
+                return new ShowMyQuestion(this.ds);
 
             case "addFavourite":
-                return new AddFavouriteAction(new ShowQuestionAction());
+                return new AddFavouriteAction(this.ds, new ShowQuestionAction(this.ds));
 
             case "showFavorite":
-                return new ShowFavoriteAction();
+                return new ShowFavoriteAction(this.ds);
 
             case "showNewQuestion":
                 return new ShowNewQuestionAction();
 
             case "showQuestions":
-                return new ShowQuestionsAction();
+                return new ShowQuestionsAction(this.ds);
 
             default:
                 throw new InvalidActionException("Azione non supportata");

@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 /**
  * Add one question to favourites
@@ -23,14 +24,14 @@ public class AddFavouriteAction extends CompositeAction {
      * Create a new Action for add a question to favourites
      * @param actions list of actions
      */
-    public AddFavouriteAction(Action... actions) {
+    public AddFavouriteAction(DataSource ds, Action... actions) {
         super(actions);
+        this.questionManager = new QuestionModelManager(ds);
     }
     
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
             String idQuestion = req.getParameter("questionId");
             int idQuestionInt = Integer.parseInt(idQuestion);
             String emailUser = req.getParameter("userEmail");

@@ -20,6 +20,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
+import javax.sql.DataSource;
 
 /**
  * Describes the insert question action by the user
@@ -36,14 +37,14 @@ public class InsertQuestionAction extends CompositeAction {
      *
      * @param actions other actions to execute
      */
-    public InsertQuestionAction(Action... actions) {
+    public InsertQuestionAction(DataSource ds, Action... actions) {
         super(actions);
+        this.questionManager = new QuestionModelManager();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
             Question newQuestion = new QuestionModel();
             BeanUtils.populate(newQuestion, req.getParameterMap());
             newQuestion.setCreationDate(new Date(Calendar.getInstance().getTime().getTime()));

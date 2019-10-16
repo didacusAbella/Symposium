@@ -17,6 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Optional;
+import javax.sql.DataSource;
 
 /**
  * Describes the guest's signup action
@@ -32,18 +33,17 @@ public class SignupAction implements Action {
     /**
      * Add another user in the database if not present
      */
-    public SignupAction() {
+    public SignupAction(DataSource ds) {
         super();
+        this.user = new UserModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
         try {
-            this.user = new UserModelManager();
             UserModel newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
-
             Optional<User> found = user.findEmail(newUser.getEmail());
             if (found.isPresent()) {
                 req.setAttribute("emailErr", "Already Exist");

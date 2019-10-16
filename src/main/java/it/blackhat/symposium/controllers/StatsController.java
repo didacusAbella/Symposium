@@ -23,7 +23,7 @@ public class StatsController extends DispatcherController {
     @Override
     public void init() throws ServletException {
         super.init();
-        this.statsFactory = new StatsActionFactory();
+        this.statsFactory = new StatsActionFactory(this.ds);
     }
 
     @Override

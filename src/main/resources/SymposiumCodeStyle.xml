@@ -12,6 +12,9 @@ Checkstyle configuration that checks the sun coding conventions.
 <module name="Checker">
   <property name="severity" value="warning"/>
   <property name="fileExtensions" value="java, properties, xml"/>
+  <module name="LineLength">
+      <property name="max" value="100"/>
+    </module>
   <module name="TreeWalker">
     <module name="JavadocMethod">
       <property name="allowUndeclaredRTE" value="true"/>
@@ -54,10 +57,6 @@ Checkstyle configuration that checks the sun coding conventions.
     <module name="RedundantImport"/>
     <module name="UnusedImports">
       <property name="processJavadoc" value="false"/>
-    </module>
-    <module name="LineLength">
-      <property name="severity" value="ignore"/>
-      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="MethodLength">
       <property name="severity" value="ignore"/>
@@ -228,9 +227,6 @@ Checkstyle configuration that checks the sun coding conventions.
       <property name="caseIndent" value="4"/>
       <property name="lineWrappingIndentation" value="4"/>
       <property name="throwsIndent" value="4"/>
-    </module>
-    <module name="LineLength">
-      <property name="max" value="100"/>
     </module>
     <module name="NoWhitespaceAfter">
       <property name="tokens" value="ARRAY_INIT,AT,INC,DEC,UNARY_MINUS,UNARY_PLUS,BNOT,LNOT,DOT"/>

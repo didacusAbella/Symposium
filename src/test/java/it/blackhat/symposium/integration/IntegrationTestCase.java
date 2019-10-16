@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 
 public class IntegrationTestCase {
 
-    public static BasicDataSource mockDbDatasource;
+    protected static BasicDataSource mockDbDatasource;
 
     @BeforeClass
     public static void setupDb() throws SQLException, FileNotFoundException {

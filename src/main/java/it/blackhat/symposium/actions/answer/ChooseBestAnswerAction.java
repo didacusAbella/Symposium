@@ -10,6 +10,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 /**
  * Describes the choose best answer action by the user
@@ -23,14 +24,15 @@ public class ChooseBestAnswerAction implements Action {
     /**
      * Initialize a new Answer Manager
      */
-    public ChooseBestAnswerAction() {
+    public ChooseBestAnswerAction(DataSource ds) {
         super();
+        this.answerManager = new AnswerModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.answerManager = new AnswerModelManager();
+            
             String idAnswer = req.getParameter("id");
             int idAnswerInt = Integer.parseInt(idAnswer);
             answerManager.bestAnswer(idAnswerInt);

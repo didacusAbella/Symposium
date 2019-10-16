@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -25,14 +26,14 @@ public class ShowFavoriteAction implements Action {
     /**
      * Inizialize questionManager 
      */
-    public ShowFavoriteAction() {
+    public ShowFavoriteAction(DataSource ds) {
         super();
+        this.questionManager = new QuestionModelManager(ds);
     }
     
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
             User user = new UserModel();
             user = (User) req.getSession().getAttribute("user");
             String userEmail = user.getEmail() ;

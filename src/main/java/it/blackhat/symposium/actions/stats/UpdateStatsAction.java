@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.time.Year;
+import javax.sql.DataSource;
 /**
  * Update the stats in the database
  * @author Symposium Group
@@ -24,14 +25,14 @@ public class UpdateStatsAction implements Action {
     /**
      * The constructor of the page
      */
-    public UpdateStatsAction() {
+    public UpdateStatsAction(DataSource ds) {
         super();
+        this.statsManager = new StatsModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.statsManager = new StatsModelManager();
             String[] tagList = TagExtractor.extractTag(req);
             for (String tag : tagList) {
                 this.statsManager.updateStatsTag(Year.now().getValue(), tag);

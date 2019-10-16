@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 /**
  * Describes the delete question action by user
@@ -23,14 +24,14 @@ public class DeleteQuestionTagAction implements Action {
     /**
      * Create a constructor for DeleteQuestionTagAction
      */
-    public DeleteQuestionTagAction() {
+    public DeleteQuestionTagAction(DataSource ds) {
         super();
+        this.questionManager = new QuestionModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
             int idQuestion = Integer.parseInt(req.getParameter("questionId"));
             questionManager.deleteQuestionTag(idQuestion);
             return "/index.jsp";

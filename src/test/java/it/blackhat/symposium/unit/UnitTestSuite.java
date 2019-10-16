@@ -22,5 +22,5 @@ import org.junit.runners.Suite;
         BeanValidatorTest.class
 })
 public class UnitTestSuite {
-
+  
 }

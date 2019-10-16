@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -27,14 +28,14 @@ public class BanAction implements Action {
     /**
      * The costructor of the class
      */
-    public BanAction() {
+    public BanAction(DataSource ds) {
         super();
+        this.userManager = new UserModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.userManager = new UserModelManager();
             Calendar todayDate = Calendar.getInstance();
             todayDate.add(Calendar.MONTH, 1);
             this.endBanDate = new Date(todayDate.getTimeInMillis());

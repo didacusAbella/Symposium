@@ -14,6 +14,7 @@ import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.managers.UserManager;
 import it.blackhat.symposium.managers.UserModelManager;
 import it.blackhat.symposium.models.User;
+import javax.sql.DataSource;
 /**
  * The class return a list of users for an admin
  * @author Parrilli Carminantonio
@@ -26,14 +27,14 @@ public class ShowUsersAction implements Action {
     /**
      * The constructor of the class
      */
-    public ShowUsersAction() {
-        super();
+    public ShowUsersAction(DataSource ds) {
+        this.user = new UserModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.user = new UserModelManager();
+            
             List<User> listUsers = user.retrieveUsers();
             req.setAttribute("listUsers", listUsers);
             return "/userList.jsp";

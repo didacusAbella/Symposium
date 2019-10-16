@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
+import javax.sql.DataSource;
 
 /**
  * Generates a report of the site for the admin
@@ -34,15 +35,15 @@ public class GenerateStatsAction implements Action {
     /**
      * The constructor of the class
      */
-    public GenerateStatsAction() {
+    public GenerateStatsAction(DataSource ds) {
         super();
+        this.statsModelManager = new StatsModelManager(ds);
+        this.tagModelManager = new TagModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.statsModelManager = new StatsModelManager();
-            this.tagModelManager = new TagModelManager();
             String desideredDate = req.getParameter("year");
             int year = Integer.parseInt(desideredDate);
             int users = statsModelManager.getNumberUsers(year);

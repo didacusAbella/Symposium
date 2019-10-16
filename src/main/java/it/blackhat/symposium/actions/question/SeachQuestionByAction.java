@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -31,15 +32,15 @@ public class SeachQuestionByAction implements Action {
     /**
      * Costructor of SeachQuestionsByAction
      */
-    public SeachQuestionByAction() {
+    public SeachQuestionByAction(DataSource ds) {
         super();
+        this.quest = new QuestionModelManager(ds);
         tags = new ArrayList<>();
         word = new String();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        this.quest = new QuestionModelManager();
         String parameter = req.getParameter("searchBy");
         findTags(parameter);
         List<Question> questions = new ArrayList<>();

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -29,15 +30,15 @@ public class EditProfileAction implements Action {
     /**
      * Initialize a new User Model Manager
      */
-    public EditProfileAction() {
+    public EditProfileAction(DataSource ds) {
         super();
+        this.user = new UserModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
 
         try {
-            this.user = new UserModelManager();
             User newUser = new UserModel();
             BeanUtils.populate(newUser, req.getParameterMap());
             newUser.setPassword(DigestUtils.sha256Hex(req.getParameter("password")));

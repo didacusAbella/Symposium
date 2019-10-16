@@ -24,7 +24,7 @@ public class AnswerController extends DispatcherController {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        this.answerFactory = new AnswerActionFactory();
+        this.answerFactory = new AnswerActionFactory(this.ds);
     }
 
     @Override

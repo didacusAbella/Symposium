@@ -23,7 +23,7 @@ public class AdminController extends DispatcherController {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        this.adminFactory = new AdminActionFactory();
+        this.adminFactory = new AdminActionFactory(this.ds);
     }
 
     @Override

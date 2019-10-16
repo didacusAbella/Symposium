@@ -7,6 +7,7 @@ import it.blackhat.symposium.models.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -23,14 +24,14 @@ public class DeleteAccountAction implements Action {
     /**
      * Initialize an UserModelManager
      */
-    public DeleteAccountAction() {
+    public DeleteAccountAction(DataSource ds) {
         super();
+        userManager = new UserModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            userManager = new UserModelManager();
             User user = (User) req.getSession().getAttribute("user");
             userManager.deleteAccount(user);
             req.getSession().removeAttribute("user");

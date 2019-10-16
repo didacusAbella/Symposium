@@ -10,6 +10,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 /**
  * Describes the delete question action by user
@@ -27,14 +28,14 @@ public class DeleteQuestionAction extends CompositeAction {
      *
      * @param actions other actions to execute
      */
-    public DeleteQuestionAction(Action... actions) {
+    public DeleteQuestionAction(DataSource ds, Action... actions) {
         super(actions);
+        this.questionManager = new QuestionModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
             int idQuestion = Integer.parseInt(req.getParameter("questionId"));
             questionManager.deleteQuestion(idQuestion);
             super.execute(req, res);

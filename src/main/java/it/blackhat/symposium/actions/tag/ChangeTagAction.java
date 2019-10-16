@@ -6,6 +6,7 @@ import it.blackhat.symposium.managers.TagModelManager;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -20,15 +21,15 @@ public class ChangeTagAction implements Action {
     /**
      * Class Constructor
      */
-    public ChangeTagAction() {
+    public ChangeTagAction(DataSource ds) {
         super();
+        this.tags = new TagModelManager(ds);
     }
     
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         
         try {
-            this.tags = new TagModelManager();
             String[] tagnames = req.getParameterValues("tag");
             String questionIdentificativo = req.getParameter("questionId");
             int questionId = Integer.parseInt(questionIdentificativo);

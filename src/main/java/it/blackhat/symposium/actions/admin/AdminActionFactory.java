@@ -3,12 +3,19 @@ package it.blackhat.symposium.actions.admin;
 import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.helpers.InvalidActionException;
+import javax.sql.DataSource;
 
 /**
  *
  * @author Symposium Group
  */
 public class AdminActionFactory implements ActionFactory {
+  
+    private final DataSource ds;
+  
+    public AdminActionFactory(DataSource ds) {
+      this.ds = ds;
+    }
 
     @Override
     public Action createAction(String actionType) throws InvalidActionException {
@@ -16,9 +23,9 @@ public class AdminActionFactory implements ActionFactory {
             case "adminSignout":
                 return new SignoutAdmin();
             case "showUsersAction":
-                return new ShowUsersAction();
+                return new ShowUsersAction(this.ds);
             case "generateReportListAction":
-                return new GenerateReportListAction();
+                return new GenerateReportListAction(this.ds);
             default:
                 throw new InvalidActionException("Azione non supportata");
         }

@@ -4,9 +4,13 @@ import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.answer.*;
 import it.blackhat.symposium.helpers.InvalidActionException;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
+import org.junit.BeforeClass;
+import org.mockito.Mockito;
 
 
 
@@ -15,10 +19,17 @@ import static org.junit.Assert.assertTrue;
  */
 public class AnswerActionFactoryTest {
     ActionFactory answerFactory;
+    
+    private static DataSource ds;
+  
+    @BeforeClass
+    public static final void setUpClass(){
+      ds = Mockito.mock(BasicDataSource.class);
+    }
 
     @Before
     public void setUp() {
-        answerFactory = new AnswerActionFactory();
+        answerFactory = new AnswerActionFactory(ds);
     }
 
     @Test
@@ -48,7 +59,7 @@ public class AnswerActionFactoryTest {
 
     @Test(expected = InvalidActionException.class)
     public void createInvalidActionExceptionTest() throws InvalidActionException {
-        new AnswerActionFactory().createAction("gianni");
+        new AnswerActionFactory(ds).createAction("gianni");
     }
 
 }

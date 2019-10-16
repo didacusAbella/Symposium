@@ -26,7 +26,7 @@ public class UserController extends DispatcherController {
     @Override
     public void init() throws ServletException {
         super.init();
-        this.userFactory = new UserActionFactory();
+        this.userFactory = new UserActionFactory(this.ds);
     }
 
     @Override

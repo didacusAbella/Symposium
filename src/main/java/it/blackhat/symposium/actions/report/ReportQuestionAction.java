@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -30,15 +31,15 @@ public class ReportQuestionAction implements Action {
     /**
      * The constructor of the class
      */
-    public ReportQuestionAction() {
+    public ReportQuestionAction(DataSource ds) {
         super();
+        this.questionManager = new QuestionModelManager(ds);
+        this.reportManager = new ReportModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
-            this.reportManager = new ReportModelManager();
             String category = req.getParameter("category");
             String reason = req.getParameter("reason");
             int year = Calendar.getInstance().get(Calendar.YEAR);

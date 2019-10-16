@@ -10,6 +10,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 /**
  * Describes the delete answer action by the admin
@@ -24,15 +25,16 @@ public class DeleteAnswerAdminAction implements Action {
     /**
      * Initializes a Answer Manager
      */
-    public DeleteAnswerAdminAction() {
+    public DeleteAnswerAdminAction(DataSource ds) {
         super();
+        this.answerManager = new AnswerModelManager(ds);
     }
 
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.answerManager = new AnswerModelManager();
+            
             String idAnswer = req.getParameter("id");
             int idAnswerInt = Integer.parseInt(idAnswer);
             answerManager.removeAnswer(idAnswerInt);

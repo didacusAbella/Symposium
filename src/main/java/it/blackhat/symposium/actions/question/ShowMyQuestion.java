@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.DataSource;
 
 public class ShowMyQuestion implements Action {
 
@@ -26,15 +27,16 @@ public class ShowMyQuestion implements Action {
     /**
      * Action that show user's questions
      */
-    public ShowMyQuestion() {
+    public ShowMyQuestion(DataSource ds) {
         super();
+        this.questionManager = new QuestionModelManager();
+        this.tagManager = new TagModelManager();
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            questionManager = new QuestionModelManager();
-            this.tagManager = new TagModelManager();
+            
             User user = (User) req.getSession().getAttribute("user");
             List<Question> questions = questionManager.showQuestionsByAuthor(user.getEmail());
             List<QuestionTag> questionTag = new ArrayList<>();

@@ -25,7 +25,7 @@ public class TagController extends DispatcherController {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        this.tagFactory = new TagActionFactory();
+        this.tagFactory = new TagActionFactory(this.ds);
     }
     
     @Override

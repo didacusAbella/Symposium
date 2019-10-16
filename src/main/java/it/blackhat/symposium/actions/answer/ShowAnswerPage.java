@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -28,15 +29,15 @@ public class ShowAnswerPage implements Action {
     /**
      * Create an action that show the answer page
      */
-    public ShowAnswerPage() {
+    public ShowAnswerPage(DataSource ds) {
         super();
+        this.questionManager = new QuestionModelManager(ds);
+        this.tagManager = new TagModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
-            this.tagManager = new TagModelManager();
             int questionId = Integer.parseInt(req.getParameter("questionId"));
             Optional<Question> question = this.questionManager.findQuestion(questionId);
             if (question.isPresent()) {

@@ -4,17 +4,28 @@ import it.blackhat.symposium.actions.Action;
 import it.blackhat.symposium.actions.ActionFactory;
 import it.blackhat.symposium.actions.question.*;
 import it.blackhat.symposium.helpers.InvalidActionException;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
+import org.junit.BeforeClass;
+import org.mockito.Mockito;
 
 public class QuestionActionFactoryTest {
     ActionFactory questionFactory;
+    
+    private static DataSource ds;
+  
+    @BeforeClass
+    public static final void setUpClass(){
+      ds = Mockito.mock(BasicDataSource.class);
+    }
 
     @Before
     public void setUp() {
-        questionFactory = new QuestionActionFactory();
+        questionFactory = new QuestionActionFactory(ds);
     }
 
     @Test

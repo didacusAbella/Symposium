@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -35,14 +36,13 @@ public class GenerateReportListAction implements Action {
     /**
      * The constructor of the class
      */
-    public GenerateReportListAction() {
-        
+    public GenerateReportListAction(DataSource ds) {
+        this.reportManager = new ReportModelManager(ds);
+        this.questionManager = new QuestionModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
-        this.reportManager = new ReportModelManager();
-        this.questionManager = new QuestionModelManager();
         try {
             List<Report> listReports = reportManager.retrieveAllReports();
             List<Question> listQuestions = new ArrayList<>();

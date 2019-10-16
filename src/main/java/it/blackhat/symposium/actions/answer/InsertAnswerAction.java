@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
+import javax.sql.DataSource;
 
 
 /**
@@ -29,14 +30,14 @@ public class InsertAnswerAction implements Action {
     /**
      * Initializes a Answer Manager
      */
-    public InsertAnswerAction() {
+    public InsertAnswerAction(DataSource ds) {
         super();
+        this.answerManager = new AnswerModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.answerManager = new AnswerModelManager();
             Answer answer = new AnswerModel();
             User user = (UserModel) req.getSession().getAttribute("user");
             int questionID = Integer.parseInt(req.getParameter("questionID"));

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 /**
  * Describes the admin sign in action
@@ -22,8 +23,9 @@ public class SigninAdminAction implements Action {
     /**
      * Find a user in the database and if it can't be found return with null
      */
-    public SigninAdminAction() {
+    public SigninAdminAction(DataSource ds) {
         super();
+        admin = new AdminModelManager(ds);
     }
 
     @Override
@@ -31,7 +33,7 @@ public class SigninAdminAction implements Action {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         try {
-            admin = new AdminModelManager();
+            
             Optional<Admin> found = admin.findAdmin(username, password);
             if (found.isPresent()) {
                 HttpSession session = req.getSession(true);

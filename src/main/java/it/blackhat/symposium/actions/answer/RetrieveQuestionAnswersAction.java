@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.List;
+import javax.sql.DataSource;
 
 
 /**
@@ -26,14 +27,14 @@ public class RetrieveQuestionAnswersAction implements Action {
     /**
      * Initializes a Answer Manager
      */
-    public RetrieveQuestionAnswersAction() {
+    public RetrieveQuestionAnswersAction(DataSource ds) {
         super();
+        this.answerManager = new AnswerModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.answerManager = new AnswerModelManager();
             String questionId = req.getParameter("questionId");
             int questionIdInt = Integer.parseInt(questionId);
             List<Answer> answers = answerManager.retrieveQuestionAnswers(questionIdInt);

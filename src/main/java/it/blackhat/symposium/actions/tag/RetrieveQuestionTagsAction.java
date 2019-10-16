@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.List;
+import javax.sql.DataSource;
 
 
 /**
@@ -26,14 +27,14 @@ public class RetrieveQuestionTagsAction implements Action {
     /**
      * Initializes a Tag Manager
      */
-    public RetrieveQuestionTagsAction() {
+    public RetrieveQuestionTagsAction(DataSource ds) {
         super();
+        this.tagManager = new TagModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.tagManager = new TagModelManager();
             String questionId = req.getParameter("questionId");
             int questionIdInt = Integer.parseInt(questionId);
             List<Tag> tags = tagManager.retrieveQuestionTags(questionIdInt);

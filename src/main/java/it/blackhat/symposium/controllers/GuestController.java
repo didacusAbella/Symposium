@@ -23,7 +23,7 @@ public class GuestController extends DispatcherController {
     @Override
     public void init() throws ServletException {
         super.init();
-        this.gaf = new GuestActionFactory();
+        this.gaf = new GuestActionFactory(this.ds);
     }
 
     @Override

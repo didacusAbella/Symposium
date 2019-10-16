@@ -12,6 +12,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 /**
  * Inserts a tag in the database
@@ -27,15 +28,15 @@ public class InsertTagAction implements Action {
     /**
      * Create an action to insert tags
      */
-    public InsertTagAction() {
+    public InsertTagAction(DataSource ds) {
         super();
+        this.tagManager = new TagModelManager(ds);
     }
 
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.tagManager = new TagModelManager();
             String[] tags = TagExtractor.extractTag(req);
             for (String tag : tags) {
                 Tag newTag = new TagModel();

@@ -23,7 +23,7 @@ public class ReportController extends DispatcherController {
     @Override
     public void init() throws ServletException {
         super.init(); 
-        this.reportFactory = new ReportActionFactory();
+        this.reportFactory = new ReportActionFactory(this.ds);
     }
 
     

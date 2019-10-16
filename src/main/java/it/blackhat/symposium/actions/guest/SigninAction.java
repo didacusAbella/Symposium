@@ -17,6 +17,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Optional;
+import javax.sql.DataSource;
 
 /**
  * Describes the guest's signin action
@@ -33,14 +34,14 @@ public class SigninAction implements Action {
     /**
      * Find a user in the database and if it can't be found return with null
      */
-    public SigninAction() {
+    public SigninAction(DataSource ds) {
         super();
+        this.user = new UserModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.user = new UserModelManager();
             String email = req.getParameter("email");
             String password = req.getParameter("password");
             password = DigestUtils.sha256Hex(password);

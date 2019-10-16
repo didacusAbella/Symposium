@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.Optional;
+import javax.sql.DataSource;
 
 /**
  * @author Gozzetto
@@ -27,14 +28,14 @@ public class ShowQuestionAction extends CompositeAction {
      *
      * @param actions the list of actions
      */
-    public ShowQuestionAction(Action... actions) {
+    public ShowQuestionAction(DataSource ds, Action... actions) {
         super(actions);
+        this.questionManager = new QuestionModelManager(ds);
     }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) {
         try {
-            this.questionManager = new QuestionModelManager();
             super.execute(req, res);
             String questionId = req.getParameter("questionId");
             int questionIdInt = Integer.parseInt(questionId);
