@@ -11,13 +11,13 @@ import javax.sql.DataSource;
 /**
  * @Rayman
  */
-
 public class ReportModelManagerTest {
-    @Test
-    public void constractorEmpty() {
-        DataSource ds = Mockito.mock(BasicDataSource.class);
-        ReportModelManager testConstrucorReport = new ReportModelManager(ds);
-        Assert.assertTrue(testConstrucorReport instanceof ReportModelManager);
-    }
+
+  @Test
+  public void constractorEmpty() {
+    DataSource ds = Mockito.mock(BasicDataSource.class);
+    ReportModelManager testConstrucorReport = new ReportModelManager(ds);
+    Assert.assertTrue(testConstrucorReport instanceof ReportModelManager);
+  }
 
 }

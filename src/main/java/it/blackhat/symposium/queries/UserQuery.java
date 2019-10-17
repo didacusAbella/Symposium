@@ -5,36 +5,38 @@ package it.blackhat.symposium.queries;
  *
  * @author Symposium Group
  */
-public final class UserQuery {
+public enum UserQuery {
 
+  FIND_EMAIL("SELECT * FROM user WHERE email=?"),
+  
+  SIGN_UP("INSERT INTO user (username, firstName, lastName, email, password, typeGrad,year) "
+          + "VALUES( ? , ? , ? , ? , ? , ?, ?)"),
+  
+  SIGN_IN("SELECT * FROM user WHERE email=? AND password=?"),
+  
+  EDIT_PROFILE("UPDATE user SET username=?, firstName=?, lastName=?, password=?, typeGrad=? "
+          + "WHERE email=?"),
+  
+  DELETE_ACCOUNT("DELETE FROM user WHERE email=?"),
+  
+  TAKE_ALL_USERS("SELECT * FROM user"),
+  
+  BAN("UPDATE user SET banLastDate=? where email=?");
+  
+  
+  private final String query;
+  
   /**
-   * Create an user query object. The constructor is private to not allow the
-   * object to be instantiated.
-   *
-   * @author: SDelPiano
+   * 
+   * @param query the SQL query
    */
-  private UserQuery() {
-    super();
+  private UserQuery(String query) {
+    this.query = query;
   }
 
-  public static final String FIND_EMAIL = "SELECT * FROM user "
-          + "WHERE email=?";
-
-  public static final String SIGN_UP = "INSERT INTO user (username, "
-          + "firstName, lastName, email, password, typeGrad,year) "
-          + "VALUES( ? , ? , ? , ? , ? , ?, ?)";
-
-  public static final String SIGN_IN = "SELECT * FROM user WHERE email=? "
-          + "AND password=?";
-
-  public static final String EDIT_PROFILE = "UPDATE user SET username=?, "
-          + "firstName=?, lastName=?, password=?, typeGrad=? WHERE email=?";
-
-  public static final String DELETE_ACCOUNT = "DELETE FROM user "
-          + "WHERE email=?";
-
-  public static final String TAKE_ALL_USERS = "SELECT * FROM user";
-
-  public static final String BAN = "UPDATE user SET banLastDate=? where email=?";
-
+  @Override
+  public String toString() {
+    return this.query;
+  }
+  
 }

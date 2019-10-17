@@ -30,7 +30,7 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
   @Override
   public int insertAnswer(Answer answer) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int update = run.update(INSERT_ANSWER, answer.getContent(),
+    int update = run.update(INSERT_ANSWER.toString(), answer.getContent(),
             answer.getUserFk(), answer.getQuestionFk(),
             answer.getCreationDate());
     return update;
@@ -39,14 +39,14 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
   @Override
   public int removeAnswer(int id) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int update = run.update(DELETE_ANSWER, id);
+    int update = run.update(DELETE_ANSWER.toString(), id);
     return update;
   }
 
   @Override
   public int bestAnswer(int id) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int update = run.update(BEST_ANSWER, id);
+    int update = run.update(BEST_ANSWER.toString(), id);
     return update;
   }
 
@@ -54,7 +54,7 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
   public List<Answer> retrieveQuestionAnswers(int questionId) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
     ResultSetHandler<List<Answer>> h = new BeanListHandler<>(AnswerModel.class);
-    List<Answer> answers = run.query(TAKE_ANSWERS, h, questionId);
+    List<Answer> answers = run.query(TAKE_ANSWERS.toString(), h, questionId);
     return answers;
   }
 
@@ -62,7 +62,7 @@ public class AnswerModelManager extends ConnectionManager implements AnswerManag
   public List<Answer> retrieveAllQuestionAnswers() throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
     ResultSetHandler<List<Answer>> j = new BeanListHandler<>(AnswerModel.class);
-    List<Answer> answers = run.query(TAKE_ALL_ANSWERS, j);
+    List<Answer> answers = run.query(TAKE_ALL_ANSWERS.toString(), j);
     return answers;
   }
 }

@@ -4,45 +4,45 @@
     Inserite Qui tutte le regole di sovrascrittura delle regole CSS di Foundation se Necessarie
 */
 footer {
-	width:100%;
-	position: fixed;
-	height: 60px;
-	bottom: 0;
+  width:100%;
+  position: fixed;
+  height: 60px;
+  bottom: 0;
 }
 
 footer i {
-	font-size: 32px;
-	
+  font-size: 32px;
+
 }
 
 main {
-	margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 div.tagsinput span.tag {
-    background-color: #1779ba;
-    border-color: #1779ba;
-    color: #ffffff;
+  background-color: #1779ba;
+  border-color: #1779ba;
+  color: #ffffff;
 }
 
 div.tagsinput span.tag a {
-   color: #ffffff; 
+  color: #ffffff; 
 }
 
 #easyPaginate {
-    width: inherit;
+  width: inherit;
 }
 
 .easyPaginateNav {
-    text-align: center;
+  text-align: center;
 }
 
 .easyPaginateNav a {
-    padding:5px;
-    
+  padding:5px;
+
 }
 
 .easyPaginateNav a.current {
-    font-weight:bold;
-    text-decoration:underline;
+  font-weight:bold;
+  text-decoration:underline;
 }

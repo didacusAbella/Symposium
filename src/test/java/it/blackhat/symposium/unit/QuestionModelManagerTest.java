@@ -12,10 +12,10 @@ import static org.junit.Assert.assertTrue;
 
 public class QuestionModelManagerTest {
 
-    @Test
-    public void testQuestionModelManager() {
-        DataSource ds = Mockito.mock(BasicDataSource.class);
-        QuestionManager test = new QuestionModelManager(ds);
-        assertTrue(test instanceof QuestionModelManager);
-    }
+  @Test
+  public void testQuestionModelManager() {
+    DataSource ds = Mockito.mock(BasicDataSource.class);
+    QuestionManager test = new QuestionModelManager(ds);
+    assertTrue(test instanceof QuestionModelManager);
+  }
 }

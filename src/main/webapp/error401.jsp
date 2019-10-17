@@ -9,20 +9,20 @@
 
 
 <sy:layout title="Symposium-Error401">
-    <jsp:body>
-        <div class="grid-x align-center callout">
-        <div class="grid small-12 medium-8 large-8 callout alert">
-            <h1 align="center">Error 401!</h1>
-            <h3 align="center">Accesso non autorizzato!.</h3>
-            <h3 align="center">Siamo spiacenti ma la tua richiesta non può essere processata.</h3>
-        </div>
+  <jsp:body>
+    <div class="grid-x align-center callout">
+      <div class="grid small-12 medium-8 large-8 callout alert">
+        <h1 align="center">Error 401!</h1>
+        <h3 align="center">Accesso non autorizzato!.</h3>
+        <h3 align="center">Siamo spiacenti ma la tua richiesta non può essere processata.</h3>
+      </div>
     </div>
     <div class="grid-x padding-x align-center callout">
-        <a href="index.jsp">
-            <span class="label primary">Back to Home Page</span>
-        </a>
+      <a href="index.jsp">
+        <span class="label primary">Back to Home Page</span>
+      </a>
     </div>
-    </jsp:body>
+  </jsp:body>
 </sy:layout>
 
 

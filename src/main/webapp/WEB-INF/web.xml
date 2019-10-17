@@ -15,11 +15,11 @@
     <res-auth>Container</res-auth>
   </resource-ref>
   <error-page>
-      <error-code>404</error-code>
-      <location>/error404.jsp</location>
+    <error-code>404</error-code>
+    <location>/error404.jsp</location>
   </error-page>
   <error-page>
-      <error-code>401</error-code>
-      <location>/error401.jsp</location>
+    <error-code>401</error-code>
+    <location>/error401.jsp</location>
   </error-page>
 </web-app>

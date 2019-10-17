@@ -9,8 +9,8 @@
 
 <span class="label primary">${tag.name}</span>
 <label>
-    <input type="text" placeholder="New Name Tag" name="tag" pattern="[a-zA-Z]{3,20}" required value="${tag.name}">
-    <span class="form-error">Il Tag deve essere minimo 3 massimmo 20 caratteri</span>
+  <input type="text" placeholder="New Name Tag" name="tag" pattern="[a-zA-Z]{3,20}" required value="${tag.name}">
+  <span class="form-error">Il Tag deve essere minimo 3 massimmo 20 caratteri</span>
 </label>
 <input type="hidden" name="tagId" value="${tag.id}">
 

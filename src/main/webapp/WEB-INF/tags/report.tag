@@ -9,14 +9,14 @@
 <%@attribute name="question" type="it.blackhat.symposium.models.QuestionModel"%>
 
 <div class="columns small-9 medium-6 large-3">
-    <dl>
-        <dt>Domanda:</dt>
-        <dd><a href="admin/QuestionController?action=showQuestion&questionId=${question.id}">${question.title}</a></dd>
-        <dt>Category:</dt>
-        <dd>${report.category}</dd>
-        <dt>Reason:</dt>
-        <dd>${report.reason}</dd>
-        <dt>User</dt>
-        <dd>${report.userFk}</dd>
-    </dl>
+  <dl>
+    <dt>Domanda:</dt>
+    <dd><a href="admin/QuestionController?action=showQuestion&questionId=${question.id}">${question.title}</a></dd>
+    <dt>Category:</dt>
+    <dd>${report.category}</dd>
+    <dt>Reason:</dt>
+    <dd>${report.reason}</dd>
+    <dt>User</dt>
+    <dd>${report.userFk}</dd>
+  </dl>
 </div>

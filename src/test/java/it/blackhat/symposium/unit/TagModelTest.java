@@ -15,70 +15,70 @@ import org.junit.Test;
  * @author SDelPiano
  */
 public class TagModelTest {
-    private Tag tag;
 
-    @Before
-    public void setUp() {
-        tag = new TagModel(21, "esame");
-    }
+  private Tag tag;
 
-    @Test
-    public void constructorTest() {
-        Tag tag1;
-        tag1 = new TagModel();
-        Assert.assertTrue(tag1 instanceof Tag);
-    }
+  @Before
+  public void setUp() {
+    tag = new TagModel(21, "esame");
+  }
 
-    @Test
-    public void fullconstructorTest() {
-        TagModel tag2 = new TagModel(22, "Is");
-        boolean b1 = (22 == tag2.getId());
-        boolean b2 = ("Is".equals(tag2.getName()));
-        boolean bTot = b1 && b2;
-        Assert.assertTrue(bTot);
-    }
+  @Test
+  public void constructorTest() {
+    Tag tag1;
+    tag1 = new TagModel();
+    Assert.assertTrue(tag1 instanceof Tag);
+  }
 
-    /**
-     * Test of getId method, of class TagModel.
-     */
-    @Test
-    public void testGetId() {
-        Assert.assertEquals("It should return 21", 21, tag.getId());
-    }
+  @Test
+  public void fullconstructorTest() {
+    TagModel tag2 = new TagModel(22, "Is");
+    boolean b1 = (22 == tag2.getId());
+    boolean b2 = ("Is".equals(tag2.getName()));
+    boolean bTot = b1 && b2;
+    Assert.assertTrue(bTot);
+  }
 
-    /**
-     * Test of getName method, of class TagModel.
-     */
-    @Test
-    public void testGetName() {
-        Assert.assertEquals("it should return esame", "esame", tag.getName());
-    }
+  /**
+   * Test of getId method, of class TagModel.
+   */
+  @Test
+  public void testGetId() {
+    Assert.assertEquals("It should return 21", 21, tag.getId());
+  }
 
-    /**
-     * Test of setId method, of class TagModel.
-     */
-    @Test
-    public void testSetId() {
-        TagModel tag = new TagModel();
-        tag.setId(21);
-        Assert.assertEquals("It should return 21", 21, tag.getId());
-    }
+  /**
+   * Test of getName method, of class TagModel.
+   */
+  @Test
+  public void testGetName() {
+    Assert.assertEquals("it should return esame", "esame", tag.getName());
+  }
 
-    /**
-     * Test of setName method, of class TagModel.
-     */
-    @Test
-    public void testSetName() {
-        TagModel tag = new TagModel();
-        tag.setName("esame");
-        Assert.assertEquals("It should return esame", "esame", tag.getName());
-    }
+  /**
+   * Test of setId method, of class TagModel.
+   */
+  @Test
+  public void testSetId() {
+    TagModel tag = new TagModel();
+    tag.setId(21);
+    Assert.assertEquals("It should return 21", 21, tag.getId());
+  }
 
-    @Test
-    public void testToString() {
-        TagModel tag = new TagModel(21, "esame");
-        Assert.assertEquals("TagModel{id = 21, name = esame}", tag.toString());
-    }
+  /**
+   * Test of setName method, of class TagModel.
+   */
+  @Test
+  public void testSetName() {
+    TagModel tag = new TagModel();
+    tag.setName("esame");
+    Assert.assertEquals("It should return esame", "esame", tag.getName());
+  }
 
+  @Test
+  public void testToString() {
+    TagModel tag = new TagModel(21, "esame");
+    Assert.assertEquals("TagModel{id = 21, name = esame}", tag.toString());
+  }
 
 }

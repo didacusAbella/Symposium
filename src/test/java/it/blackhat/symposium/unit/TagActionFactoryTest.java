@@ -13,37 +13,34 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 public class TagActionFactoryTest {
-  
+
   private static DataSource ds;
-  
-    @BeforeClass
-    public static final void setUpClass(){
-      ds = Mockito.mock(BasicDataSource.class);
-    }
 
-    @Test
-    public void createActionChangeTagTest() throws InvalidActionException {
+  @BeforeClass
+  public static final void setUpClass() {
+    ds = Mockito.mock(BasicDataSource.class);
+  }
 
+  @Test
+  public void createActionChangeTagTest() throws InvalidActionException {
 
-            Action actionChangeTag;
-            actionChangeTag = new TagActionFactory(ds).createAction("changeTag");
-            Assert.assertTrue(actionChangeTag instanceof ChangeTagAction);
+    Action actionChangeTag;
+    actionChangeTag = new TagActionFactory(ds).createAction("changeTag");
+    Assert.assertTrue(actionChangeTag instanceof ChangeTagAction);
 
-    }
+  }
 
-    @Test
-    public void showEditTagTest() throws InvalidActionException {
+  @Test
+  public void showEditTagTest() throws InvalidActionException {
 
+    Action actionChangeTag;
+    actionChangeTag = new TagActionFactory(ds).createAction("showEditTag");
+    Assert.assertTrue(actionChangeTag instanceof RetrieveQuestionTagsAction);
 
-        Action actionChangeTag;
-        actionChangeTag = new TagActionFactory(ds).createAction("showEditTag");
-        Assert.assertTrue(actionChangeTag instanceof RetrieveQuestionTagsAction);
+  }
 
-    }
-
-
-    @Test(expected = InvalidActionException.class)
-    public void createInvalidActionExceptionTest() throws InvalidActionException {
-        new TagActionFactory(ds).createAction("pollo");
-    }
+  @Test(expected = InvalidActionException.class)
+  public void createInvalidActionExceptionTest() throws InvalidActionException {
+    new TagActionFactory(ds).createAction("pollo");
+  }
 }

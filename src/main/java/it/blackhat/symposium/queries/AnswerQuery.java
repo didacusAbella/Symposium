@@ -5,27 +5,26 @@ package it.blackhat.symposium.queries;
  *
  * @author SDelPiano
  */
-public final class AnswerQuery {
+public enum AnswerQuery {
+  
+  INSERT_ANSWER("INSERT INTO answer (content,userFk,questionFk,creationDate) VALUES (?,?,?,?)"),
+  DELETE_ANSWER("DELETE FROM answer WHERE id=?"),
+  BEST_ANSWER("UPDATE answer SET correct=1 WHERE id=?"),
+  TAKE_ANSWERS("SELECT * FROM answer WHERE questionFk=?"),
+  TAKE_ALL_ANSWERS("SELECT * FROM answer");
+  
+  private final String query;
 
   /**
-   * Create an empty answer query
+   * 
+   * @param query the SQL query
    */
-  private AnswerQuery() {
-    super();
+  private AnswerQuery(String query) {
+    this.query = query;
   }
 
-  public static final String INSERT_ANSWER = "INSERT INTO answer "
-          + "(content, userFk, questionFk,creationDate) VALUES (?, ?, ?, ?)";
-
-  public static final String DELETE_ANSWER = "DELETE FROM answer "
-          + "WHERE id = ?";
-
-  public static final String BEST_ANSWER = "UPDATE answer SET correct=1 "
-          + "WHERE id=?";
-
-  public static final String TAKE_ANSWERS = "SELECT * FROM answer "
-          + "WHERE questionFk = ?";
-
-  public static final String TAKE_ALL_ANSWERS = "SELECT * FROM answer";
-
+  @Override
+  public String toString() {
+    return this.query;
+  }
 }

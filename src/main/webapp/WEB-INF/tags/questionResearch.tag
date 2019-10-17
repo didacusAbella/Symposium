@@ -8,12 +8,12 @@
 <%@attribute name="question" type="it.blackhat.symposium.models.QuestionModel"%>
 
 <tr>
-    <td>${question.id}</td>
-    <td>${question.title}</td>
-    <td>${question.content}</td>
-    <td>
-        <a href="GuestController?action=showQuestion&questionId=${question.id}" class="button">
-            Visualizza
-        </a>
-    </td>
+  <td>${question.id}</td>
+  <td>${question.title}</td>
+  <td>${question.content}</td>
+  <td>
+    <a href="GuestController?action=showQuestion&questionId=${question.id}" class="button">
+      Visualizza
+    </a>
+  </td>
 </tr>

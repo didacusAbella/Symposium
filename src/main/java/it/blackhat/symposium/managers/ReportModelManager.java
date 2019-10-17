@@ -30,9 +30,9 @@ public class ReportModelManager extends ConnectionManager implements ReportManag
   @Override
   public int insertReport(Report report, Question question) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    run.update(INSERT_REPORT, report.getCategory(), report.getReason(),
+    run.update(INSERT_REPORT.toString(), report.getCategory(), report.getReason(),
             report.getYear(), question.getId(), question.getUserFk());
-    int upd = run.update(UPDATE_QUESTION_REPORT, question.getId());
+    int upd = run.update(UPDATE_QUESTION_REPORT.toString(), question.getId());
     return upd;
   }
 
@@ -40,7 +40,7 @@ public class ReportModelManager extends ConnectionManager implements ReportManag
   public List<Report> retrieveReport(int questionFk) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
     ResultSetHandler<List<Report>> j = new BeanListHandler<>(ReportModel.class);
-    List<Report> report = run.query(TAKE_REPORT, j, questionFk);
+    List<Report> report = run.query(TAKE_REPORT.toString(), j, questionFk);
     return report;
   }
 
@@ -48,7 +48,7 @@ public class ReportModelManager extends ConnectionManager implements ReportManag
   public List<Report> retrieveAllReports() throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
     ResultSetHandler<List<Report>> j = new BeanListHandler<>(ReportModel.class);
-    List<Report> report = run.query(GET_ALL_REPORTS, j);
+    List<Report> report = run.query(GET_ALL_REPORTS.toString(), j);
     return report;
   }
 }

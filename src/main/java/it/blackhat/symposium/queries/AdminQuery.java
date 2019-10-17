@@ -1,18 +1,24 @@
 package it.blackhat.symposium.queries;
 
 /**
- * @author SDelPiano
+ * Admin Queries
  */
-public final class AdminQuery {
+public enum AdminQuery {
 
+  SIGN_IN("SELECT * FROM admin WHERE username=? AND password=?");
+  
+  private final String query;
+  
   /**
-   * Create an admin query object. The constructor is private to not allow the
-   * object to be instantiated.
+   * 
+   * @param query thhe SQL query 
    */
-  private AdminQuery() {
-    super();
+  private AdminQuery(String query) {
+    this.query = query;
   }
 
-  public static final String SIGN_IN = "SELECT * FROM admin "
-          + "WHERE username=? AND password=?";
+  @Override
+  public String toString() {
+    return this.query;
+  }
 }

@@ -21,22 +21,19 @@
     <link rel="shortcut icon" type="image/png" href="./assets/images/LogoSymposium.png"/>
     <script type="text/javascript" defer="true" src="./webjars/jquery/3.3.1/dist/jquery.min.js"></script>
     <script type="text/javascript" defer="true" src="http://frontalcreative.com/cdn/js/jquery.easyPaginate.js"></script>
-    <script type="text/javascript" defer="true"
-            src="./webjars/what-input/5.1.1/dist/what-input.min.js"></script>
-    <script type="text/javascript" defer="true"
-            src="./webjars/foundation-sites/6.5.1/dist/js/foundation.min.js"></script>
-    <script type="text/javascript" defer="true"
-            src="./webjars/jquery-tagsinput/1.3.2/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" defer="true" src="./webjars/what-input/5.1.1/dist/what-input.min.js"></script>
+    <script type="text/javascript" defer="true" src="./webjars/foundation-sites/6.5.1/dist/js/foundation.min.js"></script>
+    <script type="text/javascript" defer="true" src="./webjars/jquery-tagsinput/1.3.2/jquery.tagsinput.min.js"></script>
     <script type="text/javascript" defer="true" src="./assets/index.js"></script>
     <noscript>
-      <h1>Bisogna Abilitare Javascript per il corretto funzionamento del sito.</h1>
-    </noscript>
-  </head>
-  <body>
-    <%@include file="../../partials/header.jsp" %>
-    <main>
-      <jsp:doBody/>
-    </main>
-    <%@include file="../../partials/footer.jsp" %>
-  </body>
+  <h1>Bisogna Abilitare Javascript per il corretto funzionamento del sito.</h1>
+  </noscript>
+</head>
+<body>
+  <%@include file="../../partials/header.jsp" %>
+  <main>
+    <jsp:doBody/>
+  </main>
+  <%@include file="../../partials/footer.jsp" %>
+</body>
 </html>

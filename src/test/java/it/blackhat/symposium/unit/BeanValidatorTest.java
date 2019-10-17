@@ -12,19 +12,19 @@ import static org.junit.Assert.assertEquals;
 
 public class BeanValidatorTest {
 
-    @Test
-    public void testValidateBeanValid() {
-        Question question = new QuestionModel("Test bellissimo", "test della validazione in corso",
-                "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
-                new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
-        assertEquals(true, BeanValidator.validateBean(question));
-    }
+  @Test
+  public void testValidateBeanValid() {
+    Question question = new QuestionModel("Test bellissimo", "test della validazione in corso",
+            "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
+            new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
+    assertEquals(true, BeanValidator.validateBean(question));
+  }
 
-    @Test
-    public void testValidateBeanInvalid() {
-        Question question = new QuestionModel("a", "test della validazione in corso",
-                "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
-                new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
-        assertEquals(false, BeanValidator.validateBean(question));
-    }
+  @Test
+  public void testValidateBeanInvalid() {
+    Question question = new QuestionModel("a", "test della validazione in corso",
+            "a.raiola14@studenti.unisa.it", new Date(Calendar.getInstance().getTime().getTime()),
+            new Date(Calendar.getInstance().getTime().getTime()), 10, 1);
+    assertEquals(false, BeanValidator.validateBean(question));
+  }
 }

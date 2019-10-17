@@ -13,15 +13,15 @@ import org.mockito.Mockito;
  * @author Przemyslaw Szopian
  */
 public class AdminModelManagerTest {
-   
-    /**
-     * Test of findAdmin method, of class AdminModelManager.
-     */
-    @Test
-    public void constractorEmpty(){
-        DataSource ds = Mockito.mock(BasicDataSource.class);
-        AdminModelManager admin = new AdminModelManager(ds);
-        assertTrue(admin instanceof AdminModelManager);
-    }
-    
+
+  /**
+   * Test of findAdmin method, of class AdminModelManager.
+   */
+  @Test
+  public void constractorEmpty() {
+    DataSource ds = Mockito.mock(BasicDataSource.class);
+    AdminModelManager admin = new AdminModelManager(ds);
+    assertTrue(admin instanceof AdminModelManager);
+  }
+
 }

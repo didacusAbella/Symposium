@@ -25,52 +25,52 @@ import org.mockito.Mockito;
  * @author Giuseppe Madonna
  */
 public class UserActionFactoryTest {
-  
+
   private static DataSource ds;
-  
-    @BeforeClass
-    public static final void setUpClass(){
-      ds = Mockito.mock(BasicDataSource.class);
-    }
 
-    @Test
-    public void createActionSignOutTest() throws InvalidActionException {
-        Action actionSignOut;
-        actionSignOut = (Action) new UserActionFactory(ds).createAction("signOut");
-        Assert.assertTrue(actionSignOut instanceof SignoutAction);
-    }
+  @BeforeClass
+  public static final void setUpClass() {
+    ds = Mockito.mock(BasicDataSource.class);
+  }
 
-    @Test
-    public void createActionShowProfileTest() throws InvalidActionException {
-        Action actionShowProfile;
-        actionShowProfile = (Action) new UserActionFactory(ds).createAction("showProfile");
-        Assert.assertTrue(actionShowProfile instanceof ShowProfileAction);
-    }
+  @Test
+  public void createActionSignOutTest() throws InvalidActionException {
+    Action actionSignOut;
+    actionSignOut = (Action) new UserActionFactory(ds).createAction("signOut");
+    Assert.assertTrue(actionSignOut instanceof SignoutAction);
+  }
 
-    @Test
-    public void createActionEditProfileTest() throws InvalidActionException {
-        Action actionEditProfile;
-        actionEditProfile = (Action) new UserActionFactory(ds).createAction("editProfile");
-        Assert.assertTrue(actionEditProfile instanceof EditProfileAction);
-    }
+  @Test
+  public void createActionShowProfileTest() throws InvalidActionException {
+    Action actionShowProfile;
+    actionShowProfile = (Action) new UserActionFactory(ds).createAction("showProfile");
+    Assert.assertTrue(actionShowProfile instanceof ShowProfileAction);
+  }
 
-    @Test
-    public void createActionShowEditProfileTest() throws InvalidActionException {
+  @Test
+  public void createActionEditProfileTest() throws InvalidActionException {
+    Action actionEditProfile;
+    actionEditProfile = (Action) new UserActionFactory(ds).createAction("editProfile");
+    Assert.assertTrue(actionEditProfile instanceof EditProfileAction);
+  }
 
-        Action actionShowEditProfile;
-        actionShowEditProfile = (Action) new UserActionFactory(ds).createAction("showEditProfile");
-        Assert.assertTrue(actionShowEditProfile instanceof ShowEditProfileAction);
-    }
+  @Test
+  public void createActionShowEditProfileTest() throws InvalidActionException {
 
-    @Test
-    public void createActionBanTest() throws InvalidActionException {
-        Action actionBan;
-        actionBan = (Action) new UserActionFactory(ds).createAction("banUser");
-        Assert.assertTrue(actionBan instanceof BanAction);
-    }
+    Action actionShowEditProfile;
+    actionShowEditProfile = (Action) new UserActionFactory(ds).createAction("showEditProfile");
+    Assert.assertTrue(actionShowEditProfile instanceof ShowEditProfileAction);
+  }
 
-    @Test(expected = InvalidActionException.class)
-    public void createInvalidActionException() throws InvalidActionException {
-        new UserActionFactory(ds).createAction("Gianni");
-    }
+  @Test
+  public void createActionBanTest() throws InvalidActionException {
+    Action actionBan;
+    actionBan = (Action) new UserActionFactory(ds).createAction("banUser");
+    Assert.assertTrue(actionBan instanceof BanAction);
+  }
+
+  @Test(expected = InvalidActionException.class)
+  public void createInvalidActionException() throws InvalidActionException {
+    new UserActionFactory(ds).createAction("Gianni");
+  }
 }

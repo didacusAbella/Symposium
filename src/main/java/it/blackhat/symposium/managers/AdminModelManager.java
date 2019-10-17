@@ -8,7 +8,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import static it.blackhat.symposium.queries.AdminQuery.SIGN_IN;
+import static it.blackhat.symposium.queries.AdminQuery.*;
 import javax.sql.DataSource;
 
 /**
@@ -30,7 +30,7 @@ public class AdminModelManager extends ConnectionManager implements AdminManager
           throws SQLException {
     QueryRunner findQuery = new QueryRunner(this.dataSource);
     System.out.println("Username " + username + " Password " + password);
-    Admin foundAdmin = findQuery.query(SIGN_IN,
+    Admin foundAdmin = findQuery.query(SIGN_IN.toString(),
             new BeanHandler<>(AdminModel.class), username, password);
     return Optional.ofNullable(foundAdmin);
   }

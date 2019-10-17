@@ -9,20 +9,20 @@
 
 
 <sy:layout title="Symposium-Error404">
-    <jsp:body>
-        <div class="grid-x align-center callout">
-        <div class="grid small-12 medium-8 large-8 callout alert">
-            <h1 align="center">Ooops! Error 404!</h1>
-            <h3 align="center">Sembra che hai qualche problema.</h3>
-            <h3 align="center">La pagina web che cerchi non esiste.</h3>
-        </div>
+  <jsp:body>
+    <div class="grid-x align-center callout">
+      <div class="grid small-12 medium-8 large-8 callout alert">
+        <h1 align="center">Ooops! Error 404!</h1>
+        <h3 align="center">Sembra che hai qualche problema.</h3>
+        <h3 align="center">La pagina web che cerchi non esiste.</h3>
+      </div>
     </div>
     <div class="grid-x padding-x align-center callout">
-        <a href="index.jsp">
-            <span class="label primary">Home Page</span>
-        </a>
+      <a href="index.jsp">
+        <span class="label primary">Home Page</span>
+      </a>
     </div>
-    </jsp:body>
+  </jsp:body>
 </sy:layout>
 
 

@@ -3,5 +3,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <sy:layout title="Lista Risposte">
-    <jsp:body></jsp:body>
+  <jsp:body></jsp:body>
 </sy:layout>

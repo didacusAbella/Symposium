@@ -9,19 +9,19 @@
 
 
 <sy:layout title="Symposium-Error400">
-    <jsp:body>
-        <div class="grid-x align-center callout">
-        <div class="grid small-12 medium-8 large-8 callout alert">
-            <h1 align="center">Error 400!</h1>
-            <h3 align="center">BAD REQUEST!.</h3>
-            <h3 align="center">Your request resulted in an error.</h3>
-        </div>
+  <jsp:body>
+    <div class="grid-x align-center callout">
+      <div class="grid small-12 medium-8 large-8 callout alert">
+        <h1 align="center">Error 400!</h1>
+        <h3 align="center">BAD REQUEST!.</h3>
+        <h3 align="center">Your request resulted in an error.</h3>
+      </div>
     </div>
     <div class="grid-x padding-x align-center callout">
-        <a href="index.jsp">
-            <span class="label primary">Back to Home Page</span>
-        </a>
+      <a href="index.jsp">
+        <span class="label primary">Back to Home Page</span>
+      </a>
     </div>
-    </jsp:body>
+  </jsp:body>
 </sy:layout>
 

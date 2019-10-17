@@ -14,10 +14,10 @@ import java.sql.SQLException;
  */
 public class TagModelManagerTest {
 
-    @Test
-    public void testTagModelManager() throws SQLException {
-        DataSource ds = Mockito.mock(BasicDataSource.class);
-        TagModelManager testCostructor = new TagModelManager(ds);
-        Assert.assertTrue(testCostructor instanceof TagModelManager);
-    }
+  @Test
+  public void testTagModelManager() throws SQLException {
+    DataSource ds = Mockito.mock(BasicDataSource.class);
+    TagModelManager testCostructor = new TagModelManager(ds);
+    Assert.assertTrue(testCostructor instanceof TagModelManager);
+  }
 }

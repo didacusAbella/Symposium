@@ -28,7 +28,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
   @Override
   public int editProfile(User user) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int update = run.update(EDIT_PROFILE, user.getUsername(), user.getFirstName(),
+    int update = run.update(EDIT_PROFILE.toString(), user.getUsername(), user.getFirstName(),
             user.getLastName(), user.getPassword(), user.getTypeGrad(), user.getEmail());
     return update;
   }
@@ -36,28 +36,28 @@ public class UserModelManager extends ConnectionManager implements UserManager {
   @Override
   public int deleteAccount(User user) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int update = run.update(DELETE_ACCOUNT, user.getEmail());
+    int update = run.update(DELETE_ACCOUNT.toString(), user.getEmail());
     return update;
   }
 
   @Override
   public Optional<User> findUser(String username, String pass) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    User found = run.query(SIGN_IN, new BeanHandler<>(UserModel.class), username, pass);
+    User found = run.query(SIGN_IN.toString(), new BeanHandler<>(UserModel.class), username, pass);
     return Optional.ofNullable(found);
   }
 
   @Override
   public Optional<User> findEmail(String email) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    User resp = run.query(FIND_EMAIL, new BeanHandler<>(UserModel.class), email);
+    User resp = run.query(FIND_EMAIL.toString(), new BeanHandler<>(UserModel.class), email);
     return Optional.ofNullable(resp);
   }
 
   @Override
   public int createUser(User user) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int create = run.update(SIGN_UP, user.getUsername(), user.getFirstName(),
+    int create = run.update(SIGN_UP.toString(), user.getUsername(), user.getFirstName(),
             user.getLastName(), user.getEmail(), user.getPassword(),
             user.getTypeGrad(), user.getYear());
     return create;
@@ -66,7 +66,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
   @Override
   public int banUser(Date time, String email) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    int rowMod = run.update(BAN, time, email);
+    int rowMod = run.update(BAN.toString(), time, email);
     return rowMod;
 
   }
@@ -75,7 +75,7 @@ public class UserModelManager extends ConnectionManager implements UserManager {
   public List<User> retrieveUsers() throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
     ResultSetHandler<List<User>> j = new BeanListHandler<>(UserModel.class);
-    List<User> users = run.query(TAKE_ALL_USERS, j);
+    List<User> users = run.query(TAKE_ALL_USERS.toString(), j);
     return users;
   }
 }

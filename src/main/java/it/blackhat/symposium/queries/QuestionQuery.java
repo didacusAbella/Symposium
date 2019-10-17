@@ -7,56 +7,55 @@ package it.blackhat.symposium.queries;
  * @author: GMadness97
  *
  */
-public final class QuestionQuery {
+public enum QuestionQuery {
 
+  INSERT_QUESTION("INSERT INTO question(content,lastUpdate,creationDate,numReports,userFk,title) "
+          + "VALUES(?,?,?,?,?,?)"),
+  
+  DELETE_QUESTION("DELETE FROM question WHERE id=?"),
+  
+  DELETE_QUESTION_TAG("DELETE FROM questiontag WHERE questionId=?"),
+  
+  RESEARCH_BY_WORDS("SELECT * FROM question WHERE content LIKE ?"),
+  
+  RESEARCH_BY_USER("SELECT * FROM question WHERE userFk=?"),
+  
+  RESEARCH_BY_TAG("SELECT question.id,content,lastUpdate,creationDate,numReports,userFk,title FROM "
+          + "question,tag, questiontag WHERE question.id=questiontag.questionId AND tag.id="
+          + "questiontag.tagId AND ? = tag.name"),
+  
+  LASTEDIT("SELECT * FROM question ORDER BY question.lastUpdate DESC"),
+  
+  FAVORITES("INSERT INTO favorites VALUES (?,?)"),
+  
+  SELECT_FAVORITE("SELECT question.id,content,lastUpdate,creationDate,numReports,userFk,title "
+          + "FROM favorites, question  WHERE question.id=favorites.questionId "
+          + "AND favorites.userId=?"),
+  
+  CHANGE_QUESTION_TAG("UPDATE questiontag SET tagId=? where tagid=? AND questionid=?"),
+  
+  TAKE_QUESTION("SELECT * FROM question WHERE id=?"),
+  
+  TAKE_ALL_QUESTIONS("SELECT * FROM question"),
+  
+  INSERT_QUESTION_TAG("INSERT INTO questiontag(questionId, tagId) VALUES(?, "
+          + "(SELECT id FROM tag WHERE name=?))"),
+  
+  CONTROL_FAVORITES("SELECT f.userId FROM favorites AS f WHERE f.`userId`=? AND f.`questionId`=?");
+  
+  
+  private final String query;
+  
   /**
-   * create an empty question query
+   * 
+   * @param query The SQL query 
    */
-  private QuestionQuery() {
-    super();
+  private QuestionQuery(String query) {
+    this.query = query;
   }
 
-  public static final String INSERT_QUESTION = "INSERT INTO"
-          + " question(content,lastUpdate,creationDate,numReports,"
-          + "userFk,title) VALUES(?,?,?,?,?,?)";
-
-  public static final String DELETE_QUESTION = "DELETE FROM question WHERE id = ?";
-
-  public static final String DELETE_QUESTION_TAG = "DELETE FROM questiontag WHERE questionId = ?";
-
-  public static final String RESEARCH_BY_WORDS = "SELECT * FROM question"
-          + " WHERE content LIKE ?";
-  public static final String RESEARCH_BY_USER = "SELECT * FROM question"
-          + " WHERE userFk=?";
-
-  public static final String RESEARCH_BY_TAG = "SELECT question.id ,content,"
-          + "lastUpdate,creationDate,numReports,userFk,title"
-          + " FROM question,tag, questiontag "
-          + " WHERE question.id = questiontag.questionId "
-          + "AND tag.id = questiontag.tagId AND ? = tag.name";
-
-  public static final String LASTEDIT = "SELECT * FROM question"
-          + " ORDER BY question.lastUpdate DESC";
-
-  public static final String FAVORITES = "INSERT INTO favorites "
-          + "VALUES (?, ?)";
-
-  public static final String SELECT_FAVORITE = "SELECT question.id,content, "
-          + "lastUpdate,creationDate,numReports,userFk,title  FROM favorites"
-          + ", question  WHERE question.id= favorites.questionId AND "
-          + "favorites.userId=?";
-
-  public static final String CHANGE_QUESTION_TAG = "UPDATE questiontag SET tagId = ? "
-          + "where tagid= ? AND questionid=?";
-
-  public static final String TAKE_QUESTION = "SELECT * FROM question "
-          + "WHERE id=?";
-
-  public static final String TAKE_ALL_QUESTIONS = "SELECT * FROM question ";
-
-  public static final String INSERT_QUESTION_TAG = "INSERT INTO questiontag(questionId,tagId) "
-          + "VALUES(?,(SELECT id FROM tag WHERE name = ?))";
-
-  public static final String CONTROL_FAVORITES = "SELECT f.userId FROM favorites AS f"
-          + " WHERE f.`userId`= ? AND f.`questionId`=?";
+  @Override
+  public String toString() {
+    return this.query;
+  }
 }

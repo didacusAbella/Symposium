@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.blackhat.symposium.unit;
 
 import it.blackhat.symposium.actions.Action;
@@ -23,40 +18,40 @@ import org.mockito.Mockito;
  * @author Przemyslaw Szopian
  */
 public class AdminActionFactoryTest {
-  
-    private static DataSource ds;
-  
-    @BeforeClass
-    public static final void setUpClass(){
-      ds = Mockito.mock(BasicDataSource.class);
-    }
 
-    @Test
-    public void testAdminSignout() throws InvalidActionException {
-        Action actionAdminSignout;
-        actionAdminSignout = (Action) new AdminActionFactory(ds).createAction("adminSignout");
-        Assert.assertTrue(actionAdminSignout instanceof SignoutAdmin);
+  private static DataSource ds;
 
-    }
+  @BeforeClass
+  public static final void setUpClass() {
+    ds = Mockito.mock(BasicDataSource.class);
+  }
 
-    @Test
-    public void testShowUsersAction() throws InvalidActionException {
-        Action actionShowUsers;
-        actionShowUsers = (Action) new AdminActionFactory(ds).createAction("showUsersAction");
-        Assert.assertTrue(actionShowUsers instanceof ShowUsersAction);
+  @Test
+  public void testAdminSignout() throws InvalidActionException {
+    Action actionAdminSignout;
+    actionAdminSignout = (Action) new AdminActionFactory(ds).createAction("adminSignout");
+    Assert.assertTrue(actionAdminSignout instanceof SignoutAdmin);
 
-    }
+  }
 
-    @Test
-    public void testGenereteList() throws InvalidActionException {
-        Action actionGenerateReportList;
-        actionGenerateReportList = (Action) new AdminActionFactory(ds).createAction("generateReportListAction");
-        Assert.assertTrue(actionGenerateReportList instanceof GenerateReportListAction);
+  @Test
+  public void testShowUsersAction() throws InvalidActionException {
+    Action actionShowUsers;
+    actionShowUsers = (Action) new AdminActionFactory(ds).createAction("showUsersAction");
+    Assert.assertTrue(actionShowUsers instanceof ShowUsersAction);
 
-    }
+  }
 
-    @Test(expected = InvalidActionException.class)
-    public void testInvalidAction() throws InvalidActionException {
-        new AdminActionFactory(ds).createAction("test");
-    }
+  @Test
+  public void testGenereteList() throws InvalidActionException {
+    Action actionGenerateReportList;
+    actionGenerateReportList = (Action) new AdminActionFactory(ds).createAction("generateReportListAction");
+    Assert.assertTrue(actionGenerateReportList instanceof GenerateReportListAction);
+
+  }
+
+  @Test(expected = InvalidActionException.class)
+  public void testInvalidAction() throws InvalidActionException {
+    new AdminActionFactory(ds).createAction("test");
+  }
 }

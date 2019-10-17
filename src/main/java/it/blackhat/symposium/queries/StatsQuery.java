@@ -1,34 +1,35 @@
 package it.blackhat.symposium.queries;
 
-/**
- * List of queries for Stats table
- *
- * @author Carminantonio Parrilli
- */
-public final class StatsQuery {
+
+public enum StatsQuery {
+  
+  GET_STATS("SELECT * FROM stats WHERE year=?"),
+  
+  GET_NUM_USERS("SELECT COUNT(*) AS total FROM user WHERE year=?"),
+  
+  GET_NUM_REPORTS("SELECT COUNT(*) AS total FROM report WHERE year=?"),
+  
+  CREATE_STATS("INSERT INTO stats (numSigned,totalReports,year) VALUES(?,?,?)"),
+  
+  GET_BANNED_USERS("SELECT COUNT(*) FROM user WHERE YEAR(banLastDate) >= ?"),
+  
+  UPDATE_STATSTAG("INSERT INTO statstag(uses,statsId,tagId) VALUES((uses+1), (SELECT id FROM stats "
+          + "WHERE year = ?), (SELECT id FROM tag WHERE name = ? LIMIT 1)) ON DUPLICATE KEY "
+          + "UPDATE uses = uses+1");
+  
+  private final String query;
 
   /**
-   * Create an stats query object. The constructor is private to not allow the
-   * object to be instantiated.
+   * 
+   * @param query the SQL query 
    */
-  private StatsQuery() {
-    super();
+  private StatsQuery(String query) {
+    this.query = query;
   }
 
-  public static final String GET_STATS = "SELECT * FROM stats WHERE year = ?";
+  @Override
+  public String toString() {
+    return this.query;
+  }
 
-  public static final String GET_NUM_USERS = "SELECT COUNT(*) AS total FROM user WHERE year = ?";
-
-  public static final String GET_NUM_REPORTS = "SELECT COUNT(*) AS total "
-          + "FROM report WHERE year = ?";
-
-  public static final String CREATE_STATS = "INSERT INTO stats(numSigned, totalReports, year) "
-          + "VALUES(?, ?, ?) ";
-
-  public static final String GET_BANNED_USERS = "SELECT COUNT(*) FROM user "
-          + "WHERE YEAR(banLastDate) >= ?;";
-
-  public static final String UPDATE_STATSTAG = "INSERT INTO statstag(uses,statsId,tagId) "
-          + "VALUES((uses+1),(SELECT id FROM stats WHERE year = ?),"
-          + "(SELECT id FROM tag WHERE name = ? LIMIT 1)) ON DUPLICATE KEY UPDATE uses = uses+1";
 }
