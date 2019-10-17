@@ -106,7 +106,8 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
   @Override
   public List<Question> showLastEdit() throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    List<Question> questions = run.query(LASTEDIT.toString(), new BeanListHandler<>(QuestionModel.class));
+    List<Question> questions = run.query(LASTEDIT.toString(), 
+            new BeanListHandler<>(QuestionModel.class));
     return questions;
   }
 

@@ -22,7 +22,7 @@ public class ShowUsersActionTest extends IntegrationTestCase {
   }
   
   @Test
-  public void testExec(){
+  public void testExecute(){
     HttpServletRequest req = Mockito.mock(HttpServletRequest.class);
     HttpServletResponse res = Mockito.mock(HttpServletResponse.class);
     String page = this.showUsersAction.execute(req, res);
