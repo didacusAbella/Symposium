@@ -241,6 +241,10 @@
                     <failIfNoTests>false</failIfNoTests>
                     <printSummary>true</printSummary>
                     <useSystemClassLoader>false</useSystemClassLoader>
+                    <includes>
+                      <include>it.blackhat.symposium.unit.UnitTestSuite.java</include>
+                      <include>it.blackhat.symposium.integration.IntegrationTestSuite.java</include>
+                    </includes>
                     <excludes>
                         <exclude>it.blackhat.symposium.system.**</exclude>
                     </excludes>
