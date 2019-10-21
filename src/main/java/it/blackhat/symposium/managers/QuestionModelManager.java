@@ -11,7 +11,6 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import javax.sql.DataSource;
-import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -51,11 +50,11 @@ public class QuestionModelManager extends ConnectionManager implements QuestionM
   @Override
   public int insertQuestion(Question question) throws SQLException {
     QueryRunner run = new QueryRunner(this.dataSource);
-    BigInteger update = run.insert(INSERT_QUESTION.toString(), new ScalarHandler<>(),
+    int update = run.insert(INSERT_QUESTION.toString(), new ScalarHandler<>(),
             question.getContent(), question.getLastUpdate(),
             question.getCreationDate(), question.getNumReports(),
             question.getUserFk(), question.getTitle());
-    return update.intValue();
+    return update;
   }
 
   @Override

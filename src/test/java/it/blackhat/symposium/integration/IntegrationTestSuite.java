@@ -29,7 +29,16 @@ import it.blackhat.symposium.integration.managers.*;
   SigninActionTest.class, 
   SigninAdminActionTest.class, 
   SignupActionTest.class, 
-  ShowAnswerPageTest.class
+  ShowAnswerPageTest.class,
+  AddFavouriteActionTest.class,
+  DeleteQuestionActionTest.class,
+  DeleteQuestionTagActionTest.class,
+  InsertQuestionActionTest.class,
+  ShowFavouriteActionTest.class,
+  ShowMyQuestionTest.class,
+  ShowNewQuestionActionTest.class,
+  ShowQuestionActionTest.class,
+  ShowQuestionsActionTest.class
 })
 public class IntegrationTestSuite {
   
