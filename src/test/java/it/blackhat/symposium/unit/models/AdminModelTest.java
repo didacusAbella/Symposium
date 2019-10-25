@@ -90,15 +90,6 @@ public class AdminModelTest {
   }
 
   /**
-   * Test of equals method, of class AdminModel.
-   */
-  @Test
-  public void testEquals() {
-    Object obj = null;
-    assertEquals(false, admin.equals(obj));
-  }
-
-  /**
    * Test of toString method, of class AdminModel.
    */
   @Test

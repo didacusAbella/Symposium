@@ -73,21 +73,6 @@ public class AdminModel implements Admin {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    } else if (obj == null) {
-      return false;
-    } else if (getClass() != obj.getClass()) {
-      return false;
-    } else {
-      final AdminModel other = (AdminModel) obj;
-      return Objects.equals(this.getUsername(), other.getUsername())
-              && Objects.equals(this.getPassword(), other.getPassword());
-    }
-  }
-
-  @Override
   public String toString() {
     return "AdminModel{" + "username=" + username + ", password=" + password + '}';
   }

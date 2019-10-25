@@ -7,7 +7,6 @@ import it.blackhat.symposium.models.Question;
 import it.blackhat.symposium.models.QuestionModel;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -54,22 +53,13 @@ public class QuestionManagerTest extends IntegrationTestCase {
     assertEquals(true, test.isEmpty());
   }
 
-  @Ignore
+  @Test
   public void testInsertQuestionValid() throws SQLException {
     Question question = new QuestionModel("Posso superare IS",
             "Posso superare IS io ci credo", "d.tropeano@studenti.unisa.it",
             testDate, testDate, 302, 0);
     int test = questionManager.insertQuestion(question);
     assertTrue(test > 0);
-  }
-
-  @Ignore
-  public void testInsertQuestionInvalid() throws SQLException {
-    Question question = new QuestionModel("Posso superare IS",
-            "Posso superare IS io ci credo", "d.tropeano@studenti.unisa.it",
-            testDate, testDate, 302, 0);
-    int test = questionManager.insertQuestion(question);
-    assertEquals("1", test); //TEST NON FUNGE
   }
 
   @Test

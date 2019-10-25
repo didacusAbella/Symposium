@@ -143,33 +143,4 @@ public class QuestionModel implements Question {
             + lastUpdate + ", id=" + id
             + ", numReports=" + numReports + '}';
   }
-
-  @Override
-  public boolean equals(Object o) {
-    if (o == this) {
-      return true;
-    }
-    if (!(o instanceof QuestionModel)) {
-      return false;
-    }
-    QuestionModel c = (QuestionModel) o;
-
-    return title.equals(c.title) && content.equals(c.content) && userFk.equals(c.userFk)
-            && creationDate.equals(c.creationDate)
-            && lastUpdate.equals(c.lastUpdate) && id == c.id
-            && numReports == c.numReports;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = 17;
-    result = 31 * result + title.hashCode();
-    result = 31 * result + content.hashCode();
-    result = 31 * result + userFk.hashCode();
-    result = 31 * result + creationDate.hashCode();
-    result = 31 * result + lastUpdate.hashCode();
-    result = 31 * result + id;
-    result = 31 * result + numReports;
-    return result;
-  }
 }

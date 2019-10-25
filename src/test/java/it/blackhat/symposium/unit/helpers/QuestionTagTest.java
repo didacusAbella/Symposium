@@ -25,7 +25,7 @@ public class QuestionTagTest {
 
   @Test
   public void testGetQuestion() {
-    Assert.assertEquals(question, question);
+    Assert.assertEquals(question, questionTag.getQuestion());
   }
 
   @Test
@@ -36,12 +36,12 @@ public class QuestionTagTest {
 
   @Test
   public void testGetTags() {
-    Assert.assertEquals(tags, tags);
+    Assert.assertEquals(tags, questionTag.getTags());
   }
 
   @Test
   public void testSetTags() {
     questionTag.setTags(tags);
-    Assert.assertEquals(tags, tags);
+    Assert.assertEquals(tags, questionTag.getTags());
   }
 }
