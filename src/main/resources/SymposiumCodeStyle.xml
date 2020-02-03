@@ -17,8 +17,8 @@ Checkstyle configuration that checks the sun coding conventions.
     </module>
   <module name="TreeWalker">
     <module name="JavadocMethod">
-      <property name="allowUndeclaredRTE" value="true"/>
-      <property name="allowThrowsTagsForSubclasses" value="true"/>
+      <!--<property name="allowUndeclaredRTE" value="true"/>-->
+      <!-- <property name="allowThrowsTagsForSubclasses" value="true"/>-->
       <property name="tokens" value="METHOD_DEF,CTOR_DEF"/>
     </module>
     <module name="JavadocType">
